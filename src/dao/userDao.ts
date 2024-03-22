@@ -77,12 +77,31 @@ const postCreateListDisability = async (userId: number, disabilityIds : number[]
     }
 }
 
-const getUserProfile = async (userId: number) => {
+const getOneUser = async (userId: number) => {
     try {
         const user = await prisma.user.findUnique({
             where: {id: userId}
         })
         return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const updateUserProfile = async (userId: number, data: any) => {
+    try {
+        const updateProfile = await prisma.user.update({
+            where: {id: userId},
+            data
+        });
+        return updateProfile;
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -120,4 +139,4 @@ const getUserProfile = async (userId: number) => {
 // }
 
 
-export { getEmail, postCreateUser, postCreateListDisability, getUserProfile }
+export { getEmail, postCreateUser, postCreateListDisability, getOneUser, updateUserProfile }
