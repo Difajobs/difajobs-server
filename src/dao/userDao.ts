@@ -77,6 +77,23 @@ const postCreateListDisability = async (userId: number, disabilityIds : number[]
     }
 }
 
+const getUserProfile = async (userId: number) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {id: userId}
+        })
+        return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
 
 // const postCreateUserGoogle = async (fullname: string, email : string)=> {
 //     try {
@@ -103,4 +120,4 @@ const postCreateListDisability = async (userId: number, disabilityIds : number[]
 // }
 
 
-export { getEmail, postCreateUser, postCreateListDisability }
+export { getEmail, postCreateUser, postCreateListDisability, getUserProfile }
