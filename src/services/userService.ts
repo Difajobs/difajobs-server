@@ -1,5 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, postCreateListDisability, postCreateUser } from '../dao/userDao';
+import { getEmail, getUserProfile, postCreateListDisability, postCreateUser } from '../dao/userDao';
 import bcryptjs from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { add } from "date-fns";
@@ -75,5 +75,26 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
 //     }
 // }
 
+const getUserProfileService = async (userId: number) => {
+    try {
+        const userProfile = await getUserProfile(userId)
 
-export { userRegistrationService }
+        if (!userProfile) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User not found',
+                status: 404
+            });
+        }
+        return userProfile;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { userRegistrationService, getUserProfileService }
