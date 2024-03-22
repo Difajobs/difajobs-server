@@ -1,5 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getOneUser, postCreateListDisability, postCreateUser, updateUserProfile } from '../dao/userDao';
+import { getEmail, getOneUser, getUserCertificateList, getUserDisabilityList, getUserSkillList, postCreateListDisability, postCreateUser, updateUser } from '../dao/userDao';
 import bcryptjs from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { add } from "date-fns";
@@ -77,19 +77,29 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
 
 const getUserProfileService = async (userId: number) => {
     try {
-        const userProfile = await getOneUser(userId)
+        const userData = await getOneUser(userId)
 
-        if (!userProfile) {
+        if (!userData) {
             throw new ErrorHandler({
                 success: false,
                 message: 'User not found',
                 status: 404
             });
         }
+        const userDisabilityList = await getUserDisabilityList(userId)
+        if (!userDisabilityList) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User disability list not found',
+                status: 404
+            });
+        }
+        const userSkillList = await getUserSkillList(userId)
+        const userCertificateList = await getUserCertificateList(userId)
         return {
             success: true,
             message: "Successfully fetch User Profile.",
-                data: {userProfile}
+                data: {userData, userDisabilityList, userSkillList, userCertificateList}
         }
     } catch (error: any) {
         console.error(error);
@@ -119,7 +129,7 @@ const updateUserProfileService = async (userId: number, updateData: any) => {
             }
         }
 
-        const updatedUserProfile = await updateUserProfile(userId, filteredUpdateData);
+        const updatedUserProfile = await updateUser(userId, filteredUpdateData);
         
         return {
             success: true,
