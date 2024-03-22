@@ -19,25 +19,30 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model ListCertificate
+ * Model Company
  * 
  */
-export type ListCertificate = $Result.DefaultSelection<Prisma.$ListCertificatePayload>
+export type Company = $Result.DefaultSelection<Prisma.$CompanyPayload>
+/**
+ * Model List_certificate
+ * 
+ */
+export type List_certificate = $Result.DefaultSelection<Prisma.$List_certificatePayload>
 /**
  * Model Skill
  * 
  */
 export type Skill = $Result.DefaultSelection<Prisma.$SkillPayload>
 /**
- * Model ListDisability
+ * Model List_disability
  * 
  */
-export type ListDisability = $Result.DefaultSelection<Prisma.$ListDisabilityPayload>
+export type List_disability = $Result.DefaultSelection<Prisma.$List_disabilityPayload>
 /**
- * Model JobApplication
+ * Model Job_application
  * 
  */
-export type JobApplication = $Result.DefaultSelection<Prisma.$JobApplicationPayload>
+export type Job_application = $Result.DefaultSelection<Prisma.$Job_applicationPayload>
 /**
  * Model Disability
  * 
@@ -49,25 +54,20 @@ export type Disability = $Result.DefaultSelection<Prisma.$DisabilityPayload>
  */
 export type Ability = $Result.DefaultSelection<Prisma.$AbilityPayload>
 /**
- * Model ListSkill
+ * Model List_skill
  * 
  */
-export type ListSkill = $Result.DefaultSelection<Prisma.$ListSkillPayload>
-/**
- * Model Company
- * 
- */
-export type Company = $Result.DefaultSelection<Prisma.$CompanyPayload>
+export type List_skill = $Result.DefaultSelection<Prisma.$List_skillPayload>
 /**
  * Model Category
  * 
  */
 export type Category = $Result.DefaultSelection<Prisma.$CategoryPayload>
 /**
- * Model ListJobSkill
+ * Model List_job_skill
  * 
  */
-export type ListJobSkill = $Result.DefaultSelection<Prisma.$ListJobSkillPayload>
+export type List_job_skill = $Result.DefaultSelection<Prisma.$List_job_skillPayload>
 /**
  * Model Job
  * 
@@ -207,14 +207,24 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs>;
 
   /**
-   * `prisma.listCertificate`: Exposes CRUD operations for the **ListCertificate** model.
+   * `prisma.company`: Exposes CRUD operations for the **Company** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ListCertificates
-    * const listCertificates = await prisma.listCertificate.findMany()
+    * // Fetch zero or more Companies
+    * const companies = await prisma.company.findMany()
     * ```
     */
-  get listCertificate(): Prisma.ListCertificateDelegate<ExtArgs>;
+  get company(): Prisma.CompanyDelegate<ExtArgs>;
+
+  /**
+   * `prisma.list_certificate`: Exposes CRUD operations for the **List_certificate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more List_certificates
+    * const list_certificates = await prisma.list_certificate.findMany()
+    * ```
+    */
+  get list_certificate(): Prisma.List_certificateDelegate<ExtArgs>;
 
   /**
    * `prisma.skill`: Exposes CRUD operations for the **Skill** model.
@@ -227,24 +237,24 @@ export class PrismaClient<
   get skill(): Prisma.SkillDelegate<ExtArgs>;
 
   /**
-   * `prisma.listDisability`: Exposes CRUD operations for the **ListDisability** model.
+   * `prisma.list_disability`: Exposes CRUD operations for the **List_disability** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ListDisabilities
-    * const listDisabilities = await prisma.listDisability.findMany()
+    * // Fetch zero or more List_disabilities
+    * const list_disabilities = await prisma.list_disability.findMany()
     * ```
     */
-  get listDisability(): Prisma.ListDisabilityDelegate<ExtArgs>;
+  get list_disability(): Prisma.List_disabilityDelegate<ExtArgs>;
 
   /**
-   * `prisma.jobApplication`: Exposes CRUD operations for the **JobApplication** model.
+   * `prisma.job_application`: Exposes CRUD operations for the **Job_application** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more JobApplications
-    * const jobApplications = await prisma.jobApplication.findMany()
+    * // Fetch zero or more Job_applications
+    * const job_applications = await prisma.job_application.findMany()
     * ```
     */
-  get jobApplication(): Prisma.JobApplicationDelegate<ExtArgs>;
+  get job_application(): Prisma.Job_applicationDelegate<ExtArgs>;
 
   /**
    * `prisma.disability`: Exposes CRUD operations for the **Disability** model.
@@ -267,24 +277,14 @@ export class PrismaClient<
   get ability(): Prisma.AbilityDelegate<ExtArgs>;
 
   /**
-   * `prisma.listSkill`: Exposes CRUD operations for the **ListSkill** model.
+   * `prisma.list_skill`: Exposes CRUD operations for the **List_skill** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ListSkills
-    * const listSkills = await prisma.listSkill.findMany()
+    * // Fetch zero or more List_skills
+    * const list_skills = await prisma.list_skill.findMany()
     * ```
     */
-  get listSkill(): Prisma.ListSkillDelegate<ExtArgs>;
-
-  /**
-   * `prisma.company`: Exposes CRUD operations for the **Company** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Companies
-    * const companies = await prisma.company.findMany()
-    * ```
-    */
-  get company(): Prisma.CompanyDelegate<ExtArgs>;
+  get list_skill(): Prisma.List_skillDelegate<ExtArgs>;
 
   /**
    * `prisma.category`: Exposes CRUD operations for the **Category** model.
@@ -297,14 +297,14 @@ export class PrismaClient<
   get category(): Prisma.CategoryDelegate<ExtArgs>;
 
   /**
-   * `prisma.listJobSkill`: Exposes CRUD operations for the **ListJobSkill** model.
+   * `prisma.list_job_skill`: Exposes CRUD operations for the **List_job_skill** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ListJobSkills
-    * const listJobSkills = await prisma.listJobSkill.findMany()
+    * // Fetch zero or more List_job_skills
+    * const list_job_skills = await prisma.list_job_skill.findMany()
     * ```
     */
-  get listJobSkill(): Prisma.ListJobSkillDelegate<ExtArgs>;
+  get list_job_skill(): Prisma.List_job_skillDelegate<ExtArgs>;
 
   /**
    * `prisma.job`: Exposes CRUD operations for the **Job** model.
@@ -786,16 +786,16 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    ListCertificate: 'ListCertificate',
+    Company: 'Company',
+    List_certificate: 'List_certificate',
     Skill: 'Skill',
-    ListDisability: 'ListDisability',
-    JobApplication: 'JobApplication',
+    List_disability: 'List_disability',
+    Job_application: 'Job_application',
     Disability: 'Disability',
     Ability: 'Ability',
-    ListSkill: 'ListSkill',
-    Company: 'Company',
+    List_skill: 'List_skill',
     Category: 'Category',
-    ListJobSkill: 'ListJobSkill',
+    List_job_skill: 'List_job_skill',
     Job: 'Job'
   };
 
@@ -813,7 +813,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'listCertificate' | 'skill' | 'listDisability' | 'jobApplication' | 'disability' | 'ability' | 'listSkill' | 'company' | 'category' | 'listJobSkill' | 'job'
+      modelProps: 'user' | 'company' | 'list_certificate' | 'skill' | 'list_disability' | 'job_application' | 'disability' | 'ability' | 'list_skill' | 'category' | 'list_job_skill' | 'job'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -883,69 +883,135 @@ export namespace Prisma {
           }
         }
       }
-      ListCertificate: {
-        payload: Prisma.$ListCertificatePayload<ExtArgs>
-        fields: Prisma.ListCertificateFieldRefs
+      Company: {
+        payload: Prisma.$CompanyPayload<ExtArgs>
+        fields: Prisma.CompanyFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ListCertificateFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload> | null
+            args: Prisma.CompanyFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ListCertificateFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           findFirst: {
-            args: Prisma.ListCertificateFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload> | null
+            args: Prisma.CompanyFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ListCertificateFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           findMany: {
-            args: Prisma.ListCertificateFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>[]
+            args: Prisma.CompanyFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>[]
           }
           create: {
-            args: Prisma.ListCertificateCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           createMany: {
-            args: Prisma.ListCertificateCreateManyArgs<ExtArgs>,
+            args: Prisma.CompanyCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.ListCertificateDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           update: {
-            args: Prisma.ListCertificateUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           deleteMany: {
-            args: Prisma.ListCertificateDeleteManyArgs<ExtArgs>,
+            args: Prisma.CompanyDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.ListCertificateUpdateManyArgs<ExtArgs>,
+            args: Prisma.CompanyUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.ListCertificateUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListCertificatePayload>
+            args: Prisma.CompanyUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
           }
           aggregate: {
-            args: Prisma.ListCertificateAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateListCertificate>
+            args: Prisma.CompanyAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCompany>
           }
           groupBy: {
-            args: Prisma.ListCertificateGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ListCertificateGroupByOutputType>[]
+            args: Prisma.CompanyGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<CompanyGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ListCertificateCountArgs<ExtArgs>,
-            result: $Utils.Optional<ListCertificateCountAggregateOutputType> | number
+            args: Prisma.CompanyCountArgs<ExtArgs>,
+            result: $Utils.Optional<CompanyCountAggregateOutputType> | number
+          }
+        }
+      }
+      List_certificate: {
+        payload: Prisma.$List_certificatePayload<ExtArgs>
+        fields: Prisma.List_certificateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.List_certificateFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.List_certificateFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          findFirst: {
+            args: Prisma.List_certificateFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.List_certificateFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          findMany: {
+            args: Prisma.List_certificateFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>[]
+          }
+          create: {
+            args: Prisma.List_certificateCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          createMany: {
+            args: Prisma.List_certificateCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.List_certificateDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          update: {
+            args: Prisma.List_certificateUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          deleteMany: {
+            args: Prisma.List_certificateDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.List_certificateUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.List_certificateUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_certificatePayload>
+          }
+          aggregate: {
+            args: Prisma.List_certificateAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateList_certificate>
+          }
+          groupBy: {
+            args: Prisma.List_certificateGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<List_certificateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.List_certificateCountArgs<ExtArgs>,
+            result: $Utils.Optional<List_certificateCountAggregateOutputType> | number
           }
         }
       }
@@ -1015,135 +1081,135 @@ export namespace Prisma {
           }
         }
       }
-      ListDisability: {
-        payload: Prisma.$ListDisabilityPayload<ExtArgs>
-        fields: Prisma.ListDisabilityFieldRefs
+      List_disability: {
+        payload: Prisma.$List_disabilityPayload<ExtArgs>
+        fields: Prisma.List_disabilityFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ListDisabilityFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload> | null
+            args: Prisma.List_disabilityFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ListDisabilityFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           findFirst: {
-            args: Prisma.ListDisabilityFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload> | null
+            args: Prisma.List_disabilityFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ListDisabilityFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           findMany: {
-            args: Prisma.ListDisabilityFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>[]
+            args: Prisma.List_disabilityFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>[]
           }
           create: {
-            args: Prisma.ListDisabilityCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           createMany: {
-            args: Prisma.ListDisabilityCreateManyArgs<ExtArgs>,
+            args: Prisma.List_disabilityCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.ListDisabilityDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           update: {
-            args: Prisma.ListDisabilityUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           deleteMany: {
-            args: Prisma.ListDisabilityDeleteManyArgs<ExtArgs>,
+            args: Prisma.List_disabilityDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.ListDisabilityUpdateManyArgs<ExtArgs>,
+            args: Prisma.List_disabilityUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.ListDisabilityUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListDisabilityPayload>
+            args: Prisma.List_disabilityUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_disabilityPayload>
           }
           aggregate: {
-            args: Prisma.ListDisabilityAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateListDisability>
+            args: Prisma.List_disabilityAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateList_disability>
           }
           groupBy: {
-            args: Prisma.ListDisabilityGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ListDisabilityGroupByOutputType>[]
+            args: Prisma.List_disabilityGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<List_disabilityGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ListDisabilityCountArgs<ExtArgs>,
-            result: $Utils.Optional<ListDisabilityCountAggregateOutputType> | number
+            args: Prisma.List_disabilityCountArgs<ExtArgs>,
+            result: $Utils.Optional<List_disabilityCountAggregateOutputType> | number
           }
         }
       }
-      JobApplication: {
-        payload: Prisma.$JobApplicationPayload<ExtArgs>
-        fields: Prisma.JobApplicationFieldRefs
+      Job_application: {
+        payload: Prisma.$Job_applicationPayload<ExtArgs>
+        fields: Prisma.Job_applicationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.JobApplicationFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload> | null
+            args: Prisma.Job_applicationFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.JobApplicationFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           findFirst: {
-            args: Prisma.JobApplicationFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload> | null
+            args: Prisma.Job_applicationFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.JobApplicationFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           findMany: {
-            args: Prisma.JobApplicationFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>[]
+            args: Prisma.Job_applicationFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>[]
           }
           create: {
-            args: Prisma.JobApplicationCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           createMany: {
-            args: Prisma.JobApplicationCreateManyArgs<ExtArgs>,
+            args: Prisma.Job_applicationCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.JobApplicationDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           update: {
-            args: Prisma.JobApplicationUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           deleteMany: {
-            args: Prisma.JobApplicationDeleteManyArgs<ExtArgs>,
+            args: Prisma.Job_applicationDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.JobApplicationUpdateManyArgs<ExtArgs>,
+            args: Prisma.Job_applicationUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.JobApplicationUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+            args: Prisma.Job_applicationUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$Job_applicationPayload>
           }
           aggregate: {
-            args: Prisma.JobApplicationAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateJobApplication>
+            args: Prisma.Job_applicationAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateJob_application>
           }
           groupBy: {
-            args: Prisma.JobApplicationGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<JobApplicationGroupByOutputType>[]
+            args: Prisma.Job_applicationGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<Job_applicationGroupByOutputType>[]
           }
           count: {
-            args: Prisma.JobApplicationCountArgs<ExtArgs>,
-            result: $Utils.Optional<JobApplicationCountAggregateOutputType> | number
+            args: Prisma.Job_applicationCountArgs<ExtArgs>,
+            result: $Utils.Optional<Job_applicationCountAggregateOutputType> | number
           }
         }
       }
@@ -1279,135 +1345,69 @@ export namespace Prisma {
           }
         }
       }
-      ListSkill: {
-        payload: Prisma.$ListSkillPayload<ExtArgs>
-        fields: Prisma.ListSkillFieldRefs
+      List_skill: {
+        payload: Prisma.$List_skillPayload<ExtArgs>
+        fields: Prisma.List_skillFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ListSkillFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload> | null
+            args: Prisma.List_skillFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ListSkillFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           findFirst: {
-            args: Prisma.ListSkillFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload> | null
+            args: Prisma.List_skillFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ListSkillFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           findMany: {
-            args: Prisma.ListSkillFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>[]
+            args: Prisma.List_skillFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>[]
           }
           create: {
-            args: Prisma.ListSkillCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           createMany: {
-            args: Prisma.ListSkillCreateManyArgs<ExtArgs>,
+            args: Prisma.List_skillCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.ListSkillDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           update: {
-            args: Prisma.ListSkillUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           deleteMany: {
-            args: Prisma.ListSkillDeleteManyArgs<ExtArgs>,
+            args: Prisma.List_skillDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.ListSkillUpdateManyArgs<ExtArgs>,
+            args: Prisma.List_skillUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.ListSkillUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListSkillPayload>
+            args: Prisma.List_skillUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_skillPayload>
           }
           aggregate: {
-            args: Prisma.ListSkillAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateListSkill>
+            args: Prisma.List_skillAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateList_skill>
           }
           groupBy: {
-            args: Prisma.ListSkillGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ListSkillGroupByOutputType>[]
+            args: Prisma.List_skillGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<List_skillGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ListSkillCountArgs<ExtArgs>,
-            result: $Utils.Optional<ListSkillCountAggregateOutputType> | number
-          }
-        }
-      }
-      Company: {
-        payload: Prisma.$CompanyPayload<ExtArgs>
-        fields: Prisma.CompanyFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.CompanyFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.CompanyFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          findFirst: {
-            args: Prisma.CompanyFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.CompanyFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          findMany: {
-            args: Prisma.CompanyFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>[]
-          }
-          create: {
-            args: Prisma.CompanyCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          createMany: {
-            args: Prisma.CompanyCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.CompanyDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          update: {
-            args: Prisma.CompanyUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          deleteMany: {
-            args: Prisma.CompanyDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.CompanyUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.CompanyUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CompanyPayload>
-          }
-          aggregate: {
-            args: Prisma.CompanyAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateCompany>
-          }
-          groupBy: {
-            args: Prisma.CompanyGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<CompanyGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.CompanyCountArgs<ExtArgs>,
-            result: $Utils.Optional<CompanyCountAggregateOutputType> | number
+            args: Prisma.List_skillCountArgs<ExtArgs>,
+            result: $Utils.Optional<List_skillCountAggregateOutputType> | number
           }
         }
       }
@@ -1477,69 +1477,69 @@ export namespace Prisma {
           }
         }
       }
-      ListJobSkill: {
-        payload: Prisma.$ListJobSkillPayload<ExtArgs>
-        fields: Prisma.ListJobSkillFieldRefs
+      List_job_skill: {
+        payload: Prisma.$List_job_skillPayload<ExtArgs>
+        fields: Prisma.List_job_skillFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ListJobSkillFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload> | null
+            args: Prisma.List_job_skillFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ListJobSkillFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           findFirst: {
-            args: Prisma.ListJobSkillFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload> | null
+            args: Prisma.List_job_skillFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ListJobSkillFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           findMany: {
-            args: Prisma.ListJobSkillFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>[]
+            args: Prisma.List_job_skillFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>[]
           }
           create: {
-            args: Prisma.ListJobSkillCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           createMany: {
-            args: Prisma.ListJobSkillCreateManyArgs<ExtArgs>,
+            args: Prisma.List_job_skillCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.ListJobSkillDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           update: {
-            args: Prisma.ListJobSkillUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           deleteMany: {
-            args: Prisma.ListJobSkillDeleteManyArgs<ExtArgs>,
+            args: Prisma.List_job_skillDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.ListJobSkillUpdateManyArgs<ExtArgs>,
+            args: Prisma.List_job_skillUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.ListJobSkillUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$ListJobSkillPayload>
+            args: Prisma.List_job_skillUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$List_job_skillPayload>
           }
           aggregate: {
-            args: Prisma.ListJobSkillAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateListJobSkill>
+            args: Prisma.List_job_skillAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateList_job_skill>
           }
           groupBy: {
-            args: Prisma.ListJobSkillGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<ListJobSkillGroupByOutputType>[]
+            args: Prisma.List_job_skillGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<List_job_skillGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ListJobSkillCountArgs<ExtArgs>,
-            result: $Utils.Optional<ListJobSkillCountAggregateOutputType> | number
+            args: Prisma.List_job_skillCountArgs<ExtArgs>,
+            result: $Utils.Optional<List_job_skillCountAggregateOutputType> | number
           }
         }
       }
@@ -1798,7 +1798,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountCertificatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
   }
 
 
@@ -1806,7 +1806,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountDisabilitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
   }
 
 
@@ -1814,7 +1814,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
   }
 
 
@@ -1822,119 +1822,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListSkillWhereInput
-  }
-
-
-
-  /**
-   * Count Type SkillCountOutputType
-   */
-
-  export type SkillCountOutputType = {
-    users: number
-    jobs: number
-  }
-
-  export type SkillCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | SkillCountOutputTypeCountUsersArgs
-    jobs?: boolean | SkillCountOutputTypeCountJobsArgs
-  }
-
-  // Custom InputTypes
-
-  /**
-   * SkillCountOutputType without action
-   */
-  export type SkillCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SkillCountOutputType
-     */
-    select?: SkillCountOutputTypeSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * SkillCountOutputType without action
-   */
-  export type SkillCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListSkillWhereInput
-  }
-
-
-  /**
-   * SkillCountOutputType without action
-   */
-  export type SkillCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListJobSkillWhereInput
-  }
-
-
-
-  /**
-   * Count Type DisabilityCountOutputType
-   */
-
-  export type DisabilityCountOutputType = {
-    users: number
-  }
-
-  export type DisabilityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | DisabilityCountOutputTypeCountUsersArgs
-  }
-
-  // Custom InputTypes
-
-  /**
-   * DisabilityCountOutputType without action
-   */
-  export type DisabilityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DisabilityCountOutputType
-     */
-    select?: DisabilityCountOutputTypeSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * DisabilityCountOutputType without action
-   */
-  export type DisabilityCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListDisabilityWhereInput
-  }
-
-
-
-  /**
-   * Count Type AbilityCountOutputType
-   */
-
-  export type AbilityCountOutputType = {
-    jobs: number
-  }
-
-  export type AbilityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jobs?: boolean | AbilityCountOutputTypeCountJobsArgs
-  }
-
-  // Custom InputTypes
-
-  /**
-   * AbilityCountOutputType without action
-   */
-  export type AbilityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AbilityCountOutputType
-     */
-    select?: AbilityCountOutputTypeSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * AbilityCountOutputType without action
-   */
-  export type AbilityCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobWhereInput
+    where?: List_skillWhereInput
   }
 
 
@@ -1970,7 +1858,7 @@ export namespace Prisma {
    * CompanyCountOutputType without action
    */
   export type CompanyCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
   }
 
 
@@ -1978,6 +1866,118 @@ export namespace Prisma {
    * CompanyCountOutputType without action
    */
   export type CompanyCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobWhereInput
+  }
+
+
+
+  /**
+   * Count Type SkillCountOutputType
+   */
+
+  export type SkillCountOutputType = {
+    users: number
+    jobs: number
+  }
+
+  export type SkillCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | SkillCountOutputTypeCountUsersArgs
+    jobs?: boolean | SkillCountOutputTypeCountJobsArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * SkillCountOutputType without action
+   */
+  export type SkillCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkillCountOutputType
+     */
+    select?: SkillCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * SkillCountOutputType without action
+   */
+  export type SkillCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_skillWhereInput
+  }
+
+
+  /**
+   * SkillCountOutputType without action
+   */
+  export type SkillCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_job_skillWhereInput
+  }
+
+
+
+  /**
+   * Count Type DisabilityCountOutputType
+   */
+
+  export type DisabilityCountOutputType = {
+    users: number
+  }
+
+  export type DisabilityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | DisabilityCountOutputTypeCountUsersArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * DisabilityCountOutputType without action
+   */
+  export type DisabilityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DisabilityCountOutputType
+     */
+    select?: DisabilityCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * DisabilityCountOutputType without action
+   */
+  export type DisabilityCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_disabilityWhereInput
+  }
+
+
+
+  /**
+   * Count Type AbilityCountOutputType
+   */
+
+  export type AbilityCountOutputType = {
+    jobs: number
+  }
+
+  export type AbilityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobs?: boolean | AbilityCountOutputTypeCountJobsArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * AbilityCountOutputType without action
+   */
+  export type AbilityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AbilityCountOutputType
+     */
+    select?: AbilityCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * AbilityCountOutputType without action
+   */
+  export type AbilityCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: JobWhereInput
   }
 
@@ -2048,7 +2048,7 @@ export namespace Prisma {
    * JobCountOutputType without action
    */
   export type JobCountOutputTypeCountApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
   }
 
 
@@ -2056,7 +2056,7 @@ export namespace Prisma {
    * JobCountOutputType without action
    */
   export type JobCountOutputTypeCountSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
   }
 
 
@@ -2093,6 +2093,10 @@ export namespace Prisma {
     password: string | null
     phone_number: string | null
     city: string | null
+    gender: string | null
+    dob: Date | null
+    created_at: Date | null
+    updated_at: Date | null
     is_verified: boolean | null
   }
 
@@ -2104,6 +2108,10 @@ export namespace Prisma {
     password: string | null
     phone_number: string | null
     city: string | null
+    gender: string | null
+    dob: Date | null
+    created_at: Date | null
+    updated_at: Date | null
     is_verified: boolean | null
   }
 
@@ -2115,6 +2123,10 @@ export namespace Prisma {
     password: number
     phone_number: number
     city: number
+    gender: number
+    dob: number
+    created_at: number
+    updated_at: number
     is_verified: number
     _all: number
   }
@@ -2136,6 +2148,10 @@ export namespace Prisma {
     password?: true
     phone_number?: true
     city?: true
+    gender?: true
+    dob?: true
+    created_at?: true
+    updated_at?: true
     is_verified?: true
   }
 
@@ -2147,6 +2163,10 @@ export namespace Prisma {
     password?: true
     phone_number?: true
     city?: true
+    gender?: true
+    dob?: true
+    created_at?: true
+    updated_at?: true
     is_verified?: true
   }
 
@@ -2158,6 +2178,10 @@ export namespace Prisma {
     password?: true
     phone_number?: true
     city?: true
+    gender?: true
+    dob?: true
+    created_at?: true
+    updated_at?: true
     is_verified?: true
     _all?: true
   }
@@ -2251,11 +2275,15 @@ export namespace Prisma {
   export type UserGroupByOutputType = {
     id: number
     first_name: string
-    last_name: string
+    last_name: string | null
     email: string
     password: string
     phone_number: string | null
     city: string | null
+    gender: string
+    dob: Date
+    created_at: Date
+    updated_at: Date
     is_verified: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
@@ -2286,6 +2314,10 @@ export namespace Prisma {
     password?: boolean
     phone_number?: boolean
     city?: boolean
+    gender?: boolean
+    dob?: boolean
+    created_at?: boolean
+    updated_at?: boolean
     is_verified?: boolean
     certificates?: boolean | User$certificatesArgs<ExtArgs>
     disabilities?: boolean | User$disabilitiesArgs<ExtArgs>
@@ -2302,6 +2334,10 @@ export namespace Prisma {
     password?: boolean
     phone_number?: boolean
     city?: boolean
+    gender?: boolean
+    dob?: boolean
+    created_at?: boolean
+    updated_at?: boolean
     is_verified?: boolean
   }
 
@@ -2317,19 +2353,23 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      certificates: Prisma.$ListCertificatePayload<ExtArgs>[]
-      disabilities: Prisma.$ListDisabilityPayload<ExtArgs>[]
-      jobApplications: Prisma.$JobApplicationPayload<ExtArgs>[]
-      skills: Prisma.$ListSkillPayload<ExtArgs>[]
+      certificates: Prisma.$List_certificatePayload<ExtArgs>[]
+      disabilities: Prisma.$List_disabilityPayload<ExtArgs>[]
+      jobApplications: Prisma.$Job_applicationPayload<ExtArgs>[]
+      skills: Prisma.$List_skillPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       first_name: string
-      last_name: string
+      last_name: string | null
       email: string
       password: string
       phone_number: string | null
       city: string | null
+      gender: string
+      dob: Date
+      created_at: Date
+      updated_at: Date
       is_verified: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2696,13 +2736,13 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    certificates<T extends User$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, User$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findMany'> | Null>;
+    certificates<T extends User$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, User$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    disabilities<T extends User$disabilitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$disabilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findMany'> | Null>;
+    disabilities<T extends User$disabilitiesArgs<ExtArgs> = {}>(args?: Subset<T, User$disabilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    jobApplications<T extends User$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, User$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findMany'> | Null>;
+    jobApplications<T extends User$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, User$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    skills<T extends User$skillsArgs<ExtArgs> = {}>(args?: Subset<T, User$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findMany'> | Null>;
+    skills<T extends User$skillsArgs<ExtArgs> = {}>(args?: Subset<T, User$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2739,6 +2779,10 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly phone_number: FieldRef<"User", 'String'>
     readonly city: FieldRef<"User", 'String'>
+    readonly gender: FieldRef<"User", 'String'>
+    readonly dob: FieldRef<"User", 'DateTime'>
+    readonly created_at: FieldRef<"User", 'DateTime'>
+    readonly updated_at: FieldRef<"User", 'DateTime'>
     readonly is_verified: FieldRef<"User", 'Boolean'>
   }
     
@@ -3056,19 +3100,19 @@ export namespace Prisma {
    */
   export type User$certificatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
-    where?: ListCertificateWhereInput
-    orderBy?: ListCertificateOrderByWithRelationInput | ListCertificateOrderByWithRelationInput[]
-    cursor?: ListCertificateWhereUniqueInput
+    include?: List_certificateInclude<ExtArgs> | null
+    where?: List_certificateWhereInput
+    orderBy?: List_certificateOrderByWithRelationInput | List_certificateOrderByWithRelationInput[]
+    cursor?: List_certificateWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListCertificateScalarFieldEnum | ListCertificateScalarFieldEnum[]
+    distinct?: List_certificateScalarFieldEnum | List_certificateScalarFieldEnum[]
   }
 
 
@@ -3077,19 +3121,19 @@ export namespace Prisma {
    */
   export type User$disabilitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
-    where?: ListDisabilityWhereInput
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
-    cursor?: ListDisabilityWhereUniqueInput
+    include?: List_disabilityInclude<ExtArgs> | null
+    where?: List_disabilityWhereInput
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
+    cursor?: List_disabilityWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListDisabilityScalarFieldEnum | ListDisabilityScalarFieldEnum[]
+    distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
   }
 
 
@@ -3098,19 +3142,19 @@ export namespace Prisma {
    */
   export type User$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
-    where?: JobApplicationWhereInput
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
-    cursor?: JobApplicationWhereUniqueInput
+    include?: Job_applicationInclude<ExtArgs> | null
+    where?: Job_applicationWhereInput
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
+    cursor?: Job_applicationWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
@@ -3119,19 +3163,19 @@ export namespace Prisma {
    */
   export type User$skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
-    where?: ListSkillWhereInput
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
-    cursor?: ListSkillWhereUniqueInput
+    include?: List_skillInclude<ExtArgs> | null
+    where?: List_skillWhereInput
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
+    cursor?: List_skillWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListSkillScalarFieldEnum | ListSkillScalarFieldEnum[]
+    distinct?: List_skillScalarFieldEnum | List_skillScalarFieldEnum[]
   }
 
 
@@ -3152,378 +3196,419 @@ export namespace Prisma {
 
 
   /**
-   * Model ListCertificate
+   * Model Company
    */
 
-  export type AggregateListCertificate = {
-    _count: ListCertificateCountAggregateOutputType | null
-    _avg: ListCertificateAvgAggregateOutputType | null
-    _sum: ListCertificateSumAggregateOutputType | null
-    _min: ListCertificateMinAggregateOutputType | null
-    _max: ListCertificateMaxAggregateOutputType | null
+  export type AggregateCompany = {
+    _count: CompanyCountAggregateOutputType | null
+    _avg: CompanyAvgAggregateOutputType | null
+    _sum: CompanySumAggregateOutputType | null
+    _min: CompanyMinAggregateOutputType | null
+    _max: CompanyMaxAggregateOutputType | null
   }
 
-  export type ListCertificateAvgAggregateOutputType = {
+  export type CompanyAvgAggregateOutputType = {
     id: number | null
-    user_id: number | null
   }
 
-  export type ListCertificateSumAggregateOutputType = {
+  export type CompanySumAggregateOutputType = {
     id: number | null
-    user_id: number | null
   }
 
-  export type ListCertificateMinAggregateOutputType = {
+  export type CompanyMinAggregateOutputType = {
     id: number | null
     name: string | null
-    description: string | null
-    user_id: number | null
+    city: string | null
+    about: string | null
+    logo: string | null
+    picture: string | null
+    email: string | null
+    password: string | null
   }
 
-  export type ListCertificateMaxAggregateOutputType = {
+  export type CompanyMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    description: string | null
-    user_id: number | null
+    city: string | null
+    about: string | null
+    logo: string | null
+    picture: string | null
+    email: string | null
+    password: string | null
   }
 
-  export type ListCertificateCountAggregateOutputType = {
+  export type CompanyCountAggregateOutputType = {
     id: number
     name: number
-    description: number
-    user_id: number
+    city: number
+    about: number
+    logo: number
+    picture: number
+    email: number
+    password: number
     _all: number
   }
 
 
-  export type ListCertificateAvgAggregateInputType = {
+  export type CompanyAvgAggregateInputType = {
     id?: true
-    user_id?: true
   }
 
-  export type ListCertificateSumAggregateInputType = {
+  export type CompanySumAggregateInputType = {
     id?: true
-    user_id?: true
   }
 
-  export type ListCertificateMinAggregateInputType = {
+  export type CompanyMinAggregateInputType = {
     id?: true
     name?: true
-    description?: true
-    user_id?: true
+    city?: true
+    about?: true
+    logo?: true
+    picture?: true
+    email?: true
+    password?: true
   }
 
-  export type ListCertificateMaxAggregateInputType = {
+  export type CompanyMaxAggregateInputType = {
     id?: true
     name?: true
-    description?: true
-    user_id?: true
+    city?: true
+    about?: true
+    logo?: true
+    picture?: true
+    email?: true
+    password?: true
   }
 
-  export type ListCertificateCountAggregateInputType = {
+  export type CompanyCountAggregateInputType = {
     id?: true
     name?: true
-    description?: true
-    user_id?: true
+    city?: true
+    about?: true
+    logo?: true
+    picture?: true
+    email?: true
+    password?: true
     _all?: true
   }
 
-  export type ListCertificateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CompanyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListCertificate to aggregate.
+     * Filter which Company to aggregate.
      */
-    where?: ListCertificateWhereInput
+    where?: CompanyWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListCertificates to fetch.
+     * Determine the order of Companies to fetch.
      */
-    orderBy?: ListCertificateOrderByWithRelationInput | ListCertificateOrderByWithRelationInput[]
+    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ListCertificateWhereUniqueInput
+    cursor?: CompanyWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListCertificates from the position of the cursor.
+     * Take `±n` Companies from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListCertificates.
+     * Skip the first `n` Companies.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ListCertificates
+     * Count returned Companies
     **/
-    _count?: true | ListCertificateCountAggregateInputType
+    _count?: true | CompanyCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ListCertificateAvgAggregateInputType
+    _avg?: CompanyAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ListCertificateSumAggregateInputType
+    _sum?: CompanySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ListCertificateMinAggregateInputType
+    _min?: CompanyMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ListCertificateMaxAggregateInputType
+    _max?: CompanyMaxAggregateInputType
   }
 
-  export type GetListCertificateAggregateType<T extends ListCertificateAggregateArgs> = {
-        [P in keyof T & keyof AggregateListCertificate]: P extends '_count' | 'count'
+  export type GetCompanyAggregateType<T extends CompanyAggregateArgs> = {
+        [P in keyof T & keyof AggregateCompany]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateListCertificate[P]>
-      : GetScalarType<T[P], AggregateListCertificate[P]>
+        : GetScalarType<T[P], AggregateCompany[P]>
+      : GetScalarType<T[P], AggregateCompany[P]>
   }
 
 
 
 
-  export type ListCertificateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListCertificateWhereInput
-    orderBy?: ListCertificateOrderByWithAggregationInput | ListCertificateOrderByWithAggregationInput[]
-    by: ListCertificateScalarFieldEnum[] | ListCertificateScalarFieldEnum
-    having?: ListCertificateScalarWhereWithAggregatesInput
+  export type CompanyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CompanyWhereInput
+    orderBy?: CompanyOrderByWithAggregationInput | CompanyOrderByWithAggregationInput[]
+    by: CompanyScalarFieldEnum[] | CompanyScalarFieldEnum
+    having?: CompanyScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ListCertificateCountAggregateInputType | true
-    _avg?: ListCertificateAvgAggregateInputType
-    _sum?: ListCertificateSumAggregateInputType
-    _min?: ListCertificateMinAggregateInputType
-    _max?: ListCertificateMaxAggregateInputType
+    _count?: CompanyCountAggregateInputType | true
+    _avg?: CompanyAvgAggregateInputType
+    _sum?: CompanySumAggregateInputType
+    _min?: CompanyMinAggregateInputType
+    _max?: CompanyMaxAggregateInputType
   }
 
-  export type ListCertificateGroupByOutputType = {
+  export type CompanyGroupByOutputType = {
     id: number
-    name: string | null
-    description: string | null
-    user_id: number
-    _count: ListCertificateCountAggregateOutputType | null
-    _avg: ListCertificateAvgAggregateOutputType | null
-    _sum: ListCertificateSumAggregateOutputType | null
-    _min: ListCertificateMinAggregateOutputType | null
-    _max: ListCertificateMaxAggregateOutputType | null
+    name: string
+    city: string
+    about: string
+    logo: string | null
+    picture: string | null
+    email: string
+    password: string
+    _count: CompanyCountAggregateOutputType | null
+    _avg: CompanyAvgAggregateOutputType | null
+    _sum: CompanySumAggregateOutputType | null
+    _min: CompanyMinAggregateOutputType | null
+    _max: CompanyMaxAggregateOutputType | null
   }
 
-  type GetListCertificateGroupByPayload<T extends ListCertificateGroupByArgs> = Prisma.PrismaPromise<
+  type GetCompanyGroupByPayload<T extends CompanyGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ListCertificateGroupByOutputType, T['by']> &
+      PickEnumerable<CompanyGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ListCertificateGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CompanyGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ListCertificateGroupByOutputType[P]>
-            : GetScalarType<T[P], ListCertificateGroupByOutputType[P]>
+              : GetScalarType<T[P], CompanyGroupByOutputType[P]>
+            : GetScalarType<T[P], CompanyGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ListCertificateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CompanySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    description?: boolean
-    user_id?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["listCertificate"]>
+    city?: boolean
+    about?: boolean
+    logo?: boolean
+    picture?: boolean
+    email?: boolean
+    password?: boolean
+    jobApplications?: boolean | Company$jobApplicationsArgs<ExtArgs>
+    jobs?: boolean | Company$jobsArgs<ExtArgs>
+    _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["company"]>
 
-  export type ListCertificateSelectScalar = {
+  export type CompanySelectScalar = {
     id?: boolean
     name?: boolean
-    description?: boolean
-    user_id?: boolean
+    city?: boolean
+    about?: boolean
+    logo?: boolean
+    picture?: boolean
+    email?: boolean
+    password?: boolean
   }
 
-  export type ListCertificateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+  export type CompanyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplications?: boolean | Company$jobApplicationsArgs<ExtArgs>
+    jobs?: boolean | Company$jobsArgs<ExtArgs>
+    _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
-  export type $ListCertificatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ListCertificate"
+  export type $CompanyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Company"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      jobApplications: Prisma.$Job_applicationPayload<ExtArgs>[]
+      jobs: Prisma.$JobPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      name: string | null
-      description: string | null
-      user_id: number
-    }, ExtArgs["result"]["listCertificate"]>
+      name: string
+      city: string
+      about: string
+      logo: string | null
+      picture: string | null
+      email: string
+      password: string
+    }, ExtArgs["result"]["company"]>
     composites: {}
   }
 
 
-  type ListCertificateGetPayload<S extends boolean | null | undefined | ListCertificateDefaultArgs> = $Result.GetResult<Prisma.$ListCertificatePayload, S>
+  type CompanyGetPayload<S extends boolean | null | undefined | CompanyDefaultArgs> = $Result.GetResult<Prisma.$CompanyPayload, S>
 
-  type ListCertificateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ListCertificateFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ListCertificateCountAggregateInputType | true
+  type CompanyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CompanyFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CompanyCountAggregateInputType | true
     }
 
-  export interface ListCertificateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ListCertificate'], meta: { name: 'ListCertificate' } }
+  export interface CompanyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Company'], meta: { name: 'Company' } }
     /**
-     * Find zero or one ListCertificate that matches the filter.
-     * @param {ListCertificateFindUniqueArgs} args - Arguments to find a ListCertificate
+     * Find zero or one Company that matches the filter.
+     * @param {CompanyFindUniqueArgs} args - Arguments to find a Company
      * @example
-     * // Get one ListCertificate
-     * const listCertificate = await prisma.listCertificate.findUnique({
+     * // Get one Company
+     * const company = await prisma.company.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends ListCertificateFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateFindUniqueArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends CompanyFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyFindUniqueArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one ListCertificate that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Company that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {ListCertificateFindUniqueOrThrowArgs} args - Arguments to find a ListCertificate
+     * @param {CompanyFindUniqueOrThrowArgs} args - Arguments to find a Company
      * @example
-     * // Get one ListCertificate
-     * const listCertificate = await prisma.listCertificate.findUniqueOrThrow({
+     * // Get one Company
+     * const company = await prisma.company.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends ListCertificateFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends CompanyFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first ListCertificate that matches the filter.
+     * Find the first Company that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateFindFirstArgs} args - Arguments to find a ListCertificate
+     * @param {CompanyFindFirstArgs} args - Arguments to find a Company
      * @example
-     * // Get one ListCertificate
-     * const listCertificate = await prisma.listCertificate.findFirst({
+     * // Get one Company
+     * const company = await prisma.company.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends ListCertificateFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateFindFirstArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends CompanyFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyFindFirstArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first ListCertificate that matches the filter or
+     * Find the first Company that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateFindFirstOrThrowArgs} args - Arguments to find a ListCertificate
+     * @param {CompanyFindFirstOrThrowArgs} args - Arguments to find a Company
      * @example
-     * // Get one ListCertificate
-     * const listCertificate = await prisma.listCertificate.findFirstOrThrow({
+     * // Get one Company
+     * const company = await prisma.company.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends ListCertificateFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends CompanyFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more ListCertificates that matches the filter.
+     * Find zero or more Companies that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {CompanyFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ListCertificates
-     * const listCertificates = await prisma.listCertificate.findMany()
+     * // Get all Companies
+     * const companies = await prisma.company.findMany()
      * 
-     * // Get first 10 ListCertificates
-     * const listCertificates = await prisma.listCertificate.findMany({ take: 10 })
+     * // Get first 10 Companies
+     * const companies = await prisma.company.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const listCertificateWithIdOnly = await prisma.listCertificate.findMany({ select: { id: true } })
+     * const companyWithIdOnly = await prisma.company.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends ListCertificateFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends CompanyFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a ListCertificate.
-     * @param {ListCertificateCreateArgs} args - Arguments to create a ListCertificate.
+     * Create a Company.
+     * @param {CompanyCreateArgs} args - Arguments to create a Company.
      * @example
-     * // Create one ListCertificate
-     * const ListCertificate = await prisma.listCertificate.create({
+     * // Create one Company
+     * const Company = await prisma.company.create({
      *   data: {
-     *     // ... data to create a ListCertificate
+     *     // ... data to create a Company
      *   }
      * })
      * 
     **/
-    create<T extends ListCertificateCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateCreateArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends CompanyCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyCreateArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many ListCertificates.
-     *     @param {ListCertificateCreateManyArgs} args - Arguments to create many ListCertificates.
+     * Create many Companies.
+     *     @param {CompanyCreateManyArgs} args - Arguments to create many Companies.
      *     @example
-     *     // Create many ListCertificates
-     *     const listCertificate = await prisma.listCertificate.createMany({
+     *     // Create many Companies
+     *     const company = await prisma.company.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends ListCertificateCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateCreateManyArgs<ExtArgs>>
+    createMany<T extends CompanyCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ListCertificate.
-     * @param {ListCertificateDeleteArgs} args - Arguments to delete one ListCertificate.
+     * Delete a Company.
+     * @param {CompanyDeleteArgs} args - Arguments to delete one Company.
      * @example
-     * // Delete one ListCertificate
-     * const ListCertificate = await prisma.listCertificate.delete({
+     * // Delete one Company
+     * const Company = await prisma.company.delete({
      *   where: {
-     *     // ... filter to delete one ListCertificate
+     *     // ... filter to delete one Company
      *   }
      * })
      * 
     **/
-    delete<T extends ListCertificateDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateDeleteArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends CompanyDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyDeleteArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one ListCertificate.
-     * @param {ListCertificateUpdateArgs} args - Arguments to update one ListCertificate.
+     * Update one Company.
+     * @param {CompanyUpdateArgs} args - Arguments to update one Company.
      * @example
-     * // Update one ListCertificate
-     * const listCertificate = await prisma.listCertificate.update({
+     * // Update one Company
+     * const company = await prisma.company.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3533,34 +3618,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends ListCertificateUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateUpdateArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends CompanyUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyUpdateArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more ListCertificates.
-     * @param {ListCertificateDeleteManyArgs} args - Arguments to filter ListCertificates to delete.
+     * Delete zero or more Companies.
+     * @param {CompanyDeleteManyArgs} args - Arguments to filter Companies to delete.
      * @example
-     * // Delete a few ListCertificates
-     * const { count } = await prisma.listCertificate.deleteMany({
+     * // Delete a few Companies
+     * const { count } = await prisma.company.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends ListCertificateDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListCertificateDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends CompanyDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CompanyDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ListCertificates.
+     * Update zero or more Companies.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CompanyUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ListCertificates
-     * const listCertificate = await prisma.listCertificate.updateMany({
+     * // Update many Companies
+     * const company = await prisma.company.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3570,59 +3655,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends ListCertificateUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateUpdateManyArgs<ExtArgs>>
+    updateMany<T extends CompanyUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one ListCertificate.
-     * @param {ListCertificateUpsertArgs} args - Arguments to update or create a ListCertificate.
+     * Create or update one Company.
+     * @param {CompanyUpsertArgs} args - Arguments to update or create a Company.
      * @example
-     * // Update or create a ListCertificate
-     * const listCertificate = await prisma.listCertificate.upsert({
+     * // Update or create a Company
+     * const company = await prisma.company.upsert({
      *   create: {
-     *     // ... data to create a ListCertificate
+     *     // ... data to create a Company
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ListCertificate we want to update
+     *     // ... the filter for the Company we want to update
      *   }
      * })
     **/
-    upsert<T extends ListCertificateUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, ListCertificateUpsertArgs<ExtArgs>>
-    ): Prisma__ListCertificateClient<$Result.GetResult<Prisma.$ListCertificatePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends CompanyUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, CompanyUpsertArgs<ExtArgs>>
+    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of ListCertificates.
+     * Count the number of Companies.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateCountArgs} args - Arguments to filter ListCertificates to count.
+     * @param {CompanyCountArgs} args - Arguments to filter Companies to count.
      * @example
-     * // Count the number of ListCertificates
-     * const count = await prisma.listCertificate.count({
+     * // Count the number of Companies
+     * const count = await prisma.company.count({
      *   where: {
-     *     // ... the filter for the ListCertificates we want to count
+     *     // ... the filter for the Companies we want to count
      *   }
      * })
     **/
-    count<T extends ListCertificateCountArgs>(
-      args?: Subset<T, ListCertificateCountArgs>,
+    count<T extends CompanyCountArgs>(
+      args?: Subset<T, CompanyCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ListCertificateCountAggregateOutputType>
+          : GetScalarType<T['select'], CompanyCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ListCertificate.
+     * Allows you to perform aggregations operations on a Company.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CompanyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3642,13 +3727,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ListCertificateAggregateArgs>(args: Subset<T, ListCertificateAggregateArgs>): Prisma.PrismaPromise<GetListCertificateAggregateType<T>>
+    aggregate<T extends CompanyAggregateArgs>(args: Subset<T, CompanyAggregateArgs>): Prisma.PrismaPromise<GetCompanyAggregateType<T>>
 
     /**
-     * Group by ListCertificate.
+     * Group by Company.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListCertificateGroupByArgs} args - Group by arguments.
+     * @param {CompanyGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3663,14 +3748,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ListCertificateGroupByArgs,
+      T extends CompanyGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ListCertificateGroupByArgs['orderBy'] }
-        : { orderBy?: ListCertificateGroupByArgs['orderBy'] },
+        ? { orderBy: CompanyGroupByArgs['orderBy'] }
+        : { orderBy?: CompanyGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3719,20 +3804,1013 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ListCertificateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetListCertificateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CompanyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompanyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ListCertificate model
+   * Fields of the Company model
    */
-  readonly fields: ListCertificateFieldRefs;
+  readonly fields: CompanyFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ListCertificate.
+   * The delegate class that acts as a "Promise-like" for Company.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ListCertificateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    jobApplications<T extends Company$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    jobs<T extends Company$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Company model
+   */ 
+  interface CompanyFieldRefs {
+    readonly id: FieldRef<"Company", 'Int'>
+    readonly name: FieldRef<"Company", 'String'>
+    readonly city: FieldRef<"Company", 'String'>
+    readonly about: FieldRef<"Company", 'String'>
+    readonly logo: FieldRef<"Company", 'String'>
+    readonly picture: FieldRef<"Company", 'String'>
+    readonly email: FieldRef<"Company", 'String'>
+    readonly password: FieldRef<"Company", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Company findUnique
+   */
+  export type CompanyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter, which Company to fetch.
+     */
+    where: CompanyWhereUniqueInput
+  }
+
+
+  /**
+   * Company findUniqueOrThrow
+   */
+  export type CompanyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter, which Company to fetch.
+     */
+    where: CompanyWhereUniqueInput
+  }
+
+
+  /**
+   * Company findFirst
+   */
+  export type CompanyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter, which Company to fetch.
+     */
+    where?: CompanyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Companies to fetch.
+     */
+    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Companies.
+     */
+    cursor?: CompanyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Companies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Companies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Companies.
+     */
+    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company findFirstOrThrow
+   */
+  export type CompanyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter, which Company to fetch.
+     */
+    where?: CompanyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Companies to fetch.
+     */
+    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Companies.
+     */
+    cursor?: CompanyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Companies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Companies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Companies.
+     */
+    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company findMany
+   */
+  export type CompanyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter, which Companies to fetch.
+     */
+    where?: CompanyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Companies to fetch.
+     */
+    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Companies.
+     */
+    cursor?: CompanyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Companies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Companies.
+     */
+    skip?: number
+    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company create
+   */
+  export type CompanyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Company.
+     */
+    data: XOR<CompanyCreateInput, CompanyUncheckedCreateInput>
+  }
+
+
+  /**
+   * Company createMany
+   */
+  export type CompanyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Companies.
+     */
+    data: CompanyCreateManyInput | CompanyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Company update
+   */
+  export type CompanyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Company.
+     */
+    data: XOR<CompanyUpdateInput, CompanyUncheckedUpdateInput>
+    /**
+     * Choose, which Company to update.
+     */
+    where: CompanyWhereUniqueInput
+  }
+
+
+  /**
+   * Company updateMany
+   */
+  export type CompanyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Companies.
+     */
+    data: XOR<CompanyUpdateManyMutationInput, CompanyUncheckedUpdateManyInput>
+    /**
+     * Filter which Companies to update
+     */
+    where?: CompanyWhereInput
+  }
+
+
+  /**
+   * Company upsert
+   */
+  export type CompanyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Company to update in case it exists.
+     */
+    where: CompanyWhereUniqueInput
+    /**
+     * In case the Company found by the `where` argument doesn't exist, create a new Company with this data.
+     */
+    create: XOR<CompanyCreateInput, CompanyUncheckedCreateInput>
+    /**
+     * In case the Company was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CompanyUpdateInput, CompanyUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Company delete
+   */
+  export type CompanyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+    /**
+     * Filter which Company to delete.
+     */
+    where: CompanyWhereUniqueInput
+  }
+
+
+  /**
+   * Company deleteMany
+   */
+  export type CompanyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Companies to delete
+     */
+    where?: CompanyWhereInput
+  }
+
+
+  /**
+   * Company.jobApplications
+   */
+  export type Company$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Job_application
+     */
+    select?: Job_applicationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: Job_applicationInclude<ExtArgs> | null
+    where?: Job_applicationWhereInput
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
+    cursor?: Job_applicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company.jobs
+   */
+  export type Company$jobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Job
+     */
+    select?: JobSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: JobInclude<ExtArgs> | null
+    where?: JobWhereInput
+    orderBy?: JobOrderByWithRelationInput | JobOrderByWithRelationInput[]
+    cursor?: JobWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobScalarFieldEnum | JobScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company without action
+   */
+  export type CompanyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Company
+     */
+    select?: CompanySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: CompanyInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model List_certificate
+   */
+
+  export type AggregateList_certificate = {
+    _count: List_certificateCountAggregateOutputType | null
+    _avg: List_certificateAvgAggregateOutputType | null
+    _sum: List_certificateSumAggregateOutputType | null
+    _min: List_certificateMinAggregateOutputType | null
+    _max: List_certificateMaxAggregateOutputType | null
+  }
+
+  export type List_certificateAvgAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+  }
+
+  export type List_certificateSumAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+  }
+
+  export type List_certificateMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    user_id: number | null
+  }
+
+  export type List_certificateMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    user_id: number | null
+  }
+
+  export type List_certificateCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    user_id: number
+    _all: number
+  }
+
+
+  export type List_certificateAvgAggregateInputType = {
+    id?: true
+    user_id?: true
+  }
+
+  export type List_certificateSumAggregateInputType = {
+    id?: true
+    user_id?: true
+  }
+
+  export type List_certificateMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    user_id?: true
+  }
+
+  export type List_certificateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    user_id?: true
+  }
+
+  export type List_certificateCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    user_id?: true
+    _all?: true
+  }
+
+  export type List_certificateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which List_certificate to aggregate.
+     */
+    where?: List_certificateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of List_certificates to fetch.
+     */
+    orderBy?: List_certificateOrderByWithRelationInput | List_certificateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: List_certificateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` List_certificates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` List_certificates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned List_certificates
+    **/
+    _count?: true | List_certificateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: List_certificateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: List_certificateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: List_certificateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: List_certificateMaxAggregateInputType
+  }
+
+  export type GetList_certificateAggregateType<T extends List_certificateAggregateArgs> = {
+        [P in keyof T & keyof AggregateList_certificate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateList_certificate[P]>
+      : GetScalarType<T[P], AggregateList_certificate[P]>
+  }
+
+
+
+
+  export type List_certificateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_certificateWhereInput
+    orderBy?: List_certificateOrderByWithAggregationInput | List_certificateOrderByWithAggregationInput[]
+    by: List_certificateScalarFieldEnum[] | List_certificateScalarFieldEnum
+    having?: List_certificateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: List_certificateCountAggregateInputType | true
+    _avg?: List_certificateAvgAggregateInputType
+    _sum?: List_certificateSumAggregateInputType
+    _min?: List_certificateMinAggregateInputType
+    _max?: List_certificateMaxAggregateInputType
+  }
+
+  export type List_certificateGroupByOutputType = {
+    id: number
+    name: string | null
+    description: string | null
+    user_id: number
+    _count: List_certificateCountAggregateOutputType | null
+    _avg: List_certificateAvgAggregateOutputType | null
+    _sum: List_certificateSumAggregateOutputType | null
+    _min: List_certificateMinAggregateOutputType | null
+    _max: List_certificateMaxAggregateOutputType | null
+  }
+
+  type GetList_certificateGroupByPayload<T extends List_certificateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<List_certificateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof List_certificateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], List_certificateGroupByOutputType[P]>
+            : GetScalarType<T[P], List_certificateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type List_certificateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    user_id?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["list_certificate"]>
+
+  export type List_certificateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    user_id?: boolean
+  }
+
+  export type List_certificateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+
+  export type $List_certificatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "List_certificate"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string | null
+      description: string | null
+      user_id: number
+    }, ExtArgs["result"]["list_certificate"]>
+    composites: {}
+  }
+
+
+  type List_certificateGetPayload<S extends boolean | null | undefined | List_certificateDefaultArgs> = $Result.GetResult<Prisma.$List_certificatePayload, S>
+
+  type List_certificateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<List_certificateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: List_certificateCountAggregateInputType | true
+    }
+
+  export interface List_certificateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['List_certificate'], meta: { name: 'List_certificate' } }
+    /**
+     * Find zero or one List_certificate that matches the filter.
+     * @param {List_certificateFindUniqueArgs} args - Arguments to find a List_certificate
+     * @example
+     * // Get one List_certificate
+     * const list_certificate = await prisma.list_certificate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends List_certificateFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateFindUniqueArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one List_certificate that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {List_certificateFindUniqueOrThrowArgs} args - Arguments to find a List_certificate
+     * @example
+     * // Get one List_certificate
+     * const list_certificate = await prisma.list_certificate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends List_certificateFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first List_certificate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateFindFirstArgs} args - Arguments to find a List_certificate
+     * @example
+     * // Get one List_certificate
+     * const list_certificate = await prisma.list_certificate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends List_certificateFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateFindFirstArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first List_certificate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateFindFirstOrThrowArgs} args - Arguments to find a List_certificate
+     * @example
+     * // Get one List_certificate
+     * const list_certificate = await prisma.list_certificate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends List_certificateFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more List_certificates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all List_certificates
+     * const list_certificates = await prisma.list_certificate.findMany()
+     * 
+     * // Get first 10 List_certificates
+     * const list_certificates = await prisma.list_certificate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const list_certificateWithIdOnly = await prisma.list_certificate.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends List_certificateFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a List_certificate.
+     * @param {List_certificateCreateArgs} args - Arguments to create a List_certificate.
+     * @example
+     * // Create one List_certificate
+     * const List_certificate = await prisma.list_certificate.create({
+     *   data: {
+     *     // ... data to create a List_certificate
+     *   }
+     * })
+     * 
+    **/
+    create<T extends List_certificateCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateCreateArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many List_certificates.
+     *     @param {List_certificateCreateManyArgs} args - Arguments to create many List_certificates.
+     *     @example
+     *     // Create many List_certificates
+     *     const list_certificate = await prisma.list_certificate.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends List_certificateCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a List_certificate.
+     * @param {List_certificateDeleteArgs} args - Arguments to delete one List_certificate.
+     * @example
+     * // Delete one List_certificate
+     * const List_certificate = await prisma.list_certificate.delete({
+     *   where: {
+     *     // ... filter to delete one List_certificate
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends List_certificateDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateDeleteArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one List_certificate.
+     * @param {List_certificateUpdateArgs} args - Arguments to update one List_certificate.
+     * @example
+     * // Update one List_certificate
+     * const list_certificate = await prisma.list_certificate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends List_certificateUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateUpdateArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more List_certificates.
+     * @param {List_certificateDeleteManyArgs} args - Arguments to filter List_certificates to delete.
+     * @example
+     * // Delete a few List_certificates
+     * const { count } = await prisma.list_certificate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends List_certificateDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_certificateDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more List_certificates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many List_certificates
+     * const list_certificate = await prisma.list_certificate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends List_certificateUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one List_certificate.
+     * @param {List_certificateUpsertArgs} args - Arguments to update or create a List_certificate.
+     * @example
+     * // Update or create a List_certificate
+     * const list_certificate = await prisma.list_certificate.upsert({
+     *   create: {
+     *     // ... data to create a List_certificate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the List_certificate we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends List_certificateUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, List_certificateUpsertArgs<ExtArgs>>
+    ): Prisma__List_certificateClient<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of List_certificates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateCountArgs} args - Arguments to filter List_certificates to count.
+     * @example
+     * // Count the number of List_certificates
+     * const count = await prisma.list_certificate.count({
+     *   where: {
+     *     // ... the filter for the List_certificates we want to count
+     *   }
+     * })
+    **/
+    count<T extends List_certificateCountArgs>(
+      args?: Subset<T, List_certificateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], List_certificateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a List_certificate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends List_certificateAggregateArgs>(args: Subset<T, List_certificateAggregateArgs>): Prisma.PrismaPromise<GetList_certificateAggregateType<T>>
+
+    /**
+     * Group by List_certificate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {List_certificateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends List_certificateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: List_certificateGroupByArgs['orderBy'] }
+        : { orderBy?: List_certificateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, List_certificateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetList_certificateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the List_certificate model
+   */
+  readonly fields: List_certificateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for List_certificate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__List_certificateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -3762,336 +4840,336 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ListCertificate model
+   * Fields of the List_certificate model
    */ 
-  interface ListCertificateFieldRefs {
-    readonly id: FieldRef<"ListCertificate", 'Int'>
-    readonly name: FieldRef<"ListCertificate", 'String'>
-    readonly description: FieldRef<"ListCertificate", 'String'>
-    readonly user_id: FieldRef<"ListCertificate", 'Int'>
+  interface List_certificateFieldRefs {
+    readonly id: FieldRef<"List_certificate", 'Int'>
+    readonly name: FieldRef<"List_certificate", 'String'>
+    readonly description: FieldRef<"List_certificate", 'String'>
+    readonly user_id: FieldRef<"List_certificate", 'Int'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * ListCertificate findUnique
+   * List_certificate findUnique
    */
-  export type ListCertificateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter, which ListCertificate to fetch.
+     * Filter, which List_certificate to fetch.
      */
-    where: ListCertificateWhereUniqueInput
+    where: List_certificateWhereUniqueInput
   }
 
 
   /**
-   * ListCertificate findUniqueOrThrow
+   * List_certificate findUniqueOrThrow
    */
-  export type ListCertificateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter, which ListCertificate to fetch.
+     * Filter, which List_certificate to fetch.
      */
-    where: ListCertificateWhereUniqueInput
+    where: List_certificateWhereUniqueInput
   }
 
 
   /**
-   * ListCertificate findFirst
+   * List_certificate findFirst
    */
-  export type ListCertificateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter, which ListCertificate to fetch.
+     * Filter, which List_certificate to fetch.
      */
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListCertificates to fetch.
+     * Determine the order of List_certificates to fetch.
      */
-    orderBy?: ListCertificateOrderByWithRelationInput | ListCertificateOrderByWithRelationInput[]
+    orderBy?: List_certificateOrderByWithRelationInput | List_certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListCertificates.
+     * Sets the position for searching for List_certificates.
      */
-    cursor?: ListCertificateWhereUniqueInput
+    cursor?: List_certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListCertificates from the position of the cursor.
+     * Take `±n` List_certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListCertificates.
+     * Skip the first `n` List_certificates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListCertificates.
+     * Filter by unique combinations of List_certificates.
      */
-    distinct?: ListCertificateScalarFieldEnum | ListCertificateScalarFieldEnum[]
+    distinct?: List_certificateScalarFieldEnum | List_certificateScalarFieldEnum[]
   }
 
 
   /**
-   * ListCertificate findFirstOrThrow
+   * List_certificate findFirstOrThrow
    */
-  export type ListCertificateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter, which ListCertificate to fetch.
+     * Filter, which List_certificate to fetch.
      */
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListCertificates to fetch.
+     * Determine the order of List_certificates to fetch.
      */
-    orderBy?: ListCertificateOrderByWithRelationInput | ListCertificateOrderByWithRelationInput[]
+    orderBy?: List_certificateOrderByWithRelationInput | List_certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListCertificates.
+     * Sets the position for searching for List_certificates.
      */
-    cursor?: ListCertificateWhereUniqueInput
+    cursor?: List_certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListCertificates from the position of the cursor.
+     * Take `±n` List_certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListCertificates.
+     * Skip the first `n` List_certificates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListCertificates.
+     * Filter by unique combinations of List_certificates.
      */
-    distinct?: ListCertificateScalarFieldEnum | ListCertificateScalarFieldEnum[]
+    distinct?: List_certificateScalarFieldEnum | List_certificateScalarFieldEnum[]
   }
 
 
   /**
-   * ListCertificate findMany
+   * List_certificate findMany
    */
-  export type ListCertificateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter, which ListCertificates to fetch.
+     * Filter, which List_certificates to fetch.
      */
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListCertificates to fetch.
+     * Determine the order of List_certificates to fetch.
      */
-    orderBy?: ListCertificateOrderByWithRelationInput | ListCertificateOrderByWithRelationInput[]
+    orderBy?: List_certificateOrderByWithRelationInput | List_certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ListCertificates.
+     * Sets the position for listing List_certificates.
      */
-    cursor?: ListCertificateWhereUniqueInput
+    cursor?: List_certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListCertificates from the position of the cursor.
+     * Take `±n` List_certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListCertificates.
+     * Skip the first `n` List_certificates.
      */
     skip?: number
-    distinct?: ListCertificateScalarFieldEnum | ListCertificateScalarFieldEnum[]
+    distinct?: List_certificateScalarFieldEnum | List_certificateScalarFieldEnum[]
   }
 
 
   /**
-   * ListCertificate create
+   * List_certificate create
    */
-  export type ListCertificateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * The data needed to create a ListCertificate.
+     * The data needed to create a List_certificate.
      */
-    data: XOR<ListCertificateCreateInput, ListCertificateUncheckedCreateInput>
+    data: XOR<List_certificateCreateInput, List_certificateUncheckedCreateInput>
   }
 
 
   /**
-   * ListCertificate createMany
+   * List_certificate createMany
    */
-  export type ListCertificateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ListCertificates.
+     * The data used to create many List_certificates.
      */
-    data: ListCertificateCreateManyInput | ListCertificateCreateManyInput[]
+    data: List_certificateCreateManyInput | List_certificateCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * ListCertificate update
+   * List_certificate update
    */
-  export type ListCertificateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * The data needed to update a ListCertificate.
+     * The data needed to update a List_certificate.
      */
-    data: XOR<ListCertificateUpdateInput, ListCertificateUncheckedUpdateInput>
+    data: XOR<List_certificateUpdateInput, List_certificateUncheckedUpdateInput>
     /**
-     * Choose, which ListCertificate to update.
+     * Choose, which List_certificate to update.
      */
-    where: ListCertificateWhereUniqueInput
+    where: List_certificateWhereUniqueInput
   }
 
 
   /**
-   * ListCertificate updateMany
+   * List_certificate updateMany
    */
-  export type ListCertificateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ListCertificates.
+     * The data used to update List_certificates.
      */
-    data: XOR<ListCertificateUpdateManyMutationInput, ListCertificateUncheckedUpdateManyInput>
+    data: XOR<List_certificateUpdateManyMutationInput, List_certificateUncheckedUpdateManyInput>
     /**
-     * Filter which ListCertificates to update
+     * Filter which List_certificates to update
      */
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
   }
 
 
   /**
-   * ListCertificate upsert
+   * List_certificate upsert
    */
-  export type ListCertificateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * The filter to search for the ListCertificate to update in case it exists.
+     * The filter to search for the List_certificate to update in case it exists.
      */
-    where: ListCertificateWhereUniqueInput
+    where: List_certificateWhereUniqueInput
     /**
-     * In case the ListCertificate found by the `where` argument doesn't exist, create a new ListCertificate with this data.
+     * In case the List_certificate found by the `where` argument doesn't exist, create a new List_certificate with this data.
      */
-    create: XOR<ListCertificateCreateInput, ListCertificateUncheckedCreateInput>
+    create: XOR<List_certificateCreateInput, List_certificateUncheckedCreateInput>
     /**
-     * In case the ListCertificate was found with the provided `where` argument, update it with this data.
+     * In case the List_certificate was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ListCertificateUpdateInput, ListCertificateUncheckedUpdateInput>
+    update: XOR<List_certificateUpdateInput, List_certificateUncheckedUpdateInput>
   }
 
 
   /**
-   * ListCertificate delete
+   * List_certificate delete
    */
-  export type ListCertificateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
     /**
-     * Filter which ListCertificate to delete.
+     * Filter which List_certificate to delete.
      */
-    where: ListCertificateWhereUniqueInput
+    where: List_certificateWhereUniqueInput
   }
 
 
   /**
-   * ListCertificate deleteMany
+   * List_certificate deleteMany
    */
-  export type ListCertificateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListCertificates to delete
+     * Filter which List_certificates to delete
      */
-    where?: ListCertificateWhereInput
+    where?: List_certificateWhereInput
   }
 
 
   /**
-   * ListCertificate without action
+   * List_certificate without action
    */
-  export type ListCertificateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_certificateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListCertificate
+     * Select specific fields to fetch from the List_certificate
      */
-    select?: ListCertificateSelect<ExtArgs> | null
+    select?: List_certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListCertificateInclude<ExtArgs> | null
+    include?: List_certificateInclude<ExtArgs> | null
   }
 
 
@@ -4290,8 +5368,8 @@ export namespace Prisma {
   export type $SkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Skill"
     objects: {
-      users: Prisma.$ListSkillPayload<ExtArgs>[]
-      jobs: Prisma.$ListJobSkillPayload<ExtArgs>[]
+      users: Prisma.$List_skillPayload<ExtArgs>[]
+      jobs: Prisma.$List_job_skillPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4661,9 +5739,9 @@ export namespace Prisma {
   export interface Prisma__SkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    users<T extends Skill$usersArgs<ExtArgs> = {}>(args?: Subset<T, Skill$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findMany'> | Null>;
+    users<T extends Skill$usersArgs<ExtArgs> = {}>(args?: Subset<T, Skill$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    jobs<T extends Skill$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Skill$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findMany'> | Null>;
+    jobs<T extends Skill$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Skill$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5011,19 +6089,19 @@ export namespace Prisma {
    */
   export type Skill$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
-    where?: ListSkillWhereInput
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
-    cursor?: ListSkillWhereUniqueInput
+    include?: List_skillInclude<ExtArgs> | null
+    where?: List_skillWhereInput
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
+    cursor?: List_skillWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListSkillScalarFieldEnum | ListSkillScalarFieldEnum[]
+    distinct?: List_skillScalarFieldEnum | List_skillScalarFieldEnum[]
   }
 
 
@@ -5032,19 +6110,19 @@ export namespace Prisma {
    */
   export type Skill$jobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
-    where?: ListJobSkillWhereInput
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
-    cursor?: ListJobSkillWhereUniqueInput
+    include?: List_job_skillInclude<ExtArgs> | null
+    where?: List_job_skillWhereInput
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
+    cursor?: List_job_skillWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListJobSkillScalarFieldEnum | ListJobSkillScalarFieldEnum[]
+    distinct?: List_job_skillScalarFieldEnum | List_job_skillScalarFieldEnum[]
   }
 
 
@@ -5065,42 +6143,42 @@ export namespace Prisma {
 
 
   /**
-   * Model ListDisability
+   * Model List_disability
    */
 
-  export type AggregateListDisability = {
-    _count: ListDisabilityCountAggregateOutputType | null
-    _avg: ListDisabilityAvgAggregateOutputType | null
-    _sum: ListDisabilitySumAggregateOutputType | null
-    _min: ListDisabilityMinAggregateOutputType | null
-    _max: ListDisabilityMaxAggregateOutputType | null
+  export type AggregateList_disability = {
+    _count: List_disabilityCountAggregateOutputType | null
+    _avg: List_disabilityAvgAggregateOutputType | null
+    _sum: List_disabilitySumAggregateOutputType | null
+    _min: List_disabilityMinAggregateOutputType | null
+    _max: List_disabilityMaxAggregateOutputType | null
   }
 
-  export type ListDisabilityAvgAggregateOutputType = {
+  export type List_disabilityAvgAggregateOutputType = {
     id: number | null
     user_id: number | null
     disability_id: number | null
   }
 
-  export type ListDisabilitySumAggregateOutputType = {
+  export type List_disabilitySumAggregateOutputType = {
     id: number | null
     user_id: number | null
     disability_id: number | null
   }
 
-  export type ListDisabilityMinAggregateOutputType = {
+  export type List_disabilityMinAggregateOutputType = {
     id: number | null
     user_id: number | null
     disability_id: number | null
   }
 
-  export type ListDisabilityMaxAggregateOutputType = {
+  export type List_disabilityMaxAggregateOutputType = {
     id: number | null
     user_id: number | null
     disability_id: number | null
   }
 
-  export type ListDisabilityCountAggregateOutputType = {
+  export type List_disabilityCountAggregateOutputType = {
     id: number
     user_id: number
     disability_id: number
@@ -5108,170 +6186,170 @@ export namespace Prisma {
   }
 
 
-  export type ListDisabilityAvgAggregateInputType = {
+  export type List_disabilityAvgAggregateInputType = {
     id?: true
     user_id?: true
     disability_id?: true
   }
 
-  export type ListDisabilitySumAggregateInputType = {
+  export type List_disabilitySumAggregateInputType = {
     id?: true
     user_id?: true
     disability_id?: true
   }
 
-  export type ListDisabilityMinAggregateInputType = {
+  export type List_disabilityMinAggregateInputType = {
     id?: true
     user_id?: true
     disability_id?: true
   }
 
-  export type ListDisabilityMaxAggregateInputType = {
+  export type List_disabilityMaxAggregateInputType = {
     id?: true
     user_id?: true
     disability_id?: true
   }
 
-  export type ListDisabilityCountAggregateInputType = {
+  export type List_disabilityCountAggregateInputType = {
     id?: true
     user_id?: true
     disability_id?: true
     _all?: true
   }
 
-  export type ListDisabilityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListDisability to aggregate.
+     * Filter which List_disability to aggregate.
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListDisabilities to fetch.
+     * Determine the order of List_disabilities to fetch.
      */
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ListDisabilityWhereUniqueInput
+    cursor?: List_disabilityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListDisabilities from the position of the cursor.
+     * Take `±n` List_disabilities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListDisabilities.
+     * Skip the first `n` List_disabilities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ListDisabilities
+     * Count returned List_disabilities
     **/
-    _count?: true | ListDisabilityCountAggregateInputType
+    _count?: true | List_disabilityCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ListDisabilityAvgAggregateInputType
+    _avg?: List_disabilityAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ListDisabilitySumAggregateInputType
+    _sum?: List_disabilitySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ListDisabilityMinAggregateInputType
+    _min?: List_disabilityMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ListDisabilityMaxAggregateInputType
+    _max?: List_disabilityMaxAggregateInputType
   }
 
-  export type GetListDisabilityAggregateType<T extends ListDisabilityAggregateArgs> = {
-        [P in keyof T & keyof AggregateListDisability]: P extends '_count' | 'count'
+  export type GetList_disabilityAggregateType<T extends List_disabilityAggregateArgs> = {
+        [P in keyof T & keyof AggregateList_disability]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateListDisability[P]>
-      : GetScalarType<T[P], AggregateListDisability[P]>
+        : GetScalarType<T[P], AggregateList_disability[P]>
+      : GetScalarType<T[P], AggregateList_disability[P]>
   }
 
 
 
 
-  export type ListDisabilityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListDisabilityWhereInput
-    orderBy?: ListDisabilityOrderByWithAggregationInput | ListDisabilityOrderByWithAggregationInput[]
-    by: ListDisabilityScalarFieldEnum[] | ListDisabilityScalarFieldEnum
-    having?: ListDisabilityScalarWhereWithAggregatesInput
+  export type List_disabilityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_disabilityWhereInput
+    orderBy?: List_disabilityOrderByWithAggregationInput | List_disabilityOrderByWithAggregationInput[]
+    by: List_disabilityScalarFieldEnum[] | List_disabilityScalarFieldEnum
+    having?: List_disabilityScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ListDisabilityCountAggregateInputType | true
-    _avg?: ListDisabilityAvgAggregateInputType
-    _sum?: ListDisabilitySumAggregateInputType
-    _min?: ListDisabilityMinAggregateInputType
-    _max?: ListDisabilityMaxAggregateInputType
+    _count?: List_disabilityCountAggregateInputType | true
+    _avg?: List_disabilityAvgAggregateInputType
+    _sum?: List_disabilitySumAggregateInputType
+    _min?: List_disabilityMinAggregateInputType
+    _max?: List_disabilityMaxAggregateInputType
   }
 
-  export type ListDisabilityGroupByOutputType = {
+  export type List_disabilityGroupByOutputType = {
     id: number
     user_id: number
     disability_id: number
-    _count: ListDisabilityCountAggregateOutputType | null
-    _avg: ListDisabilityAvgAggregateOutputType | null
-    _sum: ListDisabilitySumAggregateOutputType | null
-    _min: ListDisabilityMinAggregateOutputType | null
-    _max: ListDisabilityMaxAggregateOutputType | null
+    _count: List_disabilityCountAggregateOutputType | null
+    _avg: List_disabilityAvgAggregateOutputType | null
+    _sum: List_disabilitySumAggregateOutputType | null
+    _min: List_disabilityMinAggregateOutputType | null
+    _max: List_disabilityMaxAggregateOutputType | null
   }
 
-  type GetListDisabilityGroupByPayload<T extends ListDisabilityGroupByArgs> = Prisma.PrismaPromise<
+  type GetList_disabilityGroupByPayload<T extends List_disabilityGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ListDisabilityGroupByOutputType, T['by']> &
+      PickEnumerable<List_disabilityGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ListDisabilityGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof List_disabilityGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ListDisabilityGroupByOutputType[P]>
-            : GetScalarType<T[P], ListDisabilityGroupByOutputType[P]>
+              : GetScalarType<T[P], List_disabilityGroupByOutputType[P]>
+            : GetScalarType<T[P], List_disabilityGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ListDisabilitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type List_disabilitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user_id?: boolean
     disability_id?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     disability?: boolean | DisabilityDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["listDisability"]>
+  }, ExtArgs["result"]["list_disability"]>
 
-  export type ListDisabilitySelectScalar = {
+  export type List_disabilitySelectScalar = {
     id?: boolean
     user_id?: boolean
     disability_id?: boolean
   }
 
-  export type ListDisabilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     disability?: boolean | DisabilityDefaultArgs<ExtArgs>
   }
 
 
-  export type $ListDisabilityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ListDisability"
+  export type $List_disabilityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "List_disability"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       disability: Prisma.$DisabilityPayload<ExtArgs>
@@ -5280,160 +6358,160 @@ export namespace Prisma {
       id: number
       user_id: number
       disability_id: number
-    }, ExtArgs["result"]["listDisability"]>
+    }, ExtArgs["result"]["list_disability"]>
     composites: {}
   }
 
 
-  type ListDisabilityGetPayload<S extends boolean | null | undefined | ListDisabilityDefaultArgs> = $Result.GetResult<Prisma.$ListDisabilityPayload, S>
+  type List_disabilityGetPayload<S extends boolean | null | undefined | List_disabilityDefaultArgs> = $Result.GetResult<Prisma.$List_disabilityPayload, S>
 
-  type ListDisabilityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ListDisabilityFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ListDisabilityCountAggregateInputType | true
+  type List_disabilityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<List_disabilityFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: List_disabilityCountAggregateInputType | true
     }
 
-  export interface ListDisabilityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ListDisability'], meta: { name: 'ListDisability' } }
+  export interface List_disabilityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['List_disability'], meta: { name: 'List_disability' } }
     /**
-     * Find zero or one ListDisability that matches the filter.
-     * @param {ListDisabilityFindUniqueArgs} args - Arguments to find a ListDisability
+     * Find zero or one List_disability that matches the filter.
+     * @param {List_disabilityFindUniqueArgs} args - Arguments to find a List_disability
      * @example
-     * // Get one ListDisability
-     * const listDisability = await prisma.listDisability.findUnique({
+     * // Get one List_disability
+     * const list_disability = await prisma.list_disability.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends ListDisabilityFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityFindUniqueArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends List_disabilityFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityFindUniqueArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one ListDisability that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one List_disability that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {ListDisabilityFindUniqueOrThrowArgs} args - Arguments to find a ListDisability
+     * @param {List_disabilityFindUniqueOrThrowArgs} args - Arguments to find a List_disability
      * @example
-     * // Get one ListDisability
-     * const listDisability = await prisma.listDisability.findUniqueOrThrow({
+     * // Get one List_disability
+     * const list_disability = await prisma.list_disability.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends ListDisabilityFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends List_disabilityFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first ListDisability that matches the filter.
+     * Find the first List_disability that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityFindFirstArgs} args - Arguments to find a ListDisability
+     * @param {List_disabilityFindFirstArgs} args - Arguments to find a List_disability
      * @example
-     * // Get one ListDisability
-     * const listDisability = await prisma.listDisability.findFirst({
+     * // Get one List_disability
+     * const list_disability = await prisma.list_disability.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends ListDisabilityFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityFindFirstArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends List_disabilityFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityFindFirstArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first ListDisability that matches the filter or
+     * Find the first List_disability that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityFindFirstOrThrowArgs} args - Arguments to find a ListDisability
+     * @param {List_disabilityFindFirstOrThrowArgs} args - Arguments to find a List_disability
      * @example
-     * // Get one ListDisability
-     * const listDisability = await prisma.listDisability.findFirstOrThrow({
+     * // Get one List_disability
+     * const list_disability = await prisma.list_disability.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends ListDisabilityFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends List_disabilityFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more ListDisabilities that matches the filter.
+     * Find zero or more List_disabilities that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {List_disabilityFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ListDisabilities
-     * const listDisabilities = await prisma.listDisability.findMany()
+     * // Get all List_disabilities
+     * const list_disabilities = await prisma.list_disability.findMany()
      * 
-     * // Get first 10 ListDisabilities
-     * const listDisabilities = await prisma.listDisability.findMany({ take: 10 })
+     * // Get first 10 List_disabilities
+     * const list_disabilities = await prisma.list_disability.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const listDisabilityWithIdOnly = await prisma.listDisability.findMany({ select: { id: true } })
+     * const list_disabilityWithIdOnly = await prisma.list_disability.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends ListDisabilityFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends List_disabilityFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a ListDisability.
-     * @param {ListDisabilityCreateArgs} args - Arguments to create a ListDisability.
+     * Create a List_disability.
+     * @param {List_disabilityCreateArgs} args - Arguments to create a List_disability.
      * @example
-     * // Create one ListDisability
-     * const ListDisability = await prisma.listDisability.create({
+     * // Create one List_disability
+     * const List_disability = await prisma.list_disability.create({
      *   data: {
-     *     // ... data to create a ListDisability
+     *     // ... data to create a List_disability
      *   }
      * })
      * 
     **/
-    create<T extends ListDisabilityCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityCreateArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends List_disabilityCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityCreateArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many ListDisabilities.
-     *     @param {ListDisabilityCreateManyArgs} args - Arguments to create many ListDisabilities.
+     * Create many List_disabilities.
+     *     @param {List_disabilityCreateManyArgs} args - Arguments to create many List_disabilities.
      *     @example
-     *     // Create many ListDisabilities
-     *     const listDisability = await prisma.listDisability.createMany({
+     *     // Create many List_disabilities
+     *     const list_disability = await prisma.list_disability.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends ListDisabilityCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityCreateManyArgs<ExtArgs>>
+    createMany<T extends List_disabilityCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ListDisability.
-     * @param {ListDisabilityDeleteArgs} args - Arguments to delete one ListDisability.
+     * Delete a List_disability.
+     * @param {List_disabilityDeleteArgs} args - Arguments to delete one List_disability.
      * @example
-     * // Delete one ListDisability
-     * const ListDisability = await prisma.listDisability.delete({
+     * // Delete one List_disability
+     * const List_disability = await prisma.list_disability.delete({
      *   where: {
-     *     // ... filter to delete one ListDisability
+     *     // ... filter to delete one List_disability
      *   }
      * })
      * 
     **/
-    delete<T extends ListDisabilityDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityDeleteArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends List_disabilityDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityDeleteArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one ListDisability.
-     * @param {ListDisabilityUpdateArgs} args - Arguments to update one ListDisability.
+     * Update one List_disability.
+     * @param {List_disabilityUpdateArgs} args - Arguments to update one List_disability.
      * @example
-     * // Update one ListDisability
-     * const listDisability = await prisma.listDisability.update({
+     * // Update one List_disability
+     * const list_disability = await prisma.list_disability.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5443,34 +6521,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends ListDisabilityUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityUpdateArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends List_disabilityUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityUpdateArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more ListDisabilities.
-     * @param {ListDisabilityDeleteManyArgs} args - Arguments to filter ListDisabilities to delete.
+     * Delete zero or more List_disabilities.
+     * @param {List_disabilityDeleteManyArgs} args - Arguments to filter List_disabilities to delete.
      * @example
-     * // Delete a few ListDisabilities
-     * const { count } = await prisma.listDisability.deleteMany({
+     * // Delete a few List_disabilities
+     * const { count } = await prisma.list_disability.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends ListDisabilityDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListDisabilityDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends List_disabilityDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_disabilityDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ListDisabilities.
+     * Update zero or more List_disabilities.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {List_disabilityUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ListDisabilities
-     * const listDisability = await prisma.listDisability.updateMany({
+     * // Update many List_disabilities
+     * const list_disability = await prisma.list_disability.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5480,59 +6558,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends ListDisabilityUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityUpdateManyArgs<ExtArgs>>
+    updateMany<T extends List_disabilityUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one ListDisability.
-     * @param {ListDisabilityUpsertArgs} args - Arguments to update or create a ListDisability.
+     * Create or update one List_disability.
+     * @param {List_disabilityUpsertArgs} args - Arguments to update or create a List_disability.
      * @example
-     * // Update or create a ListDisability
-     * const listDisability = await prisma.listDisability.upsert({
+     * // Update or create a List_disability
+     * const list_disability = await prisma.list_disability.upsert({
      *   create: {
-     *     // ... data to create a ListDisability
+     *     // ... data to create a List_disability
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ListDisability we want to update
+     *     // ... the filter for the List_disability we want to update
      *   }
      * })
     **/
-    upsert<T extends ListDisabilityUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, ListDisabilityUpsertArgs<ExtArgs>>
-    ): Prisma__ListDisabilityClient<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends List_disabilityUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, List_disabilityUpsertArgs<ExtArgs>>
+    ): Prisma__List_disabilityClient<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of ListDisabilities.
+     * Count the number of List_disabilities.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityCountArgs} args - Arguments to filter ListDisabilities to count.
+     * @param {List_disabilityCountArgs} args - Arguments to filter List_disabilities to count.
      * @example
-     * // Count the number of ListDisabilities
-     * const count = await prisma.listDisability.count({
+     * // Count the number of List_disabilities
+     * const count = await prisma.list_disability.count({
      *   where: {
-     *     // ... the filter for the ListDisabilities we want to count
+     *     // ... the filter for the List_disabilities we want to count
      *   }
      * })
     **/
-    count<T extends ListDisabilityCountArgs>(
-      args?: Subset<T, ListDisabilityCountArgs>,
+    count<T extends List_disabilityCountArgs>(
+      args?: Subset<T, List_disabilityCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ListDisabilityCountAggregateOutputType>
+          : GetScalarType<T['select'], List_disabilityCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ListDisability.
+     * Allows you to perform aggregations operations on a List_disability.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {List_disabilityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5552,13 +6630,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ListDisabilityAggregateArgs>(args: Subset<T, ListDisabilityAggregateArgs>): Prisma.PrismaPromise<GetListDisabilityAggregateType<T>>
+    aggregate<T extends List_disabilityAggregateArgs>(args: Subset<T, List_disabilityAggregateArgs>): Prisma.PrismaPromise<GetList_disabilityAggregateType<T>>
 
     /**
-     * Group by ListDisability.
+     * Group by List_disability.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListDisabilityGroupByArgs} args - Group by arguments.
+     * @param {List_disabilityGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5573,14 +6651,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ListDisabilityGroupByArgs,
+      T extends List_disabilityGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ListDisabilityGroupByArgs['orderBy'] }
-        : { orderBy?: ListDisabilityGroupByArgs['orderBy'] },
+        ? { orderBy: List_disabilityGroupByArgs['orderBy'] }
+        : { orderBy?: List_disabilityGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5629,20 +6707,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ListDisabilityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetListDisabilityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, List_disabilityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetList_disabilityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ListDisability model
+   * Fields of the List_disability model
    */
-  readonly fields: ListDisabilityFieldRefs;
+  readonly fields: List_disabilityFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ListDisability.
+   * The delegate class that acts as a "Promise-like" for List_disability.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ListDisabilityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__List_disabilityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -5674,374 +6752,366 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ListDisability model
+   * Fields of the List_disability model
    */ 
-  interface ListDisabilityFieldRefs {
-    readonly id: FieldRef<"ListDisability", 'Int'>
-    readonly user_id: FieldRef<"ListDisability", 'Int'>
-    readonly disability_id: FieldRef<"ListDisability", 'Int'>
+  interface List_disabilityFieldRefs {
+    readonly id: FieldRef<"List_disability", 'Int'>
+    readonly user_id: FieldRef<"List_disability", 'Int'>
+    readonly disability_id: FieldRef<"List_disability", 'Int'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * ListDisability findUnique
+   * List_disability findUnique
    */
-  export type ListDisabilityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter, which ListDisability to fetch.
+     * Filter, which List_disability to fetch.
      */
-    where: ListDisabilityWhereUniqueInput
+    where: List_disabilityWhereUniqueInput
   }
 
 
   /**
-   * ListDisability findUniqueOrThrow
+   * List_disability findUniqueOrThrow
    */
-  export type ListDisabilityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter, which ListDisability to fetch.
+     * Filter, which List_disability to fetch.
      */
-    where: ListDisabilityWhereUniqueInput
+    where: List_disabilityWhereUniqueInput
   }
 
 
   /**
-   * ListDisability findFirst
+   * List_disability findFirst
    */
-  export type ListDisabilityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter, which ListDisability to fetch.
+     * Filter, which List_disability to fetch.
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListDisabilities to fetch.
+     * Determine the order of List_disabilities to fetch.
      */
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListDisabilities.
+     * Sets the position for searching for List_disabilities.
      */
-    cursor?: ListDisabilityWhereUniqueInput
+    cursor?: List_disabilityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListDisabilities from the position of the cursor.
+     * Take `±n` List_disabilities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListDisabilities.
+     * Skip the first `n` List_disabilities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListDisabilities.
+     * Filter by unique combinations of List_disabilities.
      */
-    distinct?: ListDisabilityScalarFieldEnum | ListDisabilityScalarFieldEnum[]
+    distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
   }
 
 
   /**
-   * ListDisability findFirstOrThrow
+   * List_disability findFirstOrThrow
    */
-  export type ListDisabilityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter, which ListDisability to fetch.
+     * Filter, which List_disability to fetch.
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListDisabilities to fetch.
+     * Determine the order of List_disabilities to fetch.
      */
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListDisabilities.
+     * Sets the position for searching for List_disabilities.
      */
-    cursor?: ListDisabilityWhereUniqueInput
+    cursor?: List_disabilityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListDisabilities from the position of the cursor.
+     * Take `±n` List_disabilities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListDisabilities.
+     * Skip the first `n` List_disabilities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListDisabilities.
+     * Filter by unique combinations of List_disabilities.
      */
-    distinct?: ListDisabilityScalarFieldEnum | ListDisabilityScalarFieldEnum[]
+    distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
   }
 
 
   /**
-   * ListDisability findMany
+   * List_disability findMany
    */
-  export type ListDisabilityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter, which ListDisabilities to fetch.
+     * Filter, which List_disabilities to fetch.
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListDisabilities to fetch.
+     * Determine the order of List_disabilities to fetch.
      */
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ListDisabilities.
+     * Sets the position for listing List_disabilities.
      */
-    cursor?: ListDisabilityWhereUniqueInput
+    cursor?: List_disabilityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListDisabilities from the position of the cursor.
+     * Take `±n` List_disabilities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListDisabilities.
+     * Skip the first `n` List_disabilities.
      */
     skip?: number
-    distinct?: ListDisabilityScalarFieldEnum | ListDisabilityScalarFieldEnum[]
+    distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
   }
 
 
   /**
-   * ListDisability create
+   * List_disability create
    */
-  export type ListDisabilityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * The data needed to create a ListDisability.
+     * The data needed to create a List_disability.
      */
-    data: XOR<ListDisabilityCreateInput, ListDisabilityUncheckedCreateInput>
+    data: XOR<List_disabilityCreateInput, List_disabilityUncheckedCreateInput>
   }
 
 
   /**
-   * ListDisability createMany
+   * List_disability createMany
    */
-  export type ListDisabilityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ListDisabilities.
+     * The data used to create many List_disabilities.
      */
-    data: ListDisabilityCreateManyInput | ListDisabilityCreateManyInput[]
+    data: List_disabilityCreateManyInput | List_disabilityCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * ListDisability update
+   * List_disability update
    */
-  export type ListDisabilityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * The data needed to update a ListDisability.
+     * The data needed to update a List_disability.
      */
-    data: XOR<ListDisabilityUpdateInput, ListDisabilityUncheckedUpdateInput>
+    data: XOR<List_disabilityUpdateInput, List_disabilityUncheckedUpdateInput>
     /**
-     * Choose, which ListDisability to update.
+     * Choose, which List_disability to update.
      */
-    where: ListDisabilityWhereUniqueInput
+    where: List_disabilityWhereUniqueInput
   }
 
 
   /**
-   * ListDisability updateMany
+   * List_disability updateMany
    */
-  export type ListDisabilityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ListDisabilities.
+     * The data used to update List_disabilities.
      */
-    data: XOR<ListDisabilityUpdateManyMutationInput, ListDisabilityUncheckedUpdateManyInput>
+    data: XOR<List_disabilityUpdateManyMutationInput, List_disabilityUncheckedUpdateManyInput>
     /**
-     * Filter which ListDisabilities to update
+     * Filter which List_disabilities to update
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
   }
 
 
   /**
-   * ListDisability upsert
+   * List_disability upsert
    */
-  export type ListDisabilityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * The filter to search for the ListDisability to update in case it exists.
+     * The filter to search for the List_disability to update in case it exists.
      */
-    where: ListDisabilityWhereUniqueInput
+    where: List_disabilityWhereUniqueInput
     /**
-     * In case the ListDisability found by the `where` argument doesn't exist, create a new ListDisability with this data.
+     * In case the List_disability found by the `where` argument doesn't exist, create a new List_disability with this data.
      */
-    create: XOR<ListDisabilityCreateInput, ListDisabilityUncheckedCreateInput>
+    create: XOR<List_disabilityCreateInput, List_disabilityUncheckedCreateInput>
     /**
-     * In case the ListDisability was found with the provided `where` argument, update it with this data.
+     * In case the List_disability was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ListDisabilityUpdateInput, ListDisabilityUncheckedUpdateInput>
+    update: XOR<List_disabilityUpdateInput, List_disabilityUncheckedUpdateInput>
   }
 
 
   /**
-   * ListDisability delete
+   * List_disability delete
    */
-  export type ListDisabilityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
     /**
-     * Filter which ListDisability to delete.
+     * Filter which List_disability to delete.
      */
-    where: ListDisabilityWhereUniqueInput
+    where: List_disabilityWhereUniqueInput
   }
 
 
   /**
-   * ListDisability deleteMany
+   * List_disability deleteMany
    */
-  export type ListDisabilityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListDisabilities to delete
+     * Filter which List_disabilities to delete
      */
-    where?: ListDisabilityWhereInput
+    where?: List_disabilityWhereInput
   }
 
 
   /**
-   * ListDisability without action
+   * List_disability without action
    */
-  export type ListDisabilityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_disabilityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
+    include?: List_disabilityInclude<ExtArgs> | null
   }
 
 
 
   /**
-   * Model JobApplication
+   * Model Job_application
    */
 
-  export type AggregateJobApplication = {
-    _count: JobApplicationCountAggregateOutputType | null
-    _avg: JobApplicationAvgAggregateOutputType | null
-    _sum: JobApplicationSumAggregateOutputType | null
-    _min: JobApplicationMinAggregateOutputType | null
-    _max: JobApplicationMaxAggregateOutputType | null
+  export type AggregateJob_application = {
+    _count: Job_applicationCountAggregateOutputType | null
+    _avg: Job_applicationAvgAggregateOutputType | null
+    _sum: Job_applicationSumAggregateOutputType | null
+    _min: Job_applicationMinAggregateOutputType | null
+    _max: Job_applicationMaxAggregateOutputType | null
   }
 
-  export type JobApplicationAvgAggregateOutputType = {
+  export type Job_applicationAvgAggregateOutputType = {
     id: number | null
     user_id: number | null
     job_id: number | null
     company_id: number | null
   }
 
-  export type JobApplicationSumAggregateOutputType = {
+  export type Job_applicationSumAggregateOutputType = {
     id: number | null
     user_id: number | null
     job_id: number | null
     company_id: number | null
   }
 
-  export type JobApplicationMinAggregateOutputType = {
-    id: number | null
-    user_id: number | null
-    job_id: number | null
-    company_id: number | null
-    status: string | null
-  }
-
-  export type JobApplicationMaxAggregateOutputType = {
+  export type Job_applicationMinAggregateOutputType = {
     id: number | null
     user_id: number | null
     job_id: number | null
@@ -6049,7 +7119,15 @@ export namespace Prisma {
     status: string | null
   }
 
-  export type JobApplicationCountAggregateOutputType = {
+  export type Job_applicationMaxAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    job_id: number | null
+    company_id: number | null
+    status: string | null
+  }
+
+  export type Job_applicationCountAggregateOutputType = {
     id: number
     user_id: number
     job_id: number
@@ -6059,29 +7137,21 @@ export namespace Prisma {
   }
 
 
-  export type JobApplicationAvgAggregateInputType = {
+  export type Job_applicationAvgAggregateInputType = {
     id?: true
     user_id?: true
     job_id?: true
     company_id?: true
   }
 
-  export type JobApplicationSumAggregateInputType = {
+  export type Job_applicationSumAggregateInputType = {
     id?: true
     user_id?: true
     job_id?: true
     company_id?: true
   }
 
-  export type JobApplicationMinAggregateInputType = {
-    id?: true
-    user_id?: true
-    job_id?: true
-    company_id?: true
-    status?: true
-  }
-
-  export type JobApplicationMaxAggregateInputType = {
+  export type Job_applicationMinAggregateInputType = {
     id?: true
     user_id?: true
     job_id?: true
@@ -6089,7 +7159,15 @@ export namespace Prisma {
     status?: true
   }
 
-  export type JobApplicationCountAggregateInputType = {
+  export type Job_applicationMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    job_id?: true
+    company_id?: true
+    status?: true
+  }
+
+  export type Job_applicationCountAggregateInputType = {
     id?: true
     user_id?: true
     job_id?: true
@@ -6098,120 +7176,120 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type JobApplicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which JobApplication to aggregate.
+     * Filter which Job_application to aggregate.
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JobApplications to fetch.
+     * Determine the order of Job_applications to fetch.
      */
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: JobApplicationWhereUniqueInput
+    cursor?: Job_applicationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JobApplications from the position of the cursor.
+     * Take `±n` Job_applications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JobApplications.
+     * Skip the first `n` Job_applications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned JobApplications
+     * Count returned Job_applications
     **/
-    _count?: true | JobApplicationCountAggregateInputType
+    _count?: true | Job_applicationCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: JobApplicationAvgAggregateInputType
+    _avg?: Job_applicationAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: JobApplicationSumAggregateInputType
+    _sum?: Job_applicationSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: JobApplicationMinAggregateInputType
+    _min?: Job_applicationMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: JobApplicationMaxAggregateInputType
+    _max?: Job_applicationMaxAggregateInputType
   }
 
-  export type GetJobApplicationAggregateType<T extends JobApplicationAggregateArgs> = {
-        [P in keyof T & keyof AggregateJobApplication]: P extends '_count' | 'count'
+  export type GetJob_applicationAggregateType<T extends Job_applicationAggregateArgs> = {
+        [P in keyof T & keyof AggregateJob_application]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateJobApplication[P]>
-      : GetScalarType<T[P], AggregateJobApplication[P]>
+        : GetScalarType<T[P], AggregateJob_application[P]>
+      : GetScalarType<T[P], AggregateJob_application[P]>
   }
 
 
 
 
-  export type JobApplicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobApplicationWhereInput
-    orderBy?: JobApplicationOrderByWithAggregationInput | JobApplicationOrderByWithAggregationInput[]
-    by: JobApplicationScalarFieldEnum[] | JobApplicationScalarFieldEnum
-    having?: JobApplicationScalarWhereWithAggregatesInput
+  export type Job_applicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Job_applicationWhereInput
+    orderBy?: Job_applicationOrderByWithAggregationInput | Job_applicationOrderByWithAggregationInput[]
+    by: Job_applicationScalarFieldEnum[] | Job_applicationScalarFieldEnum
+    having?: Job_applicationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: JobApplicationCountAggregateInputType | true
-    _avg?: JobApplicationAvgAggregateInputType
-    _sum?: JobApplicationSumAggregateInputType
-    _min?: JobApplicationMinAggregateInputType
-    _max?: JobApplicationMaxAggregateInputType
+    _count?: Job_applicationCountAggregateInputType | true
+    _avg?: Job_applicationAvgAggregateInputType
+    _sum?: Job_applicationSumAggregateInputType
+    _min?: Job_applicationMinAggregateInputType
+    _max?: Job_applicationMaxAggregateInputType
   }
 
-  export type JobApplicationGroupByOutputType = {
+  export type Job_applicationGroupByOutputType = {
     id: number
     user_id: number
     job_id: number
     company_id: number
     status: string
-    _count: JobApplicationCountAggregateOutputType | null
-    _avg: JobApplicationAvgAggregateOutputType | null
-    _sum: JobApplicationSumAggregateOutputType | null
-    _min: JobApplicationMinAggregateOutputType | null
-    _max: JobApplicationMaxAggregateOutputType | null
+    _count: Job_applicationCountAggregateOutputType | null
+    _avg: Job_applicationAvgAggregateOutputType | null
+    _sum: Job_applicationSumAggregateOutputType | null
+    _min: Job_applicationMinAggregateOutputType | null
+    _max: Job_applicationMaxAggregateOutputType | null
   }
 
-  type GetJobApplicationGroupByPayload<T extends JobApplicationGroupByArgs> = Prisma.PrismaPromise<
+  type GetJob_applicationGroupByPayload<T extends Job_applicationGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<JobApplicationGroupByOutputType, T['by']> &
+      PickEnumerable<Job_applicationGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof JobApplicationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Job_applicationGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], JobApplicationGroupByOutputType[P]>
-            : GetScalarType<T[P], JobApplicationGroupByOutputType[P]>
+              : GetScalarType<T[P], Job_applicationGroupByOutputType[P]>
+            : GetScalarType<T[P], Job_applicationGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type JobApplicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type Job_applicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user_id?: boolean
     job_id?: boolean
@@ -6220,9 +7298,9 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
     job?: boolean | JobDefaultArgs<ExtArgs>
     company?: boolean | CompanyDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["jobApplication"]>
+  }, ExtArgs["result"]["job_application"]>
 
-  export type JobApplicationSelectScalar = {
+  export type Job_applicationSelectScalar = {
     id?: boolean
     user_id?: boolean
     job_id?: boolean
@@ -6230,15 +7308,15 @@ export namespace Prisma {
     status?: boolean
   }
 
-  export type JobApplicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     job?: boolean | JobDefaultArgs<ExtArgs>
     company?: boolean | CompanyDefaultArgs<ExtArgs>
   }
 
 
-  export type $JobApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "JobApplication"
+  export type $Job_applicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Job_application"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       job: Prisma.$JobPayload<ExtArgs>
@@ -6250,160 +7328,160 @@ export namespace Prisma {
       job_id: number
       company_id: number
       status: string
-    }, ExtArgs["result"]["jobApplication"]>
+    }, ExtArgs["result"]["job_application"]>
     composites: {}
   }
 
 
-  type JobApplicationGetPayload<S extends boolean | null | undefined | JobApplicationDefaultArgs> = $Result.GetResult<Prisma.$JobApplicationPayload, S>
+  type Job_applicationGetPayload<S extends boolean | null | undefined | Job_applicationDefaultArgs> = $Result.GetResult<Prisma.$Job_applicationPayload, S>
 
-  type JobApplicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<JobApplicationFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: JobApplicationCountAggregateInputType | true
+  type Job_applicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<Job_applicationFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Job_applicationCountAggregateInputType | true
     }
 
-  export interface JobApplicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobApplication'], meta: { name: 'JobApplication' } }
+  export interface Job_applicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Job_application'], meta: { name: 'Job_application' } }
     /**
-     * Find zero or one JobApplication that matches the filter.
-     * @param {JobApplicationFindUniqueArgs} args - Arguments to find a JobApplication
+     * Find zero or one Job_application that matches the filter.
+     * @param {Job_applicationFindUniqueArgs} args - Arguments to find a Job_application
      * @example
-     * // Get one JobApplication
-     * const jobApplication = await prisma.jobApplication.findUnique({
+     * // Get one Job_application
+     * const job_application = await prisma.job_application.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends JobApplicationFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationFindUniqueArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends Job_applicationFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationFindUniqueArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one JobApplication that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Job_application that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {JobApplicationFindUniqueOrThrowArgs} args - Arguments to find a JobApplication
+     * @param {Job_applicationFindUniqueOrThrowArgs} args - Arguments to find a Job_application
      * @example
-     * // Get one JobApplication
-     * const jobApplication = await prisma.jobApplication.findUniqueOrThrow({
+     * // Get one Job_application
+     * const job_application = await prisma.job_application.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends JobApplicationFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends Job_applicationFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first JobApplication that matches the filter.
+     * Find the first Job_application that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationFindFirstArgs} args - Arguments to find a JobApplication
+     * @param {Job_applicationFindFirstArgs} args - Arguments to find a Job_application
      * @example
-     * // Get one JobApplication
-     * const jobApplication = await prisma.jobApplication.findFirst({
+     * // Get one Job_application
+     * const job_application = await prisma.job_application.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends JobApplicationFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationFindFirstArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends Job_applicationFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationFindFirstArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first JobApplication that matches the filter or
+     * Find the first Job_application that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationFindFirstOrThrowArgs} args - Arguments to find a JobApplication
+     * @param {Job_applicationFindFirstOrThrowArgs} args - Arguments to find a Job_application
      * @example
-     * // Get one JobApplication
-     * const jobApplication = await prisma.jobApplication.findFirstOrThrow({
+     * // Get one Job_application
+     * const job_application = await prisma.job_application.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends JobApplicationFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends Job_applicationFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more JobApplications that matches the filter.
+     * Find zero or more Job_applications that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {Job_applicationFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all JobApplications
-     * const jobApplications = await prisma.jobApplication.findMany()
+     * // Get all Job_applications
+     * const job_applications = await prisma.job_application.findMany()
      * 
-     * // Get first 10 JobApplications
-     * const jobApplications = await prisma.jobApplication.findMany({ take: 10 })
+     * // Get first 10 Job_applications
+     * const job_applications = await prisma.job_application.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const jobApplicationWithIdOnly = await prisma.jobApplication.findMany({ select: { id: true } })
+     * const job_applicationWithIdOnly = await prisma.job_application.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends JobApplicationFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends Job_applicationFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a JobApplication.
-     * @param {JobApplicationCreateArgs} args - Arguments to create a JobApplication.
+     * Create a Job_application.
+     * @param {Job_applicationCreateArgs} args - Arguments to create a Job_application.
      * @example
-     * // Create one JobApplication
-     * const JobApplication = await prisma.jobApplication.create({
+     * // Create one Job_application
+     * const Job_application = await prisma.job_application.create({
      *   data: {
-     *     // ... data to create a JobApplication
+     *     // ... data to create a Job_application
      *   }
      * })
      * 
     **/
-    create<T extends JobApplicationCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationCreateArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends Job_applicationCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationCreateArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many JobApplications.
-     *     @param {JobApplicationCreateManyArgs} args - Arguments to create many JobApplications.
+     * Create many Job_applications.
+     *     @param {Job_applicationCreateManyArgs} args - Arguments to create many Job_applications.
      *     @example
-     *     // Create many JobApplications
-     *     const jobApplication = await prisma.jobApplication.createMany({
+     *     // Create many Job_applications
+     *     const job_application = await prisma.job_application.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends JobApplicationCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationCreateManyArgs<ExtArgs>>
+    createMany<T extends Job_applicationCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a JobApplication.
-     * @param {JobApplicationDeleteArgs} args - Arguments to delete one JobApplication.
+     * Delete a Job_application.
+     * @param {Job_applicationDeleteArgs} args - Arguments to delete one Job_application.
      * @example
-     * // Delete one JobApplication
-     * const JobApplication = await prisma.jobApplication.delete({
+     * // Delete one Job_application
+     * const Job_application = await prisma.job_application.delete({
      *   where: {
-     *     // ... filter to delete one JobApplication
+     *     // ... filter to delete one Job_application
      *   }
      * })
      * 
     **/
-    delete<T extends JobApplicationDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationDeleteArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends Job_applicationDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationDeleteArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one JobApplication.
-     * @param {JobApplicationUpdateArgs} args - Arguments to update one JobApplication.
+     * Update one Job_application.
+     * @param {Job_applicationUpdateArgs} args - Arguments to update one Job_application.
      * @example
-     * // Update one JobApplication
-     * const jobApplication = await prisma.jobApplication.update({
+     * // Update one Job_application
+     * const job_application = await prisma.job_application.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6413,34 +7491,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends JobApplicationUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationUpdateArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends Job_applicationUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationUpdateArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more JobApplications.
-     * @param {JobApplicationDeleteManyArgs} args - Arguments to filter JobApplications to delete.
+     * Delete zero or more Job_applications.
+     * @param {Job_applicationDeleteManyArgs} args - Arguments to filter Job_applications to delete.
      * @example
-     * // Delete a few JobApplications
-     * const { count } = await prisma.jobApplication.deleteMany({
+     * // Delete a few Job_applications
+     * const { count } = await prisma.job_application.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends JobApplicationDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, JobApplicationDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends Job_applicationDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, Job_applicationDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more JobApplications.
+     * Update zero or more Job_applications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {Job_applicationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many JobApplications
-     * const jobApplication = await prisma.jobApplication.updateMany({
+     * // Update many Job_applications
+     * const job_application = await prisma.job_application.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6450,59 +7528,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends JobApplicationUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationUpdateManyArgs<ExtArgs>>
+    updateMany<T extends Job_applicationUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one JobApplication.
-     * @param {JobApplicationUpsertArgs} args - Arguments to update or create a JobApplication.
+     * Create or update one Job_application.
+     * @param {Job_applicationUpsertArgs} args - Arguments to update or create a Job_application.
      * @example
-     * // Update or create a JobApplication
-     * const jobApplication = await prisma.jobApplication.upsert({
+     * // Update or create a Job_application
+     * const job_application = await prisma.job_application.upsert({
      *   create: {
-     *     // ... data to create a JobApplication
+     *     // ... data to create a Job_application
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the JobApplication we want to update
+     *     // ... the filter for the Job_application we want to update
      *   }
      * })
     **/
-    upsert<T extends JobApplicationUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, JobApplicationUpsertArgs<ExtArgs>>
-    ): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends Job_applicationUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, Job_applicationUpsertArgs<ExtArgs>>
+    ): Prisma__Job_applicationClient<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of JobApplications.
+     * Count the number of Job_applications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationCountArgs} args - Arguments to filter JobApplications to count.
+     * @param {Job_applicationCountArgs} args - Arguments to filter Job_applications to count.
      * @example
-     * // Count the number of JobApplications
-     * const count = await prisma.jobApplication.count({
+     * // Count the number of Job_applications
+     * const count = await prisma.job_application.count({
      *   where: {
-     *     // ... the filter for the JobApplications we want to count
+     *     // ... the filter for the Job_applications we want to count
      *   }
      * })
     **/
-    count<T extends JobApplicationCountArgs>(
-      args?: Subset<T, JobApplicationCountArgs>,
+    count<T extends Job_applicationCountArgs>(
+      args?: Subset<T, Job_applicationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], JobApplicationCountAggregateOutputType>
+          : GetScalarType<T['select'], Job_applicationCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a JobApplication.
+     * Allows you to perform aggregations operations on a Job_application.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Job_applicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6522,13 +7600,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends JobApplicationAggregateArgs>(args: Subset<T, JobApplicationAggregateArgs>): Prisma.PrismaPromise<GetJobApplicationAggregateType<T>>
+    aggregate<T extends Job_applicationAggregateArgs>(args: Subset<T, Job_applicationAggregateArgs>): Prisma.PrismaPromise<GetJob_applicationAggregateType<T>>
 
     /**
-     * Group by JobApplication.
+     * Group by Job_application.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JobApplicationGroupByArgs} args - Group by arguments.
+     * @param {Job_applicationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6543,14 +7621,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends JobApplicationGroupByArgs,
+      T extends Job_applicationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: JobApplicationGroupByArgs['orderBy'] }
-        : { orderBy?: JobApplicationGroupByArgs['orderBy'] },
+        ? { orderBy: Job_applicationGroupByArgs['orderBy'] }
+        : { orderBy?: Job_applicationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6599,20 +7677,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, JobApplicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobApplicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, Job_applicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJob_applicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the JobApplication model
+   * Fields of the Job_application model
    */
-  readonly fields: JobApplicationFieldRefs;
+  readonly fields: Job_applicationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for JobApplication.
+   * The delegate class that acts as a "Promise-like" for Job_application.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__JobApplicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__Job_applicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -6646,337 +7724,337 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the JobApplication model
+   * Fields of the Job_application model
    */ 
-  interface JobApplicationFieldRefs {
-    readonly id: FieldRef<"JobApplication", 'Int'>
-    readonly user_id: FieldRef<"JobApplication", 'Int'>
-    readonly job_id: FieldRef<"JobApplication", 'Int'>
-    readonly company_id: FieldRef<"JobApplication", 'Int'>
-    readonly status: FieldRef<"JobApplication", 'String'>
+  interface Job_applicationFieldRefs {
+    readonly id: FieldRef<"Job_application", 'Int'>
+    readonly user_id: FieldRef<"Job_application", 'Int'>
+    readonly job_id: FieldRef<"Job_application", 'Int'>
+    readonly company_id: FieldRef<"Job_application", 'Int'>
+    readonly status: FieldRef<"Job_application", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * JobApplication findUnique
+   * Job_application findUnique
    */
-  export type JobApplicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter, which JobApplication to fetch.
+     * Filter, which Job_application to fetch.
      */
-    where: JobApplicationWhereUniqueInput
+    where: Job_applicationWhereUniqueInput
   }
 
 
   /**
-   * JobApplication findUniqueOrThrow
+   * Job_application findUniqueOrThrow
    */
-  export type JobApplicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter, which JobApplication to fetch.
+     * Filter, which Job_application to fetch.
      */
-    where: JobApplicationWhereUniqueInput
+    where: Job_applicationWhereUniqueInput
   }
 
 
   /**
-   * JobApplication findFirst
+   * Job_application findFirst
    */
-  export type JobApplicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter, which JobApplication to fetch.
+     * Filter, which Job_application to fetch.
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JobApplications to fetch.
+     * Determine the order of Job_applications to fetch.
      */
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for JobApplications.
+     * Sets the position for searching for Job_applications.
      */
-    cursor?: JobApplicationWhereUniqueInput
+    cursor?: Job_applicationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JobApplications from the position of the cursor.
+     * Take `±n` Job_applications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JobApplications.
+     * Skip the first `n` Job_applications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of JobApplications.
+     * Filter by unique combinations of Job_applications.
      */
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
   /**
-   * JobApplication findFirstOrThrow
+   * Job_application findFirstOrThrow
    */
-  export type JobApplicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter, which JobApplication to fetch.
+     * Filter, which Job_application to fetch.
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JobApplications to fetch.
+     * Determine the order of Job_applications to fetch.
      */
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for JobApplications.
+     * Sets the position for searching for Job_applications.
      */
-    cursor?: JobApplicationWhereUniqueInput
+    cursor?: Job_applicationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JobApplications from the position of the cursor.
+     * Take `±n` Job_applications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JobApplications.
+     * Skip the first `n` Job_applications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of JobApplications.
+     * Filter by unique combinations of Job_applications.
      */
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
   /**
-   * JobApplication findMany
+   * Job_application findMany
    */
-  export type JobApplicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter, which JobApplications to fetch.
+     * Filter, which Job_applications to fetch.
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JobApplications to fetch.
+     * Determine the order of Job_applications to fetch.
      */
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing JobApplications.
+     * Sets the position for listing Job_applications.
      */
-    cursor?: JobApplicationWhereUniqueInput
+    cursor?: Job_applicationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JobApplications from the position of the cursor.
+     * Take `±n` Job_applications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JobApplications.
+     * Skip the first `n` Job_applications.
      */
     skip?: number
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
   /**
-   * JobApplication create
+   * Job_application create
    */
-  export type JobApplicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * The data needed to create a JobApplication.
+     * The data needed to create a Job_application.
      */
-    data: XOR<JobApplicationCreateInput, JobApplicationUncheckedCreateInput>
+    data: XOR<Job_applicationCreateInput, Job_applicationUncheckedCreateInput>
   }
 
 
   /**
-   * JobApplication createMany
+   * Job_application createMany
    */
-  export type JobApplicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many JobApplications.
+     * The data used to create many Job_applications.
      */
-    data: JobApplicationCreateManyInput | JobApplicationCreateManyInput[]
+    data: Job_applicationCreateManyInput | Job_applicationCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * JobApplication update
+   * Job_application update
    */
-  export type JobApplicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * The data needed to update a JobApplication.
+     * The data needed to update a Job_application.
      */
-    data: XOR<JobApplicationUpdateInput, JobApplicationUncheckedUpdateInput>
+    data: XOR<Job_applicationUpdateInput, Job_applicationUncheckedUpdateInput>
     /**
-     * Choose, which JobApplication to update.
+     * Choose, which Job_application to update.
      */
-    where: JobApplicationWhereUniqueInput
+    where: Job_applicationWhereUniqueInput
   }
 
 
   /**
-   * JobApplication updateMany
+   * Job_application updateMany
    */
-  export type JobApplicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update JobApplications.
+     * The data used to update Job_applications.
      */
-    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyInput>
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyInput>
     /**
-     * Filter which JobApplications to update
+     * Filter which Job_applications to update
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
   }
 
 
   /**
-   * JobApplication upsert
+   * Job_application upsert
    */
-  export type JobApplicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * The filter to search for the JobApplication to update in case it exists.
+     * The filter to search for the Job_application to update in case it exists.
      */
-    where: JobApplicationWhereUniqueInput
+    where: Job_applicationWhereUniqueInput
     /**
-     * In case the JobApplication found by the `where` argument doesn't exist, create a new JobApplication with this data.
+     * In case the Job_application found by the `where` argument doesn't exist, create a new Job_application with this data.
      */
-    create: XOR<JobApplicationCreateInput, JobApplicationUncheckedCreateInput>
+    create: XOR<Job_applicationCreateInput, Job_applicationUncheckedCreateInput>
     /**
-     * In case the JobApplication was found with the provided `where` argument, update it with this data.
+     * In case the Job_application was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<JobApplicationUpdateInput, JobApplicationUncheckedUpdateInput>
+    update: XOR<Job_applicationUpdateInput, Job_applicationUncheckedUpdateInput>
   }
 
 
   /**
-   * JobApplication delete
+   * Job_application delete
    */
-  export type JobApplicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
     /**
-     * Filter which JobApplication to delete.
+     * Filter which Job_application to delete.
      */
-    where: JobApplicationWhereUniqueInput
+    where: Job_applicationWhereUniqueInput
   }
 
 
   /**
-   * JobApplication deleteMany
+   * Job_application deleteMany
    */
-  export type JobApplicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which JobApplications to delete
+     * Filter which Job_applications to delete
      */
-    where?: JobApplicationWhereInput
+    where?: Job_applicationWhereInput
   }
 
 
   /**
-   * JobApplication without action
+   * Job_application without action
    */
-  export type JobApplicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Job_applicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
+    include?: Job_applicationInclude<ExtArgs> | null
   }
 
 
@@ -7198,7 +8276,7 @@ export namespace Prisma {
     name: "Disability"
     objects: {
       category: Prisma.$CategoryPayload<ExtArgs>
-      users: Prisma.$ListDisabilityPayload<ExtArgs>[]
+      users: Prisma.$List_disabilityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7572,7 +8650,7 @@ export namespace Prisma {
 
     category<T extends CategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoryDefaultArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    users<T extends Disability$usersArgs<ExtArgs> = {}>(args?: Subset<T, Disability$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListDisabilityPayload<ExtArgs>, T, 'findMany'> | Null>;
+    users<T extends Disability$usersArgs<ExtArgs> = {}>(args?: Subset<T, Disability$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -7922,19 +9000,19 @@ export namespace Prisma {
    */
   export type Disability$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListDisability
+     * Select specific fields to fetch from the List_disability
      */
-    select?: ListDisabilitySelect<ExtArgs> | null
+    select?: List_disabilitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListDisabilityInclude<ExtArgs> | null
-    where?: ListDisabilityWhereInput
-    orderBy?: ListDisabilityOrderByWithRelationInput | ListDisabilityOrderByWithRelationInput[]
-    cursor?: ListDisabilityWhereUniqueInput
+    include?: List_disabilityInclude<ExtArgs> | null
+    where?: List_disabilityWhereInput
+    orderBy?: List_disabilityOrderByWithRelationInput | List_disabilityOrderByWithRelationInput[]
+    cursor?: List_disabilityWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListDisabilityScalarFieldEnum | ListDisabilityScalarFieldEnum[]
+    distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
   }
 
 
@@ -8897,42 +9975,42 @@ export namespace Prisma {
 
 
   /**
-   * Model ListSkill
+   * Model List_skill
    */
 
-  export type AggregateListSkill = {
-    _count: ListSkillCountAggregateOutputType | null
-    _avg: ListSkillAvgAggregateOutputType | null
-    _sum: ListSkillSumAggregateOutputType | null
-    _min: ListSkillMinAggregateOutputType | null
-    _max: ListSkillMaxAggregateOutputType | null
+  export type AggregateList_skill = {
+    _count: List_skillCountAggregateOutputType | null
+    _avg: List_skillAvgAggregateOutputType | null
+    _sum: List_skillSumAggregateOutputType | null
+    _min: List_skillMinAggregateOutputType | null
+    _max: List_skillMaxAggregateOutputType | null
   }
 
-  export type ListSkillAvgAggregateOutputType = {
+  export type List_skillAvgAggregateOutputType = {
     id: number | null
     user_id: number | null
     skill_id: number | null
   }
 
-  export type ListSkillSumAggregateOutputType = {
+  export type List_skillSumAggregateOutputType = {
     id: number | null
     user_id: number | null
     skill_id: number | null
   }
 
-  export type ListSkillMinAggregateOutputType = {
+  export type List_skillMinAggregateOutputType = {
     id: number | null
     user_id: number | null
     skill_id: number | null
   }
 
-  export type ListSkillMaxAggregateOutputType = {
+  export type List_skillMaxAggregateOutputType = {
     id: number | null
     user_id: number | null
     skill_id: number | null
   }
 
-  export type ListSkillCountAggregateOutputType = {
+  export type List_skillCountAggregateOutputType = {
     id: number
     user_id: number
     skill_id: number
@@ -8940,170 +10018,170 @@ export namespace Prisma {
   }
 
 
-  export type ListSkillAvgAggregateInputType = {
+  export type List_skillAvgAggregateInputType = {
     id?: true
     user_id?: true
     skill_id?: true
   }
 
-  export type ListSkillSumAggregateInputType = {
+  export type List_skillSumAggregateInputType = {
     id?: true
     user_id?: true
     skill_id?: true
   }
 
-  export type ListSkillMinAggregateInputType = {
+  export type List_skillMinAggregateInputType = {
     id?: true
     user_id?: true
     skill_id?: true
   }
 
-  export type ListSkillMaxAggregateInputType = {
+  export type List_skillMaxAggregateInputType = {
     id?: true
     user_id?: true
     skill_id?: true
   }
 
-  export type ListSkillCountAggregateInputType = {
+  export type List_skillCountAggregateInputType = {
     id?: true
     user_id?: true
     skill_id?: true
     _all?: true
   }
 
-  export type ListSkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListSkill to aggregate.
+     * Filter which List_skill to aggregate.
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListSkills to fetch.
+     * Determine the order of List_skills to fetch.
      */
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ListSkillWhereUniqueInput
+    cursor?: List_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListSkills from the position of the cursor.
+     * Take `±n` List_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListSkills.
+     * Skip the first `n` List_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ListSkills
+     * Count returned List_skills
     **/
-    _count?: true | ListSkillCountAggregateInputType
+    _count?: true | List_skillCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ListSkillAvgAggregateInputType
+    _avg?: List_skillAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ListSkillSumAggregateInputType
+    _sum?: List_skillSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ListSkillMinAggregateInputType
+    _min?: List_skillMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ListSkillMaxAggregateInputType
+    _max?: List_skillMaxAggregateInputType
   }
 
-  export type GetListSkillAggregateType<T extends ListSkillAggregateArgs> = {
-        [P in keyof T & keyof AggregateListSkill]: P extends '_count' | 'count'
+  export type GetList_skillAggregateType<T extends List_skillAggregateArgs> = {
+        [P in keyof T & keyof AggregateList_skill]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateListSkill[P]>
-      : GetScalarType<T[P], AggregateListSkill[P]>
+        : GetScalarType<T[P], AggregateList_skill[P]>
+      : GetScalarType<T[P], AggregateList_skill[P]>
   }
 
 
 
 
-  export type ListSkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListSkillWhereInput
-    orderBy?: ListSkillOrderByWithAggregationInput | ListSkillOrderByWithAggregationInput[]
-    by: ListSkillScalarFieldEnum[] | ListSkillScalarFieldEnum
-    having?: ListSkillScalarWhereWithAggregatesInput
+  export type List_skillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_skillWhereInput
+    orderBy?: List_skillOrderByWithAggregationInput | List_skillOrderByWithAggregationInput[]
+    by: List_skillScalarFieldEnum[] | List_skillScalarFieldEnum
+    having?: List_skillScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ListSkillCountAggregateInputType | true
-    _avg?: ListSkillAvgAggregateInputType
-    _sum?: ListSkillSumAggregateInputType
-    _min?: ListSkillMinAggregateInputType
-    _max?: ListSkillMaxAggregateInputType
+    _count?: List_skillCountAggregateInputType | true
+    _avg?: List_skillAvgAggregateInputType
+    _sum?: List_skillSumAggregateInputType
+    _min?: List_skillMinAggregateInputType
+    _max?: List_skillMaxAggregateInputType
   }
 
-  export type ListSkillGroupByOutputType = {
+  export type List_skillGroupByOutputType = {
     id: number
     user_id: number
     skill_id: number
-    _count: ListSkillCountAggregateOutputType | null
-    _avg: ListSkillAvgAggregateOutputType | null
-    _sum: ListSkillSumAggregateOutputType | null
-    _min: ListSkillMinAggregateOutputType | null
-    _max: ListSkillMaxAggregateOutputType | null
+    _count: List_skillCountAggregateOutputType | null
+    _avg: List_skillAvgAggregateOutputType | null
+    _sum: List_skillSumAggregateOutputType | null
+    _min: List_skillMinAggregateOutputType | null
+    _max: List_skillMaxAggregateOutputType | null
   }
 
-  type GetListSkillGroupByPayload<T extends ListSkillGroupByArgs> = Prisma.PrismaPromise<
+  type GetList_skillGroupByPayload<T extends List_skillGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ListSkillGroupByOutputType, T['by']> &
+      PickEnumerable<List_skillGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ListSkillGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof List_skillGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ListSkillGroupByOutputType[P]>
-            : GetScalarType<T[P], ListSkillGroupByOutputType[P]>
+              : GetScalarType<T[P], List_skillGroupByOutputType[P]>
+            : GetScalarType<T[P], List_skillGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ListSkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type List_skillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     user_id?: boolean
     skill_id?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     skill?: boolean | SkillDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["listSkill"]>
+  }, ExtArgs["result"]["list_skill"]>
 
-  export type ListSkillSelectScalar = {
+  export type List_skillSelectScalar = {
     id?: boolean
     user_id?: boolean
     skill_id?: boolean
   }
 
-  export type ListSkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     skill?: boolean | SkillDefaultArgs<ExtArgs>
   }
 
 
-  export type $ListSkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ListSkill"
+  export type $List_skillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "List_skill"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       skill: Prisma.$SkillPayload<ExtArgs>
@@ -9112,160 +10190,160 @@ export namespace Prisma {
       id: number
       user_id: number
       skill_id: number
-    }, ExtArgs["result"]["listSkill"]>
+    }, ExtArgs["result"]["list_skill"]>
     composites: {}
   }
 
 
-  type ListSkillGetPayload<S extends boolean | null | undefined | ListSkillDefaultArgs> = $Result.GetResult<Prisma.$ListSkillPayload, S>
+  type List_skillGetPayload<S extends boolean | null | undefined | List_skillDefaultArgs> = $Result.GetResult<Prisma.$List_skillPayload, S>
 
-  type ListSkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ListSkillFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ListSkillCountAggregateInputType | true
+  type List_skillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<List_skillFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: List_skillCountAggregateInputType | true
     }
 
-  export interface ListSkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ListSkill'], meta: { name: 'ListSkill' } }
+  export interface List_skillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['List_skill'], meta: { name: 'List_skill' } }
     /**
-     * Find zero or one ListSkill that matches the filter.
-     * @param {ListSkillFindUniqueArgs} args - Arguments to find a ListSkill
+     * Find zero or one List_skill that matches the filter.
+     * @param {List_skillFindUniqueArgs} args - Arguments to find a List_skill
      * @example
-     * // Get one ListSkill
-     * const listSkill = await prisma.listSkill.findUnique({
+     * // Get one List_skill
+     * const list_skill = await prisma.list_skill.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends ListSkillFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillFindUniqueArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends List_skillFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillFindUniqueArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one ListSkill that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one List_skill that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {ListSkillFindUniqueOrThrowArgs} args - Arguments to find a ListSkill
+     * @param {List_skillFindUniqueOrThrowArgs} args - Arguments to find a List_skill
      * @example
-     * // Get one ListSkill
-     * const listSkill = await prisma.listSkill.findUniqueOrThrow({
+     * // Get one List_skill
+     * const list_skill = await prisma.list_skill.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends ListSkillFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends List_skillFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first ListSkill that matches the filter.
+     * Find the first List_skill that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillFindFirstArgs} args - Arguments to find a ListSkill
+     * @param {List_skillFindFirstArgs} args - Arguments to find a List_skill
      * @example
-     * // Get one ListSkill
-     * const listSkill = await prisma.listSkill.findFirst({
+     * // Get one List_skill
+     * const list_skill = await prisma.list_skill.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends ListSkillFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillFindFirstArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends List_skillFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillFindFirstArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first ListSkill that matches the filter or
+     * Find the first List_skill that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillFindFirstOrThrowArgs} args - Arguments to find a ListSkill
+     * @param {List_skillFindFirstOrThrowArgs} args - Arguments to find a List_skill
      * @example
-     * // Get one ListSkill
-     * const listSkill = await prisma.listSkill.findFirstOrThrow({
+     * // Get one List_skill
+     * const list_skill = await prisma.list_skill.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends ListSkillFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends List_skillFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more ListSkills that matches the filter.
+     * Find zero or more List_skills that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {List_skillFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ListSkills
-     * const listSkills = await prisma.listSkill.findMany()
+     * // Get all List_skills
+     * const list_skills = await prisma.list_skill.findMany()
      * 
-     * // Get first 10 ListSkills
-     * const listSkills = await prisma.listSkill.findMany({ take: 10 })
+     * // Get first 10 List_skills
+     * const list_skills = await prisma.list_skill.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const listSkillWithIdOnly = await prisma.listSkill.findMany({ select: { id: true } })
+     * const list_skillWithIdOnly = await prisma.list_skill.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends ListSkillFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends List_skillFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a ListSkill.
-     * @param {ListSkillCreateArgs} args - Arguments to create a ListSkill.
+     * Create a List_skill.
+     * @param {List_skillCreateArgs} args - Arguments to create a List_skill.
      * @example
-     * // Create one ListSkill
-     * const ListSkill = await prisma.listSkill.create({
+     * // Create one List_skill
+     * const List_skill = await prisma.list_skill.create({
      *   data: {
-     *     // ... data to create a ListSkill
+     *     // ... data to create a List_skill
      *   }
      * })
      * 
     **/
-    create<T extends ListSkillCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillCreateArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends List_skillCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillCreateArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many ListSkills.
-     *     @param {ListSkillCreateManyArgs} args - Arguments to create many ListSkills.
+     * Create many List_skills.
+     *     @param {List_skillCreateManyArgs} args - Arguments to create many List_skills.
      *     @example
-     *     // Create many ListSkills
-     *     const listSkill = await prisma.listSkill.createMany({
+     *     // Create many List_skills
+     *     const list_skill = await prisma.list_skill.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends ListSkillCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillCreateManyArgs<ExtArgs>>
+    createMany<T extends List_skillCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ListSkill.
-     * @param {ListSkillDeleteArgs} args - Arguments to delete one ListSkill.
+     * Delete a List_skill.
+     * @param {List_skillDeleteArgs} args - Arguments to delete one List_skill.
      * @example
-     * // Delete one ListSkill
-     * const ListSkill = await prisma.listSkill.delete({
+     * // Delete one List_skill
+     * const List_skill = await prisma.list_skill.delete({
      *   where: {
-     *     // ... filter to delete one ListSkill
+     *     // ... filter to delete one List_skill
      *   }
      * })
      * 
     **/
-    delete<T extends ListSkillDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillDeleteArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends List_skillDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillDeleteArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one ListSkill.
-     * @param {ListSkillUpdateArgs} args - Arguments to update one ListSkill.
+     * Update one List_skill.
+     * @param {List_skillUpdateArgs} args - Arguments to update one List_skill.
      * @example
-     * // Update one ListSkill
-     * const listSkill = await prisma.listSkill.update({
+     * // Update one List_skill
+     * const list_skill = await prisma.list_skill.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9275,34 +10353,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends ListSkillUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillUpdateArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends List_skillUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillUpdateArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more ListSkills.
-     * @param {ListSkillDeleteManyArgs} args - Arguments to filter ListSkills to delete.
+     * Delete zero or more List_skills.
+     * @param {List_skillDeleteManyArgs} args - Arguments to filter List_skills to delete.
      * @example
-     * // Delete a few ListSkills
-     * const { count } = await prisma.listSkill.deleteMany({
+     * // Delete a few List_skills
+     * const { count } = await prisma.list_skill.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends ListSkillDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListSkillDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends List_skillDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_skillDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ListSkills.
+     * Update zero or more List_skills.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {List_skillUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ListSkills
-     * const listSkill = await prisma.listSkill.updateMany({
+     * // Update many List_skills
+     * const list_skill = await prisma.list_skill.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9312,59 +10390,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends ListSkillUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillUpdateManyArgs<ExtArgs>>
+    updateMany<T extends List_skillUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one ListSkill.
-     * @param {ListSkillUpsertArgs} args - Arguments to update or create a ListSkill.
+     * Create or update one List_skill.
+     * @param {List_skillUpsertArgs} args - Arguments to update or create a List_skill.
      * @example
-     * // Update or create a ListSkill
-     * const listSkill = await prisma.listSkill.upsert({
+     * // Update or create a List_skill
+     * const list_skill = await prisma.list_skill.upsert({
      *   create: {
-     *     // ... data to create a ListSkill
+     *     // ... data to create a List_skill
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ListSkill we want to update
+     *     // ... the filter for the List_skill we want to update
      *   }
      * })
     **/
-    upsert<T extends ListSkillUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, ListSkillUpsertArgs<ExtArgs>>
-    ): Prisma__ListSkillClient<$Result.GetResult<Prisma.$ListSkillPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends List_skillUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, List_skillUpsertArgs<ExtArgs>>
+    ): Prisma__List_skillClient<$Result.GetResult<Prisma.$List_skillPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of ListSkills.
+     * Count the number of List_skills.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillCountArgs} args - Arguments to filter ListSkills to count.
+     * @param {List_skillCountArgs} args - Arguments to filter List_skills to count.
      * @example
-     * // Count the number of ListSkills
-     * const count = await prisma.listSkill.count({
+     * // Count the number of List_skills
+     * const count = await prisma.list_skill.count({
      *   where: {
-     *     // ... the filter for the ListSkills we want to count
+     *     // ... the filter for the List_skills we want to count
      *   }
      * })
     **/
-    count<T extends ListSkillCountArgs>(
-      args?: Subset<T, ListSkillCountArgs>,
+    count<T extends List_skillCountArgs>(
+      args?: Subset<T, List_skillCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ListSkillCountAggregateOutputType>
+          : GetScalarType<T['select'], List_skillCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ListSkill.
+     * Allows you to perform aggregations operations on a List_skill.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {List_skillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9384,13 +10462,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ListSkillAggregateArgs>(args: Subset<T, ListSkillAggregateArgs>): Prisma.PrismaPromise<GetListSkillAggregateType<T>>
+    aggregate<T extends List_skillAggregateArgs>(args: Subset<T, List_skillAggregateArgs>): Prisma.PrismaPromise<GetList_skillAggregateType<T>>
 
     /**
-     * Group by ListSkill.
+     * Group by List_skill.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListSkillGroupByArgs} args - Group by arguments.
+     * @param {List_skillGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9405,14 +10483,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ListSkillGroupByArgs,
+      T extends List_skillGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ListSkillGroupByArgs['orderBy'] }
-        : { orderBy?: ListSkillGroupByArgs['orderBy'] },
+        ? { orderBy: List_skillGroupByArgs['orderBy'] }
+        : { orderBy?: List_skillGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -9461,20 +10539,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ListSkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetListSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, List_skillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetList_skillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ListSkill model
+   * Fields of the List_skill model
    */
-  readonly fields: ListSkillFieldRefs;
+  readonly fields: List_skillFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ListSkill.
+   * The delegate class that acts as a "Promise-like" for List_skill.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ListSkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__List_skillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -9506,1369 +10584,335 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ListSkill model
+   * Fields of the List_skill model
    */ 
-  interface ListSkillFieldRefs {
-    readonly id: FieldRef<"ListSkill", 'Int'>
-    readonly user_id: FieldRef<"ListSkill", 'Int'>
-    readonly skill_id: FieldRef<"ListSkill", 'Int'>
+  interface List_skillFieldRefs {
+    readonly id: FieldRef<"List_skill", 'Int'>
+    readonly user_id: FieldRef<"List_skill", 'Int'>
+    readonly skill_id: FieldRef<"List_skill", 'Int'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * ListSkill findUnique
+   * List_skill findUnique
    */
-  export type ListSkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListSkill to fetch.
+     * Filter, which List_skill to fetch.
      */
-    where: ListSkillWhereUniqueInput
+    where: List_skillWhereUniqueInput
   }
 
 
   /**
-   * ListSkill findUniqueOrThrow
+   * List_skill findUniqueOrThrow
    */
-  export type ListSkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListSkill to fetch.
+     * Filter, which List_skill to fetch.
      */
-    where: ListSkillWhereUniqueInput
+    where: List_skillWhereUniqueInput
   }
 
 
   /**
-   * ListSkill findFirst
+   * List_skill findFirst
    */
-  export type ListSkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListSkill to fetch.
+     * Filter, which List_skill to fetch.
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListSkills to fetch.
+     * Determine the order of List_skills to fetch.
      */
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListSkills.
+     * Sets the position for searching for List_skills.
      */
-    cursor?: ListSkillWhereUniqueInput
+    cursor?: List_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListSkills from the position of the cursor.
+     * Take `±n` List_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListSkills.
+     * Skip the first `n` List_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListSkills.
+     * Filter by unique combinations of List_skills.
      */
-    distinct?: ListSkillScalarFieldEnum | ListSkillScalarFieldEnum[]
+    distinct?: List_skillScalarFieldEnum | List_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListSkill findFirstOrThrow
+   * List_skill findFirstOrThrow
    */
-  export type ListSkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListSkill to fetch.
+     * Filter, which List_skill to fetch.
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListSkills to fetch.
+     * Determine the order of List_skills to fetch.
      */
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListSkills.
+     * Sets the position for searching for List_skills.
      */
-    cursor?: ListSkillWhereUniqueInput
+    cursor?: List_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListSkills from the position of the cursor.
+     * Take `±n` List_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListSkills.
+     * Skip the first `n` List_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListSkills.
+     * Filter by unique combinations of List_skills.
      */
-    distinct?: ListSkillScalarFieldEnum | ListSkillScalarFieldEnum[]
+    distinct?: List_skillScalarFieldEnum | List_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListSkill findMany
+   * List_skill findMany
    */
-  export type ListSkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListSkills to fetch.
+     * Filter, which List_skills to fetch.
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListSkills to fetch.
+     * Determine the order of List_skills to fetch.
      */
-    orderBy?: ListSkillOrderByWithRelationInput | ListSkillOrderByWithRelationInput[]
+    orderBy?: List_skillOrderByWithRelationInput | List_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ListSkills.
+     * Sets the position for listing List_skills.
      */
-    cursor?: ListSkillWhereUniqueInput
+    cursor?: List_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListSkills from the position of the cursor.
+     * Take `±n` List_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListSkills.
+     * Skip the first `n` List_skills.
      */
     skip?: number
-    distinct?: ListSkillScalarFieldEnum | ListSkillScalarFieldEnum[]
+    distinct?: List_skillScalarFieldEnum | List_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListSkill create
+   * List_skill create
    */
-  export type ListSkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * The data needed to create a ListSkill.
+     * The data needed to create a List_skill.
      */
-    data: XOR<ListSkillCreateInput, ListSkillUncheckedCreateInput>
+    data: XOR<List_skillCreateInput, List_skillUncheckedCreateInput>
   }
 
 
   /**
-   * ListSkill createMany
+   * List_skill createMany
    */
-  export type ListSkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ListSkills.
+     * The data used to create many List_skills.
      */
-    data: ListSkillCreateManyInput | ListSkillCreateManyInput[]
+    data: List_skillCreateManyInput | List_skillCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * ListSkill update
+   * List_skill update
    */
-  export type ListSkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * The data needed to update a ListSkill.
+     * The data needed to update a List_skill.
      */
-    data: XOR<ListSkillUpdateInput, ListSkillUncheckedUpdateInput>
+    data: XOR<List_skillUpdateInput, List_skillUncheckedUpdateInput>
     /**
-     * Choose, which ListSkill to update.
+     * Choose, which List_skill to update.
      */
-    where: ListSkillWhereUniqueInput
+    where: List_skillWhereUniqueInput
   }
 
 
   /**
-   * ListSkill updateMany
+   * List_skill updateMany
    */
-  export type ListSkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ListSkills.
+     * The data used to update List_skills.
      */
-    data: XOR<ListSkillUpdateManyMutationInput, ListSkillUncheckedUpdateManyInput>
+    data: XOR<List_skillUpdateManyMutationInput, List_skillUncheckedUpdateManyInput>
     /**
-     * Filter which ListSkills to update
+     * Filter which List_skills to update
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
   }
 
 
   /**
-   * ListSkill upsert
+   * List_skill upsert
    */
-  export type ListSkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * The filter to search for the ListSkill to update in case it exists.
+     * The filter to search for the List_skill to update in case it exists.
      */
-    where: ListSkillWhereUniqueInput
+    where: List_skillWhereUniqueInput
     /**
-     * In case the ListSkill found by the `where` argument doesn't exist, create a new ListSkill with this data.
+     * In case the List_skill found by the `where` argument doesn't exist, create a new List_skill with this data.
      */
-    create: XOR<ListSkillCreateInput, ListSkillUncheckedCreateInput>
+    create: XOR<List_skillCreateInput, List_skillUncheckedCreateInput>
     /**
-     * In case the ListSkill was found with the provided `where` argument, update it with this data.
+     * In case the List_skill was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ListSkillUpdateInput, ListSkillUncheckedUpdateInput>
+    update: XOR<List_skillUpdateInput, List_skillUncheckedUpdateInput>
   }
 
 
   /**
-   * ListSkill delete
+   * List_skill delete
    */
-  export type ListSkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
     /**
-     * Filter which ListSkill to delete.
+     * Filter which List_skill to delete.
      */
-    where: ListSkillWhereUniqueInput
+    where: List_skillWhereUniqueInput
   }
 
 
   /**
-   * ListSkill deleteMany
+   * List_skill deleteMany
    */
-  export type ListSkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListSkills to delete
+     * Filter which List_skills to delete
      */
-    where?: ListSkillWhereInput
+    where?: List_skillWhereInput
   }
 
 
   /**
-   * ListSkill without action
+   * List_skill without action
    */
-  export type ListSkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_skillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListSkill
+     * Select specific fields to fetch from the List_skill
      */
-    select?: ListSkillSelect<ExtArgs> | null
+    select?: List_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListSkillInclude<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model Company
-   */
-
-  export type AggregateCompany = {
-    _count: CompanyCountAggregateOutputType | null
-    _avg: CompanyAvgAggregateOutputType | null
-    _sum: CompanySumAggregateOutputType | null
-    _min: CompanyMinAggregateOutputType | null
-    _max: CompanyMaxAggregateOutputType | null
-  }
-
-  export type CompanyAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type CompanySumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type CompanyMinAggregateOutputType = {
-    id: number | null
-    name: string | null
-    city: string | null
-    about: string | null
-    logo: string | null
-    picture: string | null
-    email: string | null
-    password: string | null
-  }
-
-  export type CompanyMaxAggregateOutputType = {
-    id: number | null
-    name: string | null
-    city: string | null
-    about: string | null
-    logo: string | null
-    picture: string | null
-    email: string | null
-    password: string | null
-  }
-
-  export type CompanyCountAggregateOutputType = {
-    id: number
-    name: number
-    city: number
-    about: number
-    logo: number
-    picture: number
-    email: number
-    password: number
-    _all: number
-  }
-
-
-  export type CompanyAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type CompanySumAggregateInputType = {
-    id?: true
-  }
-
-  export type CompanyMinAggregateInputType = {
-    id?: true
-    name?: true
-    city?: true
-    about?: true
-    logo?: true
-    picture?: true
-    email?: true
-    password?: true
-  }
-
-  export type CompanyMaxAggregateInputType = {
-    id?: true
-    name?: true
-    city?: true
-    about?: true
-    logo?: true
-    picture?: true
-    email?: true
-    password?: true
-  }
-
-  export type CompanyCountAggregateInputType = {
-    id?: true
-    name?: true
-    city?: true
-    about?: true
-    logo?: true
-    picture?: true
-    email?: true
-    password?: true
-    _all?: true
-  }
-
-  export type CompanyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Company to aggregate.
-     */
-    where?: CompanyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Companies to fetch.
-     */
-    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: CompanyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Companies from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Companies.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Companies
-    **/
-    _count?: true | CompanyCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: CompanyAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: CompanySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: CompanyMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: CompanyMaxAggregateInputType
-  }
-
-  export type GetCompanyAggregateType<T extends CompanyAggregateArgs> = {
-        [P in keyof T & keyof AggregateCompany]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateCompany[P]>
-      : GetScalarType<T[P], AggregateCompany[P]>
-  }
-
-
-
-
-  export type CompanyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CompanyWhereInput
-    orderBy?: CompanyOrderByWithAggregationInput | CompanyOrderByWithAggregationInput[]
-    by: CompanyScalarFieldEnum[] | CompanyScalarFieldEnum
-    having?: CompanyScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: CompanyCountAggregateInputType | true
-    _avg?: CompanyAvgAggregateInputType
-    _sum?: CompanySumAggregateInputType
-    _min?: CompanyMinAggregateInputType
-    _max?: CompanyMaxAggregateInputType
-  }
-
-  export type CompanyGroupByOutputType = {
-    id: number
-    name: string
-    city: string
-    about: string
-    logo: string | null
-    picture: string | null
-    email: string
-    password: string
-    _count: CompanyCountAggregateOutputType | null
-    _avg: CompanyAvgAggregateOutputType | null
-    _sum: CompanySumAggregateOutputType | null
-    _min: CompanyMinAggregateOutputType | null
-    _max: CompanyMaxAggregateOutputType | null
-  }
-
-  type GetCompanyGroupByPayload<T extends CompanyGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<CompanyGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof CompanyGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], CompanyGroupByOutputType[P]>
-            : GetScalarType<T[P], CompanyGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type CompanySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    city?: boolean
-    about?: boolean
-    logo?: boolean
-    picture?: boolean
-    email?: boolean
-    password?: boolean
-    jobApplications?: boolean | Company$jobApplicationsArgs<ExtArgs>
-    jobs?: boolean | Company$jobsArgs<ExtArgs>
-    _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["company"]>
-
-  export type CompanySelectScalar = {
-    id?: boolean
-    name?: boolean
-    city?: boolean
-    about?: boolean
-    logo?: boolean
-    picture?: boolean
-    email?: boolean
-    password?: boolean
-  }
-
-  export type CompanyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jobApplications?: boolean | Company$jobApplicationsArgs<ExtArgs>
-    jobs?: boolean | Company$jobsArgs<ExtArgs>
-    _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
-  }
-
-
-  export type $CompanyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Company"
-    objects: {
-      jobApplications: Prisma.$JobApplicationPayload<ExtArgs>[]
-      jobs: Prisma.$JobPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      name: string
-      city: string
-      about: string
-      logo: string | null
-      picture: string | null
-      email: string
-      password: string
-    }, ExtArgs["result"]["company"]>
-    composites: {}
-  }
-
-
-  type CompanyGetPayload<S extends boolean | null | undefined | CompanyDefaultArgs> = $Result.GetResult<Prisma.$CompanyPayload, S>
-
-  type CompanyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<CompanyFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: CompanyCountAggregateInputType | true
-    }
-
-  export interface CompanyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Company'], meta: { name: 'Company' } }
-    /**
-     * Find zero or one Company that matches the filter.
-     * @param {CompanyFindUniqueArgs} args - Arguments to find a Company
-     * @example
-     * // Get one Company
-     * const company = await prisma.company.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends CompanyFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyFindUniqueArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Company that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {CompanyFindUniqueOrThrowArgs} args - Arguments to find a Company
-     * @example
-     * // Get one Company
-     * const company = await prisma.company.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends CompanyFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Company that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyFindFirstArgs} args - Arguments to find a Company
-     * @example
-     * // Get one Company
-     * const company = await prisma.company.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends CompanyFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyFindFirstArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Company that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyFindFirstOrThrowArgs} args - Arguments to find a Company
-     * @example
-     * // Get one Company
-     * const company = await prisma.company.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends CompanyFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Companies that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Companies
-     * const companies = await prisma.company.findMany()
-     * 
-     * // Get first 10 Companies
-     * const companies = await prisma.company.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const companyWithIdOnly = await prisma.company.findMany({ select: { id: true } })
-     * 
-    **/
-    findMany<T extends CompanyFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Company.
-     * @param {CompanyCreateArgs} args - Arguments to create a Company.
-     * @example
-     * // Create one Company
-     * const Company = await prisma.company.create({
-     *   data: {
-     *     // ... data to create a Company
-     *   }
-     * })
-     * 
-    **/
-    create<T extends CompanyCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyCreateArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Companies.
-     *     @param {CompanyCreateManyArgs} args - Arguments to create many Companies.
-     *     @example
-     *     // Create many Companies
-     *     const company = await prisma.company.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends CompanyCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Company.
-     * @param {CompanyDeleteArgs} args - Arguments to delete one Company.
-     * @example
-     * // Delete one Company
-     * const Company = await prisma.company.delete({
-     *   where: {
-     *     // ... filter to delete one Company
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends CompanyDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyDeleteArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Company.
-     * @param {CompanyUpdateArgs} args - Arguments to update one Company.
-     * @example
-     * // Update one Company
-     * const company = await prisma.company.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends CompanyUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyUpdateArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Companies.
-     * @param {CompanyDeleteManyArgs} args - Arguments to filter Companies to delete.
-     * @example
-     * // Delete a few Companies
-     * const { count } = await prisma.company.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends CompanyDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CompanyDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Companies.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Companies
-     * const company = await prisma.company.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends CompanyUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Company.
-     * @param {CompanyUpsertArgs} args - Arguments to update or create a Company.
-     * @example
-     * // Update or create a Company
-     * const company = await prisma.company.upsert({
-     *   create: {
-     *     // ... data to create a Company
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Company we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends CompanyUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, CompanyUpsertArgs<ExtArgs>>
-    ): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of Companies.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyCountArgs} args - Arguments to filter Companies to count.
-     * @example
-     * // Count the number of Companies
-     * const count = await prisma.company.count({
-     *   where: {
-     *     // ... the filter for the Companies we want to count
-     *   }
-     * })
-    **/
-    count<T extends CompanyCountArgs>(
-      args?: Subset<T, CompanyCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], CompanyCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Company.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends CompanyAggregateArgs>(args: Subset<T, CompanyAggregateArgs>): Prisma.PrismaPromise<GetCompanyAggregateType<T>>
-
-    /**
-     * Group by Company.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CompanyGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends CompanyGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CompanyGroupByArgs['orderBy'] }
-        : { orderBy?: CompanyGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, CompanyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompanyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Company model
-   */
-  readonly fields: CompanyFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Company.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-    jobApplications<T extends Company$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    jobs<T extends Company$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the Company model
-   */ 
-  interface CompanyFieldRefs {
-    readonly id: FieldRef<"Company", 'Int'>
-    readonly name: FieldRef<"Company", 'String'>
-    readonly city: FieldRef<"Company", 'String'>
-    readonly about: FieldRef<"Company", 'String'>
-    readonly logo: FieldRef<"Company", 'String'>
-    readonly picture: FieldRef<"Company", 'String'>
-    readonly email: FieldRef<"Company", 'String'>
-    readonly password: FieldRef<"Company", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * Company findUnique
-   */
-  export type CompanyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter, which Company to fetch.
-     */
-    where: CompanyWhereUniqueInput
-  }
-
-
-  /**
-   * Company findUniqueOrThrow
-   */
-  export type CompanyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter, which Company to fetch.
-     */
-    where: CompanyWhereUniqueInput
-  }
-
-
-  /**
-   * Company findFirst
-   */
-  export type CompanyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter, which Company to fetch.
-     */
-    where?: CompanyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Companies to fetch.
-     */
-    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Companies.
-     */
-    cursor?: CompanyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Companies from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Companies.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Companies.
-     */
-    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
-  }
-
-
-  /**
-   * Company findFirstOrThrow
-   */
-  export type CompanyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter, which Company to fetch.
-     */
-    where?: CompanyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Companies to fetch.
-     */
-    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Companies.
-     */
-    cursor?: CompanyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Companies from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Companies.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Companies.
-     */
-    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
-  }
-
-
-  /**
-   * Company findMany
-   */
-  export type CompanyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter, which Companies to fetch.
-     */
-    where?: CompanyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Companies to fetch.
-     */
-    orderBy?: CompanyOrderByWithRelationInput | CompanyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Companies.
-     */
-    cursor?: CompanyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Companies from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Companies.
-     */
-    skip?: number
-    distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
-  }
-
-
-  /**
-   * Company create
-   */
-  export type CompanyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Company.
-     */
-    data: XOR<CompanyCreateInput, CompanyUncheckedCreateInput>
-  }
-
-
-  /**
-   * Company createMany
-   */
-  export type CompanyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Companies.
-     */
-    data: CompanyCreateManyInput | CompanyCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * Company update
-   */
-  export type CompanyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Company.
-     */
-    data: XOR<CompanyUpdateInput, CompanyUncheckedUpdateInput>
-    /**
-     * Choose, which Company to update.
-     */
-    where: CompanyWhereUniqueInput
-  }
-
-
-  /**
-   * Company updateMany
-   */
-  export type CompanyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Companies.
-     */
-    data: XOR<CompanyUpdateManyMutationInput, CompanyUncheckedUpdateManyInput>
-    /**
-     * Filter which Companies to update
-     */
-    where?: CompanyWhereInput
-  }
-
-
-  /**
-   * Company upsert
-   */
-  export type CompanyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Company to update in case it exists.
-     */
-    where: CompanyWhereUniqueInput
-    /**
-     * In case the Company found by the `where` argument doesn't exist, create a new Company with this data.
-     */
-    create: XOR<CompanyCreateInput, CompanyUncheckedCreateInput>
-    /**
-     * In case the Company was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<CompanyUpdateInput, CompanyUncheckedUpdateInput>
-  }
-
-
-  /**
-   * Company delete
-   */
-  export type CompanyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
-    /**
-     * Filter which Company to delete.
-     */
-    where: CompanyWhereUniqueInput
-  }
-
-
-  /**
-   * Company deleteMany
-   */
-  export type CompanyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Companies to delete
-     */
-    where?: CompanyWhereInput
-  }
-
-
-  /**
-   * Company.jobApplications
-   */
-  export type Company$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the JobApplication
-     */
-    select?: JobApplicationSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: JobApplicationInclude<ExtArgs> | null
-    where?: JobApplicationWhereInput
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
-    cursor?: JobApplicationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
-  }
-
-
-  /**
-   * Company.jobs
-   */
-  export type Company$jobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Job
-     */
-    select?: JobSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: JobInclude<ExtArgs> | null
-    where?: JobWhereInput
-    orderBy?: JobOrderByWithRelationInput | JobOrderByWithRelationInput[]
-    cursor?: JobWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: JobScalarFieldEnum | JobScalarFieldEnum[]
-  }
-
-
-  /**
-   * Company without action
-   */
-  export type CompanyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Company
-     */
-    select?: CompanySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: CompanyInclude<ExtArgs> | null
+    include?: List_skillInclude<ExtArgs> | null
   }
 
 
@@ -11816,42 +11860,42 @@ export namespace Prisma {
 
 
   /**
-   * Model ListJobSkill
+   * Model List_job_skill
    */
 
-  export type AggregateListJobSkill = {
-    _count: ListJobSkillCountAggregateOutputType | null
-    _avg: ListJobSkillAvgAggregateOutputType | null
-    _sum: ListJobSkillSumAggregateOutputType | null
-    _min: ListJobSkillMinAggregateOutputType | null
-    _max: ListJobSkillMaxAggregateOutputType | null
+  export type AggregateList_job_skill = {
+    _count: List_job_skillCountAggregateOutputType | null
+    _avg: List_job_skillAvgAggregateOutputType | null
+    _sum: List_job_skillSumAggregateOutputType | null
+    _min: List_job_skillMinAggregateOutputType | null
+    _max: List_job_skillMaxAggregateOutputType | null
   }
 
-  export type ListJobSkillAvgAggregateOutputType = {
+  export type List_job_skillAvgAggregateOutputType = {
     id: number | null
     job_id: number | null
     skill_id: number | null
   }
 
-  export type ListJobSkillSumAggregateOutputType = {
+  export type List_job_skillSumAggregateOutputType = {
     id: number | null
     job_id: number | null
     skill_id: number | null
   }
 
-  export type ListJobSkillMinAggregateOutputType = {
+  export type List_job_skillMinAggregateOutputType = {
     id: number | null
     job_id: number | null
     skill_id: number | null
   }
 
-  export type ListJobSkillMaxAggregateOutputType = {
+  export type List_job_skillMaxAggregateOutputType = {
     id: number | null
     job_id: number | null
     skill_id: number | null
   }
 
-  export type ListJobSkillCountAggregateOutputType = {
+  export type List_job_skillCountAggregateOutputType = {
     id: number
     job_id: number
     skill_id: number
@@ -11859,170 +11903,170 @@ export namespace Prisma {
   }
 
 
-  export type ListJobSkillAvgAggregateInputType = {
+  export type List_job_skillAvgAggregateInputType = {
     id?: true
     job_id?: true
     skill_id?: true
   }
 
-  export type ListJobSkillSumAggregateInputType = {
+  export type List_job_skillSumAggregateInputType = {
     id?: true
     job_id?: true
     skill_id?: true
   }
 
-  export type ListJobSkillMinAggregateInputType = {
+  export type List_job_skillMinAggregateInputType = {
     id?: true
     job_id?: true
     skill_id?: true
   }
 
-  export type ListJobSkillMaxAggregateInputType = {
+  export type List_job_skillMaxAggregateInputType = {
     id?: true
     job_id?: true
     skill_id?: true
   }
 
-  export type ListJobSkillCountAggregateInputType = {
+  export type List_job_skillCountAggregateInputType = {
     id?: true
     job_id?: true
     skill_id?: true
     _all?: true
   }
 
-  export type ListJobSkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListJobSkill to aggregate.
+     * Filter which List_job_skill to aggregate.
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListJobSkills to fetch.
+     * Determine the order of List_job_skills to fetch.
      */
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ListJobSkillWhereUniqueInput
+    cursor?: List_job_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListJobSkills from the position of the cursor.
+     * Take `±n` List_job_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListJobSkills.
+     * Skip the first `n` List_job_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ListJobSkills
+     * Count returned List_job_skills
     **/
-    _count?: true | ListJobSkillCountAggregateInputType
+    _count?: true | List_job_skillCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ListJobSkillAvgAggregateInputType
+    _avg?: List_job_skillAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ListJobSkillSumAggregateInputType
+    _sum?: List_job_skillSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ListJobSkillMinAggregateInputType
+    _min?: List_job_skillMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ListJobSkillMaxAggregateInputType
+    _max?: List_job_skillMaxAggregateInputType
   }
 
-  export type GetListJobSkillAggregateType<T extends ListJobSkillAggregateArgs> = {
-        [P in keyof T & keyof AggregateListJobSkill]: P extends '_count' | 'count'
+  export type GetList_job_skillAggregateType<T extends List_job_skillAggregateArgs> = {
+        [P in keyof T & keyof AggregateList_job_skill]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateListJobSkill[P]>
-      : GetScalarType<T[P], AggregateListJobSkill[P]>
+        : GetScalarType<T[P], AggregateList_job_skill[P]>
+      : GetScalarType<T[P], AggregateList_job_skill[P]>
   }
 
 
 
 
-  export type ListJobSkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListJobSkillWhereInput
-    orderBy?: ListJobSkillOrderByWithAggregationInput | ListJobSkillOrderByWithAggregationInput[]
-    by: ListJobSkillScalarFieldEnum[] | ListJobSkillScalarFieldEnum
-    having?: ListJobSkillScalarWhereWithAggregatesInput
+  export type List_job_skillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: List_job_skillWhereInput
+    orderBy?: List_job_skillOrderByWithAggregationInput | List_job_skillOrderByWithAggregationInput[]
+    by: List_job_skillScalarFieldEnum[] | List_job_skillScalarFieldEnum
+    having?: List_job_skillScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ListJobSkillCountAggregateInputType | true
-    _avg?: ListJobSkillAvgAggregateInputType
-    _sum?: ListJobSkillSumAggregateInputType
-    _min?: ListJobSkillMinAggregateInputType
-    _max?: ListJobSkillMaxAggregateInputType
+    _count?: List_job_skillCountAggregateInputType | true
+    _avg?: List_job_skillAvgAggregateInputType
+    _sum?: List_job_skillSumAggregateInputType
+    _min?: List_job_skillMinAggregateInputType
+    _max?: List_job_skillMaxAggregateInputType
   }
 
-  export type ListJobSkillGroupByOutputType = {
+  export type List_job_skillGroupByOutputType = {
     id: number
     job_id: number
     skill_id: number
-    _count: ListJobSkillCountAggregateOutputType | null
-    _avg: ListJobSkillAvgAggregateOutputType | null
-    _sum: ListJobSkillSumAggregateOutputType | null
-    _min: ListJobSkillMinAggregateOutputType | null
-    _max: ListJobSkillMaxAggregateOutputType | null
+    _count: List_job_skillCountAggregateOutputType | null
+    _avg: List_job_skillAvgAggregateOutputType | null
+    _sum: List_job_skillSumAggregateOutputType | null
+    _min: List_job_skillMinAggregateOutputType | null
+    _max: List_job_skillMaxAggregateOutputType | null
   }
 
-  type GetListJobSkillGroupByPayload<T extends ListJobSkillGroupByArgs> = Prisma.PrismaPromise<
+  type GetList_job_skillGroupByPayload<T extends List_job_skillGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ListJobSkillGroupByOutputType, T['by']> &
+      PickEnumerable<List_job_skillGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ListJobSkillGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof List_job_skillGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ListJobSkillGroupByOutputType[P]>
-            : GetScalarType<T[P], ListJobSkillGroupByOutputType[P]>
+              : GetScalarType<T[P], List_job_skillGroupByOutputType[P]>
+            : GetScalarType<T[P], List_job_skillGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ListJobSkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type List_job_skillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     job_id?: boolean
     skill_id?: boolean
     job?: boolean | JobDefaultArgs<ExtArgs>
     skill?: boolean | SkillDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["listJobSkill"]>
+  }, ExtArgs["result"]["list_job_skill"]>
 
-  export type ListJobSkillSelectScalar = {
+  export type List_job_skillSelectScalar = {
     id?: boolean
     job_id?: boolean
     skill_id?: boolean
   }
 
-  export type ListJobSkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     job?: boolean | JobDefaultArgs<ExtArgs>
     skill?: boolean | SkillDefaultArgs<ExtArgs>
   }
 
 
-  export type $ListJobSkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ListJobSkill"
+  export type $List_job_skillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "List_job_skill"
     objects: {
       job: Prisma.$JobPayload<ExtArgs>
       skill: Prisma.$SkillPayload<ExtArgs>
@@ -12031,160 +12075,160 @@ export namespace Prisma {
       id: number
       job_id: number
       skill_id: number
-    }, ExtArgs["result"]["listJobSkill"]>
+    }, ExtArgs["result"]["list_job_skill"]>
     composites: {}
   }
 
 
-  type ListJobSkillGetPayload<S extends boolean | null | undefined | ListJobSkillDefaultArgs> = $Result.GetResult<Prisma.$ListJobSkillPayload, S>
+  type List_job_skillGetPayload<S extends boolean | null | undefined | List_job_skillDefaultArgs> = $Result.GetResult<Prisma.$List_job_skillPayload, S>
 
-  type ListJobSkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ListJobSkillFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ListJobSkillCountAggregateInputType | true
+  type List_job_skillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<List_job_skillFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: List_job_skillCountAggregateInputType | true
     }
 
-  export interface ListJobSkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ListJobSkill'], meta: { name: 'ListJobSkill' } }
+  export interface List_job_skillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['List_job_skill'], meta: { name: 'List_job_skill' } }
     /**
-     * Find zero or one ListJobSkill that matches the filter.
-     * @param {ListJobSkillFindUniqueArgs} args - Arguments to find a ListJobSkill
+     * Find zero or one List_job_skill that matches the filter.
+     * @param {List_job_skillFindUniqueArgs} args - Arguments to find a List_job_skill
      * @example
-     * // Get one ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.findUnique({
+     * // Get one List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends ListJobSkillFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillFindUniqueArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends List_job_skillFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillFindUniqueArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one ListJobSkill that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one List_job_skill that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {ListJobSkillFindUniqueOrThrowArgs} args - Arguments to find a ListJobSkill
+     * @param {List_job_skillFindUniqueOrThrowArgs} args - Arguments to find a List_job_skill
      * @example
-     * // Get one ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.findUniqueOrThrow({
+     * // Get one List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends ListJobSkillFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends List_job_skillFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first ListJobSkill that matches the filter.
+     * Find the first List_job_skill that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillFindFirstArgs} args - Arguments to find a ListJobSkill
+     * @param {List_job_skillFindFirstArgs} args - Arguments to find a List_job_skill
      * @example
-     * // Get one ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.findFirst({
+     * // Get one List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends ListJobSkillFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillFindFirstArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends List_job_skillFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillFindFirstArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first ListJobSkill that matches the filter or
+     * Find the first List_job_skill that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillFindFirstOrThrowArgs} args - Arguments to find a ListJobSkill
+     * @param {List_job_skillFindFirstOrThrowArgs} args - Arguments to find a List_job_skill
      * @example
-     * // Get one ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.findFirstOrThrow({
+     * // Get one List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends ListJobSkillFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends List_job_skillFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more ListJobSkills that matches the filter.
+     * Find zero or more List_job_skills that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {List_job_skillFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ListJobSkills
-     * const listJobSkills = await prisma.listJobSkill.findMany()
+     * // Get all List_job_skills
+     * const list_job_skills = await prisma.list_job_skill.findMany()
      * 
-     * // Get first 10 ListJobSkills
-     * const listJobSkills = await prisma.listJobSkill.findMany({ take: 10 })
+     * // Get first 10 List_job_skills
+     * const list_job_skills = await prisma.list_job_skill.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const listJobSkillWithIdOnly = await prisma.listJobSkill.findMany({ select: { id: true } })
+     * const list_job_skillWithIdOnly = await prisma.list_job_skill.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends ListJobSkillFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends List_job_skillFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a ListJobSkill.
-     * @param {ListJobSkillCreateArgs} args - Arguments to create a ListJobSkill.
+     * Create a List_job_skill.
+     * @param {List_job_skillCreateArgs} args - Arguments to create a List_job_skill.
      * @example
-     * // Create one ListJobSkill
-     * const ListJobSkill = await prisma.listJobSkill.create({
+     * // Create one List_job_skill
+     * const List_job_skill = await prisma.list_job_skill.create({
      *   data: {
-     *     // ... data to create a ListJobSkill
+     *     // ... data to create a List_job_skill
      *   }
      * })
      * 
     **/
-    create<T extends ListJobSkillCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillCreateArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends List_job_skillCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillCreateArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many ListJobSkills.
-     *     @param {ListJobSkillCreateManyArgs} args - Arguments to create many ListJobSkills.
+     * Create many List_job_skills.
+     *     @param {List_job_skillCreateManyArgs} args - Arguments to create many List_job_skills.
      *     @example
-     *     // Create many ListJobSkills
-     *     const listJobSkill = await prisma.listJobSkill.createMany({
+     *     // Create many List_job_skills
+     *     const list_job_skill = await prisma.list_job_skill.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends ListJobSkillCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillCreateManyArgs<ExtArgs>>
+    createMany<T extends List_job_skillCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ListJobSkill.
-     * @param {ListJobSkillDeleteArgs} args - Arguments to delete one ListJobSkill.
+     * Delete a List_job_skill.
+     * @param {List_job_skillDeleteArgs} args - Arguments to delete one List_job_skill.
      * @example
-     * // Delete one ListJobSkill
-     * const ListJobSkill = await prisma.listJobSkill.delete({
+     * // Delete one List_job_skill
+     * const List_job_skill = await prisma.list_job_skill.delete({
      *   where: {
-     *     // ... filter to delete one ListJobSkill
+     *     // ... filter to delete one List_job_skill
      *   }
      * })
      * 
     **/
-    delete<T extends ListJobSkillDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillDeleteArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends List_job_skillDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillDeleteArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one ListJobSkill.
-     * @param {ListJobSkillUpdateArgs} args - Arguments to update one ListJobSkill.
+     * Update one List_job_skill.
+     * @param {List_job_skillUpdateArgs} args - Arguments to update one List_job_skill.
      * @example
-     * // Update one ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.update({
+     * // Update one List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12194,34 +12238,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends ListJobSkillUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillUpdateArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends List_job_skillUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillUpdateArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more ListJobSkills.
-     * @param {ListJobSkillDeleteManyArgs} args - Arguments to filter ListJobSkills to delete.
+     * Delete zero or more List_job_skills.
+     * @param {List_job_skillDeleteManyArgs} args - Arguments to filter List_job_skills to delete.
      * @example
-     * // Delete a few ListJobSkills
-     * const { count } = await prisma.listJobSkill.deleteMany({
+     * // Delete a few List_job_skills
+     * const { count } = await prisma.list_job_skill.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends ListJobSkillDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, ListJobSkillDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends List_job_skillDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, List_job_skillDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ListJobSkills.
+     * Update zero or more List_job_skills.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {List_job_skillUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ListJobSkills
-     * const listJobSkill = await prisma.listJobSkill.updateMany({
+     * // Update many List_job_skills
+     * const list_job_skill = await prisma.list_job_skill.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12231,59 +12275,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends ListJobSkillUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillUpdateManyArgs<ExtArgs>>
+    updateMany<T extends List_job_skillUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one ListJobSkill.
-     * @param {ListJobSkillUpsertArgs} args - Arguments to update or create a ListJobSkill.
+     * Create or update one List_job_skill.
+     * @param {List_job_skillUpsertArgs} args - Arguments to update or create a List_job_skill.
      * @example
-     * // Update or create a ListJobSkill
-     * const listJobSkill = await prisma.listJobSkill.upsert({
+     * // Update or create a List_job_skill
+     * const list_job_skill = await prisma.list_job_skill.upsert({
      *   create: {
-     *     // ... data to create a ListJobSkill
+     *     // ... data to create a List_job_skill
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ListJobSkill we want to update
+     *     // ... the filter for the List_job_skill we want to update
      *   }
      * })
     **/
-    upsert<T extends ListJobSkillUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, ListJobSkillUpsertArgs<ExtArgs>>
-    ): Prisma__ListJobSkillClient<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends List_job_skillUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, List_job_skillUpsertArgs<ExtArgs>>
+    ): Prisma__List_job_skillClient<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of ListJobSkills.
+     * Count the number of List_job_skills.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillCountArgs} args - Arguments to filter ListJobSkills to count.
+     * @param {List_job_skillCountArgs} args - Arguments to filter List_job_skills to count.
      * @example
-     * // Count the number of ListJobSkills
-     * const count = await prisma.listJobSkill.count({
+     * // Count the number of List_job_skills
+     * const count = await prisma.list_job_skill.count({
      *   where: {
-     *     // ... the filter for the ListJobSkills we want to count
+     *     // ... the filter for the List_job_skills we want to count
      *   }
      * })
     **/
-    count<T extends ListJobSkillCountArgs>(
-      args?: Subset<T, ListJobSkillCountArgs>,
+    count<T extends List_job_skillCountArgs>(
+      args?: Subset<T, List_job_skillCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ListJobSkillCountAggregateOutputType>
+          : GetScalarType<T['select'], List_job_skillCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ListJobSkill.
+     * Allows you to perform aggregations operations on a List_job_skill.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {List_job_skillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -12303,13 +12347,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ListJobSkillAggregateArgs>(args: Subset<T, ListJobSkillAggregateArgs>): Prisma.PrismaPromise<GetListJobSkillAggregateType<T>>
+    aggregate<T extends List_job_skillAggregateArgs>(args: Subset<T, List_job_skillAggregateArgs>): Prisma.PrismaPromise<GetList_job_skillAggregateType<T>>
 
     /**
-     * Group by ListJobSkill.
+     * Group by List_job_skill.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ListJobSkillGroupByArgs} args - Group by arguments.
+     * @param {List_job_skillGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -12324,14 +12368,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ListJobSkillGroupByArgs,
+      T extends List_job_skillGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ListJobSkillGroupByArgs['orderBy'] }
-        : { orderBy?: ListJobSkillGroupByArgs['orderBy'] },
+        ? { orderBy: List_job_skillGroupByArgs['orderBy'] }
+        : { orderBy?: List_job_skillGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -12380,20 +12424,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ListJobSkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetListJobSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, List_job_skillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetList_job_skillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ListJobSkill model
+   * Fields of the List_job_skill model
    */
-  readonly fields: ListJobSkillFieldRefs;
+  readonly fields: List_job_skillFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ListJobSkill.
+   * The delegate class that acts as a "Promise-like" for List_job_skill.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ListJobSkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__List_job_skillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     job<T extends JobDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JobDefaultArgs<ExtArgs>>): Prisma__JobClient<$Result.GetResult<Prisma.$JobPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
@@ -12425,335 +12469,335 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ListJobSkill model
+   * Fields of the List_job_skill model
    */ 
-  interface ListJobSkillFieldRefs {
-    readonly id: FieldRef<"ListJobSkill", 'Int'>
-    readonly job_id: FieldRef<"ListJobSkill", 'Int'>
-    readonly skill_id: FieldRef<"ListJobSkill", 'Int'>
+  interface List_job_skillFieldRefs {
+    readonly id: FieldRef<"List_job_skill", 'Int'>
+    readonly job_id: FieldRef<"List_job_skill", 'Int'>
+    readonly skill_id: FieldRef<"List_job_skill", 'Int'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * ListJobSkill findUnique
+   * List_job_skill findUnique
    */
-  export type ListJobSkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListJobSkill to fetch.
+     * Filter, which List_job_skill to fetch.
      */
-    where: ListJobSkillWhereUniqueInput
+    where: List_job_skillWhereUniqueInput
   }
 
 
   /**
-   * ListJobSkill findUniqueOrThrow
+   * List_job_skill findUniqueOrThrow
    */
-  export type ListJobSkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListJobSkill to fetch.
+     * Filter, which List_job_skill to fetch.
      */
-    where: ListJobSkillWhereUniqueInput
+    where: List_job_skillWhereUniqueInput
   }
 
 
   /**
-   * ListJobSkill findFirst
+   * List_job_skill findFirst
    */
-  export type ListJobSkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListJobSkill to fetch.
+     * Filter, which List_job_skill to fetch.
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListJobSkills to fetch.
+     * Determine the order of List_job_skills to fetch.
      */
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListJobSkills.
+     * Sets the position for searching for List_job_skills.
      */
-    cursor?: ListJobSkillWhereUniqueInput
+    cursor?: List_job_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListJobSkills from the position of the cursor.
+     * Take `±n` List_job_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListJobSkills.
+     * Skip the first `n` List_job_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListJobSkills.
+     * Filter by unique combinations of List_job_skills.
      */
-    distinct?: ListJobSkillScalarFieldEnum | ListJobSkillScalarFieldEnum[]
+    distinct?: List_job_skillScalarFieldEnum | List_job_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListJobSkill findFirstOrThrow
+   * List_job_skill findFirstOrThrow
    */
-  export type ListJobSkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListJobSkill to fetch.
+     * Filter, which List_job_skill to fetch.
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListJobSkills to fetch.
+     * Determine the order of List_job_skills to fetch.
      */
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ListJobSkills.
+     * Sets the position for searching for List_job_skills.
      */
-    cursor?: ListJobSkillWhereUniqueInput
+    cursor?: List_job_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListJobSkills from the position of the cursor.
+     * Take `±n` List_job_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListJobSkills.
+     * Skip the first `n` List_job_skills.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ListJobSkills.
+     * Filter by unique combinations of List_job_skills.
      */
-    distinct?: ListJobSkillScalarFieldEnum | ListJobSkillScalarFieldEnum[]
+    distinct?: List_job_skillScalarFieldEnum | List_job_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListJobSkill findMany
+   * List_job_skill findMany
    */
-  export type ListJobSkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter, which ListJobSkills to fetch.
+     * Filter, which List_job_skills to fetch.
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ListJobSkills to fetch.
+     * Determine the order of List_job_skills to fetch.
      */
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ListJobSkills.
+     * Sets the position for listing List_job_skills.
      */
-    cursor?: ListJobSkillWhereUniqueInput
+    cursor?: List_job_skillWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ListJobSkills from the position of the cursor.
+     * Take `±n` List_job_skills from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ListJobSkills.
+     * Skip the first `n` List_job_skills.
      */
     skip?: number
-    distinct?: ListJobSkillScalarFieldEnum | ListJobSkillScalarFieldEnum[]
+    distinct?: List_job_skillScalarFieldEnum | List_job_skillScalarFieldEnum[]
   }
 
 
   /**
-   * ListJobSkill create
+   * List_job_skill create
    */
-  export type ListJobSkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * The data needed to create a ListJobSkill.
+     * The data needed to create a List_job_skill.
      */
-    data: XOR<ListJobSkillCreateInput, ListJobSkillUncheckedCreateInput>
+    data: XOR<List_job_skillCreateInput, List_job_skillUncheckedCreateInput>
   }
 
 
   /**
-   * ListJobSkill createMany
+   * List_job_skill createMany
    */
-  export type ListJobSkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ListJobSkills.
+     * The data used to create many List_job_skills.
      */
-    data: ListJobSkillCreateManyInput | ListJobSkillCreateManyInput[]
+    data: List_job_skillCreateManyInput | List_job_skillCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * ListJobSkill update
+   * List_job_skill update
    */
-  export type ListJobSkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * The data needed to update a ListJobSkill.
+     * The data needed to update a List_job_skill.
      */
-    data: XOR<ListJobSkillUpdateInput, ListJobSkillUncheckedUpdateInput>
+    data: XOR<List_job_skillUpdateInput, List_job_skillUncheckedUpdateInput>
     /**
-     * Choose, which ListJobSkill to update.
+     * Choose, which List_job_skill to update.
      */
-    where: ListJobSkillWhereUniqueInput
+    where: List_job_skillWhereUniqueInput
   }
 
 
   /**
-   * ListJobSkill updateMany
+   * List_job_skill updateMany
    */
-  export type ListJobSkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update ListJobSkills.
+     * The data used to update List_job_skills.
      */
-    data: XOR<ListJobSkillUpdateManyMutationInput, ListJobSkillUncheckedUpdateManyInput>
+    data: XOR<List_job_skillUpdateManyMutationInput, List_job_skillUncheckedUpdateManyInput>
     /**
-     * Filter which ListJobSkills to update
+     * Filter which List_job_skills to update
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
   }
 
 
   /**
-   * ListJobSkill upsert
+   * List_job_skill upsert
    */
-  export type ListJobSkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * The filter to search for the ListJobSkill to update in case it exists.
+     * The filter to search for the List_job_skill to update in case it exists.
      */
-    where: ListJobSkillWhereUniqueInput
+    where: List_job_skillWhereUniqueInput
     /**
-     * In case the ListJobSkill found by the `where` argument doesn't exist, create a new ListJobSkill with this data.
+     * In case the List_job_skill found by the `where` argument doesn't exist, create a new List_job_skill with this data.
      */
-    create: XOR<ListJobSkillCreateInput, ListJobSkillUncheckedCreateInput>
+    create: XOR<List_job_skillCreateInput, List_job_skillUncheckedCreateInput>
     /**
-     * In case the ListJobSkill was found with the provided `where` argument, update it with this data.
+     * In case the List_job_skill was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ListJobSkillUpdateInput, ListJobSkillUncheckedUpdateInput>
+    update: XOR<List_job_skillUpdateInput, List_job_skillUncheckedUpdateInput>
   }
 
 
   /**
-   * ListJobSkill delete
+   * List_job_skill delete
    */
-  export type ListJobSkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
     /**
-     * Filter which ListJobSkill to delete.
+     * Filter which List_job_skill to delete.
      */
-    where: ListJobSkillWhereUniqueInput
+    where: List_job_skillWhereUniqueInput
   }
 
 
   /**
-   * ListJobSkill deleteMany
+   * List_job_skill deleteMany
    */
-  export type ListJobSkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ListJobSkills to delete
+     * Filter which List_job_skills to delete
      */
-    where?: ListJobSkillWhereInput
+    where?: List_job_skillWhereInput
   }
 
 
   /**
-   * ListJobSkill without action
+   * List_job_skill without action
    */
-  export type ListJobSkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type List_job_skillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
+    include?: List_job_skillInclude<ExtArgs> | null
   }
 
 
@@ -12773,45 +12817,45 @@ export namespace Prisma {
   export type JobAvgAggregateOutputType = {
     id: number | null
     company_id: number | null
-    estimate_salary: number | null
     ability_id: number | null
+    estimate_salary: number | null
   }
 
   export type JobSumAggregateOutputType = {
     id: number | null
     company_id: number | null
-    estimate_salary: number | null
     ability_id: number | null
+    estimate_salary: number | null
   }
 
   export type JobMinAggregateOutputType = {
     id: number | null
     company_id: number | null
+    ability_id: number | null
     title: string | null
     description: string | null
     employment_type: string | null
     estimate_salary: number | null
-    ability_id: number | null
   }
 
   export type JobMaxAggregateOutputType = {
     id: number | null
     company_id: number | null
+    ability_id: number | null
     title: string | null
     description: string | null
     employment_type: string | null
     estimate_salary: number | null
-    ability_id: number | null
   }
 
   export type JobCountAggregateOutputType = {
     id: number
     company_id: number
+    ability_id: number
     title: number
     description: number
     employment_type: number
     estimate_salary: number
-    ability_id: number
     _all: number
   }
 
@@ -12819,45 +12863,45 @@ export namespace Prisma {
   export type JobAvgAggregateInputType = {
     id?: true
     company_id?: true
-    estimate_salary?: true
     ability_id?: true
+    estimate_salary?: true
   }
 
   export type JobSumAggregateInputType = {
     id?: true
     company_id?: true
-    estimate_salary?: true
     ability_id?: true
+    estimate_salary?: true
   }
 
   export type JobMinAggregateInputType = {
     id?: true
     company_id?: true
+    ability_id?: true
     title?: true
     description?: true
     employment_type?: true
     estimate_salary?: true
-    ability_id?: true
   }
 
   export type JobMaxAggregateInputType = {
     id?: true
     company_id?: true
+    ability_id?: true
     title?: true
     description?: true
     employment_type?: true
     estimate_salary?: true
-    ability_id?: true
   }
 
   export type JobCountAggregateInputType = {
     id?: true
     company_id?: true
+    ability_id?: true
     title?: true
     description?: true
     employment_type?: true
     estimate_salary?: true
-    ability_id?: true
     _all?: true
   }
 
@@ -12950,11 +12994,11 @@ export namespace Prisma {
   export type JobGroupByOutputType = {
     id: number
     company_id: number
+    ability_id: number | null
     title: string
     description: string
     employment_type: string
     estimate_salary: number | null
-    ability_id: number | null
     _count: JobCountAggregateOutputType | null
     _avg: JobAvgAggregateOutputType | null
     _sum: JobSumAggregateOutputType | null
@@ -12979,11 +13023,11 @@ export namespace Prisma {
   export type JobSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     company_id?: boolean
+    ability_id?: boolean
     title?: boolean
     description?: boolean
     employment_type?: boolean
     estimate_salary?: boolean
-    ability_id?: boolean
     company?: boolean | CompanyDefaultArgs<ExtArgs>
     ability?: boolean | Job$abilityArgs<ExtArgs>
     applications?: boolean | Job$applicationsArgs<ExtArgs>
@@ -12994,11 +13038,11 @@ export namespace Prisma {
   export type JobSelectScalar = {
     id?: boolean
     company_id?: boolean
+    ability_id?: boolean
     title?: boolean
     description?: boolean
     employment_type?: boolean
     estimate_salary?: boolean
-    ability_id?: boolean
   }
 
   export type JobInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13015,17 +13059,17 @@ export namespace Prisma {
     objects: {
       company: Prisma.$CompanyPayload<ExtArgs>
       ability: Prisma.$AbilityPayload<ExtArgs> | null
-      applications: Prisma.$JobApplicationPayload<ExtArgs>[]
-      skills: Prisma.$ListJobSkillPayload<ExtArgs>[]
+      applications: Prisma.$Job_applicationPayload<ExtArgs>[]
+      skills: Prisma.$List_job_skillPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       company_id: number
+      ability_id: number | null
       title: string
       description: string
       employment_type: string
       estimate_salary: number | null
-      ability_id: number | null
     }, ExtArgs["result"]["job"]>
     composites: {}
   }
@@ -13395,9 +13439,9 @@ export namespace Prisma {
 
     ability<T extends Job$abilityArgs<ExtArgs> = {}>(args?: Subset<T, Job$abilityArgs<ExtArgs>>): Prisma__AbilityClient<$Result.GetResult<Prisma.$AbilityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
-    applications<T extends Job$applicationsArgs<ExtArgs> = {}>(args?: Subset<T, Job$applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, 'findMany'> | Null>;
+    applications<T extends Job$applicationsArgs<ExtArgs> = {}>(args?: Subset<T, Job$applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    skills<T extends Job$skillsArgs<ExtArgs> = {}>(args?: Subset<T, Job$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListJobSkillPayload<ExtArgs>, T, 'findMany'> | Null>;
+    skills<T extends Job$skillsArgs<ExtArgs> = {}>(args?: Subset<T, Job$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_job_skillPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -13429,11 +13473,11 @@ export namespace Prisma {
   interface JobFieldRefs {
     readonly id: FieldRef<"Job", 'Int'>
     readonly company_id: FieldRef<"Job", 'Int'>
+    readonly ability_id: FieldRef<"Job", 'Int'>
     readonly title: FieldRef<"Job", 'String'>
     readonly description: FieldRef<"Job", 'String'>
     readonly employment_type: FieldRef<"Job", 'String'>
     readonly estimate_salary: FieldRef<"Job", 'Int'>
-    readonly ability_id: FieldRef<"Job", 'Int'>
   }
     
 
@@ -13766,19 +13810,19 @@ export namespace Prisma {
    */
   export type Job$applicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JobApplication
+     * Select specific fields to fetch from the Job_application
      */
-    select?: JobApplicationSelect<ExtArgs> | null
+    select?: Job_applicationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: JobApplicationInclude<ExtArgs> | null
-    where?: JobApplicationWhereInput
-    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
-    cursor?: JobApplicationWhereUniqueInput
+    include?: Job_applicationInclude<ExtArgs> | null
+    where?: Job_applicationWhereInput
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
+    cursor?: Job_applicationWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
@@ -13787,19 +13831,19 @@ export namespace Prisma {
    */
   export type Job$skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ListJobSkill
+     * Select specific fields to fetch from the List_job_skill
      */
-    select?: ListJobSkillSelect<ExtArgs> | null
+    select?: List_job_skillSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ListJobSkillInclude<ExtArgs> | null
-    where?: ListJobSkillWhereInput
-    orderBy?: ListJobSkillOrderByWithRelationInput | ListJobSkillOrderByWithRelationInput[]
-    cursor?: ListJobSkillWhereUniqueInput
+    include?: List_job_skillInclude<ExtArgs> | null
+    where?: List_job_skillWhereInput
+    orderBy?: List_job_skillOrderByWithRelationInput | List_job_skillOrderByWithRelationInput[]
+    cursor?: List_job_skillWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ListJobSkillScalarFieldEnum | ListJobSkillScalarFieldEnum[]
+    distinct?: List_job_skillScalarFieldEnum | List_job_skillScalarFieldEnum[]
   }
 
 
@@ -13841,20 +13885,38 @@ export namespace Prisma {
     password: 'password',
     phone_number: 'phone_number',
     city: 'city',
+    gender: 'gender',
+    dob: 'dob',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
     is_verified: 'is_verified'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const ListCertificateScalarFieldEnum: {
+  export const CompanyScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    city: 'city',
+    about: 'about',
+    logo: 'logo',
+    picture: 'picture',
+    email: 'email',
+    password: 'password'
+  };
+
+  export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
+
+
+  export const List_certificateScalarFieldEnum: {
     id: 'id',
     name: 'name',
     description: 'description',
     user_id: 'user_id'
   };
 
-  export type ListCertificateScalarFieldEnum = (typeof ListCertificateScalarFieldEnum)[keyof typeof ListCertificateScalarFieldEnum]
+  export type List_certificateScalarFieldEnum = (typeof List_certificateScalarFieldEnum)[keyof typeof List_certificateScalarFieldEnum]
 
 
   export const SkillScalarFieldEnum: {
@@ -13865,16 +13927,16 @@ export namespace Prisma {
   export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]
 
 
-  export const ListDisabilityScalarFieldEnum: {
+  export const List_disabilityScalarFieldEnum: {
     id: 'id',
     user_id: 'user_id',
     disability_id: 'disability_id'
   };
 
-  export type ListDisabilityScalarFieldEnum = (typeof ListDisabilityScalarFieldEnum)[keyof typeof ListDisabilityScalarFieldEnum]
+  export type List_disabilityScalarFieldEnum = (typeof List_disabilityScalarFieldEnum)[keyof typeof List_disabilityScalarFieldEnum]
 
 
-  export const JobApplicationScalarFieldEnum: {
+  export const Job_applicationScalarFieldEnum: {
     id: 'id',
     user_id: 'user_id',
     job_id: 'job_id',
@@ -13882,7 +13944,7 @@ export namespace Prisma {
     status: 'status'
   };
 
-  export type JobApplicationScalarFieldEnum = (typeof JobApplicationScalarFieldEnum)[keyof typeof JobApplicationScalarFieldEnum]
+  export type Job_applicationScalarFieldEnum = (typeof Job_applicationScalarFieldEnum)[keyof typeof Job_applicationScalarFieldEnum]
 
 
   export const DisabilityScalarFieldEnum: {
@@ -13903,27 +13965,13 @@ export namespace Prisma {
   export type AbilityScalarFieldEnum = (typeof AbilityScalarFieldEnum)[keyof typeof AbilityScalarFieldEnum]
 
 
-  export const ListSkillScalarFieldEnum: {
+  export const List_skillScalarFieldEnum: {
     id: 'id',
     user_id: 'user_id',
     skill_id: 'skill_id'
   };
 
-  export type ListSkillScalarFieldEnum = (typeof ListSkillScalarFieldEnum)[keyof typeof ListSkillScalarFieldEnum]
-
-
-  export const CompanyScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    city: 'city',
-    about: 'about',
-    logo: 'logo',
-    picture: 'picture',
-    email: 'email',
-    password: 'password'
-  };
-
-  export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
+  export type List_skillScalarFieldEnum = (typeof List_skillScalarFieldEnum)[keyof typeof List_skillScalarFieldEnum]
 
 
   export const CategoryScalarFieldEnum: {
@@ -13934,23 +13982,23 @@ export namespace Prisma {
   export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
 
 
-  export const ListJobSkillScalarFieldEnum: {
+  export const List_job_skillScalarFieldEnum: {
     id: 'id',
     job_id: 'job_id',
     skill_id: 'skill_id'
   };
 
-  export type ListJobSkillScalarFieldEnum = (typeof ListJobSkillScalarFieldEnum)[keyof typeof ListJobSkillScalarFieldEnum]
+  export type List_job_skillScalarFieldEnum = (typeof List_job_skillScalarFieldEnum)[keyof typeof List_job_skillScalarFieldEnum]
 
 
   export const JobScalarFieldEnum: {
     id: 'id',
     company_id: 'company_id',
+    ability_id: 'ability_id',
     title: 'title',
     description: 'description',
     employment_type: 'employment_type',
-    estimate_salary: 'estimate_salary',
-    ability_id: 'ability_id'
+    estimate_salary: 'estimate_salary'
   };
 
   export type JobScalarFieldEnum = (typeof JobScalarFieldEnum)[keyof typeof JobScalarFieldEnum]
@@ -14014,6 +14062,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -14043,59 +14105,75 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     id?: IntFilter<"User"> | number
     first_name?: StringFilter<"User"> | string
-    last_name?: StringFilter<"User"> | string
+    last_name?: StringNullableFilter<"User"> | string | null
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     phone_number?: StringNullableFilter<"User"> | string | null
     city?: StringNullableFilter<"User"> | string | null
+    gender?: StringFilter<"User"> | string
+    dob?: DateTimeFilter<"User"> | Date | string
+    created_at?: DateTimeFilter<"User"> | Date | string
+    updated_at?: DateTimeFilter<"User"> | Date | string
     is_verified?: BoolFilter<"User"> | boolean
-    certificates?: ListCertificateListRelationFilter
-    disabilities?: ListDisabilityListRelationFilter
-    jobApplications?: JobApplicationListRelationFilter
-    skills?: ListSkillListRelationFilter
+    certificates?: List_certificateListRelationFilter
+    disabilities?: List_disabilityListRelationFilter
+    jobApplications?: Job_applicationListRelationFilter
+    skills?: List_skillListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     first_name?: SortOrder
-    last_name?: SortOrder
+    last_name?: SortOrderInput | SortOrder
     email?: SortOrder
     password?: SortOrder
     phone_number?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    dob?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
     is_verified?: SortOrder
-    certificates?: ListCertificateOrderByRelationAggregateInput
-    disabilities?: ListDisabilityOrderByRelationAggregateInput
-    jobApplications?: JobApplicationOrderByRelationAggregateInput
-    skills?: ListSkillOrderByRelationAggregateInput
+    certificates?: List_certificateOrderByRelationAggregateInput
+    disabilities?: List_disabilityOrderByRelationAggregateInput
+    jobApplications?: Job_applicationOrderByRelationAggregateInput
+    skills?: List_skillOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     first_name?: StringFilter<"User"> | string
-    last_name?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
+    last_name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
     phone_number?: StringNullableFilter<"User"> | string | null
     city?: StringNullableFilter<"User"> | string | null
+    gender?: StringFilter<"User"> | string
+    dob?: DateTimeFilter<"User"> | Date | string
+    created_at?: DateTimeFilter<"User"> | Date | string
+    updated_at?: DateTimeFilter<"User"> | Date | string
     is_verified?: BoolFilter<"User"> | boolean
-    certificates?: ListCertificateListRelationFilter
-    disabilities?: ListDisabilityListRelationFilter
-    jobApplications?: JobApplicationListRelationFilter
-    skills?: ListSkillListRelationFilter
-  }, "id">
+    certificates?: List_certificateListRelationFilter
+    disabilities?: List_disabilityListRelationFilter
+    jobApplications?: Job_applicationListRelationFilter
+    skills?: List_skillListRelationFilter
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     first_name?: SortOrder
-    last_name?: SortOrder
+    last_name?: SortOrderInput | SortOrder
     email?: SortOrder
     password?: SortOrder
     phone_number?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
+    gender?: SortOrder
+    dob?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
     is_verified?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
@@ -14110,26 +14188,105 @@ export namespace Prisma {
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"User"> | number
     first_name?: StringWithAggregatesFilter<"User"> | string
-    last_name?: StringWithAggregatesFilter<"User"> | string
+    last_name?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     phone_number?: StringNullableWithAggregatesFilter<"User"> | string | null
     city?: StringNullableWithAggregatesFilter<"User"> | string | null
+    gender?: StringWithAggregatesFilter<"User"> | string
+    dob?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
     is_verified?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
-  export type ListCertificateWhereInput = {
-    AND?: ListCertificateWhereInput | ListCertificateWhereInput[]
-    OR?: ListCertificateWhereInput[]
-    NOT?: ListCertificateWhereInput | ListCertificateWhereInput[]
-    id?: IntFilter<"ListCertificate"> | number
-    name?: StringNullableFilter<"ListCertificate"> | string | null
-    description?: StringNullableFilter<"ListCertificate"> | string | null
-    user_id?: IntFilter<"ListCertificate"> | number
+  export type CompanyWhereInput = {
+    AND?: CompanyWhereInput | CompanyWhereInput[]
+    OR?: CompanyWhereInput[]
+    NOT?: CompanyWhereInput | CompanyWhereInput[]
+    id?: IntFilter<"Company"> | number
+    name?: StringFilter<"Company"> | string
+    city?: StringFilter<"Company"> | string
+    about?: StringFilter<"Company"> | string
+    logo?: StringNullableFilter<"Company"> | string | null
+    picture?: StringNullableFilter<"Company"> | string | null
+    email?: StringFilter<"Company"> | string
+    password?: StringFilter<"Company"> | string
+    jobApplications?: Job_applicationListRelationFilter
+    jobs?: JobListRelationFilter
+  }
+
+  export type CompanyOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    city?: SortOrder
+    about?: SortOrder
+    logo?: SortOrderInput | SortOrder
+    picture?: SortOrderInput | SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    jobApplications?: Job_applicationOrderByRelationAggregateInput
+    jobs?: JobOrderByRelationAggregateInput
+  }
+
+  export type CompanyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CompanyWhereInput | CompanyWhereInput[]
+    OR?: CompanyWhereInput[]
+    NOT?: CompanyWhereInput | CompanyWhereInput[]
+    name?: StringFilter<"Company"> | string
+    city?: StringFilter<"Company"> | string
+    about?: StringFilter<"Company"> | string
+    logo?: StringNullableFilter<"Company"> | string | null
+    picture?: StringNullableFilter<"Company"> | string | null
+    email?: StringFilter<"Company"> | string
+    password?: StringFilter<"Company"> | string
+    jobApplications?: Job_applicationListRelationFilter
+    jobs?: JobListRelationFilter
+  }, "id">
+
+  export type CompanyOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    city?: SortOrder
+    about?: SortOrder
+    logo?: SortOrderInput | SortOrder
+    picture?: SortOrderInput | SortOrder
+    email?: SortOrder
+    password?: SortOrder
+    _count?: CompanyCountOrderByAggregateInput
+    _avg?: CompanyAvgOrderByAggregateInput
+    _max?: CompanyMaxOrderByAggregateInput
+    _min?: CompanyMinOrderByAggregateInput
+    _sum?: CompanySumOrderByAggregateInput
+  }
+
+  export type CompanyScalarWhereWithAggregatesInput = {
+    AND?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
+    OR?: CompanyScalarWhereWithAggregatesInput[]
+    NOT?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Company"> | number
+    name?: StringWithAggregatesFilter<"Company"> | string
+    city?: StringWithAggregatesFilter<"Company"> | string
+    about?: StringWithAggregatesFilter<"Company"> | string
+    logo?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    picture?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    email?: StringWithAggregatesFilter<"Company"> | string
+    password?: StringWithAggregatesFilter<"Company"> | string
+  }
+
+  export type List_certificateWhereInput = {
+    AND?: List_certificateWhereInput | List_certificateWhereInput[]
+    OR?: List_certificateWhereInput[]
+    NOT?: List_certificateWhereInput | List_certificateWhereInput[]
+    id?: IntFilter<"List_certificate"> | number
+    name?: StringNullableFilter<"List_certificate"> | string | null
+    description?: StringNullableFilter<"List_certificate"> | string | null
+    user_id?: IntFilter<"List_certificate"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
-  export type ListCertificateOrderByWithRelationInput = {
+  export type List_certificateOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
@@ -14137,37 +14294,37 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
   }
 
-  export type ListCertificateWhereUniqueInput = Prisma.AtLeast<{
+  export type List_certificateWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ListCertificateWhereInput | ListCertificateWhereInput[]
-    OR?: ListCertificateWhereInput[]
-    NOT?: ListCertificateWhereInput | ListCertificateWhereInput[]
-    name?: StringNullableFilter<"ListCertificate"> | string | null
-    description?: StringNullableFilter<"ListCertificate"> | string | null
-    user_id?: IntFilter<"ListCertificate"> | number
+    AND?: List_certificateWhereInput | List_certificateWhereInput[]
+    OR?: List_certificateWhereInput[]
+    NOT?: List_certificateWhereInput | List_certificateWhereInput[]
+    name?: StringNullableFilter<"List_certificate"> | string | null
+    description?: StringNullableFilter<"List_certificate"> | string | null
+    user_id?: IntFilter<"List_certificate"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
   }, "id">
 
-  export type ListCertificateOrderByWithAggregationInput = {
+  export type List_certificateOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     user_id?: SortOrder
-    _count?: ListCertificateCountOrderByAggregateInput
-    _avg?: ListCertificateAvgOrderByAggregateInput
-    _max?: ListCertificateMaxOrderByAggregateInput
-    _min?: ListCertificateMinOrderByAggregateInput
-    _sum?: ListCertificateSumOrderByAggregateInput
+    _count?: List_certificateCountOrderByAggregateInput
+    _avg?: List_certificateAvgOrderByAggregateInput
+    _max?: List_certificateMaxOrderByAggregateInput
+    _min?: List_certificateMinOrderByAggregateInput
+    _sum?: List_certificateSumOrderByAggregateInput
   }
 
-  export type ListCertificateScalarWhereWithAggregatesInput = {
-    AND?: ListCertificateScalarWhereWithAggregatesInput | ListCertificateScalarWhereWithAggregatesInput[]
-    OR?: ListCertificateScalarWhereWithAggregatesInput[]
-    NOT?: ListCertificateScalarWhereWithAggregatesInput | ListCertificateScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ListCertificate"> | number
-    name?: StringNullableWithAggregatesFilter<"ListCertificate"> | string | null
-    description?: StringNullableWithAggregatesFilter<"ListCertificate"> | string | null
-    user_id?: IntWithAggregatesFilter<"ListCertificate"> | number
+  export type List_certificateScalarWhereWithAggregatesInput = {
+    AND?: List_certificateScalarWhereWithAggregatesInput | List_certificateScalarWhereWithAggregatesInput[]
+    OR?: List_certificateScalarWhereWithAggregatesInput[]
+    NOT?: List_certificateScalarWhereWithAggregatesInput | List_certificateScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"List_certificate"> | number
+    name?: StringNullableWithAggregatesFilter<"List_certificate"> | string | null
+    description?: StringNullableWithAggregatesFilter<"List_certificate"> | string | null
+    user_id?: IntWithAggregatesFilter<"List_certificate"> | number
   }
 
   export type SkillWhereInput = {
@@ -14176,15 +14333,15 @@ export namespace Prisma {
     NOT?: SkillWhereInput | SkillWhereInput[]
     id?: IntFilter<"Skill"> | number
     name?: StringFilter<"Skill"> | string
-    users?: ListSkillListRelationFilter
-    jobs?: ListJobSkillListRelationFilter
+    users?: List_skillListRelationFilter
+    jobs?: List_job_skillListRelationFilter
   }
 
   export type SkillOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    users?: ListSkillOrderByRelationAggregateInput
-    jobs?: ListJobSkillOrderByRelationAggregateInput
+    users?: List_skillOrderByRelationAggregateInput
+    jobs?: List_job_skillOrderByRelationAggregateInput
   }
 
   export type SkillWhereUniqueInput = Prisma.AtLeast<{
@@ -14193,8 +14350,8 @@ export namespace Prisma {
     OR?: SkillWhereInput[]
     NOT?: SkillWhereInput | SkillWhereInput[]
     name?: StringFilter<"Skill"> | string
-    users?: ListSkillListRelationFilter
-    jobs?: ListJobSkillListRelationFilter
+    users?: List_skillListRelationFilter
+    jobs?: List_job_skillListRelationFilter
   }, "id">
 
   export type SkillOrderByWithAggregationInput = {
@@ -14215,18 +14372,18 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Skill"> | string
   }
 
-  export type ListDisabilityWhereInput = {
-    AND?: ListDisabilityWhereInput | ListDisabilityWhereInput[]
-    OR?: ListDisabilityWhereInput[]
-    NOT?: ListDisabilityWhereInput | ListDisabilityWhereInput[]
-    id?: IntFilter<"ListDisability"> | number
-    user_id?: IntFilter<"ListDisability"> | number
-    disability_id?: IntFilter<"ListDisability"> | number
+  export type List_disabilityWhereInput = {
+    AND?: List_disabilityWhereInput | List_disabilityWhereInput[]
+    OR?: List_disabilityWhereInput[]
+    NOT?: List_disabilityWhereInput | List_disabilityWhereInput[]
+    id?: IntFilter<"List_disability"> | number
+    user_id?: IntFilter<"List_disability"> | number
+    disability_id?: IntFilter<"List_disability"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
     disability?: XOR<DisabilityRelationFilter, DisabilityWhereInput>
   }
 
-  export type ListDisabilityOrderByWithRelationInput = {
+  export type List_disabilityOrderByWithRelationInput = {
     id?: SortOrder
     user_id?: SortOrder
     disability_id?: SortOrder
@@ -14234,52 +14391,52 @@ export namespace Prisma {
     disability?: DisabilityOrderByWithRelationInput
   }
 
-  export type ListDisabilityWhereUniqueInput = Prisma.AtLeast<{
+  export type List_disabilityWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ListDisabilityWhereInput | ListDisabilityWhereInput[]
-    OR?: ListDisabilityWhereInput[]
-    NOT?: ListDisabilityWhereInput | ListDisabilityWhereInput[]
-    user_id?: IntFilter<"ListDisability"> | number
-    disability_id?: IntFilter<"ListDisability"> | number
+    AND?: List_disabilityWhereInput | List_disabilityWhereInput[]
+    OR?: List_disabilityWhereInput[]
+    NOT?: List_disabilityWhereInput | List_disabilityWhereInput[]
+    user_id?: IntFilter<"List_disability"> | number
+    disability_id?: IntFilter<"List_disability"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
     disability?: XOR<DisabilityRelationFilter, DisabilityWhereInput>
   }, "id">
 
-  export type ListDisabilityOrderByWithAggregationInput = {
+  export type List_disabilityOrderByWithAggregationInput = {
     id?: SortOrder
     user_id?: SortOrder
     disability_id?: SortOrder
-    _count?: ListDisabilityCountOrderByAggregateInput
-    _avg?: ListDisabilityAvgOrderByAggregateInput
-    _max?: ListDisabilityMaxOrderByAggregateInput
-    _min?: ListDisabilityMinOrderByAggregateInput
-    _sum?: ListDisabilitySumOrderByAggregateInput
+    _count?: List_disabilityCountOrderByAggregateInput
+    _avg?: List_disabilityAvgOrderByAggregateInput
+    _max?: List_disabilityMaxOrderByAggregateInput
+    _min?: List_disabilityMinOrderByAggregateInput
+    _sum?: List_disabilitySumOrderByAggregateInput
   }
 
-  export type ListDisabilityScalarWhereWithAggregatesInput = {
-    AND?: ListDisabilityScalarWhereWithAggregatesInput | ListDisabilityScalarWhereWithAggregatesInput[]
-    OR?: ListDisabilityScalarWhereWithAggregatesInput[]
-    NOT?: ListDisabilityScalarWhereWithAggregatesInput | ListDisabilityScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ListDisability"> | number
-    user_id?: IntWithAggregatesFilter<"ListDisability"> | number
-    disability_id?: IntWithAggregatesFilter<"ListDisability"> | number
+  export type List_disabilityScalarWhereWithAggregatesInput = {
+    AND?: List_disabilityScalarWhereWithAggregatesInput | List_disabilityScalarWhereWithAggregatesInput[]
+    OR?: List_disabilityScalarWhereWithAggregatesInput[]
+    NOT?: List_disabilityScalarWhereWithAggregatesInput | List_disabilityScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"List_disability"> | number
+    user_id?: IntWithAggregatesFilter<"List_disability"> | number
+    disability_id?: IntWithAggregatesFilter<"List_disability"> | number
   }
 
-  export type JobApplicationWhereInput = {
-    AND?: JobApplicationWhereInput | JobApplicationWhereInput[]
-    OR?: JobApplicationWhereInput[]
-    NOT?: JobApplicationWhereInput | JobApplicationWhereInput[]
-    id?: IntFilter<"JobApplication"> | number
-    user_id?: IntFilter<"JobApplication"> | number
-    job_id?: IntFilter<"JobApplication"> | number
-    company_id?: IntFilter<"JobApplication"> | number
-    status?: StringFilter<"JobApplication"> | string
+  export type Job_applicationWhereInput = {
+    AND?: Job_applicationWhereInput | Job_applicationWhereInput[]
+    OR?: Job_applicationWhereInput[]
+    NOT?: Job_applicationWhereInput | Job_applicationWhereInput[]
+    id?: IntFilter<"Job_application"> | number
+    user_id?: IntFilter<"Job_application"> | number
+    job_id?: IntFilter<"Job_application"> | number
+    company_id?: IntFilter<"Job_application"> | number
+    status?: StringFilter<"Job_application"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
     job?: XOR<JobRelationFilter, JobWhereInput>
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
   }
 
-  export type JobApplicationOrderByWithRelationInput = {
+  export type Job_applicationOrderByWithRelationInput = {
     id?: SortOrder
     user_id?: SortOrder
     job_id?: SortOrder
@@ -14290,42 +14447,42 @@ export namespace Prisma {
     company?: CompanyOrderByWithRelationInput
   }
 
-  export type JobApplicationWhereUniqueInput = Prisma.AtLeast<{
+  export type Job_applicationWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: JobApplicationWhereInput | JobApplicationWhereInput[]
-    OR?: JobApplicationWhereInput[]
-    NOT?: JobApplicationWhereInput | JobApplicationWhereInput[]
-    user_id?: IntFilter<"JobApplication"> | number
-    job_id?: IntFilter<"JobApplication"> | number
-    company_id?: IntFilter<"JobApplication"> | number
-    status?: StringFilter<"JobApplication"> | string
+    AND?: Job_applicationWhereInput | Job_applicationWhereInput[]
+    OR?: Job_applicationWhereInput[]
+    NOT?: Job_applicationWhereInput | Job_applicationWhereInput[]
+    user_id?: IntFilter<"Job_application"> | number
+    job_id?: IntFilter<"Job_application"> | number
+    company_id?: IntFilter<"Job_application"> | number
+    status?: StringFilter<"Job_application"> | string
     user?: XOR<UserRelationFilter, UserWhereInput>
     job?: XOR<JobRelationFilter, JobWhereInput>
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
   }, "id">
 
-  export type JobApplicationOrderByWithAggregationInput = {
+  export type Job_applicationOrderByWithAggregationInput = {
     id?: SortOrder
     user_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
     status?: SortOrder
-    _count?: JobApplicationCountOrderByAggregateInput
-    _avg?: JobApplicationAvgOrderByAggregateInput
-    _max?: JobApplicationMaxOrderByAggregateInput
-    _min?: JobApplicationMinOrderByAggregateInput
-    _sum?: JobApplicationSumOrderByAggregateInput
+    _count?: Job_applicationCountOrderByAggregateInput
+    _avg?: Job_applicationAvgOrderByAggregateInput
+    _max?: Job_applicationMaxOrderByAggregateInput
+    _min?: Job_applicationMinOrderByAggregateInput
+    _sum?: Job_applicationSumOrderByAggregateInput
   }
 
-  export type JobApplicationScalarWhereWithAggregatesInput = {
-    AND?: JobApplicationScalarWhereWithAggregatesInput | JobApplicationScalarWhereWithAggregatesInput[]
-    OR?: JobApplicationScalarWhereWithAggregatesInput[]
-    NOT?: JobApplicationScalarWhereWithAggregatesInput | JobApplicationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"JobApplication"> | number
-    user_id?: IntWithAggregatesFilter<"JobApplication"> | number
-    job_id?: IntWithAggregatesFilter<"JobApplication"> | number
-    company_id?: IntWithAggregatesFilter<"JobApplication"> | number
-    status?: StringWithAggregatesFilter<"JobApplication"> | string
+  export type Job_applicationScalarWhereWithAggregatesInput = {
+    AND?: Job_applicationScalarWhereWithAggregatesInput | Job_applicationScalarWhereWithAggregatesInput[]
+    OR?: Job_applicationScalarWhereWithAggregatesInput[]
+    NOT?: Job_applicationScalarWhereWithAggregatesInput | Job_applicationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Job_application"> | number
+    user_id?: IntWithAggregatesFilter<"Job_application"> | number
+    job_id?: IntWithAggregatesFilter<"Job_application"> | number
+    company_id?: IntWithAggregatesFilter<"Job_application"> | number
+    status?: StringWithAggregatesFilter<"Job_application"> | string
   }
 
   export type DisabilityWhereInput = {
@@ -14337,7 +14494,7 @@ export namespace Prisma {
     name?: StringFilter<"Disability"> | string
     description?: StringFilter<"Disability"> | string
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
-    users?: ListDisabilityListRelationFilter
+    users?: List_disabilityListRelationFilter
   }
 
   export type DisabilityOrderByWithRelationInput = {
@@ -14346,7 +14503,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     category?: CategoryOrderByWithRelationInput
-    users?: ListDisabilityOrderByRelationAggregateInput
+    users?: List_disabilityOrderByRelationAggregateInput
   }
 
   export type DisabilityWhereUniqueInput = Prisma.AtLeast<{
@@ -14358,7 +14515,7 @@ export namespace Prisma {
     name?: StringFilter<"Disability"> | string
     description?: StringFilter<"Disability"> | string
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
-    users?: ListDisabilityListRelationFilter
+    users?: List_disabilityListRelationFilter
   }, "id">
 
   export type DisabilityOrderByWithAggregationInput = {
@@ -14425,18 +14582,18 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Ability"> | string
   }
 
-  export type ListSkillWhereInput = {
-    AND?: ListSkillWhereInput | ListSkillWhereInput[]
-    OR?: ListSkillWhereInput[]
-    NOT?: ListSkillWhereInput | ListSkillWhereInput[]
-    id?: IntFilter<"ListSkill"> | number
-    user_id?: IntFilter<"ListSkill"> | number
-    skill_id?: IntFilter<"ListSkill"> | number
+  export type List_skillWhereInput = {
+    AND?: List_skillWhereInput | List_skillWhereInput[]
+    OR?: List_skillWhereInput[]
+    NOT?: List_skillWhereInput | List_skillWhereInput[]
+    id?: IntFilter<"List_skill"> | number
+    user_id?: IntFilter<"List_skill"> | number
+    skill_id?: IntFilter<"List_skill"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
     skill?: XOR<SkillRelationFilter, SkillWhereInput>
   }
 
-  export type ListSkillOrderByWithRelationInput = {
+  export type List_skillOrderByWithRelationInput = {
     id?: SortOrder
     user_id?: SortOrder
     skill_id?: SortOrder
@@ -14444,110 +14601,35 @@ export namespace Prisma {
     skill?: SkillOrderByWithRelationInput
   }
 
-  export type ListSkillWhereUniqueInput = Prisma.AtLeast<{
+  export type List_skillWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ListSkillWhereInput | ListSkillWhereInput[]
-    OR?: ListSkillWhereInput[]
-    NOT?: ListSkillWhereInput | ListSkillWhereInput[]
-    user_id?: IntFilter<"ListSkill"> | number
-    skill_id?: IntFilter<"ListSkill"> | number
+    AND?: List_skillWhereInput | List_skillWhereInput[]
+    OR?: List_skillWhereInput[]
+    NOT?: List_skillWhereInput | List_skillWhereInput[]
+    user_id?: IntFilter<"List_skill"> | number
+    skill_id?: IntFilter<"List_skill"> | number
     user?: XOR<UserRelationFilter, UserWhereInput>
     skill?: XOR<SkillRelationFilter, SkillWhereInput>
   }, "id">
 
-  export type ListSkillOrderByWithAggregationInput = {
+  export type List_skillOrderByWithAggregationInput = {
     id?: SortOrder
     user_id?: SortOrder
     skill_id?: SortOrder
-    _count?: ListSkillCountOrderByAggregateInput
-    _avg?: ListSkillAvgOrderByAggregateInput
-    _max?: ListSkillMaxOrderByAggregateInput
-    _min?: ListSkillMinOrderByAggregateInput
-    _sum?: ListSkillSumOrderByAggregateInput
+    _count?: List_skillCountOrderByAggregateInput
+    _avg?: List_skillAvgOrderByAggregateInput
+    _max?: List_skillMaxOrderByAggregateInput
+    _min?: List_skillMinOrderByAggregateInput
+    _sum?: List_skillSumOrderByAggregateInput
   }
 
-  export type ListSkillScalarWhereWithAggregatesInput = {
-    AND?: ListSkillScalarWhereWithAggregatesInput | ListSkillScalarWhereWithAggregatesInput[]
-    OR?: ListSkillScalarWhereWithAggregatesInput[]
-    NOT?: ListSkillScalarWhereWithAggregatesInput | ListSkillScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ListSkill"> | number
-    user_id?: IntWithAggregatesFilter<"ListSkill"> | number
-    skill_id?: IntWithAggregatesFilter<"ListSkill"> | number
-  }
-
-  export type CompanyWhereInput = {
-    AND?: CompanyWhereInput | CompanyWhereInput[]
-    OR?: CompanyWhereInput[]
-    NOT?: CompanyWhereInput | CompanyWhereInput[]
-    id?: IntFilter<"Company"> | number
-    name?: StringFilter<"Company"> | string
-    city?: StringFilter<"Company"> | string
-    about?: StringFilter<"Company"> | string
-    logo?: StringNullableFilter<"Company"> | string | null
-    picture?: StringNullableFilter<"Company"> | string | null
-    email?: StringFilter<"Company"> | string
-    password?: StringFilter<"Company"> | string
-    jobApplications?: JobApplicationListRelationFilter
-    jobs?: JobListRelationFilter
-  }
-
-  export type CompanyOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    city?: SortOrder
-    about?: SortOrder
-    logo?: SortOrderInput | SortOrder
-    picture?: SortOrderInput | SortOrder
-    email?: SortOrder
-    password?: SortOrder
-    jobApplications?: JobApplicationOrderByRelationAggregateInput
-    jobs?: JobOrderByRelationAggregateInput
-  }
-
-  export type CompanyWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: CompanyWhereInput | CompanyWhereInput[]
-    OR?: CompanyWhereInput[]
-    NOT?: CompanyWhereInput | CompanyWhereInput[]
-    name?: StringFilter<"Company"> | string
-    city?: StringFilter<"Company"> | string
-    about?: StringFilter<"Company"> | string
-    logo?: StringNullableFilter<"Company"> | string | null
-    picture?: StringNullableFilter<"Company"> | string | null
-    email?: StringFilter<"Company"> | string
-    password?: StringFilter<"Company"> | string
-    jobApplications?: JobApplicationListRelationFilter
-    jobs?: JobListRelationFilter
-  }, "id">
-
-  export type CompanyOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    city?: SortOrder
-    about?: SortOrder
-    logo?: SortOrderInput | SortOrder
-    picture?: SortOrderInput | SortOrder
-    email?: SortOrder
-    password?: SortOrder
-    _count?: CompanyCountOrderByAggregateInput
-    _avg?: CompanyAvgOrderByAggregateInput
-    _max?: CompanyMaxOrderByAggregateInput
-    _min?: CompanyMinOrderByAggregateInput
-    _sum?: CompanySumOrderByAggregateInput
-  }
-
-  export type CompanyScalarWhereWithAggregatesInput = {
-    AND?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
-    OR?: CompanyScalarWhereWithAggregatesInput[]
-    NOT?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Company"> | number
-    name?: StringWithAggregatesFilter<"Company"> | string
-    city?: StringWithAggregatesFilter<"Company"> | string
-    about?: StringWithAggregatesFilter<"Company"> | string
-    logo?: StringNullableWithAggregatesFilter<"Company"> | string | null
-    picture?: StringNullableWithAggregatesFilter<"Company"> | string | null
-    email?: StringWithAggregatesFilter<"Company"> | string
-    password?: StringWithAggregatesFilter<"Company"> | string
+  export type List_skillScalarWhereWithAggregatesInput = {
+    AND?: List_skillScalarWhereWithAggregatesInput | List_skillScalarWhereWithAggregatesInput[]
+    OR?: List_skillScalarWhereWithAggregatesInput[]
+    NOT?: List_skillScalarWhereWithAggregatesInput | List_skillScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"List_skill"> | number
+    user_id?: IntWithAggregatesFilter<"List_skill"> | number
+    skill_id?: IntWithAggregatesFilter<"List_skill"> | number
   }
 
   export type CategoryWhereInput = {
@@ -14592,18 +14674,18 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Category"> | string
   }
 
-  export type ListJobSkillWhereInput = {
-    AND?: ListJobSkillWhereInput | ListJobSkillWhereInput[]
-    OR?: ListJobSkillWhereInput[]
-    NOT?: ListJobSkillWhereInput | ListJobSkillWhereInput[]
-    id?: IntFilter<"ListJobSkill"> | number
-    job_id?: IntFilter<"ListJobSkill"> | number
-    skill_id?: IntFilter<"ListJobSkill"> | number
+  export type List_job_skillWhereInput = {
+    AND?: List_job_skillWhereInput | List_job_skillWhereInput[]
+    OR?: List_job_skillWhereInput[]
+    NOT?: List_job_skillWhereInput | List_job_skillWhereInput[]
+    id?: IntFilter<"List_job_skill"> | number
+    job_id?: IntFilter<"List_job_skill"> | number
+    skill_id?: IntFilter<"List_job_skill"> | number
     job?: XOR<JobRelationFilter, JobWhereInput>
     skill?: XOR<SkillRelationFilter, SkillWhereInput>
   }
 
-  export type ListJobSkillOrderByWithRelationInput = {
+  export type List_job_skillOrderByWithRelationInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
@@ -14611,35 +14693,35 @@ export namespace Prisma {
     skill?: SkillOrderByWithRelationInput
   }
 
-  export type ListJobSkillWhereUniqueInput = Prisma.AtLeast<{
+  export type List_job_skillWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ListJobSkillWhereInput | ListJobSkillWhereInput[]
-    OR?: ListJobSkillWhereInput[]
-    NOT?: ListJobSkillWhereInput | ListJobSkillWhereInput[]
-    job_id?: IntFilter<"ListJobSkill"> | number
-    skill_id?: IntFilter<"ListJobSkill"> | number
+    AND?: List_job_skillWhereInput | List_job_skillWhereInput[]
+    OR?: List_job_skillWhereInput[]
+    NOT?: List_job_skillWhereInput | List_job_skillWhereInput[]
+    job_id?: IntFilter<"List_job_skill"> | number
+    skill_id?: IntFilter<"List_job_skill"> | number
     job?: XOR<JobRelationFilter, JobWhereInput>
     skill?: XOR<SkillRelationFilter, SkillWhereInput>
   }, "id">
 
-  export type ListJobSkillOrderByWithAggregationInput = {
+  export type List_job_skillOrderByWithAggregationInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
-    _count?: ListJobSkillCountOrderByAggregateInput
-    _avg?: ListJobSkillAvgOrderByAggregateInput
-    _max?: ListJobSkillMaxOrderByAggregateInput
-    _min?: ListJobSkillMinOrderByAggregateInput
-    _sum?: ListJobSkillSumOrderByAggregateInput
+    _count?: List_job_skillCountOrderByAggregateInput
+    _avg?: List_job_skillAvgOrderByAggregateInput
+    _max?: List_job_skillMaxOrderByAggregateInput
+    _min?: List_job_skillMinOrderByAggregateInput
+    _sum?: List_job_skillSumOrderByAggregateInput
   }
 
-  export type ListJobSkillScalarWhereWithAggregatesInput = {
-    AND?: ListJobSkillScalarWhereWithAggregatesInput | ListJobSkillScalarWhereWithAggregatesInput[]
-    OR?: ListJobSkillScalarWhereWithAggregatesInput[]
-    NOT?: ListJobSkillScalarWhereWithAggregatesInput | ListJobSkillScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ListJobSkill"> | number
-    job_id?: IntWithAggregatesFilter<"ListJobSkill"> | number
-    skill_id?: IntWithAggregatesFilter<"ListJobSkill"> | number
+  export type List_job_skillScalarWhereWithAggregatesInput = {
+    AND?: List_job_skillScalarWhereWithAggregatesInput | List_job_skillScalarWhereWithAggregatesInput[]
+    OR?: List_job_skillScalarWhereWithAggregatesInput[]
+    NOT?: List_job_skillScalarWhereWithAggregatesInput | List_job_skillScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"List_job_skill"> | number
+    job_id?: IntWithAggregatesFilter<"List_job_skill"> | number
+    skill_id?: IntWithAggregatesFilter<"List_job_skill"> | number
   }
 
   export type JobWhereInput = {
@@ -14648,29 +14730,29 @@ export namespace Prisma {
     NOT?: JobWhereInput | JobWhereInput[]
     id?: IntFilter<"Job"> | number
     company_id?: IntFilter<"Job"> | number
+    ability_id?: IntNullableFilter<"Job"> | number | null
     title?: StringFilter<"Job"> | string
     description?: StringFilter<"Job"> | string
     employment_type?: StringFilter<"Job"> | string
     estimate_salary?: IntNullableFilter<"Job"> | number | null
-    ability_id?: IntNullableFilter<"Job"> | number | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
-    applications?: JobApplicationListRelationFilter
-    skills?: ListJobSkillListRelationFilter
+    applications?: Job_applicationListRelationFilter
+    skills?: List_job_skillListRelationFilter
   }
 
   export type JobOrderByWithRelationInput = {
     id?: SortOrder
     company_id?: SortOrder
+    ability_id?: SortOrderInput | SortOrder
     title?: SortOrder
     description?: SortOrder
     employment_type?: SortOrder
     estimate_salary?: SortOrderInput | SortOrder
-    ability_id?: SortOrderInput | SortOrder
     company?: CompanyOrderByWithRelationInput
     ability?: AbilityOrderByWithRelationInput
-    applications?: JobApplicationOrderByRelationAggregateInput
-    skills?: ListJobSkillOrderByRelationAggregateInput
+    applications?: Job_applicationOrderByRelationAggregateInput
+    skills?: List_job_skillOrderByRelationAggregateInput
   }
 
   export type JobWhereUniqueInput = Prisma.AtLeast<{
@@ -14679,25 +14761,25 @@ export namespace Prisma {
     OR?: JobWhereInput[]
     NOT?: JobWhereInput | JobWhereInput[]
     company_id?: IntFilter<"Job"> | number
+    ability_id?: IntNullableFilter<"Job"> | number | null
     title?: StringFilter<"Job"> | string
     description?: StringFilter<"Job"> | string
     employment_type?: StringFilter<"Job"> | string
     estimate_salary?: IntNullableFilter<"Job"> | number | null
-    ability_id?: IntNullableFilter<"Job"> | number | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
-    applications?: JobApplicationListRelationFilter
-    skills?: ListJobSkillListRelationFilter
+    applications?: Job_applicationListRelationFilter
+    skills?: List_job_skillListRelationFilter
   }, "id">
 
   export type JobOrderByWithAggregationInput = {
     id?: SortOrder
     company_id?: SortOrder
+    ability_id?: SortOrderInput | SortOrder
     title?: SortOrder
     description?: SortOrder
     employment_type?: SortOrder
     estimate_salary?: SortOrderInput | SortOrder
-    ability_id?: SortOrderInput | SortOrder
     _count?: JobCountOrderByAggregateInput
     _avg?: JobAvgOrderByAggregateInput
     _max?: JobMaxOrderByAggregateInput
@@ -14711,142 +14793,252 @@ export namespace Prisma {
     NOT?: JobScalarWhereWithAggregatesInput | JobScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Job"> | number
     company_id?: IntWithAggregatesFilter<"Job"> | number
+    ability_id?: IntNullableWithAggregatesFilter<"Job"> | number | null
     title?: StringWithAggregatesFilter<"Job"> | string
     description?: StringWithAggregatesFilter<"Job"> | string
     employment_type?: StringWithAggregatesFilter<"Job"> | string
     estimate_salary?: IntNullableWithAggregatesFilter<"Job"> | number | null
-    ability_id?: IntNullableWithAggregatesFilter<"Job"> | number | null
   }
 
   export type UserCreateInput = {
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
-    skills?: ListSkillCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationCreateNestedManyWithoutUserInput
+    skills?: List_skillCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateUncheckedCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityUncheckedCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
-    skills?: ListSkillUncheckedCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutUserInput
+    skills?: List_skillUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUpdateManyWithoutUserNestedInput
+    skills?: List_skillUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUncheckedUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUncheckedUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUncheckedUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutUserNestedInput
+    skills?: List_skillUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type ListCertificateCreateInput = {
+  export type CompanyCreateInput = {
+    name: string
+    city: string
+    about: string
+    logo?: string | null
+    picture?: string | null
+    email: string
+    password: string
+    jobApplications?: Job_applicationCreateNestedManyWithoutCompanyInput
+    jobs?: JobCreateNestedManyWithoutCompanyInput
+  }
+
+  export type CompanyUncheckedCreateInput = {
+    id?: number
+    name: string
+    city: string
+    about: string
+    logo?: string | null
+    picture?: string | null
+    email: string
+    password: string
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutCompanyInput
+    jobs?: JobUncheckedCreateNestedManyWithoutCompanyInput
+  }
+
+  export type CompanyUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    jobApplications?: Job_applicationUpdateManyWithoutCompanyNestedInput
+    jobs?: JobUpdateManyWithoutCompanyNestedInput
+  }
+
+  export type CompanyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput
+    jobs?: JobUncheckedUpdateManyWithoutCompanyNestedInput
+  }
+
+  export type CompanyCreateManyInput = {
+    id?: number
+    name: string
+    city: string
+    about: string
+    logo?: string | null
+    picture?: string | null
+    email: string
+    password: string
+  }
+
+  export type CompanyUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CompanyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type List_certificateCreateInput = {
     name?: string | null
     description?: string | null
     user: UserCreateNestedOneWithoutCertificatesInput
   }
 
-  export type ListCertificateUncheckedCreateInput = {
+  export type List_certificateUncheckedCreateInput = {
     id?: number
     name?: string | null
     description?: string | null
     user_id: number
   }
 
-  export type ListCertificateUpdateInput = {
+  export type List_certificateUpdateInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutCertificatesNestedInput
   }
 
-  export type ListCertificateUncheckedUpdateInput = {
+  export type List_certificateUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListCertificateCreateManyInput = {
+  export type List_certificateCreateManyInput = {
     id?: number
     name?: string | null
     description?: string | null
     user_id: number
   }
 
-  export type ListCertificateUpdateManyMutationInput = {
+  export type List_certificateUpdateManyMutationInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ListCertificateUncheckedUpdateManyInput = {
+  export type List_certificateUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14855,28 +15047,28 @@ export namespace Prisma {
 
   export type SkillCreateInput = {
     name: string
-    users?: ListSkillCreateNestedManyWithoutSkillInput
-    jobs?: ListJobSkillCreateNestedManyWithoutSkillInput
+    users?: List_skillCreateNestedManyWithoutSkillInput
+    jobs?: List_job_skillCreateNestedManyWithoutSkillInput
   }
 
   export type SkillUncheckedCreateInput = {
     id?: number
     name: string
-    users?: ListSkillUncheckedCreateNestedManyWithoutSkillInput
-    jobs?: ListJobSkillUncheckedCreateNestedManyWithoutSkillInput
+    users?: List_skillUncheckedCreateNestedManyWithoutSkillInput
+    jobs?: List_job_skillUncheckedCreateNestedManyWithoutSkillInput
   }
 
   export type SkillUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    users?: ListSkillUpdateManyWithoutSkillNestedInput
-    jobs?: ListJobSkillUpdateManyWithoutSkillNestedInput
+    users?: List_skillUpdateManyWithoutSkillNestedInput
+    jobs?: List_job_skillUpdateManyWithoutSkillNestedInput
   }
 
   export type SkillUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    users?: ListSkillUncheckedUpdateManyWithoutSkillNestedInput
-    jobs?: ListJobSkillUncheckedUpdateManyWithoutSkillNestedInput
+    users?: List_skillUncheckedUpdateManyWithoutSkillNestedInput
+    jobs?: List_job_skillUncheckedUpdateManyWithoutSkillNestedInput
   }
 
   export type SkillCreateManyInput = {
@@ -14893,52 +15085,52 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListDisabilityCreateInput = {
+  export type List_disabilityCreateInput = {
     user: UserCreateNestedOneWithoutDisabilitiesInput
     disability: DisabilityCreateNestedOneWithoutUsersInput
   }
 
-  export type ListDisabilityUncheckedCreateInput = {
+  export type List_disabilityUncheckedCreateInput = {
     id?: number
     user_id: number
     disability_id: number
   }
 
-  export type ListDisabilityUpdateInput = {
+  export type List_disabilityUpdateInput = {
     user?: UserUpdateOneRequiredWithoutDisabilitiesNestedInput
     disability?: DisabilityUpdateOneRequiredWithoutUsersNestedInput
   }
 
-  export type ListDisabilityUncheckedUpdateInput = {
+  export type List_disabilityUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     disability_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListDisabilityCreateManyInput = {
+  export type List_disabilityCreateManyInput = {
     id?: number
     user_id: number
     disability_id: number
   }
 
-  export type ListDisabilityUpdateManyMutationInput = {
+  export type List_disabilityUpdateManyMutationInput = {
 
   }
 
-  export type ListDisabilityUncheckedUpdateManyInput = {
+  export type List_disabilityUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     disability_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type JobApplicationCreateInput = {
+  export type Job_applicationCreateInput = {
     status: string
     user: UserCreateNestedOneWithoutJobApplicationsInput
     job: JobCreateNestedOneWithoutApplicationsInput
     company: CompanyCreateNestedOneWithoutJobApplicationsInput
   }
 
-  export type JobApplicationUncheckedCreateInput = {
+  export type Job_applicationUncheckedCreateInput = {
     id?: number
     user_id: number
     job_id: number
@@ -14946,14 +15138,14 @@ export namespace Prisma {
     status: string
   }
 
-  export type JobApplicationUpdateInput = {
+  export type Job_applicationUpdateInput = {
     status?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
     job?: JobUpdateOneRequiredWithoutApplicationsNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobApplicationsNestedInput
   }
 
-  export type JobApplicationUncheckedUpdateInput = {
+  export type Job_applicationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
@@ -14961,7 +15153,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationCreateManyInput = {
+  export type Job_applicationCreateManyInput = {
     id?: number
     user_id: number
     job_id: number
@@ -14969,11 +15161,11 @@ export namespace Prisma {
     status: string
   }
 
-  export type JobApplicationUpdateManyMutationInput = {
+  export type Job_applicationUpdateManyMutationInput = {
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationUncheckedUpdateManyInput = {
+  export type Job_applicationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
@@ -14985,7 +15177,7 @@ export namespace Prisma {
     name: string
     description: string
     category: CategoryCreateNestedOneWithoutDisabilitiesInput
-    users?: ListDisabilityCreateNestedManyWithoutDisabilityInput
+    users?: List_disabilityCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityUncheckedCreateInput = {
@@ -14993,14 +15185,14 @@ export namespace Prisma {
     category_id: number
     name: string
     description: string
-    users?: ListDisabilityUncheckedCreateNestedManyWithoutDisabilityInput
+    users?: List_disabilityUncheckedCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     category?: CategoryUpdateOneRequiredWithoutDisabilitiesNestedInput
-    users?: ListDisabilityUpdateManyWithoutDisabilityNestedInput
+    users?: List_disabilityUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityUncheckedUpdateInput = {
@@ -15008,7 +15200,7 @@ export namespace Prisma {
     category_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    users?: ListDisabilityUncheckedUpdateManyWithoutDisabilityNestedInput
+    users?: List_disabilityUncheckedUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityCreateManyInput = {
@@ -15066,124 +15258,42 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListSkillCreateInput = {
+  export type List_skillCreateInput = {
     user: UserCreateNestedOneWithoutSkillsInput
     skill: SkillCreateNestedOneWithoutUsersInput
   }
 
-  export type ListSkillUncheckedCreateInput = {
+  export type List_skillUncheckedCreateInput = {
     id?: number
     user_id: number
     skill_id: number
   }
 
-  export type ListSkillUpdateInput = {
+  export type List_skillUpdateInput = {
     user?: UserUpdateOneRequiredWithoutSkillsNestedInput
     skill?: SkillUpdateOneRequiredWithoutUsersNestedInput
   }
 
-  export type ListSkillUncheckedUpdateInput = {
+  export type List_skillUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListSkillCreateManyInput = {
+  export type List_skillCreateManyInput = {
     id?: number
     user_id: number
     skill_id: number
   }
 
-  export type ListSkillUpdateManyMutationInput = {
+  export type List_skillUpdateManyMutationInput = {
 
   }
 
-  export type ListSkillUncheckedUpdateManyInput = {
+  export type List_skillUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type CompanyCreateInput = {
-    name: string
-    city: string
-    about: string
-    logo?: string | null
-    picture?: string | null
-    email: string
-    password: string
-    jobApplications?: JobApplicationCreateNestedManyWithoutCompanyInput
-    jobs?: JobCreateNestedManyWithoutCompanyInput
-  }
-
-  export type CompanyUncheckedCreateInput = {
-    id?: number
-    name: string
-    city: string
-    about: string
-    logo?: string | null
-    picture?: string | null
-    email: string
-    password: string
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutCompanyInput
-    jobs?: JobUncheckedCreateNestedManyWithoutCompanyInput
-  }
-
-  export type CompanyUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    about?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    jobApplications?: JobApplicationUpdateManyWithoutCompanyNestedInput
-    jobs?: JobUpdateManyWithoutCompanyNestedInput
-  }
-
-  export type CompanyUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    about?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutCompanyNestedInput
-    jobs?: JobUncheckedUpdateManyWithoutCompanyNestedInput
-  }
-
-  export type CompanyCreateManyInput = {
-    id?: number
-    name: string
-    city: string
-    about: string
-    logo?: string | null
-    picture?: string | null
-    email: string
-    password: string
-  }
-
-  export type CompanyUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    about?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CompanyUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    about?: StringFieldUpdateOperationsInput | string
-    logo?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
   }
 
   export type CategoryCreateInput = {
@@ -15222,39 +15332,39 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListJobSkillCreateInput = {
+  export type List_job_skillCreateInput = {
     job: JobCreateNestedOneWithoutSkillsInput
     skill: SkillCreateNestedOneWithoutJobsInput
   }
 
-  export type ListJobSkillUncheckedCreateInput = {
+  export type List_job_skillUncheckedCreateInput = {
     id?: number
     job_id: number
     skill_id: number
   }
 
-  export type ListJobSkillUpdateInput = {
+  export type List_job_skillUpdateInput = {
     job?: JobUpdateOneRequiredWithoutSkillsNestedInput
     skill?: SkillUpdateOneRequiredWithoutJobsNestedInput
   }
 
-  export type ListJobSkillUncheckedUpdateInput = {
+  export type List_job_skillUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListJobSkillCreateManyInput = {
+  export type List_job_skillCreateManyInput = {
     id?: number
     job_id: number
     skill_id: number
   }
 
-  export type ListJobSkillUpdateManyMutationInput = {
+  export type List_job_skillUpdateManyMutationInput = {
 
   }
 
-  export type ListJobSkillUncheckedUpdateManyInput = {
+  export type List_job_skillUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
@@ -15267,20 +15377,20 @@ export namespace Prisma {
     estimate_salary?: number | null
     company: CompanyCreateNestedOneWithoutJobsInput
     ability?: AbilityCreateNestedOneWithoutJobsInput
-    applications?: JobApplicationCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillCreateNestedManyWithoutJobInput
+    applications?: Job_applicationCreateNestedManyWithoutJobInput
+    skills?: List_job_skillCreateNestedManyWithoutJobInput
   }
 
   export type JobUncheckedCreateInput = {
     id?: number
     company_id: number
+    ability_id?: number | null
     title: string
     description: string
     employment_type: string
     estimate_salary?: number | null
-    ability_id?: number | null
-    applications?: JobApplicationUncheckedCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillUncheckedCreateNestedManyWithoutJobInput
+    applications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
+    skills?: List_job_skillUncheckedCreateNestedManyWithoutJobInput
   }
 
   export type JobUpdateInput = {
@@ -15290,30 +15400,30 @@ export namespace Prisma {
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     ability?: AbilityUpdateOneWithoutJobsNestedInput
-    applications?: JobApplicationUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUpdateManyWithoutJobNestedInput
   }
 
   export type JobUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
-    applications?: JobApplicationUncheckedUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUncheckedUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type JobCreateManyInput = {
     id?: number
     company_id: number
+    ability_id?: number | null
     title: string
     description: string
     employment_type: string
     estimate_salary?: number | null
-    ability_id?: number | null
   }
 
   export type JobUpdateManyMutationInput = {
@@ -15326,11 +15436,11 @@ export namespace Prisma {
   export type JobUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -15374,33 +15484,44 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type ListCertificateListRelationFilter = {
-    every?: ListCertificateWhereInput
-    some?: ListCertificateWhereInput
-    none?: ListCertificateWhereInput
+  export type List_certificateListRelationFilter = {
+    every?: List_certificateWhereInput
+    some?: List_certificateWhereInput
+    none?: List_certificateWhereInput
   }
 
-  export type ListDisabilityListRelationFilter = {
-    every?: ListDisabilityWhereInput
-    some?: ListDisabilityWhereInput
-    none?: ListDisabilityWhereInput
+  export type List_disabilityListRelationFilter = {
+    every?: List_disabilityWhereInput
+    some?: List_disabilityWhereInput
+    none?: List_disabilityWhereInput
   }
 
-  export type JobApplicationListRelationFilter = {
-    every?: JobApplicationWhereInput
-    some?: JobApplicationWhereInput
-    none?: JobApplicationWhereInput
+  export type Job_applicationListRelationFilter = {
+    every?: Job_applicationWhereInput
+    some?: Job_applicationWhereInput
+    none?: Job_applicationWhereInput
   }
 
-  export type ListSkillListRelationFilter = {
-    every?: ListSkillWhereInput
-    some?: ListSkillWhereInput
-    none?: ListSkillWhereInput
+  export type List_skillListRelationFilter = {
+    every?: List_skillWhereInput
+    some?: List_skillWhereInput
+    none?: List_skillWhereInput
   }
 
   export type SortOrderInput = {
@@ -15408,19 +15529,19 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type ListCertificateOrderByRelationAggregateInput = {
+  export type List_certificateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type ListDisabilityOrderByRelationAggregateInput = {
+  export type List_disabilityOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type JobApplicationOrderByRelationAggregateInput = {
+  export type Job_applicationOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type ListSkillOrderByRelationAggregateInput = {
+  export type List_skillOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15432,6 +15553,10 @@ export namespace Prisma {
     password?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    gender?: SortOrder
+    dob?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
     is_verified?: SortOrder
   }
 
@@ -15447,6 +15572,10 @@ export namespace Prisma {
     password?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    gender?: SortOrder
+    dob?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
     is_verified?: SortOrder
   }
 
@@ -15458,6 +15587,10 @@ export namespace Prisma {
     password?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    gender?: SortOrder
+    dob?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
     is_verified?: SortOrder
   }
 
@@ -15517,200 +15650,26 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type UserRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
-  export type ListCertificateCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    user_id?: SortOrder
-  }
-
-  export type ListCertificateAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
-  export type ListCertificateMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    user_id?: SortOrder
-  }
-
-  export type ListCertificateMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    user_id?: SortOrder
-  }
-
-  export type ListCertificateSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-  }
-
-  export type ListJobSkillListRelationFilter = {
-    every?: ListJobSkillWhereInput
-    some?: ListJobSkillWhereInput
-    none?: ListJobSkillWhereInput
-  }
-
-  export type ListJobSkillOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type SkillCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type SkillAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type SkillMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type SkillMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type SkillSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type DisabilityRelationFilter = {
-    is?: DisabilityWhereInput
-    isNot?: DisabilityWhereInput
-  }
-
-  export type ListDisabilityCountOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    disability_id?: SortOrder
-  }
-
-  export type ListDisabilityAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    disability_id?: SortOrder
-  }
-
-  export type ListDisabilityMaxOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    disability_id?: SortOrder
-  }
-
-  export type ListDisabilityMinOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    disability_id?: SortOrder
-  }
-
-  export type ListDisabilitySumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    disability_id?: SortOrder
-  }
-
-  export type JobRelationFilter = {
-    is?: JobWhereInput
-    isNot?: JobWhereInput
-  }
-
-  export type CompanyRelationFilter = {
-    is?: CompanyWhereInput
-    isNot?: CompanyWhereInput
-  }
-
-  export type JobApplicationCountOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    job_id?: SortOrder
-    company_id?: SortOrder
-    status?: SortOrder
-  }
-
-  export type JobApplicationAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    job_id?: SortOrder
-    company_id?: SortOrder
-  }
-
-  export type JobApplicationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    job_id?: SortOrder
-    company_id?: SortOrder
-    status?: SortOrder
-  }
-
-  export type JobApplicationMinOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    job_id?: SortOrder
-    company_id?: SortOrder
-    status?: SortOrder
-  }
-
-  export type JobApplicationSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    job_id?: SortOrder
-    company_id?: SortOrder
-  }
-
-  export type CategoryRelationFilter = {
-    is?: CategoryWhereInput
-    isNot?: CategoryWhereInput
-  }
-
-  export type DisabilityCountOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type DisabilityAvgOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-  }
-
-  export type DisabilityMaxOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type DisabilityMinOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-  }
-
-  export type DisabilitySumOrderByAggregateInput = {
-    id?: SortOrder
-    category_id?: SortOrder
   }
 
   export type JobListRelationFilter = {
@@ -15721,64 +15680,6 @@ export namespace Prisma {
 
   export type JobOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type AbilityCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type AbilityAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type AbilityMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type AbilityMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-  }
-
-  export type AbilitySumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type SkillRelationFilter = {
-    is?: SkillWhereInput
-    isNot?: SkillWhereInput
-  }
-
-  export type ListSkillCountOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    skill_id?: SortOrder
-  }
-
-  export type ListSkillAvgOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    skill_id?: SortOrder
-  }
-
-  export type ListSkillMaxOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    skill_id?: SortOrder
-  }
-
-  export type ListSkillMinOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    skill_id?: SortOrder
-  }
-
-  export type ListSkillSumOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    skill_id?: SortOrder
   }
 
   export type CompanyCountOrderByAggregateInput = {
@@ -15822,6 +15723,252 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type List_certificateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type List_certificateAvgOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type List_certificateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type List_certificateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type List_certificateSumOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type List_job_skillListRelationFilter = {
+    every?: List_job_skillWhereInput
+    some?: List_job_skillWhereInput
+    none?: List_job_skillWhereInput
+  }
+
+  export type List_job_skillOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SkillCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type SkillAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type SkillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type SkillMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type SkillSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DisabilityRelationFilter = {
+    is?: DisabilityWhereInput
+    isNot?: DisabilityWhereInput
+  }
+
+  export type List_disabilityCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    disability_id?: SortOrder
+  }
+
+  export type List_disabilityAvgOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    disability_id?: SortOrder
+  }
+
+  export type List_disabilityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    disability_id?: SortOrder
+  }
+
+  export type List_disabilityMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    disability_id?: SortOrder
+  }
+
+  export type List_disabilitySumOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    disability_id?: SortOrder
+  }
+
+  export type JobRelationFilter = {
+    is?: JobWhereInput
+    isNot?: JobWhereInput
+  }
+
+  export type CompanyRelationFilter = {
+    is?: CompanyWhereInput
+    isNot?: CompanyWhereInput
+  }
+
+  export type Job_applicationCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    job_id?: SortOrder
+    company_id?: SortOrder
+    status?: SortOrder
+  }
+
+  export type Job_applicationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    job_id?: SortOrder
+    company_id?: SortOrder
+  }
+
+  export type Job_applicationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    job_id?: SortOrder
+    company_id?: SortOrder
+    status?: SortOrder
+  }
+
+  export type Job_applicationMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    job_id?: SortOrder
+    company_id?: SortOrder
+    status?: SortOrder
+  }
+
+  export type Job_applicationSumOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    job_id?: SortOrder
+    company_id?: SortOrder
+  }
+
+  export type CategoryRelationFilter = {
+    is?: CategoryWhereInput
+    isNot?: CategoryWhereInput
+  }
+
+  export type DisabilityCountOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+  }
+
+  export type DisabilityAvgOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+  }
+
+  export type DisabilityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+  }
+
+  export type DisabilityMinOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+  }
+
+  export type DisabilitySumOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+  }
+
+  export type AbilityCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type AbilityAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type AbilityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type AbilityMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type AbilitySumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type SkillRelationFilter = {
+    is?: SkillWhereInput
+    isNot?: SkillWhereInput
+  }
+
+  export type List_skillCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    skill_id?: SortOrder
+  }
+
+  export type List_skillAvgOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    skill_id?: SortOrder
+  }
+
+  export type List_skillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    skill_id?: SortOrder
+  }
+
+  export type List_skillMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    skill_id?: SortOrder
+  }
+
+  export type List_skillSumOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    skill_id?: SortOrder
+  }
+
   export type DisabilityListRelationFilter = {
     every?: DisabilityWhereInput
     some?: DisabilityWhereInput
@@ -15855,31 +16002,31 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type ListJobSkillCountOrderByAggregateInput = {
+  export type List_job_skillCountOrderByAggregateInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
   }
 
-  export type ListJobSkillAvgOrderByAggregateInput = {
+  export type List_job_skillAvgOrderByAggregateInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
   }
 
-  export type ListJobSkillMaxOrderByAggregateInput = {
+  export type List_job_skillMaxOrderByAggregateInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
   }
 
-  export type ListJobSkillMinOrderByAggregateInput = {
+  export type List_job_skillMinOrderByAggregateInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
   }
 
-  export type ListJobSkillSumOrderByAggregateInput = {
+  export type List_job_skillSumOrderByAggregateInput = {
     id?: SortOrder
     job_id?: SortOrder
     skill_id?: SortOrder
@@ -15904,45 +16051,45 @@ export namespace Prisma {
   export type JobCountOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
+    ability_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     employment_type?: SortOrder
     estimate_salary?: SortOrder
-    ability_id?: SortOrder
   }
 
   export type JobAvgOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
-    estimate_salary?: SortOrder
     ability_id?: SortOrder
+    estimate_salary?: SortOrder
   }
 
   export type JobMaxOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
+    ability_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     employment_type?: SortOrder
     estimate_salary?: SortOrder
-    ability_id?: SortOrder
   }
 
   export type JobMinOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
+    ability_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     employment_type?: SortOrder
     estimate_salary?: SortOrder
-    ability_id?: SortOrder
   }
 
   export type JobSumOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
-    estimate_salary?: SortOrder
     ability_id?: SortOrder
+    estimate_salary?: SortOrder
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -15961,60 +16108,60 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type ListCertificateCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput> | ListCertificateCreateWithoutUserInput[] | ListCertificateUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListCertificateCreateOrConnectWithoutUserInput | ListCertificateCreateOrConnectWithoutUserInput[]
-    createMany?: ListCertificateCreateManyUserInputEnvelope
-    connect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
+  export type List_certificateCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput> | List_certificateCreateWithoutUserInput[] | List_certificateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_certificateCreateOrConnectWithoutUserInput | List_certificateCreateOrConnectWithoutUserInput[]
+    createMany?: List_certificateCreateManyUserInputEnvelope
+    connect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
   }
 
-  export type ListDisabilityCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput> | ListDisabilityCreateWithoutUserInput[] | ListDisabilityUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutUserInput | ListDisabilityCreateOrConnectWithoutUserInput[]
-    createMany?: ListDisabilityCreateManyUserInputEnvelope
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
+  export type List_disabilityCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput> | List_disabilityCreateWithoutUserInput[] | List_disabilityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutUserInput | List_disabilityCreateOrConnectWithoutUserInput[]
+    createMany?: List_disabilityCreateManyUserInputEnvelope
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
-  export type JobApplicationCreateNestedManyWithoutUserInput = {
-    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
-    createMany?: JobApplicationCreateManyUserInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  export type Job_applicationCreateNestedManyWithoutUserInput = {
+    create?: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput> | Job_applicationCreateWithoutUserInput[] | Job_applicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutUserInput | Job_applicationCreateOrConnectWithoutUserInput[]
+    createMany?: Job_applicationCreateManyUserInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
-  export type ListSkillCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput> | ListSkillCreateWithoutUserInput[] | ListSkillUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutUserInput | ListSkillCreateOrConnectWithoutUserInput[]
-    createMany?: ListSkillCreateManyUserInputEnvelope
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
+  export type List_skillCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput> | List_skillCreateWithoutUserInput[] | List_skillUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutUserInput | List_skillCreateOrConnectWithoutUserInput[]
+    createMany?: List_skillCreateManyUserInputEnvelope
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
   }
 
-  export type ListCertificateUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput> | ListCertificateCreateWithoutUserInput[] | ListCertificateUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListCertificateCreateOrConnectWithoutUserInput | ListCertificateCreateOrConnectWithoutUserInput[]
-    createMany?: ListCertificateCreateManyUserInputEnvelope
-    connect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
+  export type List_certificateUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput> | List_certificateCreateWithoutUserInput[] | List_certificateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_certificateCreateOrConnectWithoutUserInput | List_certificateCreateOrConnectWithoutUserInput[]
+    createMany?: List_certificateCreateManyUserInputEnvelope
+    connect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
   }
 
-  export type ListDisabilityUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput> | ListDisabilityCreateWithoutUserInput[] | ListDisabilityUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutUserInput | ListDisabilityCreateOrConnectWithoutUserInput[]
-    createMany?: ListDisabilityCreateManyUserInputEnvelope
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
+  export type List_disabilityUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput> | List_disabilityCreateWithoutUserInput[] | List_disabilityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutUserInput | List_disabilityCreateOrConnectWithoutUserInput[]
+    createMany?: List_disabilityCreateManyUserInputEnvelope
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
-  export type JobApplicationUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
-    createMany?: JobApplicationCreateManyUserInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  export type Job_applicationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput> | Job_applicationCreateWithoutUserInput[] | Job_applicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutUserInput | Job_applicationCreateOrConnectWithoutUserInput[]
+    createMany?: Job_applicationCreateManyUserInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
-  export type ListSkillUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput> | ListSkillCreateWithoutUserInput[] | ListSkillUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutUserInput | ListSkillCreateOrConnectWithoutUserInput[]
-    createMany?: ListSkillCreateManyUserInputEnvelope
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
+  export type List_skillUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput> | List_skillCreateWithoutUserInput[] | List_skillUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutUserInput | List_skillCreateOrConnectWithoutUserInput[]
+    createMany?: List_skillCreateManyUserInputEnvelope
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -16025,64 +16172,68 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
-  export type ListCertificateUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput> | ListCertificateCreateWithoutUserInput[] | ListCertificateUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListCertificateCreateOrConnectWithoutUserInput | ListCertificateCreateOrConnectWithoutUserInput[]
-    upsert?: ListCertificateUpsertWithWhereUniqueWithoutUserInput | ListCertificateUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListCertificateCreateManyUserInputEnvelope
-    set?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    disconnect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    delete?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    connect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    update?: ListCertificateUpdateWithWhereUniqueWithoutUserInput | ListCertificateUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListCertificateUpdateManyWithWhereWithoutUserInput | ListCertificateUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListCertificateScalarWhereInput | ListCertificateScalarWhereInput[]
+  export type List_certificateUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput> | List_certificateCreateWithoutUserInput[] | List_certificateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_certificateCreateOrConnectWithoutUserInput | List_certificateCreateOrConnectWithoutUserInput[]
+    upsert?: List_certificateUpsertWithWhereUniqueWithoutUserInput | List_certificateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_certificateCreateManyUserInputEnvelope
+    set?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    disconnect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    delete?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    connect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    update?: List_certificateUpdateWithWhereUniqueWithoutUserInput | List_certificateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_certificateUpdateManyWithWhereWithoutUserInput | List_certificateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_certificateScalarWhereInput | List_certificateScalarWhereInput[]
   }
 
-  export type ListDisabilityUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput> | ListDisabilityCreateWithoutUserInput[] | ListDisabilityUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutUserInput | ListDisabilityCreateOrConnectWithoutUserInput[]
-    upsert?: ListDisabilityUpsertWithWhereUniqueWithoutUserInput | ListDisabilityUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListDisabilityCreateManyUserInputEnvelope
-    set?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    disconnect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    delete?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    update?: ListDisabilityUpdateWithWhereUniqueWithoutUserInput | ListDisabilityUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListDisabilityUpdateManyWithWhereWithoutUserInput | ListDisabilityUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
+  export type List_disabilityUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput> | List_disabilityCreateWithoutUserInput[] | List_disabilityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutUserInput | List_disabilityCreateOrConnectWithoutUserInput[]
+    upsert?: List_disabilityUpsertWithWhereUniqueWithoutUserInput | List_disabilityUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_disabilityCreateManyUserInputEnvelope
+    set?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    disconnect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    delete?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    update?: List_disabilityUpdateWithWhereUniqueWithoutUserInput | List_disabilityUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_disabilityUpdateManyWithWhereWithoutUserInput | List_disabilityUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
-  export type JobApplicationUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutUserInput | JobApplicationUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JobApplicationCreateManyUserInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutUserInput | JobApplicationUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutUserInput | JobApplicationUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  export type Job_applicationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput> | Job_applicationCreateWithoutUserInput[] | Job_applicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutUserInput | Job_applicationCreateOrConnectWithoutUserInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutUserInput | Job_applicationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Job_applicationCreateManyUserInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutUserInput | Job_applicationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutUserInput | Job_applicationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type ListSkillUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput> | ListSkillCreateWithoutUserInput[] | ListSkillUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutUserInput | ListSkillCreateOrConnectWithoutUserInput[]
-    upsert?: ListSkillUpsertWithWhereUniqueWithoutUserInput | ListSkillUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListSkillCreateManyUserInputEnvelope
-    set?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    disconnect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    delete?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    update?: ListSkillUpdateWithWhereUniqueWithoutUserInput | ListSkillUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListSkillUpdateManyWithWhereWithoutUserInput | ListSkillUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
+  export type List_skillUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput> | List_skillCreateWithoutUserInput[] | List_skillUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutUserInput | List_skillCreateOrConnectWithoutUserInput[]
+    upsert?: List_skillUpsertWithWhereUniqueWithoutUserInput | List_skillUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_skillCreateManyUserInputEnvelope
+    set?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    disconnect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    delete?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    update?: List_skillUpdateWithWhereUniqueWithoutUserInput | List_skillUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_skillUpdateManyWithWhereWithoutUserInput | List_skillUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -16093,60 +16244,144 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ListCertificateUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput> | ListCertificateCreateWithoutUserInput[] | ListCertificateUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListCertificateCreateOrConnectWithoutUserInput | ListCertificateCreateOrConnectWithoutUserInput[]
-    upsert?: ListCertificateUpsertWithWhereUniqueWithoutUserInput | ListCertificateUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListCertificateCreateManyUserInputEnvelope
-    set?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    disconnect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    delete?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    connect?: ListCertificateWhereUniqueInput | ListCertificateWhereUniqueInput[]
-    update?: ListCertificateUpdateWithWhereUniqueWithoutUserInput | ListCertificateUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListCertificateUpdateManyWithWhereWithoutUserInput | ListCertificateUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListCertificateScalarWhereInput | ListCertificateScalarWhereInput[]
+  export type List_certificateUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput> | List_certificateCreateWithoutUserInput[] | List_certificateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_certificateCreateOrConnectWithoutUserInput | List_certificateCreateOrConnectWithoutUserInput[]
+    upsert?: List_certificateUpsertWithWhereUniqueWithoutUserInput | List_certificateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_certificateCreateManyUserInputEnvelope
+    set?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    disconnect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    delete?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    connect?: List_certificateWhereUniqueInput | List_certificateWhereUniqueInput[]
+    update?: List_certificateUpdateWithWhereUniqueWithoutUserInput | List_certificateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_certificateUpdateManyWithWhereWithoutUserInput | List_certificateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_certificateScalarWhereInput | List_certificateScalarWhereInput[]
   }
 
-  export type ListDisabilityUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput> | ListDisabilityCreateWithoutUserInput[] | ListDisabilityUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutUserInput | ListDisabilityCreateOrConnectWithoutUserInput[]
-    upsert?: ListDisabilityUpsertWithWhereUniqueWithoutUserInput | ListDisabilityUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListDisabilityCreateManyUserInputEnvelope
-    set?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    disconnect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    delete?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    update?: ListDisabilityUpdateWithWhereUniqueWithoutUserInput | ListDisabilityUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListDisabilityUpdateManyWithWhereWithoutUserInput | ListDisabilityUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
+  export type List_disabilityUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput> | List_disabilityCreateWithoutUserInput[] | List_disabilityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutUserInput | List_disabilityCreateOrConnectWithoutUserInput[]
+    upsert?: List_disabilityUpsertWithWhereUniqueWithoutUserInput | List_disabilityUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_disabilityCreateManyUserInputEnvelope
+    set?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    disconnect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    delete?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    update?: List_disabilityUpdateWithWhereUniqueWithoutUserInput | List_disabilityUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_disabilityUpdateManyWithWhereWithoutUserInput | List_disabilityUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
-  export type JobApplicationUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutUserInput | JobApplicationUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JobApplicationCreateManyUserInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutUserInput | JobApplicationUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutUserInput | JobApplicationUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  export type Job_applicationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput> | Job_applicationCreateWithoutUserInput[] | Job_applicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutUserInput | Job_applicationCreateOrConnectWithoutUserInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutUserInput | Job_applicationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Job_applicationCreateManyUserInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutUserInput | Job_applicationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutUserInput | Job_applicationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type ListSkillUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput> | ListSkillCreateWithoutUserInput[] | ListSkillUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutUserInput | ListSkillCreateOrConnectWithoutUserInput[]
-    upsert?: ListSkillUpsertWithWhereUniqueWithoutUserInput | ListSkillUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ListSkillCreateManyUserInputEnvelope
-    set?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    disconnect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    delete?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    update?: ListSkillUpdateWithWhereUniqueWithoutUserInput | ListSkillUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ListSkillUpdateManyWithWhereWithoutUserInput | ListSkillUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
+  export type List_skillUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput> | List_skillCreateWithoutUserInput[] | List_skillUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutUserInput | List_skillCreateOrConnectWithoutUserInput[]
+    upsert?: List_skillUpsertWithWhereUniqueWithoutUserInput | List_skillUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: List_skillCreateManyUserInputEnvelope
+    set?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    disconnect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    delete?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    update?: List_skillUpdateWithWhereUniqueWithoutUserInput | List_skillUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: List_skillUpdateManyWithWhereWithoutUserInput | List_skillUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
+  }
+
+  export type Job_applicationCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput> | Job_applicationCreateWithoutCompanyInput[] | Job_applicationUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutCompanyInput | Job_applicationCreateOrConnectWithoutCompanyInput[]
+    createMany?: Job_applicationCreateManyCompanyInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+  }
+
+  export type JobCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
+    createMany?: JobCreateManyCompanyInputEnvelope
+    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+  }
+
+  export type Job_applicationUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput> | Job_applicationCreateWithoutCompanyInput[] | Job_applicationUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutCompanyInput | Job_applicationCreateOrConnectWithoutCompanyInput[]
+    createMany?: Job_applicationCreateManyCompanyInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+  }
+
+  export type JobUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
+    createMany?: JobCreateManyCompanyInputEnvelope
+    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+  }
+
+  export type Job_applicationUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput> | Job_applicationCreateWithoutCompanyInput[] | Job_applicationUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutCompanyInput | Job_applicationCreateOrConnectWithoutCompanyInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutCompanyInput | Job_applicationUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: Job_applicationCreateManyCompanyInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutCompanyInput | Job_applicationUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutCompanyInput | Job_applicationUpdateManyWithWhereWithoutCompanyInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+  }
+
+  export type JobUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
+    upsert?: JobUpsertWithWhereUniqueWithoutCompanyInput | JobUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: JobCreateManyCompanyInputEnvelope
+    set?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    disconnect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    delete?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    update?: JobUpdateWithWhereUniqueWithoutCompanyInput | JobUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: JobUpdateManyWithWhereWithoutCompanyInput | JobUpdateManyWithWhereWithoutCompanyInput[]
+    deleteMany?: JobScalarWhereInput | JobScalarWhereInput[]
+  }
+
+  export type Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput> | Job_applicationCreateWithoutCompanyInput[] | Job_applicationUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutCompanyInput | Job_applicationCreateOrConnectWithoutCompanyInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutCompanyInput | Job_applicationUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: Job_applicationCreateManyCompanyInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutCompanyInput | Job_applicationUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutCompanyInput | Job_applicationUpdateManyWithWhereWithoutCompanyInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+  }
+
+  export type JobUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
+    upsert?: JobUpsertWithWhereUniqueWithoutCompanyInput | JobUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: JobCreateManyCompanyInputEnvelope
+    set?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    disconnect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    delete?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
+    update?: JobUpdateWithWhereUniqueWithoutCompanyInput | JobUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: JobUpdateManyWithWhereWithoutCompanyInput | JobUpdateManyWithWhereWithoutCompanyInput[]
+    deleteMany?: JobScalarWhereInput | JobScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutCertificatesInput = {
@@ -16163,88 +16398,88 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCertificatesInput, UserUpdateWithoutCertificatesInput>, UserUncheckedUpdateWithoutCertificatesInput>
   }
 
-  export type ListSkillCreateNestedManyWithoutSkillInput = {
-    create?: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput> | ListSkillCreateWithoutSkillInput[] | ListSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutSkillInput | ListSkillCreateOrConnectWithoutSkillInput[]
-    createMany?: ListSkillCreateManySkillInputEnvelope
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
+  export type List_skillCreateNestedManyWithoutSkillInput = {
+    create?: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput> | List_skillCreateWithoutSkillInput[] | List_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutSkillInput | List_skillCreateOrConnectWithoutSkillInput[]
+    createMany?: List_skillCreateManySkillInputEnvelope
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
   }
 
-  export type ListJobSkillCreateNestedManyWithoutSkillInput = {
-    create?: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput> | ListJobSkillCreateWithoutSkillInput[] | ListJobSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutSkillInput | ListJobSkillCreateOrConnectWithoutSkillInput[]
-    createMany?: ListJobSkillCreateManySkillInputEnvelope
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
+  export type List_job_skillCreateNestedManyWithoutSkillInput = {
+    create?: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput> | List_job_skillCreateWithoutSkillInput[] | List_job_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutSkillInput | List_job_skillCreateOrConnectWithoutSkillInput[]
+    createMany?: List_job_skillCreateManySkillInputEnvelope
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
   }
 
-  export type ListSkillUncheckedCreateNestedManyWithoutSkillInput = {
-    create?: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput> | ListSkillCreateWithoutSkillInput[] | ListSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutSkillInput | ListSkillCreateOrConnectWithoutSkillInput[]
-    createMany?: ListSkillCreateManySkillInputEnvelope
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
+  export type List_skillUncheckedCreateNestedManyWithoutSkillInput = {
+    create?: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput> | List_skillCreateWithoutSkillInput[] | List_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutSkillInput | List_skillCreateOrConnectWithoutSkillInput[]
+    createMany?: List_skillCreateManySkillInputEnvelope
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
   }
 
-  export type ListJobSkillUncheckedCreateNestedManyWithoutSkillInput = {
-    create?: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput> | ListJobSkillCreateWithoutSkillInput[] | ListJobSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutSkillInput | ListJobSkillCreateOrConnectWithoutSkillInput[]
-    createMany?: ListJobSkillCreateManySkillInputEnvelope
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
+  export type List_job_skillUncheckedCreateNestedManyWithoutSkillInput = {
+    create?: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput> | List_job_skillCreateWithoutSkillInput[] | List_job_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutSkillInput | List_job_skillCreateOrConnectWithoutSkillInput[]
+    createMany?: List_job_skillCreateManySkillInputEnvelope
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
   }
 
-  export type ListSkillUpdateManyWithoutSkillNestedInput = {
-    create?: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput> | ListSkillCreateWithoutSkillInput[] | ListSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutSkillInput | ListSkillCreateOrConnectWithoutSkillInput[]
-    upsert?: ListSkillUpsertWithWhereUniqueWithoutSkillInput | ListSkillUpsertWithWhereUniqueWithoutSkillInput[]
-    createMany?: ListSkillCreateManySkillInputEnvelope
-    set?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    disconnect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    delete?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    update?: ListSkillUpdateWithWhereUniqueWithoutSkillInput | ListSkillUpdateWithWhereUniqueWithoutSkillInput[]
-    updateMany?: ListSkillUpdateManyWithWhereWithoutSkillInput | ListSkillUpdateManyWithWhereWithoutSkillInput[]
-    deleteMany?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
+  export type List_skillUpdateManyWithoutSkillNestedInput = {
+    create?: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput> | List_skillCreateWithoutSkillInput[] | List_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutSkillInput | List_skillCreateOrConnectWithoutSkillInput[]
+    upsert?: List_skillUpsertWithWhereUniqueWithoutSkillInput | List_skillUpsertWithWhereUniqueWithoutSkillInput[]
+    createMany?: List_skillCreateManySkillInputEnvelope
+    set?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    disconnect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    delete?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    update?: List_skillUpdateWithWhereUniqueWithoutSkillInput | List_skillUpdateWithWhereUniqueWithoutSkillInput[]
+    updateMany?: List_skillUpdateManyWithWhereWithoutSkillInput | List_skillUpdateManyWithWhereWithoutSkillInput[]
+    deleteMany?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
   }
 
-  export type ListJobSkillUpdateManyWithoutSkillNestedInput = {
-    create?: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput> | ListJobSkillCreateWithoutSkillInput[] | ListJobSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutSkillInput | ListJobSkillCreateOrConnectWithoutSkillInput[]
-    upsert?: ListJobSkillUpsertWithWhereUniqueWithoutSkillInput | ListJobSkillUpsertWithWhereUniqueWithoutSkillInput[]
-    createMany?: ListJobSkillCreateManySkillInputEnvelope
-    set?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    disconnect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    delete?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    update?: ListJobSkillUpdateWithWhereUniqueWithoutSkillInput | ListJobSkillUpdateWithWhereUniqueWithoutSkillInput[]
-    updateMany?: ListJobSkillUpdateManyWithWhereWithoutSkillInput | ListJobSkillUpdateManyWithWhereWithoutSkillInput[]
-    deleteMany?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
+  export type List_job_skillUpdateManyWithoutSkillNestedInput = {
+    create?: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput> | List_job_skillCreateWithoutSkillInput[] | List_job_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutSkillInput | List_job_skillCreateOrConnectWithoutSkillInput[]
+    upsert?: List_job_skillUpsertWithWhereUniqueWithoutSkillInput | List_job_skillUpsertWithWhereUniqueWithoutSkillInput[]
+    createMany?: List_job_skillCreateManySkillInputEnvelope
+    set?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    disconnect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    delete?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    update?: List_job_skillUpdateWithWhereUniqueWithoutSkillInput | List_job_skillUpdateWithWhereUniqueWithoutSkillInput[]
+    updateMany?: List_job_skillUpdateManyWithWhereWithoutSkillInput | List_job_skillUpdateManyWithWhereWithoutSkillInput[]
+    deleteMany?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
   }
 
-  export type ListSkillUncheckedUpdateManyWithoutSkillNestedInput = {
-    create?: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput> | ListSkillCreateWithoutSkillInput[] | ListSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListSkillCreateOrConnectWithoutSkillInput | ListSkillCreateOrConnectWithoutSkillInput[]
-    upsert?: ListSkillUpsertWithWhereUniqueWithoutSkillInput | ListSkillUpsertWithWhereUniqueWithoutSkillInput[]
-    createMany?: ListSkillCreateManySkillInputEnvelope
-    set?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    disconnect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    delete?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    connect?: ListSkillWhereUniqueInput | ListSkillWhereUniqueInput[]
-    update?: ListSkillUpdateWithWhereUniqueWithoutSkillInput | ListSkillUpdateWithWhereUniqueWithoutSkillInput[]
-    updateMany?: ListSkillUpdateManyWithWhereWithoutSkillInput | ListSkillUpdateManyWithWhereWithoutSkillInput[]
-    deleteMany?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
+  export type List_skillUncheckedUpdateManyWithoutSkillNestedInput = {
+    create?: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput> | List_skillCreateWithoutSkillInput[] | List_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_skillCreateOrConnectWithoutSkillInput | List_skillCreateOrConnectWithoutSkillInput[]
+    upsert?: List_skillUpsertWithWhereUniqueWithoutSkillInput | List_skillUpsertWithWhereUniqueWithoutSkillInput[]
+    createMany?: List_skillCreateManySkillInputEnvelope
+    set?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    disconnect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    delete?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    connect?: List_skillWhereUniqueInput | List_skillWhereUniqueInput[]
+    update?: List_skillUpdateWithWhereUniqueWithoutSkillInput | List_skillUpdateWithWhereUniqueWithoutSkillInput[]
+    updateMany?: List_skillUpdateManyWithWhereWithoutSkillInput | List_skillUpdateManyWithWhereWithoutSkillInput[]
+    deleteMany?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
   }
 
-  export type ListJobSkillUncheckedUpdateManyWithoutSkillNestedInput = {
-    create?: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput> | ListJobSkillCreateWithoutSkillInput[] | ListJobSkillUncheckedCreateWithoutSkillInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutSkillInput | ListJobSkillCreateOrConnectWithoutSkillInput[]
-    upsert?: ListJobSkillUpsertWithWhereUniqueWithoutSkillInput | ListJobSkillUpsertWithWhereUniqueWithoutSkillInput[]
-    createMany?: ListJobSkillCreateManySkillInputEnvelope
-    set?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    disconnect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    delete?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    update?: ListJobSkillUpdateWithWhereUniqueWithoutSkillInput | ListJobSkillUpdateWithWhereUniqueWithoutSkillInput[]
-    updateMany?: ListJobSkillUpdateManyWithWhereWithoutSkillInput | ListJobSkillUpdateManyWithWhereWithoutSkillInput[]
-    deleteMany?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
+  export type List_job_skillUncheckedUpdateManyWithoutSkillNestedInput = {
+    create?: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput> | List_job_skillCreateWithoutSkillInput[] | List_job_skillUncheckedCreateWithoutSkillInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutSkillInput | List_job_skillCreateOrConnectWithoutSkillInput[]
+    upsert?: List_job_skillUpsertWithWhereUniqueWithoutSkillInput | List_job_skillUpsertWithWhereUniqueWithoutSkillInput[]
+    createMany?: List_job_skillCreateManySkillInputEnvelope
+    set?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    disconnect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    delete?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    update?: List_job_skillUpdateWithWhereUniqueWithoutSkillInput | List_job_skillUpdateWithWhereUniqueWithoutSkillInput[]
+    updateMany?: List_job_skillUpdateManyWithWhereWithoutSkillInput | List_job_skillUpdateManyWithWhereWithoutSkillInput[]
+    deleteMany?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutDisabilitiesInput = {
@@ -16323,18 +16558,18 @@ export namespace Prisma {
     connect?: CategoryWhereUniqueInput
   }
 
-  export type ListDisabilityCreateNestedManyWithoutDisabilityInput = {
-    create?: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput> | ListDisabilityCreateWithoutDisabilityInput[] | ListDisabilityUncheckedCreateWithoutDisabilityInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutDisabilityInput | ListDisabilityCreateOrConnectWithoutDisabilityInput[]
-    createMany?: ListDisabilityCreateManyDisabilityInputEnvelope
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
+  export type List_disabilityCreateNestedManyWithoutDisabilityInput = {
+    create?: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput> | List_disabilityCreateWithoutDisabilityInput[] | List_disabilityUncheckedCreateWithoutDisabilityInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutDisabilityInput | List_disabilityCreateOrConnectWithoutDisabilityInput[]
+    createMany?: List_disabilityCreateManyDisabilityInputEnvelope
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
-  export type ListDisabilityUncheckedCreateNestedManyWithoutDisabilityInput = {
-    create?: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput> | ListDisabilityCreateWithoutDisabilityInput[] | ListDisabilityUncheckedCreateWithoutDisabilityInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutDisabilityInput | ListDisabilityCreateOrConnectWithoutDisabilityInput[]
-    createMany?: ListDisabilityCreateManyDisabilityInputEnvelope
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
+  export type List_disabilityUncheckedCreateNestedManyWithoutDisabilityInput = {
+    create?: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput> | List_disabilityCreateWithoutDisabilityInput[] | List_disabilityUncheckedCreateWithoutDisabilityInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutDisabilityInput | List_disabilityCreateOrConnectWithoutDisabilityInput[]
+    createMany?: List_disabilityCreateManyDisabilityInputEnvelope
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
   export type CategoryUpdateOneRequiredWithoutDisabilitiesNestedInput = {
@@ -16345,32 +16580,32 @@ export namespace Prisma {
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutDisabilitiesInput, CategoryUpdateWithoutDisabilitiesInput>, CategoryUncheckedUpdateWithoutDisabilitiesInput>
   }
 
-  export type ListDisabilityUpdateManyWithoutDisabilityNestedInput = {
-    create?: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput> | ListDisabilityCreateWithoutDisabilityInput[] | ListDisabilityUncheckedCreateWithoutDisabilityInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutDisabilityInput | ListDisabilityCreateOrConnectWithoutDisabilityInput[]
-    upsert?: ListDisabilityUpsertWithWhereUniqueWithoutDisabilityInput | ListDisabilityUpsertWithWhereUniqueWithoutDisabilityInput[]
-    createMany?: ListDisabilityCreateManyDisabilityInputEnvelope
-    set?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    disconnect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    delete?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    update?: ListDisabilityUpdateWithWhereUniqueWithoutDisabilityInput | ListDisabilityUpdateWithWhereUniqueWithoutDisabilityInput[]
-    updateMany?: ListDisabilityUpdateManyWithWhereWithoutDisabilityInput | ListDisabilityUpdateManyWithWhereWithoutDisabilityInput[]
-    deleteMany?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
+  export type List_disabilityUpdateManyWithoutDisabilityNestedInput = {
+    create?: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput> | List_disabilityCreateWithoutDisabilityInput[] | List_disabilityUncheckedCreateWithoutDisabilityInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutDisabilityInput | List_disabilityCreateOrConnectWithoutDisabilityInput[]
+    upsert?: List_disabilityUpsertWithWhereUniqueWithoutDisabilityInput | List_disabilityUpsertWithWhereUniqueWithoutDisabilityInput[]
+    createMany?: List_disabilityCreateManyDisabilityInputEnvelope
+    set?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    disconnect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    delete?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    update?: List_disabilityUpdateWithWhereUniqueWithoutDisabilityInput | List_disabilityUpdateWithWhereUniqueWithoutDisabilityInput[]
+    updateMany?: List_disabilityUpdateManyWithWhereWithoutDisabilityInput | List_disabilityUpdateManyWithWhereWithoutDisabilityInput[]
+    deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
-  export type ListDisabilityUncheckedUpdateManyWithoutDisabilityNestedInput = {
-    create?: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput> | ListDisabilityCreateWithoutDisabilityInput[] | ListDisabilityUncheckedCreateWithoutDisabilityInput[]
-    connectOrCreate?: ListDisabilityCreateOrConnectWithoutDisabilityInput | ListDisabilityCreateOrConnectWithoutDisabilityInput[]
-    upsert?: ListDisabilityUpsertWithWhereUniqueWithoutDisabilityInput | ListDisabilityUpsertWithWhereUniqueWithoutDisabilityInput[]
-    createMany?: ListDisabilityCreateManyDisabilityInputEnvelope
-    set?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    disconnect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    delete?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    connect?: ListDisabilityWhereUniqueInput | ListDisabilityWhereUniqueInput[]
-    update?: ListDisabilityUpdateWithWhereUniqueWithoutDisabilityInput | ListDisabilityUpdateWithWhereUniqueWithoutDisabilityInput[]
-    updateMany?: ListDisabilityUpdateManyWithWhereWithoutDisabilityInput | ListDisabilityUpdateManyWithWhereWithoutDisabilityInput[]
-    deleteMany?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
+  export type List_disabilityUncheckedUpdateManyWithoutDisabilityNestedInput = {
+    create?: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput> | List_disabilityCreateWithoutDisabilityInput[] | List_disabilityUncheckedCreateWithoutDisabilityInput[]
+    connectOrCreate?: List_disabilityCreateOrConnectWithoutDisabilityInput | List_disabilityCreateOrConnectWithoutDisabilityInput[]
+    upsert?: List_disabilityUpsertWithWhereUniqueWithoutDisabilityInput | List_disabilityUpsertWithWhereUniqueWithoutDisabilityInput[]
+    createMany?: List_disabilityCreateManyDisabilityInputEnvelope
+    set?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    disconnect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    delete?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
+    update?: List_disabilityUpdateWithWhereUniqueWithoutDisabilityInput | List_disabilityUpdateWithWhereUniqueWithoutDisabilityInput[]
+    updateMany?: List_disabilityUpdateManyWithWhereWithoutDisabilityInput | List_disabilityUpdateManyWithWhereWithoutDisabilityInput[]
+    deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
   export type JobCreateNestedManyWithoutAbilityInput = {
@@ -16441,90 +16676,6 @@ export namespace Prisma {
     upsert?: SkillUpsertWithoutUsersInput
     connect?: SkillWhereUniqueInput
     update?: XOR<XOR<SkillUpdateToOneWithWhereWithoutUsersInput, SkillUpdateWithoutUsersInput>, SkillUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type JobApplicationCreateNestedManyWithoutCompanyInput = {
-    create?: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput> | JobApplicationCreateWithoutCompanyInput[] | JobApplicationUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutCompanyInput | JobApplicationCreateOrConnectWithoutCompanyInput[]
-    createMany?: JobApplicationCreateManyCompanyInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-  }
-
-  export type JobCreateNestedManyWithoutCompanyInput = {
-    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
-    createMany?: JobCreateManyCompanyInputEnvelope
-    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-  }
-
-  export type JobApplicationUncheckedCreateNestedManyWithoutCompanyInput = {
-    create?: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput> | JobApplicationCreateWithoutCompanyInput[] | JobApplicationUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutCompanyInput | JobApplicationCreateOrConnectWithoutCompanyInput[]
-    createMany?: JobApplicationCreateManyCompanyInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-  }
-
-  export type JobUncheckedCreateNestedManyWithoutCompanyInput = {
-    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
-    createMany?: JobCreateManyCompanyInputEnvelope
-    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-  }
-
-  export type JobApplicationUpdateManyWithoutCompanyNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput> | JobApplicationCreateWithoutCompanyInput[] | JobApplicationUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutCompanyInput | JobApplicationCreateOrConnectWithoutCompanyInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutCompanyInput | JobApplicationUpsertWithWhereUniqueWithoutCompanyInput[]
-    createMany?: JobApplicationCreateManyCompanyInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutCompanyInput | JobApplicationUpdateWithWhereUniqueWithoutCompanyInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutCompanyInput | JobApplicationUpdateManyWithWhereWithoutCompanyInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
-  }
-
-  export type JobUpdateManyWithoutCompanyNestedInput = {
-    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
-    upsert?: JobUpsertWithWhereUniqueWithoutCompanyInput | JobUpsertWithWhereUniqueWithoutCompanyInput[]
-    createMany?: JobCreateManyCompanyInputEnvelope
-    set?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    disconnect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    delete?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    update?: JobUpdateWithWhereUniqueWithoutCompanyInput | JobUpdateWithWhereUniqueWithoutCompanyInput[]
-    updateMany?: JobUpdateManyWithWhereWithoutCompanyInput | JobUpdateManyWithWhereWithoutCompanyInput[]
-    deleteMany?: JobScalarWhereInput | JobScalarWhereInput[]
-  }
-
-  export type JobApplicationUncheckedUpdateManyWithoutCompanyNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput> | JobApplicationCreateWithoutCompanyInput[] | JobApplicationUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutCompanyInput | JobApplicationCreateOrConnectWithoutCompanyInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutCompanyInput | JobApplicationUpsertWithWhereUniqueWithoutCompanyInput[]
-    createMany?: JobApplicationCreateManyCompanyInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutCompanyInput | JobApplicationUpdateWithWhereUniqueWithoutCompanyInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutCompanyInput | JobApplicationUpdateManyWithWhereWithoutCompanyInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
-  }
-
-  export type JobUncheckedUpdateManyWithoutCompanyNestedInput = {
-    create?: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput> | JobCreateWithoutCompanyInput[] | JobUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobCreateOrConnectWithoutCompanyInput | JobCreateOrConnectWithoutCompanyInput[]
-    upsert?: JobUpsertWithWhereUniqueWithoutCompanyInput | JobUpsertWithWhereUniqueWithoutCompanyInput[]
-    createMany?: JobCreateManyCompanyInputEnvelope
-    set?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    disconnect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    delete?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    connect?: JobWhereUniqueInput | JobWhereUniqueInput[]
-    update?: JobUpdateWithWhereUniqueWithoutCompanyInput | JobUpdateWithWhereUniqueWithoutCompanyInput[]
-    updateMany?: JobUpdateManyWithWhereWithoutCompanyInput | JobUpdateManyWithWhereWithoutCompanyInput[]
-    deleteMany?: JobScalarWhereInput | JobScalarWhereInput[]
   }
 
   export type DisabilityCreateNestedManyWithoutCategoryInput = {
@@ -16609,32 +16760,32 @@ export namespace Prisma {
     connect?: AbilityWhereUniqueInput
   }
 
-  export type JobApplicationCreateNestedManyWithoutJobInput = {
-    create?: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput> | JobApplicationCreateWithoutJobInput[] | JobApplicationUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobInput | JobApplicationCreateOrConnectWithoutJobInput[]
-    createMany?: JobApplicationCreateManyJobInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  export type Job_applicationCreateNestedManyWithoutJobInput = {
+    create?: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput> | Job_applicationCreateWithoutJobInput[] | Job_applicationUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJobInput | Job_applicationCreateOrConnectWithoutJobInput[]
+    createMany?: Job_applicationCreateManyJobInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
-  export type ListJobSkillCreateNestedManyWithoutJobInput = {
-    create?: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput> | ListJobSkillCreateWithoutJobInput[] | ListJobSkillUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutJobInput | ListJobSkillCreateOrConnectWithoutJobInput[]
-    createMany?: ListJobSkillCreateManyJobInputEnvelope
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
+  export type List_job_skillCreateNestedManyWithoutJobInput = {
+    create?: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput> | List_job_skillCreateWithoutJobInput[] | List_job_skillUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutJobInput | List_job_skillCreateOrConnectWithoutJobInput[]
+    createMany?: List_job_skillCreateManyJobInputEnvelope
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
   }
 
-  export type JobApplicationUncheckedCreateNestedManyWithoutJobInput = {
-    create?: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput> | JobApplicationCreateWithoutJobInput[] | JobApplicationUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobInput | JobApplicationCreateOrConnectWithoutJobInput[]
-    createMany?: JobApplicationCreateManyJobInputEnvelope
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  export type Job_applicationUncheckedCreateNestedManyWithoutJobInput = {
+    create?: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput> | Job_applicationCreateWithoutJobInput[] | Job_applicationUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJobInput | Job_applicationCreateOrConnectWithoutJobInput[]
+    createMany?: Job_applicationCreateManyJobInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
-  export type ListJobSkillUncheckedCreateNestedManyWithoutJobInput = {
-    create?: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput> | ListJobSkillCreateWithoutJobInput[] | ListJobSkillUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutJobInput | ListJobSkillCreateOrConnectWithoutJobInput[]
-    createMany?: ListJobSkillCreateManyJobInputEnvelope
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
+  export type List_job_skillUncheckedCreateNestedManyWithoutJobInput = {
+    create?: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput> | List_job_skillCreateWithoutJobInput[] | List_job_skillUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutJobInput | List_job_skillCreateOrConnectWithoutJobInput[]
+    createMany?: List_job_skillCreateManyJobInputEnvelope
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -16663,60 +16814,60 @@ export namespace Prisma {
     update?: XOR<XOR<AbilityUpdateToOneWithWhereWithoutJobsInput, AbilityUpdateWithoutJobsInput>, AbilityUncheckedUpdateWithoutJobsInput>
   }
 
-  export type JobApplicationUpdateManyWithoutJobNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput> | JobApplicationCreateWithoutJobInput[] | JobApplicationUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobInput | JobApplicationCreateOrConnectWithoutJobInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutJobInput | JobApplicationUpsertWithWhereUniqueWithoutJobInput[]
-    createMany?: JobApplicationCreateManyJobInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutJobInput | JobApplicationUpdateWithWhereUniqueWithoutJobInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutJobInput | JobApplicationUpdateManyWithWhereWithoutJobInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  export type Job_applicationUpdateManyWithoutJobNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput> | Job_applicationCreateWithoutJobInput[] | Job_applicationUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJobInput | Job_applicationCreateOrConnectWithoutJobInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutJobInput | Job_applicationUpsertWithWhereUniqueWithoutJobInput[]
+    createMany?: Job_applicationCreateManyJobInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutJobInput | Job_applicationUpdateWithWhereUniqueWithoutJobInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutJobInput | Job_applicationUpdateManyWithWhereWithoutJobInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type ListJobSkillUpdateManyWithoutJobNestedInput = {
-    create?: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput> | ListJobSkillCreateWithoutJobInput[] | ListJobSkillUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutJobInput | ListJobSkillCreateOrConnectWithoutJobInput[]
-    upsert?: ListJobSkillUpsertWithWhereUniqueWithoutJobInput | ListJobSkillUpsertWithWhereUniqueWithoutJobInput[]
-    createMany?: ListJobSkillCreateManyJobInputEnvelope
-    set?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    disconnect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    delete?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    update?: ListJobSkillUpdateWithWhereUniqueWithoutJobInput | ListJobSkillUpdateWithWhereUniqueWithoutJobInput[]
-    updateMany?: ListJobSkillUpdateManyWithWhereWithoutJobInput | ListJobSkillUpdateManyWithWhereWithoutJobInput[]
-    deleteMany?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
+  export type List_job_skillUpdateManyWithoutJobNestedInput = {
+    create?: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput> | List_job_skillCreateWithoutJobInput[] | List_job_skillUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutJobInput | List_job_skillCreateOrConnectWithoutJobInput[]
+    upsert?: List_job_skillUpsertWithWhereUniqueWithoutJobInput | List_job_skillUpsertWithWhereUniqueWithoutJobInput[]
+    createMany?: List_job_skillCreateManyJobInputEnvelope
+    set?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    disconnect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    delete?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    update?: List_job_skillUpdateWithWhereUniqueWithoutJobInput | List_job_skillUpdateWithWhereUniqueWithoutJobInput[]
+    updateMany?: List_job_skillUpdateManyWithWhereWithoutJobInput | List_job_skillUpdateManyWithWhereWithoutJobInput[]
+    deleteMany?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
   }
 
-  export type JobApplicationUncheckedUpdateManyWithoutJobNestedInput = {
-    create?: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput> | JobApplicationCreateWithoutJobInput[] | JobApplicationUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobInput | JobApplicationCreateOrConnectWithoutJobInput[]
-    upsert?: JobApplicationUpsertWithWhereUniqueWithoutJobInput | JobApplicationUpsertWithWhereUniqueWithoutJobInput[]
-    createMany?: JobApplicationCreateManyJobInputEnvelope
-    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
-    update?: JobApplicationUpdateWithWhereUniqueWithoutJobInput | JobApplicationUpdateWithWhereUniqueWithoutJobInput[]
-    updateMany?: JobApplicationUpdateManyWithWhereWithoutJobInput | JobApplicationUpdateManyWithWhereWithoutJobInput[]
-    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  export type Job_applicationUncheckedUpdateManyWithoutJobNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput> | Job_applicationCreateWithoutJobInput[] | Job_applicationUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJobInput | Job_applicationCreateOrConnectWithoutJobInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutJobInput | Job_applicationUpsertWithWhereUniqueWithoutJobInput[]
+    createMany?: Job_applicationCreateManyJobInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutJobInput | Job_applicationUpdateWithWhereUniqueWithoutJobInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutJobInput | Job_applicationUpdateManyWithWhereWithoutJobInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type ListJobSkillUncheckedUpdateManyWithoutJobNestedInput = {
-    create?: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput> | ListJobSkillCreateWithoutJobInput[] | ListJobSkillUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: ListJobSkillCreateOrConnectWithoutJobInput | ListJobSkillCreateOrConnectWithoutJobInput[]
-    upsert?: ListJobSkillUpsertWithWhereUniqueWithoutJobInput | ListJobSkillUpsertWithWhereUniqueWithoutJobInput[]
-    createMany?: ListJobSkillCreateManyJobInputEnvelope
-    set?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    disconnect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    delete?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    connect?: ListJobSkillWhereUniqueInput | ListJobSkillWhereUniqueInput[]
-    update?: ListJobSkillUpdateWithWhereUniqueWithoutJobInput | ListJobSkillUpdateWithWhereUniqueWithoutJobInput[]
-    updateMany?: ListJobSkillUpdateManyWithWhereWithoutJobInput | ListJobSkillUpdateManyWithWhereWithoutJobInput[]
-    deleteMany?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
+  export type List_job_skillUncheckedUpdateManyWithoutJobNestedInput = {
+    create?: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput> | List_job_skillCreateWithoutJobInput[] | List_job_skillUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: List_job_skillCreateOrConnectWithoutJobInput | List_job_skillCreateOrConnectWithoutJobInput[]
+    upsert?: List_job_skillUpsertWithWhereUniqueWithoutJobInput | List_job_skillUpsertWithWhereUniqueWithoutJobInput[]
+    createMany?: List_job_skillCreateManyJobInputEnvelope
+    set?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    disconnect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    delete?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    connect?: List_job_skillWhereUniqueInput | List_job_skillWhereUniqueInput[]
+    update?: List_job_skillUpdateWithWhereUniqueWithoutJobInput | List_job_skillUpdateWithWhereUniqueWithoutJobInput[]
+    updateMany?: List_job_skillUpdateManyWithWhereWithoutJobInput | List_job_skillUpdateManyWithWhereWithoutJobInput[]
+    deleteMany?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -16756,6 +16907,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -16835,6 +16997,20 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -16870,216 +17046,323 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type ListCertificateCreateWithoutUserInput = {
+  export type List_certificateCreateWithoutUserInput = {
     name?: string | null
     description?: string | null
   }
 
-  export type ListCertificateUncheckedCreateWithoutUserInput = {
+  export type List_certificateUncheckedCreateWithoutUserInput = {
     id?: number
     name?: string | null
     description?: string | null
   }
 
-  export type ListCertificateCreateOrConnectWithoutUserInput = {
-    where: ListCertificateWhereUniqueInput
-    create: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput>
+  export type List_certificateCreateOrConnectWithoutUserInput = {
+    where: List_certificateWhereUniqueInput
+    create: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput>
   }
 
-  export type ListCertificateCreateManyUserInputEnvelope = {
-    data: ListCertificateCreateManyUserInput | ListCertificateCreateManyUserInput[]
+  export type List_certificateCreateManyUserInputEnvelope = {
+    data: List_certificateCreateManyUserInput | List_certificateCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListDisabilityCreateWithoutUserInput = {
+  export type List_disabilityCreateWithoutUserInput = {
     disability: DisabilityCreateNestedOneWithoutUsersInput
   }
 
-  export type ListDisabilityUncheckedCreateWithoutUserInput = {
+  export type List_disabilityUncheckedCreateWithoutUserInput = {
     id?: number
     disability_id: number
   }
 
-  export type ListDisabilityCreateOrConnectWithoutUserInput = {
-    where: ListDisabilityWhereUniqueInput
-    create: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput>
+  export type List_disabilityCreateOrConnectWithoutUserInput = {
+    where: List_disabilityWhereUniqueInput
+    create: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput>
   }
 
-  export type ListDisabilityCreateManyUserInputEnvelope = {
-    data: ListDisabilityCreateManyUserInput | ListDisabilityCreateManyUserInput[]
+  export type List_disabilityCreateManyUserInputEnvelope = {
+    data: List_disabilityCreateManyUserInput | List_disabilityCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type JobApplicationCreateWithoutUserInput = {
+  export type Job_applicationCreateWithoutUserInput = {
     status: string
     job: JobCreateNestedOneWithoutApplicationsInput
     company: CompanyCreateNestedOneWithoutJobApplicationsInput
   }
 
-  export type JobApplicationUncheckedCreateWithoutUserInput = {
+  export type Job_applicationUncheckedCreateWithoutUserInput = {
     id?: number
     job_id: number
     company_id: number
     status: string
   }
 
-  export type JobApplicationCreateOrConnectWithoutUserInput = {
-    where: JobApplicationWhereUniqueInput
-    create: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput>
+  export type Job_applicationCreateOrConnectWithoutUserInput = {
+    where: Job_applicationWhereUniqueInput
+    create: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput>
   }
 
-  export type JobApplicationCreateManyUserInputEnvelope = {
-    data: JobApplicationCreateManyUserInput | JobApplicationCreateManyUserInput[]
+  export type Job_applicationCreateManyUserInputEnvelope = {
+    data: Job_applicationCreateManyUserInput | Job_applicationCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListSkillCreateWithoutUserInput = {
+  export type List_skillCreateWithoutUserInput = {
     skill: SkillCreateNestedOneWithoutUsersInput
   }
 
-  export type ListSkillUncheckedCreateWithoutUserInput = {
+  export type List_skillUncheckedCreateWithoutUserInput = {
     id?: number
     skill_id: number
   }
 
-  export type ListSkillCreateOrConnectWithoutUserInput = {
-    where: ListSkillWhereUniqueInput
-    create: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput>
+  export type List_skillCreateOrConnectWithoutUserInput = {
+    where: List_skillWhereUniqueInput
+    create: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput>
   }
 
-  export type ListSkillCreateManyUserInputEnvelope = {
-    data: ListSkillCreateManyUserInput | ListSkillCreateManyUserInput[]
+  export type List_skillCreateManyUserInputEnvelope = {
+    data: List_skillCreateManyUserInput | List_skillCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListCertificateUpsertWithWhereUniqueWithoutUserInput = {
-    where: ListCertificateWhereUniqueInput
-    update: XOR<ListCertificateUpdateWithoutUserInput, ListCertificateUncheckedUpdateWithoutUserInput>
-    create: XOR<ListCertificateCreateWithoutUserInput, ListCertificateUncheckedCreateWithoutUserInput>
+  export type List_certificateUpsertWithWhereUniqueWithoutUserInput = {
+    where: List_certificateWhereUniqueInput
+    update: XOR<List_certificateUpdateWithoutUserInput, List_certificateUncheckedUpdateWithoutUserInput>
+    create: XOR<List_certificateCreateWithoutUserInput, List_certificateUncheckedCreateWithoutUserInput>
   }
 
-  export type ListCertificateUpdateWithWhereUniqueWithoutUserInput = {
-    where: ListCertificateWhereUniqueInput
-    data: XOR<ListCertificateUpdateWithoutUserInput, ListCertificateUncheckedUpdateWithoutUserInput>
+  export type List_certificateUpdateWithWhereUniqueWithoutUserInput = {
+    where: List_certificateWhereUniqueInput
+    data: XOR<List_certificateUpdateWithoutUserInput, List_certificateUncheckedUpdateWithoutUserInput>
   }
 
-  export type ListCertificateUpdateManyWithWhereWithoutUserInput = {
-    where: ListCertificateScalarWhereInput
-    data: XOR<ListCertificateUpdateManyMutationInput, ListCertificateUncheckedUpdateManyWithoutUserInput>
+  export type List_certificateUpdateManyWithWhereWithoutUserInput = {
+    where: List_certificateScalarWhereInput
+    data: XOR<List_certificateUpdateManyMutationInput, List_certificateUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ListCertificateScalarWhereInput = {
-    AND?: ListCertificateScalarWhereInput | ListCertificateScalarWhereInput[]
-    OR?: ListCertificateScalarWhereInput[]
-    NOT?: ListCertificateScalarWhereInput | ListCertificateScalarWhereInput[]
-    id?: IntFilter<"ListCertificate"> | number
-    name?: StringNullableFilter<"ListCertificate"> | string | null
-    description?: StringNullableFilter<"ListCertificate"> | string | null
-    user_id?: IntFilter<"ListCertificate"> | number
+  export type List_certificateScalarWhereInput = {
+    AND?: List_certificateScalarWhereInput | List_certificateScalarWhereInput[]
+    OR?: List_certificateScalarWhereInput[]
+    NOT?: List_certificateScalarWhereInput | List_certificateScalarWhereInput[]
+    id?: IntFilter<"List_certificate"> | number
+    name?: StringNullableFilter<"List_certificate"> | string | null
+    description?: StringNullableFilter<"List_certificate"> | string | null
+    user_id?: IntFilter<"List_certificate"> | number
   }
 
-  export type ListDisabilityUpsertWithWhereUniqueWithoutUserInput = {
-    where: ListDisabilityWhereUniqueInput
-    update: XOR<ListDisabilityUpdateWithoutUserInput, ListDisabilityUncheckedUpdateWithoutUserInput>
-    create: XOR<ListDisabilityCreateWithoutUserInput, ListDisabilityUncheckedCreateWithoutUserInput>
+  export type List_disabilityUpsertWithWhereUniqueWithoutUserInput = {
+    where: List_disabilityWhereUniqueInput
+    update: XOR<List_disabilityUpdateWithoutUserInput, List_disabilityUncheckedUpdateWithoutUserInput>
+    create: XOR<List_disabilityCreateWithoutUserInput, List_disabilityUncheckedCreateWithoutUserInput>
   }
 
-  export type ListDisabilityUpdateWithWhereUniqueWithoutUserInput = {
-    where: ListDisabilityWhereUniqueInput
-    data: XOR<ListDisabilityUpdateWithoutUserInput, ListDisabilityUncheckedUpdateWithoutUserInput>
+  export type List_disabilityUpdateWithWhereUniqueWithoutUserInput = {
+    where: List_disabilityWhereUniqueInput
+    data: XOR<List_disabilityUpdateWithoutUserInput, List_disabilityUncheckedUpdateWithoutUserInput>
   }
 
-  export type ListDisabilityUpdateManyWithWhereWithoutUserInput = {
-    where: ListDisabilityScalarWhereInput
-    data: XOR<ListDisabilityUpdateManyMutationInput, ListDisabilityUncheckedUpdateManyWithoutUserInput>
+  export type List_disabilityUpdateManyWithWhereWithoutUserInput = {
+    where: List_disabilityScalarWhereInput
+    data: XOR<List_disabilityUpdateManyMutationInput, List_disabilityUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ListDisabilityScalarWhereInput = {
-    AND?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
-    OR?: ListDisabilityScalarWhereInput[]
-    NOT?: ListDisabilityScalarWhereInput | ListDisabilityScalarWhereInput[]
-    id?: IntFilter<"ListDisability"> | number
-    user_id?: IntFilter<"ListDisability"> | number
-    disability_id?: IntFilter<"ListDisability"> | number
+  export type List_disabilityScalarWhereInput = {
+    AND?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
+    OR?: List_disabilityScalarWhereInput[]
+    NOT?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
+    id?: IntFilter<"List_disability"> | number
+    user_id?: IntFilter<"List_disability"> | number
+    disability_id?: IntFilter<"List_disability"> | number
   }
 
-  export type JobApplicationUpsertWithWhereUniqueWithoutUserInput = {
-    where: JobApplicationWhereUniqueInput
-    update: XOR<JobApplicationUpdateWithoutUserInput, JobApplicationUncheckedUpdateWithoutUserInput>
-    create: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput>
+  export type Job_applicationUpsertWithWhereUniqueWithoutUserInput = {
+    where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutUserInput, Job_applicationUncheckedUpdateWithoutUserInput>
+    create: XOR<Job_applicationCreateWithoutUserInput, Job_applicationUncheckedCreateWithoutUserInput>
   }
 
-  export type JobApplicationUpdateWithWhereUniqueWithoutUserInput = {
-    where: JobApplicationWhereUniqueInput
-    data: XOR<JobApplicationUpdateWithoutUserInput, JobApplicationUncheckedUpdateWithoutUserInput>
+  export type Job_applicationUpdateWithWhereUniqueWithoutUserInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutUserInput, Job_applicationUncheckedUpdateWithoutUserInput>
   }
 
-  export type JobApplicationUpdateManyWithWhereWithoutUserInput = {
-    where: JobApplicationScalarWhereInput
-    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutUserInput>
+  export type Job_applicationUpdateManyWithWhereWithoutUserInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type JobApplicationScalarWhereInput = {
-    AND?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
-    OR?: JobApplicationScalarWhereInput[]
-    NOT?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
-    id?: IntFilter<"JobApplication"> | number
-    user_id?: IntFilter<"JobApplication"> | number
-    job_id?: IntFilter<"JobApplication"> | number
-    company_id?: IntFilter<"JobApplication"> | number
-    status?: StringFilter<"JobApplication"> | string
+  export type Job_applicationScalarWhereInput = {
+    AND?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+    OR?: Job_applicationScalarWhereInput[]
+    NOT?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+    id?: IntFilter<"Job_application"> | number
+    user_id?: IntFilter<"Job_application"> | number
+    job_id?: IntFilter<"Job_application"> | number
+    company_id?: IntFilter<"Job_application"> | number
+    status?: StringFilter<"Job_application"> | string
   }
 
-  export type ListSkillUpsertWithWhereUniqueWithoutUserInput = {
-    where: ListSkillWhereUniqueInput
-    update: XOR<ListSkillUpdateWithoutUserInput, ListSkillUncheckedUpdateWithoutUserInput>
-    create: XOR<ListSkillCreateWithoutUserInput, ListSkillUncheckedCreateWithoutUserInput>
+  export type List_skillUpsertWithWhereUniqueWithoutUserInput = {
+    where: List_skillWhereUniqueInput
+    update: XOR<List_skillUpdateWithoutUserInput, List_skillUncheckedUpdateWithoutUserInput>
+    create: XOR<List_skillCreateWithoutUserInput, List_skillUncheckedCreateWithoutUserInput>
   }
 
-  export type ListSkillUpdateWithWhereUniqueWithoutUserInput = {
-    where: ListSkillWhereUniqueInput
-    data: XOR<ListSkillUpdateWithoutUserInput, ListSkillUncheckedUpdateWithoutUserInput>
+  export type List_skillUpdateWithWhereUniqueWithoutUserInput = {
+    where: List_skillWhereUniqueInput
+    data: XOR<List_skillUpdateWithoutUserInput, List_skillUncheckedUpdateWithoutUserInput>
   }
 
-  export type ListSkillUpdateManyWithWhereWithoutUserInput = {
-    where: ListSkillScalarWhereInput
-    data: XOR<ListSkillUpdateManyMutationInput, ListSkillUncheckedUpdateManyWithoutUserInput>
+  export type List_skillUpdateManyWithWhereWithoutUserInput = {
+    where: List_skillScalarWhereInput
+    data: XOR<List_skillUpdateManyMutationInput, List_skillUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ListSkillScalarWhereInput = {
-    AND?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
-    OR?: ListSkillScalarWhereInput[]
-    NOT?: ListSkillScalarWhereInput | ListSkillScalarWhereInput[]
-    id?: IntFilter<"ListSkill"> | number
-    user_id?: IntFilter<"ListSkill"> | number
-    skill_id?: IntFilter<"ListSkill"> | number
+  export type List_skillScalarWhereInput = {
+    AND?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
+    OR?: List_skillScalarWhereInput[]
+    NOT?: List_skillScalarWhereInput | List_skillScalarWhereInput[]
+    id?: IntFilter<"List_skill"> | number
+    user_id?: IntFilter<"List_skill"> | number
+    skill_id?: IntFilter<"List_skill"> | number
+  }
+
+  export type Job_applicationCreateWithoutCompanyInput = {
+    status: string
+    user: UserCreateNestedOneWithoutJobApplicationsInput
+    job: JobCreateNestedOneWithoutApplicationsInput
+  }
+
+  export type Job_applicationUncheckedCreateWithoutCompanyInput = {
+    id?: number
+    user_id: number
+    job_id: number
+    status: string
+  }
+
+  export type Job_applicationCreateOrConnectWithoutCompanyInput = {
+    where: Job_applicationWhereUniqueInput
+    create: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type Job_applicationCreateManyCompanyInputEnvelope = {
+    data: Job_applicationCreateManyCompanyInput | Job_applicationCreateManyCompanyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JobCreateWithoutCompanyInput = {
+    title: string
+    description: string
+    employment_type: string
+    estimate_salary?: number | null
+    ability?: AbilityCreateNestedOneWithoutJobsInput
+    applications?: Job_applicationCreateNestedManyWithoutJobInput
+    skills?: List_job_skillCreateNestedManyWithoutJobInput
+  }
+
+  export type JobUncheckedCreateWithoutCompanyInput = {
+    id?: number
+    ability_id?: number | null
+    title: string
+    description: string
+    employment_type: string
+    estimate_salary?: number | null
+    applications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
+    skills?: List_job_skillUncheckedCreateNestedManyWithoutJobInput
+  }
+
+  export type JobCreateOrConnectWithoutCompanyInput = {
+    where: JobWhereUniqueInput
+    create: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type JobCreateManyCompanyInputEnvelope = {
+    data: JobCreateManyCompanyInput | JobCreateManyCompanyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Job_applicationUpsertWithWhereUniqueWithoutCompanyInput = {
+    where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
+    create: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type Job_applicationUpdateWithWhereUniqueWithoutCompanyInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
+  }
+
+  export type Job_applicationUpdateManyWithWhereWithoutCompanyInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutCompanyInput>
+  }
+
+  export type JobUpsertWithWhereUniqueWithoutCompanyInput = {
+    where: JobWhereUniqueInput
+    update: XOR<JobUpdateWithoutCompanyInput, JobUncheckedUpdateWithoutCompanyInput>
+    create: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type JobUpdateWithWhereUniqueWithoutCompanyInput = {
+    where: JobWhereUniqueInput
+    data: XOR<JobUpdateWithoutCompanyInput, JobUncheckedUpdateWithoutCompanyInput>
+  }
+
+  export type JobUpdateManyWithWhereWithoutCompanyInput = {
+    where: JobScalarWhereInput
+    data: XOR<JobUpdateManyMutationInput, JobUncheckedUpdateManyWithoutCompanyInput>
+  }
+
+  export type JobScalarWhereInput = {
+    AND?: JobScalarWhereInput | JobScalarWhereInput[]
+    OR?: JobScalarWhereInput[]
+    NOT?: JobScalarWhereInput | JobScalarWhereInput[]
+    id?: IntFilter<"Job"> | number
+    company_id?: IntFilter<"Job"> | number
+    ability_id?: IntNullableFilter<"Job"> | number | null
+    title?: StringFilter<"Job"> | string
+    description?: StringFilter<"Job"> | string
+    employment_type?: StringFilter<"Job"> | string
+    estimate_salary?: IntNullableFilter<"Job"> | number | null
   }
 
   export type UserCreateWithoutCertificatesInput = {
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    disabilities?: ListDisabilityCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
-    skills?: ListSkillCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    disabilities?: List_disabilityCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationCreateNestedManyWithoutUserInput
+    skills?: List_skillCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCertificatesInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    disabilities?: ListDisabilityUncheckedCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
-    skills?: ListSkillUncheckedCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutUserInput
+    skills?: List_skillUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCertificatesInput = {
@@ -17100,135 +17383,151 @@ export namespace Prisma {
 
   export type UserUpdateWithoutCertificatesInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    disabilities?: ListDisabilityUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUpdateManyWithoutUserNestedInput
+    skills?: List_skillUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCertificatesInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    disabilities?: ListDisabilityUncheckedUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUncheckedUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutUserNestedInput
+    skills?: List_skillUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ListSkillCreateWithoutSkillInput = {
+  export type List_skillCreateWithoutSkillInput = {
     user: UserCreateNestedOneWithoutSkillsInput
   }
 
-  export type ListSkillUncheckedCreateWithoutSkillInput = {
+  export type List_skillUncheckedCreateWithoutSkillInput = {
     id?: number
     user_id: number
   }
 
-  export type ListSkillCreateOrConnectWithoutSkillInput = {
-    where: ListSkillWhereUniqueInput
-    create: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput>
+  export type List_skillCreateOrConnectWithoutSkillInput = {
+    where: List_skillWhereUniqueInput
+    create: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput>
   }
 
-  export type ListSkillCreateManySkillInputEnvelope = {
-    data: ListSkillCreateManySkillInput | ListSkillCreateManySkillInput[]
+  export type List_skillCreateManySkillInputEnvelope = {
+    data: List_skillCreateManySkillInput | List_skillCreateManySkillInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListJobSkillCreateWithoutSkillInput = {
+  export type List_job_skillCreateWithoutSkillInput = {
     job: JobCreateNestedOneWithoutSkillsInput
   }
 
-  export type ListJobSkillUncheckedCreateWithoutSkillInput = {
+  export type List_job_skillUncheckedCreateWithoutSkillInput = {
     id?: number
     job_id: number
   }
 
-  export type ListJobSkillCreateOrConnectWithoutSkillInput = {
-    where: ListJobSkillWhereUniqueInput
-    create: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput>
+  export type List_job_skillCreateOrConnectWithoutSkillInput = {
+    where: List_job_skillWhereUniqueInput
+    create: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput>
   }
 
-  export type ListJobSkillCreateManySkillInputEnvelope = {
-    data: ListJobSkillCreateManySkillInput | ListJobSkillCreateManySkillInput[]
+  export type List_job_skillCreateManySkillInputEnvelope = {
+    data: List_job_skillCreateManySkillInput | List_job_skillCreateManySkillInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListSkillUpsertWithWhereUniqueWithoutSkillInput = {
-    where: ListSkillWhereUniqueInput
-    update: XOR<ListSkillUpdateWithoutSkillInput, ListSkillUncheckedUpdateWithoutSkillInput>
-    create: XOR<ListSkillCreateWithoutSkillInput, ListSkillUncheckedCreateWithoutSkillInput>
+  export type List_skillUpsertWithWhereUniqueWithoutSkillInput = {
+    where: List_skillWhereUniqueInput
+    update: XOR<List_skillUpdateWithoutSkillInput, List_skillUncheckedUpdateWithoutSkillInput>
+    create: XOR<List_skillCreateWithoutSkillInput, List_skillUncheckedCreateWithoutSkillInput>
   }
 
-  export type ListSkillUpdateWithWhereUniqueWithoutSkillInput = {
-    where: ListSkillWhereUniqueInput
-    data: XOR<ListSkillUpdateWithoutSkillInput, ListSkillUncheckedUpdateWithoutSkillInput>
+  export type List_skillUpdateWithWhereUniqueWithoutSkillInput = {
+    where: List_skillWhereUniqueInput
+    data: XOR<List_skillUpdateWithoutSkillInput, List_skillUncheckedUpdateWithoutSkillInput>
   }
 
-  export type ListSkillUpdateManyWithWhereWithoutSkillInput = {
-    where: ListSkillScalarWhereInput
-    data: XOR<ListSkillUpdateManyMutationInput, ListSkillUncheckedUpdateManyWithoutSkillInput>
+  export type List_skillUpdateManyWithWhereWithoutSkillInput = {
+    where: List_skillScalarWhereInput
+    data: XOR<List_skillUpdateManyMutationInput, List_skillUncheckedUpdateManyWithoutSkillInput>
   }
 
-  export type ListJobSkillUpsertWithWhereUniqueWithoutSkillInput = {
-    where: ListJobSkillWhereUniqueInput
-    update: XOR<ListJobSkillUpdateWithoutSkillInput, ListJobSkillUncheckedUpdateWithoutSkillInput>
-    create: XOR<ListJobSkillCreateWithoutSkillInput, ListJobSkillUncheckedCreateWithoutSkillInput>
+  export type List_job_skillUpsertWithWhereUniqueWithoutSkillInput = {
+    where: List_job_skillWhereUniqueInput
+    update: XOR<List_job_skillUpdateWithoutSkillInput, List_job_skillUncheckedUpdateWithoutSkillInput>
+    create: XOR<List_job_skillCreateWithoutSkillInput, List_job_skillUncheckedCreateWithoutSkillInput>
   }
 
-  export type ListJobSkillUpdateWithWhereUniqueWithoutSkillInput = {
-    where: ListJobSkillWhereUniqueInput
-    data: XOR<ListJobSkillUpdateWithoutSkillInput, ListJobSkillUncheckedUpdateWithoutSkillInput>
+  export type List_job_skillUpdateWithWhereUniqueWithoutSkillInput = {
+    where: List_job_skillWhereUniqueInput
+    data: XOR<List_job_skillUpdateWithoutSkillInput, List_job_skillUncheckedUpdateWithoutSkillInput>
   }
 
-  export type ListJobSkillUpdateManyWithWhereWithoutSkillInput = {
-    where: ListJobSkillScalarWhereInput
-    data: XOR<ListJobSkillUpdateManyMutationInput, ListJobSkillUncheckedUpdateManyWithoutSkillInput>
+  export type List_job_skillUpdateManyWithWhereWithoutSkillInput = {
+    where: List_job_skillScalarWhereInput
+    data: XOR<List_job_skillUpdateManyMutationInput, List_job_skillUncheckedUpdateManyWithoutSkillInput>
   }
 
-  export type ListJobSkillScalarWhereInput = {
-    AND?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
-    OR?: ListJobSkillScalarWhereInput[]
-    NOT?: ListJobSkillScalarWhereInput | ListJobSkillScalarWhereInput[]
-    id?: IntFilter<"ListJobSkill"> | number
-    job_id?: IntFilter<"ListJobSkill"> | number
-    skill_id?: IntFilter<"ListJobSkill"> | number
+  export type List_job_skillScalarWhereInput = {
+    AND?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
+    OR?: List_job_skillScalarWhereInput[]
+    NOT?: List_job_skillScalarWhereInput | List_job_skillScalarWhereInput[]
+    id?: IntFilter<"List_job_skill"> | number
+    job_id?: IntFilter<"List_job_skill"> | number
+    skill_id?: IntFilter<"List_job_skill"> | number
   }
 
   export type UserCreateWithoutDisabilitiesInput = {
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
-    skills?: ListSkillCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationCreateNestedManyWithoutUserInput
+    skills?: List_skillCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutDisabilitiesInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateUncheckedCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
-    skills?: ListSkillUncheckedCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutUserInput
+    skills?: List_skillUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutDisabilitiesInput = {
@@ -17267,29 +17566,37 @@ export namespace Prisma {
 
   export type UserUpdateWithoutDisabilitiesInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUpdateManyWithoutUserNestedInput
+    skills?: List_skillUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDisabilitiesInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUncheckedUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUncheckedUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutUserNestedInput
+    skills?: List_skillUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type DisabilityUpsertWithoutUsersInput = {
@@ -17318,29 +17625,37 @@ export namespace Prisma {
 
   export type UserCreateWithoutJobApplicationsInput = {
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityCreateNestedManyWithoutUserInput
-    skills?: ListSkillCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityCreateNestedManyWithoutUserInput
+    skills?: List_skillCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutJobApplicationsInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateUncheckedCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityUncheckedCreateNestedManyWithoutUserInput
-    skills?: ListSkillUncheckedCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutUserInput
+    skills?: List_skillUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutJobApplicationsInput = {
@@ -17355,18 +17670,18 @@ export namespace Prisma {
     estimate_salary?: number | null
     company: CompanyCreateNestedOneWithoutJobsInput
     ability?: AbilityCreateNestedOneWithoutJobsInput
-    skills?: ListJobSkillCreateNestedManyWithoutJobInput
+    skills?: List_job_skillCreateNestedManyWithoutJobInput
   }
 
   export type JobUncheckedCreateWithoutApplicationsInput = {
     id?: number
     company_id: number
+    ability_id?: number | null
     title: string
     description: string
     employment_type: string
     estimate_salary?: number | null
-    ability_id?: number | null
-    skills?: ListJobSkillUncheckedCreateNestedManyWithoutJobInput
+    skills?: List_job_skillUncheckedCreateNestedManyWithoutJobInput
   }
 
   export type JobCreateOrConnectWithoutApplicationsInput = {
@@ -17415,29 +17730,37 @@ export namespace Prisma {
 
   export type UserUpdateWithoutJobApplicationsInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutUserNestedInput
+    skills?: List_skillUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutJobApplicationsInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUncheckedUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUncheckedUpdateManyWithoutUserNestedInput
-    skills?: ListSkillUncheckedUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutUserNestedInput
+    skills?: List_skillUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type JobUpsertWithoutApplicationsInput = {
@@ -17458,18 +17781,18 @@ export namespace Prisma {
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     ability?: AbilityUpdateOneWithoutJobsNestedInput
-    skills?: ListJobSkillUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUpdateManyWithoutJobNestedInput
   }
 
   export type JobUncheckedUpdateWithoutApplicationsInput = {
     id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
-    skills?: ListJobSkillUncheckedUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type CompanyUpsertWithoutJobApplicationsInput = {
@@ -17520,22 +17843,22 @@ export namespace Prisma {
     create: XOR<CategoryCreateWithoutDisabilitiesInput, CategoryUncheckedCreateWithoutDisabilitiesInput>
   }
 
-  export type ListDisabilityCreateWithoutDisabilityInput = {
+  export type List_disabilityCreateWithoutDisabilityInput = {
     user: UserCreateNestedOneWithoutDisabilitiesInput
   }
 
-  export type ListDisabilityUncheckedCreateWithoutDisabilityInput = {
+  export type List_disabilityUncheckedCreateWithoutDisabilityInput = {
     id?: number
     user_id: number
   }
 
-  export type ListDisabilityCreateOrConnectWithoutDisabilityInput = {
-    where: ListDisabilityWhereUniqueInput
-    create: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput>
+  export type List_disabilityCreateOrConnectWithoutDisabilityInput = {
+    where: List_disabilityWhereUniqueInput
+    create: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput>
   }
 
-  export type ListDisabilityCreateManyDisabilityInputEnvelope = {
-    data: ListDisabilityCreateManyDisabilityInput | ListDisabilityCreateManyDisabilityInput[]
+  export type List_disabilityCreateManyDisabilityInputEnvelope = {
+    data: List_disabilityCreateManyDisabilityInput | List_disabilityCreateManyDisabilityInput[]
     skipDuplicates?: boolean
   }
 
@@ -17559,20 +17882,20 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListDisabilityUpsertWithWhereUniqueWithoutDisabilityInput = {
-    where: ListDisabilityWhereUniqueInput
-    update: XOR<ListDisabilityUpdateWithoutDisabilityInput, ListDisabilityUncheckedUpdateWithoutDisabilityInput>
-    create: XOR<ListDisabilityCreateWithoutDisabilityInput, ListDisabilityUncheckedCreateWithoutDisabilityInput>
+  export type List_disabilityUpsertWithWhereUniqueWithoutDisabilityInput = {
+    where: List_disabilityWhereUniqueInput
+    update: XOR<List_disabilityUpdateWithoutDisabilityInput, List_disabilityUncheckedUpdateWithoutDisabilityInput>
+    create: XOR<List_disabilityCreateWithoutDisabilityInput, List_disabilityUncheckedCreateWithoutDisabilityInput>
   }
 
-  export type ListDisabilityUpdateWithWhereUniqueWithoutDisabilityInput = {
-    where: ListDisabilityWhereUniqueInput
-    data: XOR<ListDisabilityUpdateWithoutDisabilityInput, ListDisabilityUncheckedUpdateWithoutDisabilityInput>
+  export type List_disabilityUpdateWithWhereUniqueWithoutDisabilityInput = {
+    where: List_disabilityWhereUniqueInput
+    data: XOR<List_disabilityUpdateWithoutDisabilityInput, List_disabilityUncheckedUpdateWithoutDisabilityInput>
   }
 
-  export type ListDisabilityUpdateManyWithWhereWithoutDisabilityInput = {
-    where: ListDisabilityScalarWhereInput
-    data: XOR<ListDisabilityUpdateManyMutationInput, ListDisabilityUncheckedUpdateManyWithoutDisabilityInput>
+  export type List_disabilityUpdateManyWithWhereWithoutDisabilityInput = {
+    where: List_disabilityScalarWhereInput
+    data: XOR<List_disabilityUpdateManyMutationInput, List_disabilityUncheckedUpdateManyWithoutDisabilityInput>
   }
 
   export type JobCreateWithoutAbilityInput = {
@@ -17581,8 +17904,8 @@ export namespace Prisma {
     employment_type: string
     estimate_salary?: number | null
     company: CompanyCreateNestedOneWithoutJobsInput
-    applications?: JobApplicationCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillCreateNestedManyWithoutJobInput
+    applications?: Job_applicationCreateNestedManyWithoutJobInput
+    skills?: List_job_skillCreateNestedManyWithoutJobInput
   }
 
   export type JobUncheckedCreateWithoutAbilityInput = {
@@ -17592,8 +17915,8 @@ export namespace Prisma {
     description: string
     employment_type: string
     estimate_salary?: number | null
-    applications?: JobApplicationUncheckedCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillUncheckedCreateNestedManyWithoutJobInput
+    applications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
+    skills?: List_job_skillUncheckedCreateNestedManyWithoutJobInput
   }
 
   export type JobCreateOrConnectWithoutAbilityInput = {
@@ -17622,44 +17945,39 @@ export namespace Prisma {
     data: XOR<JobUpdateManyMutationInput, JobUncheckedUpdateManyWithoutAbilityInput>
   }
 
-  export type JobScalarWhereInput = {
-    AND?: JobScalarWhereInput | JobScalarWhereInput[]
-    OR?: JobScalarWhereInput[]
-    NOT?: JobScalarWhereInput | JobScalarWhereInput[]
-    id?: IntFilter<"Job"> | number
-    company_id?: IntFilter<"Job"> | number
-    title?: StringFilter<"Job"> | string
-    description?: StringFilter<"Job"> | string
-    employment_type?: StringFilter<"Job"> | string
-    estimate_salary?: IntNullableFilter<"Job"> | number | null
-    ability_id?: IntNullableFilter<"Job"> | number | null
-  }
-
   export type UserCreateWithoutSkillsInput = {
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSkillsInput = {
     id?: number
     first_name: string
-    last_name: string
+    last_name?: string | null
     email: string
     password: string
     phone_number?: string | null
     city?: string | null
-    is_verified: boolean
-    certificates?: ListCertificateUncheckedCreateNestedManyWithoutUserInput
-    disabilities?: ListDisabilityUncheckedCreateNestedManyWithoutUserInput
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
+    gender: string
+    dob: Date | string
+    created_at?: Date | string
+    updated_at?: Date | string
+    is_verified?: boolean
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutUserInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSkillsInput = {
@@ -17669,13 +17987,13 @@ export namespace Prisma {
 
   export type SkillCreateWithoutUsersInput = {
     name: string
-    jobs?: ListJobSkillCreateNestedManyWithoutSkillInput
+    jobs?: List_job_skillCreateNestedManyWithoutSkillInput
   }
 
   export type SkillUncheckedCreateWithoutUsersInput = {
     id?: number
     name: string
-    jobs?: ListJobSkillUncheckedCreateNestedManyWithoutSkillInput
+    jobs?: List_job_skillUncheckedCreateNestedManyWithoutSkillInput
   }
 
   export type SkillCreateOrConnectWithoutUsersInput = {
@@ -17696,29 +18014,37 @@ export namespace Prisma {
 
   export type UserUpdateWithoutSkillsInput = {
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSkillsInput = {
     id?: IntFieldUpdateOperationsInput | number
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    certificates?: ListCertificateUncheckedUpdateManyWithoutUserNestedInput
-    disabilities?: ListDisabilityUncheckedUpdateManyWithoutUserNestedInput
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutUserNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type SkillUpsertWithoutUsersInput = {
@@ -17734,112 +18060,26 @@ export namespace Prisma {
 
   export type SkillUpdateWithoutUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
-    jobs?: ListJobSkillUpdateManyWithoutSkillNestedInput
+    jobs?: List_job_skillUpdateManyWithoutSkillNestedInput
   }
 
   export type SkillUncheckedUpdateWithoutUsersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    jobs?: ListJobSkillUncheckedUpdateManyWithoutSkillNestedInput
-  }
-
-  export type JobApplicationCreateWithoutCompanyInput = {
-    status: string
-    user: UserCreateNestedOneWithoutJobApplicationsInput
-    job: JobCreateNestedOneWithoutApplicationsInput
-  }
-
-  export type JobApplicationUncheckedCreateWithoutCompanyInput = {
-    id?: number
-    user_id: number
-    job_id: number
-    status: string
-  }
-
-  export type JobApplicationCreateOrConnectWithoutCompanyInput = {
-    where: JobApplicationWhereUniqueInput
-    create: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput>
-  }
-
-  export type JobApplicationCreateManyCompanyInputEnvelope = {
-    data: JobApplicationCreateManyCompanyInput | JobApplicationCreateManyCompanyInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type JobCreateWithoutCompanyInput = {
-    title: string
-    description: string
-    employment_type: string
-    estimate_salary?: number | null
-    ability?: AbilityCreateNestedOneWithoutJobsInput
-    applications?: JobApplicationCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillCreateNestedManyWithoutJobInput
-  }
-
-  export type JobUncheckedCreateWithoutCompanyInput = {
-    id?: number
-    title: string
-    description: string
-    employment_type: string
-    estimate_salary?: number | null
-    ability_id?: number | null
-    applications?: JobApplicationUncheckedCreateNestedManyWithoutJobInput
-    skills?: ListJobSkillUncheckedCreateNestedManyWithoutJobInput
-  }
-
-  export type JobCreateOrConnectWithoutCompanyInput = {
-    where: JobWhereUniqueInput
-    create: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput>
-  }
-
-  export type JobCreateManyCompanyInputEnvelope = {
-    data: JobCreateManyCompanyInput | JobCreateManyCompanyInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type JobApplicationUpsertWithWhereUniqueWithoutCompanyInput = {
-    where: JobApplicationWhereUniqueInput
-    update: XOR<JobApplicationUpdateWithoutCompanyInput, JobApplicationUncheckedUpdateWithoutCompanyInput>
-    create: XOR<JobApplicationCreateWithoutCompanyInput, JobApplicationUncheckedCreateWithoutCompanyInput>
-  }
-
-  export type JobApplicationUpdateWithWhereUniqueWithoutCompanyInput = {
-    where: JobApplicationWhereUniqueInput
-    data: XOR<JobApplicationUpdateWithoutCompanyInput, JobApplicationUncheckedUpdateWithoutCompanyInput>
-  }
-
-  export type JobApplicationUpdateManyWithWhereWithoutCompanyInput = {
-    where: JobApplicationScalarWhereInput
-    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutCompanyInput>
-  }
-
-  export type JobUpsertWithWhereUniqueWithoutCompanyInput = {
-    where: JobWhereUniqueInput
-    update: XOR<JobUpdateWithoutCompanyInput, JobUncheckedUpdateWithoutCompanyInput>
-    create: XOR<JobCreateWithoutCompanyInput, JobUncheckedCreateWithoutCompanyInput>
-  }
-
-  export type JobUpdateWithWhereUniqueWithoutCompanyInput = {
-    where: JobWhereUniqueInput
-    data: XOR<JobUpdateWithoutCompanyInput, JobUncheckedUpdateWithoutCompanyInput>
-  }
-
-  export type JobUpdateManyWithWhereWithoutCompanyInput = {
-    where: JobScalarWhereInput
-    data: XOR<JobUpdateManyMutationInput, JobUncheckedUpdateManyWithoutCompanyInput>
+    jobs?: List_job_skillUncheckedUpdateManyWithoutSkillNestedInput
   }
 
   export type DisabilityCreateWithoutCategoryInput = {
     name: string
     description: string
-    users?: ListDisabilityCreateNestedManyWithoutDisabilityInput
+    users?: List_disabilityCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityUncheckedCreateWithoutCategoryInput = {
     id?: number
     name: string
     description: string
-    users?: ListDisabilityUncheckedCreateNestedManyWithoutDisabilityInput
+    users?: List_disabilityUncheckedCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityCreateOrConnectWithoutCategoryInput = {
@@ -17885,18 +18125,18 @@ export namespace Prisma {
     estimate_salary?: number | null
     company: CompanyCreateNestedOneWithoutJobsInput
     ability?: AbilityCreateNestedOneWithoutJobsInput
-    applications?: JobApplicationCreateNestedManyWithoutJobInput
+    applications?: Job_applicationCreateNestedManyWithoutJobInput
   }
 
   export type JobUncheckedCreateWithoutSkillsInput = {
     id?: number
     company_id: number
+    ability_id?: number | null
     title: string
     description: string
     employment_type: string
     estimate_salary?: number | null
-    ability_id?: number | null
-    applications?: JobApplicationUncheckedCreateNestedManyWithoutJobInput
+    applications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
   }
 
   export type JobCreateOrConnectWithoutSkillsInput = {
@@ -17906,13 +18146,13 @@ export namespace Prisma {
 
   export type SkillCreateWithoutJobsInput = {
     name: string
-    users?: ListSkillCreateNestedManyWithoutSkillInput
+    users?: List_skillCreateNestedManyWithoutSkillInput
   }
 
   export type SkillUncheckedCreateWithoutJobsInput = {
     id?: number
     name: string
-    users?: ListSkillUncheckedCreateNestedManyWithoutSkillInput
+    users?: List_skillUncheckedCreateNestedManyWithoutSkillInput
   }
 
   export type SkillCreateOrConnectWithoutJobsInput = {
@@ -17938,18 +18178,18 @@ export namespace Prisma {
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     ability?: AbilityUpdateOneWithoutJobsNestedInput
-    applications?: JobApplicationUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUpdateManyWithoutJobNestedInput
   }
 
   export type JobUncheckedUpdateWithoutSkillsInput = {
     id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
-    applications?: JobApplicationUncheckedUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type SkillUpsertWithoutJobsInput = {
@@ -17965,13 +18205,13 @@ export namespace Prisma {
 
   export type SkillUpdateWithoutJobsInput = {
     name?: StringFieldUpdateOperationsInput | string
-    users?: ListSkillUpdateManyWithoutSkillNestedInput
+    users?: List_skillUpdateManyWithoutSkillNestedInput
   }
 
   export type SkillUncheckedUpdateWithoutJobsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    users?: ListSkillUncheckedUpdateManyWithoutSkillNestedInput
+    users?: List_skillUncheckedUpdateManyWithoutSkillNestedInput
   }
 
   export type CompanyCreateWithoutJobsInput = {
@@ -17982,7 +18222,7 @@ export namespace Prisma {
     picture?: string | null
     email: string
     password: string
-    jobApplications?: JobApplicationCreateNestedManyWithoutCompanyInput
+    jobApplications?: Job_applicationCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutJobsInput = {
@@ -17994,7 +18234,7 @@ export namespace Prisma {
     picture?: string | null
     email: string
     password: string
-    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutCompanyInput
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutJobsInput = {
@@ -18016,45 +18256,45 @@ export namespace Prisma {
     create: XOR<AbilityCreateWithoutJobsInput, AbilityUncheckedCreateWithoutJobsInput>
   }
 
-  export type JobApplicationCreateWithoutJobInput = {
+  export type Job_applicationCreateWithoutJobInput = {
     status: string
     user: UserCreateNestedOneWithoutJobApplicationsInput
     company: CompanyCreateNestedOneWithoutJobApplicationsInput
   }
 
-  export type JobApplicationUncheckedCreateWithoutJobInput = {
+  export type Job_applicationUncheckedCreateWithoutJobInput = {
     id?: number
     user_id: number
     company_id: number
     status: string
   }
 
-  export type JobApplicationCreateOrConnectWithoutJobInput = {
-    where: JobApplicationWhereUniqueInput
-    create: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput>
+  export type Job_applicationCreateOrConnectWithoutJobInput = {
+    where: Job_applicationWhereUniqueInput
+    create: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput>
   }
 
-  export type JobApplicationCreateManyJobInputEnvelope = {
-    data: JobApplicationCreateManyJobInput | JobApplicationCreateManyJobInput[]
+  export type Job_applicationCreateManyJobInputEnvelope = {
+    data: Job_applicationCreateManyJobInput | Job_applicationCreateManyJobInput[]
     skipDuplicates?: boolean
   }
 
-  export type ListJobSkillCreateWithoutJobInput = {
+  export type List_job_skillCreateWithoutJobInput = {
     skill: SkillCreateNestedOneWithoutJobsInput
   }
 
-  export type ListJobSkillUncheckedCreateWithoutJobInput = {
+  export type List_job_skillUncheckedCreateWithoutJobInput = {
     id?: number
     skill_id: number
   }
 
-  export type ListJobSkillCreateOrConnectWithoutJobInput = {
-    where: ListJobSkillWhereUniqueInput
-    create: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput>
+  export type List_job_skillCreateOrConnectWithoutJobInput = {
+    where: List_job_skillWhereUniqueInput
+    create: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput>
   }
 
-  export type ListJobSkillCreateManyJobInputEnvelope = {
-    data: ListJobSkillCreateManyJobInput | ListJobSkillCreateManyJobInput[]
+  export type List_job_skillCreateManyJobInputEnvelope = {
+    data: List_job_skillCreateManyJobInput | List_job_skillCreateManyJobInput[]
     skipDuplicates?: boolean
   }
 
@@ -18077,7 +18317,7 @@ export namespace Prisma {
     picture?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    jobApplications?: JobApplicationUpdateManyWithoutCompanyNestedInput
+    jobApplications?: Job_applicationUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutJobsInput = {
@@ -18089,7 +18329,7 @@ export namespace Prisma {
     picture?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    jobApplications?: JobApplicationUncheckedUpdateManyWithoutCompanyNestedInput
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type AbilityUpsertWithoutJobsInput = {
@@ -18112,179 +18352,245 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationUpsertWithWhereUniqueWithoutJobInput = {
-    where: JobApplicationWhereUniqueInput
-    update: XOR<JobApplicationUpdateWithoutJobInput, JobApplicationUncheckedUpdateWithoutJobInput>
-    create: XOR<JobApplicationCreateWithoutJobInput, JobApplicationUncheckedCreateWithoutJobInput>
+  export type Job_applicationUpsertWithWhereUniqueWithoutJobInput = {
+    where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
+    create: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput>
   }
 
-  export type JobApplicationUpdateWithWhereUniqueWithoutJobInput = {
-    where: JobApplicationWhereUniqueInput
-    data: XOR<JobApplicationUpdateWithoutJobInput, JobApplicationUncheckedUpdateWithoutJobInput>
+  export type Job_applicationUpdateWithWhereUniqueWithoutJobInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
   }
 
-  export type JobApplicationUpdateManyWithWhereWithoutJobInput = {
-    where: JobApplicationScalarWhereInput
-    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutJobInput>
+  export type Job_applicationUpdateManyWithWhereWithoutJobInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutJobInput>
   }
 
-  export type ListJobSkillUpsertWithWhereUniqueWithoutJobInput = {
-    where: ListJobSkillWhereUniqueInput
-    update: XOR<ListJobSkillUpdateWithoutJobInput, ListJobSkillUncheckedUpdateWithoutJobInput>
-    create: XOR<ListJobSkillCreateWithoutJobInput, ListJobSkillUncheckedCreateWithoutJobInput>
+  export type List_job_skillUpsertWithWhereUniqueWithoutJobInput = {
+    where: List_job_skillWhereUniqueInput
+    update: XOR<List_job_skillUpdateWithoutJobInput, List_job_skillUncheckedUpdateWithoutJobInput>
+    create: XOR<List_job_skillCreateWithoutJobInput, List_job_skillUncheckedCreateWithoutJobInput>
   }
 
-  export type ListJobSkillUpdateWithWhereUniqueWithoutJobInput = {
-    where: ListJobSkillWhereUniqueInput
-    data: XOR<ListJobSkillUpdateWithoutJobInput, ListJobSkillUncheckedUpdateWithoutJobInput>
+  export type List_job_skillUpdateWithWhereUniqueWithoutJobInput = {
+    where: List_job_skillWhereUniqueInput
+    data: XOR<List_job_skillUpdateWithoutJobInput, List_job_skillUncheckedUpdateWithoutJobInput>
   }
 
-  export type ListJobSkillUpdateManyWithWhereWithoutJobInput = {
-    where: ListJobSkillScalarWhereInput
-    data: XOR<ListJobSkillUpdateManyMutationInput, ListJobSkillUncheckedUpdateManyWithoutJobInput>
+  export type List_job_skillUpdateManyWithWhereWithoutJobInput = {
+    where: List_job_skillScalarWhereInput
+    data: XOR<List_job_skillUpdateManyMutationInput, List_job_skillUncheckedUpdateManyWithoutJobInput>
   }
 
-  export type ListCertificateCreateManyUserInput = {
+  export type List_certificateCreateManyUserInput = {
     id?: number
     name?: string | null
     description?: string | null
   }
 
-  export type ListDisabilityCreateManyUserInput = {
+  export type List_disabilityCreateManyUserInput = {
     id?: number
     disability_id: number
   }
 
-  export type JobApplicationCreateManyUserInput = {
+  export type Job_applicationCreateManyUserInput = {
     id?: number
     job_id: number
     company_id: number
     status: string
   }
 
-  export type ListSkillCreateManyUserInput = {
+  export type List_skillCreateManyUserInput = {
     id?: number
     skill_id: number
   }
 
-  export type ListCertificateUpdateWithoutUserInput = {
+  export type List_certificateUpdateWithoutUserInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ListCertificateUncheckedUpdateWithoutUserInput = {
+  export type List_certificateUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ListCertificateUncheckedUpdateManyWithoutUserInput = {
+  export type List_certificateUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ListDisabilityUpdateWithoutUserInput = {
+  export type List_disabilityUpdateWithoutUserInput = {
     disability?: DisabilityUpdateOneRequiredWithoutUsersNestedInput
   }
 
-  export type ListDisabilityUncheckedUpdateWithoutUserInput = {
+  export type List_disabilityUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     disability_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListDisabilityUncheckedUpdateManyWithoutUserInput = {
+  export type List_disabilityUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     disability_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type JobApplicationUpdateWithoutUserInput = {
+  export type Job_applicationUpdateWithoutUserInput = {
     status?: StringFieldUpdateOperationsInput | string
     job?: JobUpdateOneRequiredWithoutApplicationsNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobApplicationsNestedInput
   }
 
-  export type JobApplicationUncheckedUpdateWithoutUserInput = {
+  export type Job_applicationUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationUncheckedUpdateManyWithoutUserInput = {
+  export type Job_applicationUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListSkillUpdateWithoutUserInput = {
+  export type List_skillUpdateWithoutUserInput = {
     skill?: SkillUpdateOneRequiredWithoutUsersNestedInput
   }
 
-  export type ListSkillUncheckedUpdateWithoutUserInput = {
+  export type List_skillUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListSkillUncheckedUpdateManyWithoutUserInput = {
+  export type List_skillUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListSkillCreateManySkillInput = {
+  export type Job_applicationCreateManyCompanyInput = {
+    id?: number
+    user_id: number
+    job_id: number
+    status: string
+  }
+
+  export type JobCreateManyCompanyInput = {
+    id?: number
+    ability_id?: number | null
+    title: string
+    description: string
+    employment_type: string
+    estimate_salary?: number | null
+  }
+
+  export type Job_applicationUpdateWithoutCompanyInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
+    job?: JobUpdateOneRequiredWithoutApplicationsNestedInput
+  }
+
+  export type Job_applicationUncheckedUpdateWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    job_id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Job_applicationUncheckedUpdateManyWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    job_id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobUpdateWithoutCompanyInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    ability?: AbilityUpdateOneWithoutJobsNestedInput
+    applications?: Job_applicationUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobUncheckedUpdateWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    applications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUncheckedUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobUncheckedUpdateManyWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type List_skillCreateManySkillInput = {
     id?: number
     user_id: number
   }
 
-  export type ListJobSkillCreateManySkillInput = {
+  export type List_job_skillCreateManySkillInput = {
     id?: number
     job_id: number
   }
 
-  export type ListSkillUpdateWithoutSkillInput = {
+  export type List_skillUpdateWithoutSkillInput = {
     user?: UserUpdateOneRequiredWithoutSkillsNestedInput
   }
 
-  export type ListSkillUncheckedUpdateWithoutSkillInput = {
+  export type List_skillUncheckedUpdateWithoutSkillInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListSkillUncheckedUpdateManyWithoutSkillInput = {
+  export type List_skillUncheckedUpdateManyWithoutSkillInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListJobSkillUpdateWithoutSkillInput = {
+  export type List_job_skillUpdateWithoutSkillInput = {
     job?: JobUpdateOneRequiredWithoutSkillsNestedInput
   }
 
-  export type ListJobSkillUncheckedUpdateWithoutSkillInput = {
+  export type List_job_skillUncheckedUpdateWithoutSkillInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListJobSkillUncheckedUpdateManyWithoutSkillInput = {
+  export type List_job_skillUncheckedUpdateManyWithoutSkillInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListDisabilityCreateManyDisabilityInput = {
+  export type List_disabilityCreateManyDisabilityInput = {
     id?: number
     user_id: number
   }
 
-  export type ListDisabilityUpdateWithoutDisabilityInput = {
+  export type List_disabilityUpdateWithoutDisabilityInput = {
     user?: UserUpdateOneRequiredWithoutDisabilitiesNestedInput
   }
 
-  export type ListDisabilityUncheckedUpdateWithoutDisabilityInput = {
+  export type List_disabilityUncheckedUpdateWithoutDisabilityInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListDisabilityUncheckedUpdateManyWithoutDisabilityInput = {
+  export type List_disabilityUncheckedUpdateManyWithoutDisabilityInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
@@ -18304,8 +18610,8 @@ export namespace Prisma {
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
-    applications?: JobApplicationUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUpdateManyWithoutJobNestedInput
   }
 
   export type JobUncheckedUpdateWithoutAbilityInput = {
@@ -18315,8 +18621,8 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    applications?: JobApplicationUncheckedUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUncheckedUpdateManyWithoutJobNestedInput
+    applications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
+    skills?: List_job_skillUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type JobUncheckedUpdateManyWithoutAbilityInput = {
@@ -18328,72 +18634,6 @@ export namespace Prisma {
     estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type JobApplicationCreateManyCompanyInput = {
-    id?: number
-    user_id: number
-    job_id: number
-    status: string
-  }
-
-  export type JobCreateManyCompanyInput = {
-    id?: number
-    title: string
-    description: string
-    employment_type: string
-    estimate_salary?: number | null
-    ability_id?: number | null
-  }
-
-  export type JobApplicationUpdateWithoutCompanyInput = {
-    status?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
-    job?: JobUpdateOneRequiredWithoutApplicationsNestedInput
-  }
-
-  export type JobApplicationUncheckedUpdateWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    job_id?: IntFieldUpdateOperationsInput | number
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type JobApplicationUncheckedUpdateManyWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    job_id?: IntFieldUpdateOperationsInput | number
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type JobUpdateWithoutCompanyInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: StringFieldUpdateOperationsInput | string
-    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability?: AbilityUpdateOneWithoutJobsNestedInput
-    applications?: JobApplicationUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUpdateManyWithoutJobNestedInput
-  }
-
-  export type JobUncheckedUpdateWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: StringFieldUpdateOperationsInput | string
-    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
-    applications?: JobApplicationUncheckedUpdateManyWithoutJobNestedInput
-    skills?: ListJobSkillUncheckedUpdateManyWithoutJobNestedInput
-  }
-
-  export type JobUncheckedUpdateManyWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: StringFieldUpdateOperationsInput | string
-    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
   export type DisabilityCreateManyCategoryInput = {
     id?: number
     name: string
@@ -18403,14 +18643,14 @@ export namespace Prisma {
   export type DisabilityUpdateWithoutCategoryInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    users?: ListDisabilityUpdateManyWithoutDisabilityNestedInput
+    users?: List_disabilityUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityUncheckedUpdateWithoutCategoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    users?: ListDisabilityUncheckedUpdateManyWithoutDisabilityNestedInput
+    users?: List_disabilityUncheckedUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityUncheckedUpdateManyWithoutCategoryInput = {
@@ -18419,48 +18659,48 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationCreateManyJobInput = {
+  export type Job_applicationCreateManyJobInput = {
     id?: number
     user_id: number
     company_id: number
     status: string
   }
 
-  export type ListJobSkillCreateManyJobInput = {
+  export type List_job_skillCreateManyJobInput = {
     id?: number
     skill_id: number
   }
 
-  export type JobApplicationUpdateWithoutJobInput = {
+  export type Job_applicationUpdateWithoutJobInput = {
     status?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobApplicationsNestedInput
   }
 
-  export type JobApplicationUncheckedUpdateWithoutJobInput = {
+  export type Job_applicationUncheckedUpdateWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobApplicationUncheckedUpdateManyWithoutJobInput = {
+  export type Job_applicationUncheckedUpdateManyWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ListJobSkillUpdateWithoutJobInput = {
+  export type List_job_skillUpdateWithoutJobInput = {
     skill?: SkillUpdateOneRequiredWithoutJobsNestedInput
   }
 
-  export type ListJobSkillUncheckedUpdateWithoutJobInput = {
+  export type List_job_skillUncheckedUpdateWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ListJobSkillUncheckedUpdateManyWithoutJobInput = {
+  export type List_job_skillUncheckedUpdateManyWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     skill_id?: IntFieldUpdateOperationsInput | number
   }
@@ -18475,6 +18715,10 @@ export namespace Prisma {
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use CompanyCountOutputTypeDefaultArgs instead
+     */
+    export type CompanyCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CompanyCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use SkillCountOutputTypeDefaultArgs instead
      */
     export type SkillCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SkillCountOutputTypeDefaultArgs<ExtArgs>
@@ -18486,10 +18730,6 @@ export namespace Prisma {
      * @deprecated Use AbilityCountOutputTypeDefaultArgs instead
      */
     export type AbilityCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AbilityCountOutputTypeDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use CompanyCountOutputTypeDefaultArgs instead
-     */
-    export type CompanyCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CompanyCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use CategoryCountOutputTypeDefaultArgs instead
      */
@@ -18503,21 +18743,25 @@ export namespace Prisma {
      */
     export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use ListCertificateDefaultArgs instead
+     * @deprecated Use CompanyDefaultArgs instead
      */
-    export type ListCertificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ListCertificateDefaultArgs<ExtArgs>
+    export type CompanyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CompanyDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use List_certificateDefaultArgs instead
+     */
+    export type List_certificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = List_certificateDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SkillDefaultArgs instead
      */
     export type SkillArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SkillDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use ListDisabilityDefaultArgs instead
+     * @deprecated Use List_disabilityDefaultArgs instead
      */
-    export type ListDisabilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ListDisabilityDefaultArgs<ExtArgs>
+    export type List_disabilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = List_disabilityDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use JobApplicationDefaultArgs instead
+     * @deprecated Use Job_applicationDefaultArgs instead
      */
-    export type JobApplicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = JobApplicationDefaultArgs<ExtArgs>
+    export type Job_applicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Job_applicationDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DisabilityDefaultArgs instead
      */
@@ -18527,21 +18771,17 @@ export namespace Prisma {
      */
     export type AbilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AbilityDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use ListSkillDefaultArgs instead
+     * @deprecated Use List_skillDefaultArgs instead
      */
-    export type ListSkillArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ListSkillDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use CompanyDefaultArgs instead
-     */
-    export type CompanyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CompanyDefaultArgs<ExtArgs>
+    export type List_skillArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = List_skillDefaultArgs<ExtArgs>
     /**
      * @deprecated Use CategoryDefaultArgs instead
      */
     export type CategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CategoryDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use ListJobSkillDefaultArgs instead
+     * @deprecated Use List_job_skillDefaultArgs instead
      */
-    export type ListJobSkillArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ListJobSkillDefaultArgs<ExtArgs>
+    export type List_job_skillArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = List_job_skillDefaultArgs<ExtArgs>
     /**
      * @deprecated Use JobDefaultArgs instead
      */

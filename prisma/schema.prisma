@@ -11,18 +11,22 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   first_name   String
-  last_name    String
-  email        String
+  last_name    String?
+  email        String     @unique
   password     String
   phone_number String?
   city         String?
-  is_verified  Boolean
-  certificates ListCertificate[]
-  disabilities ListDisability[]
-  jobApplications JobApplication[]
-  skills       ListSkill[]
+  gender       String
+  dob          DateTime
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @updatedAt
+  is_verified  Boolean    @default(false)
+  certificates List_certificate[]
+  disabilities List_disability[]
+  jobApplications Job_application[]
+  skills       List_skill[]
 }
 
 model Company {
@@ -34,10 +38,10 @@ model Company {
   picture          String?
   email            String
   password         String
-  jobApplications  JobApplication[]
+  jobApplications  Job_application[]
   jobs             Job[]
 }
-model ListCertificate {
+model List_certificate {
   id          Int       @id @default(autoincrement())
   name        String?
   description String?
@@ -48,11 +52,11 @@ model ListCertificate {
 model Skill {
   id   Int    @id @default(autoincrement())
   name String
-  users ListSkill[]
-  jobs ListJobSkill[]
+  users List_skill[]
+  jobs List_job_skill[]
 }
 
-model ListDisability {
+model List_disability {
   id            Int         @id @default(autoincrement())
   user          User        @relation(fields: [user_id], references: [id])
   user_id       Int
@@ -60,7 +64,7 @@ model ListDisability {
   disability_id Int
 }
 
-model JobApplication {
+model Job_application {
   id         Int       @id @default(autoincrement())
   user       User      @relation(fields: [user_id], references: [id])
   user_id    Int
@@ -77,7 +81,7 @@ model Disability {
   category_id Int
   name        String
   description String
-  users       ListDisability[]
+  users       List_disability[]
 }
 
 model Ability {
@@ -86,7 +90,7 @@ model Ability {
   jobs Job[]
 }
 
-model ListSkill {
+model List_skill {
   id       Int    @id @default(autoincrement())
   user     User   @relation(fields: [user_id], references: [id])
   user_id  Int
@@ -101,7 +105,7 @@ model Category {
   disabilities Disability[]
 }
 
-model ListJobSkill {
+model List_job_skill {
   id       Int    @id @default(autoincrement())
   job      Job    @relation(fields: [job_id], references: [id])
   job_id   Int
@@ -119,6 +123,6 @@ model Job {
   description      String
   employment_type  String
   estimate_salary  Int?
-  applications     JobApplication[]
-  skills           ListJobSkill[]
+  applications     Job_application[]
+  skills           List_job_skill[]
 }

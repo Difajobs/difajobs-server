@@ -115,10 +115,25 @@ exports.Prisma.UserScalarFieldEnum = {
   password: 'password',
   phone_number: 'phone_number',
   city: 'city',
+  gender: 'gender',
+  dob: 'dob',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
   is_verified: 'is_verified'
 };
 
-exports.Prisma.ListCertificateScalarFieldEnum = {
+exports.Prisma.CompanyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  city: 'city',
+  about: 'about',
+  logo: 'logo',
+  picture: 'picture',
+  email: 'email',
+  password: 'password'
+};
+
+exports.Prisma.List_certificateScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
@@ -130,13 +145,13 @@ exports.Prisma.SkillScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.ListDisabilityScalarFieldEnum = {
+exports.Prisma.List_disabilityScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   disability_id: 'disability_id'
 };
 
-exports.Prisma.JobApplicationScalarFieldEnum = {
+exports.Prisma.Job_applicationScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   job_id: 'job_id',
@@ -156,21 +171,10 @@ exports.Prisma.AbilityScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.ListSkillScalarFieldEnum = {
+exports.Prisma.List_skillScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   skill_id: 'skill_id'
-};
-
-exports.Prisma.CompanyScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  city: 'city',
-  about: 'about',
-  logo: 'logo',
-  picture: 'picture',
-  email: 'email',
-  password: 'password'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -178,7 +182,7 @@ exports.Prisma.CategoryScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.ListJobSkillScalarFieldEnum = {
+exports.Prisma.List_job_skillScalarFieldEnum = {
   id: 'id',
   job_id: 'job_id',
   skill_id: 'skill_id'
@@ -187,11 +191,11 @@ exports.Prisma.ListJobSkillScalarFieldEnum = {
 exports.Prisma.JobScalarFieldEnum = {
   id: 'id',
   company_id: 'company_id',
+  ability_id: 'ability_id',
   title: 'title',
   description: 'description',
   employment_type: 'employment_type',
-  estimate_salary: 'estimate_salary',
-  ability_id: 'ability_id'
+  estimate_salary: 'estimate_salary'
 };
 
 exports.Prisma.SortOrder = {
@@ -212,16 +216,16 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  ListCertificate: 'ListCertificate',
+  Company: 'Company',
+  List_certificate: 'List_certificate',
   Skill: 'Skill',
-  ListDisability: 'ListDisability',
-  JobApplication: 'JobApplication',
+  List_disability: 'List_disability',
+  Job_application: 'Job_application',
   Disability: 'Disability',
   Ability: 'Ability',
-  ListSkill: 'ListSkill',
-  Company: 'Company',
+  List_skill: 'List_skill',
   Category: 'Category',
-  ListJobSkill: 'ListJobSkill',
+  List_job_skill: 'List_job_skill',
   Job: 'Job'
 };
 

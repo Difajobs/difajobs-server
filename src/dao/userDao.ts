@@ -1,31 +1,13 @@
 import { disconnectDB, prisma } from "../config/db/dbConnection";
 import ErrorHandler from "../utils/errorHandler";
-
-
-const getPhone = async (phone_number : string )=> {
-    try {
-        const existPhone = await prisma.users.findUnique({
-            where: { phone_number }
-        });
-        return existPhone
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: error.status,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
+import { format, formatISO } from 'date-fns';
 
 const getEmail = async (email : string )=> {
     try {
-        await prisma.users.findUnique({
+        await prisma.user.findUnique({
             where: { email }
         });
-        const user = await prisma.users.findUnique({
+        const user = await prisma.user.findUnique({
             where: {email: email}
         })
         return user?.id
@@ -41,13 +23,22 @@ const getEmail = async (email : string )=> {
     }
 }
 
-const postCreateUserPhone = async (fullname: string, phone : string, password: string)=> {
+const postCreateUser = async (firstName: string, lastName: string, email: string, password: string, dob: Date, gender: string) => {
     try {
-        const newUser = await prisma.users.create({
-            data: { fullname: fullname, phone_number: phone, password: password }
-        })
+        const formattedDob = formatISO(dob);
+        console.log('Formatted Date of Birth:', formattedDob);
+        const newUser = await prisma.user.create({
+            data: { 
+                first_name: firstName, 
+                last_name: lastName, 
+                email: email, 
+                password: password, 
+                dob: formattedDob, 
+                gender: gender 
+            }
+        });
 
-        return newUser
+        return newUser;
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -60,35 +51,20 @@ const postCreateUserPhone = async (fullname: string, phone : string, password: s
     }
 }
 
-const getUserById = async (id: number) => {
+
+const postCreateListDisability = async (userId: number, disabilityIds : number[])=> {
     try {
-        const user = await prisma.users.findUnique({where: {id}})
-        return user
-    } catch (error) {
-        const err = error as Error
-        throw new ErrorHandler({
-            success: false,
-            status: 500,
-            message: err.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
+        const listDisability = await Promise.all(disabilityIds.map(async (disabilityId) => {
+            const createdRecord = await prisma.list_disability.create({
+                data: {
+                    user_id: userId,
+                    disability_id: disabilityId
+                }
+            });
+            return createdRecord
+        }));
 
-
-const postCreateUserGoogle = async (fullname: string, email : string)=> {
-    try {
-        await prisma.users.create({
-            data: {fullname: fullname, email: email }
-        })
-        const user = await prisma.users.findUnique({
-            where:{email: email} 
-        })
-
-        return {
-            userId: user?.id
-        }
+        return listDisability
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -101,43 +77,30 @@ const postCreateUserGoogle = async (fullname: string, email : string)=> {
     }
 }
 
-const updateUserProfile = async (id: number, data: any) => {
-    try {
-        const updatedUser = await prisma.users.update({ where: { id }, data });
-        return updatedUser;
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: 500,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
 
-const deleteUserById = async (id: number): Promise<any> => {
-    try {
-        await prisma.friends.deleteMany({
-            where: { user_id: id }
-        });
+// const postCreateUserGoogle = async (fullname: string, email : string)=> {
+//     try {
+//         await prisma.user.create({
+//             data: {fullname: fullname, email: email }
+//         })
+//         const user = await prisma.user.findUnique({
+//             where:{email: email} 
+//         })
 
-        const deletedUser = await prisma.users.delete({
-            where: { id }
-        });
-        return deletedUser;
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: error.status || 500,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-};
+//         return {
+//             userId: user?.id
+//         }
+//     } catch (error: any) {
+//         console.error(error);
+//         throw new ErrorHandler({
+//             success: false,
+//             status: error.status,
+//             message: error.message,
+//         });
+//     } finally {
+//         await disconnectDB();
+//     }
+// }
 
 
-export { getEmail, postCreateUserPhone, getPhone, getUserById, postCreateUserGoogle, updateUserProfile, deleteUserById }
+export { getEmail, postCreateUser, postCreateListDisability }
