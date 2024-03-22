@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getUserProfileService, userRegistrationService } from '../services/userService';
+import { getUserProfileService, updateUserProfileService, userRegistrationService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user by phone ------
@@ -48,15 +48,36 @@ const userRegister = async (req: Request, res: Response, next: NextFunction) => 
 const getUserProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = (req.user as JwtPayload).id;
-    const userProfile = await getUserProfileService(userId);
-    res.status(200).json({
-      success: true,
-      message: userProfile,
-    })
+    const result = await getUserProfileService(userId);
+    if (result.success) {
+      res.status(200).json({
+        success: true,
+        message: result.message,
+        data: result.data
+      })
+    }
 
   } catch (error) {
     next(error);
   }
 };
 
-export { userRegister, getUserProfile }
+const updateUserProfile = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+      const userId = (req.user as JwtPayload).id;
+      const updateData = req.body;
+      const result = await updateUserProfileService(userId, updateData);
+      
+      if (result.success) {
+        res.status(200).json({
+          success: true,
+          message: result.message,
+          data: result.data
+        })
+      }
+  } catch (error) {
+      next(error);
+  }
+}
+
+export { userRegister, getUserProfile, updateUserProfile }
