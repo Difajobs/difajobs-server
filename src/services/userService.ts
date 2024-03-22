@@ -1,5 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getUserProfile, postCreateListDisability, postCreateUser } from '../dao/userDao';
+import { getEmail, getOneUser, postCreateListDisability, postCreateUser, updateUserProfile } from '../dao/userDao';
 import bcryptjs from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { add } from "date-fns";
@@ -77,7 +77,7 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
 
 const getUserProfileService = async (userId: number) => {
     try {
-        const userProfile = await getUserProfile(userId)
+        const userProfile = await getOneUser(userId)
 
         if (!userProfile) {
             throw new ErrorHandler({
@@ -86,7 +86,11 @@ const getUserProfileService = async (userId: number) => {
                 status: 404
             });
         }
-        return userProfile;
+        return {
+            success: true,
+            message: "Successfully fetch User Profile.",
+                data: {userProfile}
+        }
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -97,4 +101,39 @@ const getUserProfileService = async (userId: number) => {
     }
 }
 
-export { userRegistrationService, getUserProfileService }
+const updateUserProfileService = async (userId: number, updateData: any) => {
+    try {
+        const user = await getOneUser(userId);
+        if (!user) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User Not Found.. Please login',
+                status: 404
+            });
+        }
+
+        const filteredUpdateData: any = {};
+        for (const key in updateData) {
+            if (updateData[key] !== undefined) {
+                filteredUpdateData[key] = updateData[key];
+            }
+        }
+
+        const updatedUserProfile = await updateUserProfile(userId, filteredUpdateData);
+        
+        return {
+            success: true,
+            message: "Successfully Update User Profile.",
+                data: {updatedUserProfile}
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { userRegistrationService, getUserProfileService, updateUserProfileService }
