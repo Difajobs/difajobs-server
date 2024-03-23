@@ -1,5 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, postCreateListDisability, postCreateUser } from '../dao/userDao';
+import { getEmail, getOneUser, getUserCertificateList, getUserDisabilityList, getUserSkillList, postCreateListDisability, postCreateUser, updateUser } from '../dao/userDao';
 import bcryptjs from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { add } from "date-fns";
@@ -75,5 +75,75 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
 //     }
 // }
 
+const getUserProfileService = async (userId: number) => {
+    try {
+        const userData = await getOneUser(userId)
 
-export { userRegistrationService }
+        if (!userData) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User not found',
+                status: 404
+            });
+        }
+        const userDisabilityList = await getUserDisabilityList(userId)
+        if (!userDisabilityList) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User disability list not found',
+                status: 404
+            });
+        }
+        const userSkillList = await getUserSkillList(userId)
+        const userCertificateList = await getUserCertificateList(userId)
+        return {
+            success: true,
+            message: "Successfully fetch User Profile.",
+                data: {userData, userDisabilityList, userSkillList, userCertificateList}
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const updateUserProfileService = async (userId: number, updateData: any) => {
+    try {
+        const user = await getOneUser(userId);
+        if (!user) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'User Not Found.. Please login',
+                status: 404
+            });
+        }
+
+        const filteredUpdateData: any = {};
+        for (const key in updateData) {
+            if (updateData[key] !== undefined) {
+                filteredUpdateData[key] = updateData[key];
+            }
+        }
+
+        const updatedUserProfile = await updateUser(userId, filteredUpdateData);
+        
+        return {
+            success: true,
+            message: "Successfully Update User Profile.",
+                data: {updatedUserProfile}
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { userRegistrationService, getUserProfileService, updateUserProfileService }
