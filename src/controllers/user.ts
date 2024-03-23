@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { userRegistrationService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
-//------ Create user by phone ------
+//------ Create user ------
 const userRegister = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { first_name, last_name, email, password, dob, gender, disability_id } = req.body;
