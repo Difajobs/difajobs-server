@@ -8226,7 +8226,7 @@ export namespace Prisma {
     id: number
     category_id: number
     name: string
-    description: string
+    description: string | null
     _count: DisabilityCountAggregateOutputType | null
     _avg: DisabilityAvgAggregateOutputType | null
     _sum: DisabilitySumAggregateOutputType | null
@@ -8282,7 +8282,7 @@ export namespace Prisma {
       id: number
       category_id: number
       name: string
-      description: string
+      description: string | null
     }, ExtArgs["result"]["disability"]>
     composites: {}
   }
@@ -14492,7 +14492,7 @@ export namespace Prisma {
     id?: IntFilter<"Disability"> | number
     category_id?: IntFilter<"Disability"> | number
     name?: StringFilter<"Disability"> | string
-    description?: StringFilter<"Disability"> | string
+    description?: StringNullableFilter<"Disability"> | string | null
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
     users?: List_disabilityListRelationFilter
   }
@@ -14501,7 +14501,7 @@ export namespace Prisma {
     id?: SortOrder
     category_id?: SortOrder
     name?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     category?: CategoryOrderByWithRelationInput
     users?: List_disabilityOrderByRelationAggregateInput
   }
@@ -14513,7 +14513,7 @@ export namespace Prisma {
     NOT?: DisabilityWhereInput | DisabilityWhereInput[]
     category_id?: IntFilter<"Disability"> | number
     name?: StringFilter<"Disability"> | string
-    description?: StringFilter<"Disability"> | string
+    description?: StringNullableFilter<"Disability"> | string | null
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
     users?: List_disabilityListRelationFilter
   }, "id">
@@ -14522,7 +14522,7 @@ export namespace Prisma {
     id?: SortOrder
     category_id?: SortOrder
     name?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: DisabilityCountOrderByAggregateInput
     _avg?: DisabilityAvgOrderByAggregateInput
     _max?: DisabilityMaxOrderByAggregateInput
@@ -14537,7 +14537,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Disability"> | number
     category_id?: IntWithAggregatesFilter<"Disability"> | number
     name?: StringWithAggregatesFilter<"Disability"> | string
-    description?: StringWithAggregatesFilter<"Disability"> | string
+    description?: StringNullableWithAggregatesFilter<"Disability"> | string | null
   }
 
   export type AbilityWhereInput = {
@@ -15175,7 +15175,7 @@ export namespace Prisma {
 
   export type DisabilityCreateInput = {
     name: string
-    description: string
+    description?: string | null
     category: CategoryCreateNestedOneWithoutDisabilitiesInput
     users?: List_disabilityCreateNestedManyWithoutDisabilityInput
   }
@@ -15184,13 +15184,13 @@ export namespace Prisma {
     id?: number
     category_id: number
     name: string
-    description: string
+    description?: string | null
     users?: List_disabilityUncheckedCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: CategoryUpdateOneRequiredWithoutDisabilitiesNestedInput
     users?: List_disabilityUpdateManyWithoutDisabilityNestedInput
   }
@@ -15199,7 +15199,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     users?: List_disabilityUncheckedUpdateManyWithoutDisabilityNestedInput
   }
 
@@ -15207,19 +15207,19 @@ export namespace Prisma {
     id?: number
     category_id: number
     name: string
-    description: string
+    description?: string | null
   }
 
   export type DisabilityUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DisabilityUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     category_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AbilityCreateInput = {
@@ -17537,7 +17537,7 @@ export namespace Prisma {
 
   export type DisabilityCreateWithoutUsersInput = {
     name: string
-    description: string
+    description?: string | null
     category: CategoryCreateNestedOneWithoutDisabilitiesInput
   }
 
@@ -17545,7 +17545,7 @@ export namespace Prisma {
     id?: number
     category_id: number
     name: string
-    description: string
+    description?: string | null
   }
 
   export type DisabilityCreateOrConnectWithoutUsersInput = {
@@ -17612,7 +17612,7 @@ export namespace Prisma {
 
   export type DisabilityUpdateWithoutUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     category?: CategoryUpdateOneRequiredWithoutDisabilitiesNestedInput
   }
 
@@ -17620,7 +17620,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     category_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateWithoutJobApplicationsInput = {
@@ -18071,14 +18071,14 @@ export namespace Prisma {
 
   export type DisabilityCreateWithoutCategoryInput = {
     name: string
-    description: string
+    description?: string | null
     users?: List_disabilityCreateNestedManyWithoutDisabilityInput
   }
 
   export type DisabilityUncheckedCreateWithoutCategoryInput = {
     id?: number
     name: string
-    description: string
+    description?: string | null
     users?: List_disabilityUncheckedCreateNestedManyWithoutDisabilityInput
   }
 
@@ -18115,7 +18115,7 @@ export namespace Prisma {
     id?: IntFilter<"Disability"> | number
     category_id?: IntFilter<"Disability"> | number
     name?: StringFilter<"Disability"> | string
-    description?: StringFilter<"Disability"> | string
+    description?: StringNullableFilter<"Disability"> | string | null
   }
 
   export type JobCreateWithoutSkillsInput = {
@@ -18637,26 +18637,26 @@ export namespace Prisma {
   export type DisabilityCreateManyCategoryInput = {
     id?: number
     name: string
-    description: string
+    description?: string | null
   }
 
   export type DisabilityUpdateWithoutCategoryInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     users?: List_disabilityUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityUncheckedUpdateWithoutCategoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     users?: List_disabilityUncheckedUpdateManyWithoutDisabilityNestedInput
   }
 
   export type DisabilityUncheckedUpdateManyWithoutCategoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationCreateManyJobInput = {
