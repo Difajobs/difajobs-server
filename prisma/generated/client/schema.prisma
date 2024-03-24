@@ -1,0 +1,134 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./generated/client"
+  // binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+  directUrl = env("DB_DIRECT")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  password    String
+  role        String
+  isVerified  Boolean      @default(false)
+  job_seeker  Job_seeker[]
+  company     Company[]
+}
+model Job_seeker {
+  id                Int          @id @default(autoincrement())
+  user              User         @relation(fields: [user_id], references: [id])
+  user_id           Int
+  fullname          String
+  dob               DateTime
+  gender            String
+  phone_number      String?
+  city              String?
+  certificates      List_certificate[]
+  disabilities      List_disability[]
+  skills            List_skills[]
+  job_applications  Job_application[]
+}
+
+model Company {
+  id                Int       @id @default(autoincrement())
+  user              User      @relation(fields: [user_id], references: [id])
+  user_id           Int
+  name              String
+  city              String
+  about             String
+  logo              String?
+  picture           String?
+  jobs              Jobs[]
+  job_application   Job_application[]
+}
+
+model Jobs {
+  id                Int           @id @default(autoincrement())
+  company           Company       @relation(fields: [company_id], references: [id])
+  company_id         Int
+  title             String
+  description       String
+  employmentType    String
+  estimateSalary    Int?
+  ability           Ability?      @relation(fields: [ability_id], references: [id])
+  ability_id         Int?
+  jobSkills         List_job_skill[]
+  jobApplications   Job_application[]
+}
+
+model List_certificate {
+  id           Int      @id @default(autoincrement())
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id  Int
+  name         String?
+  description  String?
+}
+
+model Skill {
+  id              Int          @id @default(autoincrement())
+  name            String
+  list_skill      List_skills[]
+  list_job_skill  List_job_skill[]
+}
+
+model List_disability {
+  id              Int        @id @default(autoincrement())
+  job_seeker       Job_seeker  @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id     Int
+  disability      Disability @relation(fields: [disability_id], references: [id])
+  disability_id    Int
+}
+
+model Job_application {
+  id             Int         @id @default(autoincrement())
+  job_seeker     Job_seeker   @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id  Int
+  job            Jobs        @relation(fields: [job_id], references: [id])
+  job_id         Int
+  company        Company     @relation(fields: [company_id], references: [id])
+  company_id     Int
+  status         String
+}
+
+model Disability {
+  id                Int          @id @default(autoincrement())
+  category          Category     @relation(fields: [category_id], references: [id])
+  category_id       Int
+  name              String
+  description       String?
+  list_disabilities List_disability[]
+}
+
+model Ability {
+  id    Int     @id @default(autoincrement())
+  name  String
+  jobs  Jobs[]
+}
+
+model List_skills {
+  id            Int      @id @default(autoincrement())
+  job_seeker    Job_seeker  @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id Int
+  skill         Skill      @relation(fields: [skillId], references: [id])
+  skillId       Int
+}
+
+model Category {
+  id            Int          @id @default(autoincrement())
+  name          String
+  disabilities  Disability[]
+}
+
+model List_job_skill {
+  id        Int    @id @default(autoincrement())
+  job       Jobs   @relation(fields: [job_id], references: [id])
+  job_id    Int
+  skill     Skill  @relation(fields: [skill_id], references: [id])
+  skill_id  Int
+}
+
