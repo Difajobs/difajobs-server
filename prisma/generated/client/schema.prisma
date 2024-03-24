@@ -11,118 +11,124 @@ datasource db {
 }
 
 model User {
-  id           Int        @id @default(autoincrement())
-  first_name   String
-  last_name    String?
-  email        String     @unique
-  password     String
-  phone_number String?
-  city         String?
-  gender       String
-  dob          DateTime
-  created_at   DateTime   @default(now())
-  updated_at   DateTime   @updatedAt
-  is_verified  Boolean    @default(false)
-  certificates List_certificate[]
-  disabilities List_disability[]
-  jobApplications Job_application[]
-  skills       List_skill[]
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  password    String
+  role        String
+  isVerified  Boolean      @default(false)
+  job_seeker  Job_seeker[]
+  company     Company[]
+}
+model Job_seeker {
+  id                Int          @id @default(autoincrement())
+  user              User         @relation(fields: [user_id], references: [id])
+  user_id           Int
+  fullname          String
+  dob               DateTime
+  gender            String
+  phone_number      String?
+  city              String?
+  certificates      List_certificate[]
+  disabilities      List_disability[]
+  skills            List_skills[]
+  job_applications  Job_application[]
 }
 
 model Company {
-  id               Int               @id @default(autoincrement())
-  name             String
-  city             String
-  about            String
-  logo             String?
-  picture          String?
-  email            String
-  password         String
-  jobApplications  Job_application[]
-  jobs             Job[]
+  id                Int       @id @default(autoincrement())
+  user              User      @relation(fields: [user_id], references: [id])
+  user_id           Int
+  name              String
+  city              String
+  about             String
+  logo              String?
+  picture           String?
+  jobs              Jobs[]
+  job_application   Job_application[]
 }
+
+model Jobs {
+  id                Int           @id @default(autoincrement())
+  company           Company       @relation(fields: [company_id], references: [id])
+  company_id         Int
+  title             String
+  description       String
+  employmentType    String
+  estimateSalary    Int?
+  ability           Ability?      @relation(fields: [ability_id], references: [id])
+  ability_id         Int?
+  jobSkills         List_job_skill[]
+  jobApplications   Job_application[]
+}
+
 model List_certificate {
-  id          Int       @id @default(autoincrement())
-  name        String?
-  description String?
-  user        User      @relation(fields: [user_id], references: [id])
-  user_id     Int
+  id           Int      @id @default(autoincrement())
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id  Int
+  name         String?
+  description  String?
 }
 
 model Skill {
-  id   Int    @id @default(autoincrement())
-  name String
-  users List_skill[]
-  jobs List_job_skill[]
+  id              Int          @id @default(autoincrement())
+  name            String
+  list_skill      List_skills[]
+  list_job_skill  List_job_skill[]
 }
 
 model List_disability {
-  id            Int         @id @default(autoincrement())
-  user          User        @relation(fields: [user_id], references: [id])
-  user_id       Int
-  disability    Disability  @relation(fields: [disability_id], references: [id])
-  disability_id Int
+  id              Int        @id @default(autoincrement())
+  job_seeker       Job_seeker  @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id     Int
+  disability      Disability @relation(fields: [disability_id], references: [id])
+  disability_id    Int
 }
 
 model Job_application {
-  id         Int       @id @default(autoincrement())
-  user       User      @relation(fields: [user_id], references: [id])
-  user_id    Int
-  job        Job       @relation(fields: [job_id], references: [id])
-  job_id     Int
-  company    Company   @relation(fields: [company_id], references: [id])
-  company_id Int
-  status     String
+  id             Int         @id @default(autoincrement())
+  job_seeker     Job_seeker   @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id  Int
+  job            Jobs        @relation(fields: [job_id], references: [id])
+  job_id         Int
+  company        Company     @relation(fields: [company_id], references: [id])
+  company_id     Int
+  status         String
 }
 
 model Disability {
-  id          Int         @id @default(autoincrement())
-  category    Category    @relation(fields: [category_id], references: [id])
-  category_id Int
-  name        String
-  description String
-  users       List_disability[]
+  id                Int          @id @default(autoincrement())
+  category          Category     @relation(fields: [category_id], references: [id])
+  category_id       Int
+  name              String
+  description       String
+  list_disabilities List_disability[]
 }
 
 model Ability {
-  id   Int    @id @default(autoincrement())
-  name String
-  jobs Job[]
+  id    Int     @id @default(autoincrement())
+  name  String
+  jobs  Jobs[]
 }
 
-model List_skill {
-  id       Int    @id @default(autoincrement())
-  user     User   @relation(fields: [user_id], references: [id])
-  user_id  Int
-  skill    Skill  @relation(fields: [skill_id], references: [id])
-  skill_id Int
+model List_skills {
+  id            Int      @id @default(autoincrement())
+  job_seeker    Job_seeker  @relation(fields: [job_seeker_id], references: [id])
+  job_seeker_id Int
+  skill         Skill      @relation(fields: [skillId], references: [id])
+  skillId       Int
 }
-
 
 model Category {
-  id    Int    @id @default(autoincrement())
-  name  String
-  disabilities Disability[]
+  id            Int          @id @default(autoincrement())
+  name          String
+  disabilities  Disability[]
 }
 
 model List_job_skill {
-  id       Int    @id @default(autoincrement())
-  job      Job    @relation(fields: [job_id], references: [id])
-  job_id   Int
-  skill    Skill  @relation(fields: [skill_id], references: [id])
-  skill_id Int
+  id        Int    @id @default(autoincrement())
+  job       Jobs   @relation(fields: [job_id], references: [id])
+  job_id    Int
+  skill     Skill  @relation(fields: [skill_id], references: [id])
+  skill_id  Int
 }
 
-model Job {
-  id               Int               @id @default(autoincrement())
-  company          Company           @relation(fields: [company_id], references: [id])
-  company_id       Int
-  ability          Ability?          @relation(fields: [ability_id], references: [id])
-  ability_id       Int?
-  title            String
-  description      String
-  employment_type  String
-  estimate_salary  Int?
-  applications     Job_application[]
-  skills           List_job_skill[]
-}

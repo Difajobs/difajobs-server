@@ -1,6 +1,7 @@
 import { disconnectDB, prisma } from "../config/db/dbConnection";
 import ErrorHandler from "../utils/errorHandler";
-import { format, formatISO } from 'date-fns';
+import { formatISO } from 'date-fns';
+import bcryptjs from "bcryptjs";
 
 const getEmail = async (email : string )=> {
     try {
@@ -23,22 +24,29 @@ const getEmail = async (email : string )=> {
     }
 }
 
-const postCreateUser = async (firstName: string, lastName: string, email: string, password: string, dob: Date, gender: string) => {
+const postCreateUser = async (userData: UserRegistrationData) => {
     try {
+        const {email, password, role, fullname, dob, gender, phone_number, city} = userData
         const formattedDob = formatISO(dob);
-        console.log('Formatted Date of Birth:', formattedDob);
+        const hashedPassword = await bcryptjs.hash(password, 10);
         const newUser = await prisma.user.create({
-            data: { 
-                first_name: firstName, 
-                last_name: lastName, 
+            data: {
                 email: email, 
-                password: password, 
-                dob: formattedDob, 
-                gender: gender 
+                password: hashedPassword,
+                role: role
             }
         });
-
-        return newUser;
+        const newJobSeeker = await prisma.job_seeker.create({
+            data: {
+                user_id: newUser.id,
+                fullname: fullname, 
+                dob: formattedDob,
+                gender: gender,
+                phone_number: phone_number,
+                city: city
+            }
+        });
+        return { newUser, newJobSeeker };
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -51,13 +59,12 @@ const postCreateUser = async (firstName: string, lastName: string, email: string
     }
 }
 
-
-const postCreateListDisability = async (userId: number, disabilityIds : number[])=> {
+const postCreateListDisability = async (jobSeekerId: number, disabilityIds : number[])=> {
     try {
         const listDisability = await Promise.all(disabilityIds.map(async (disabilityId) => {
             const createdRecord = await prisma.list_disability.create({
                 data: {
-                    user_id: userId,
+                    job_seeker_id: jobSeekerId,
                     disability_id: disabilityId
                 }
             });
@@ -77,6 +84,99 @@ const postCreateListDisability = async (userId: number, disabilityIds : number[]
     }
 }
 
+<<<<<<< Updated upstream
+=======
+const getOneUser = async (userId: number) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {id: userId}
+        })
+        return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getUserDisabilityList = async (userId: number) => {
+    try {
+        const user = await prisma.list_disability.findMany({
+            where: {user_id: userId}
+        })
+        return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getUserSkillList = async (userId: number) => {
+    try {
+        const user = await prisma.list_skills.findMany({
+            where: {user_id: userId}
+        })
+        return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getUserCertificateList = async (userId: number) => {
+    try {
+        const user = await prisma.list_certificate.findMany({
+            where: {user_id: userId}
+        })
+        return user
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const updateUser = async (userId: number, data: any) => {
+    try {
+        const updateUser = await prisma.user.update({
+            where: {id: userId},
+            data
+        });
+        return updateUser;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+>>>>>>> Stashed changes
 
 // const postCreateUserGoogle = async (fullname: string, email : string)=> {
 //     try {

@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 import { Request, Response, NextFunction } from 'express';
 import jwt, {JwtPayload, Secret} from 'jsonwebtoken';
 import JWT_TOKEN from '../config/jwt/jwt';
 import ErrorHandler from '../utils/errorHandler';
+=======
+import { Request, Response, NextFunction } from 'express'
+import { getToken } from '../utils/decodedToken';
+>>>>>>> Stashed changes
 
 
 
