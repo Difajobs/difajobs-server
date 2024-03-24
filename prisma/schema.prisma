@@ -100,7 +100,7 @@ model Disability {
   category          Category     @relation(fields: [category_id], references: [id])
   category_id       Int
   name              String
-  description       String
+  description       String?
   list_disabilities List_disability[]
 }
 

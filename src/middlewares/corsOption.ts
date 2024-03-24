@@ -14,14 +14,12 @@ const corsOptions = (req: Request | any, callback: (err: Error | null, options?:
         callback(null, {
             origin: true,
             methods: 'GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD',
-            credentials: true,
             allowedHeaders: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
         });
     } else if (isPostman) {
         callback(null, {
             origin: 'https://www.getpostman.com',
             methods: 'GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD',
-            credentials: true,
             allowedHeaders: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
         });
     } else {

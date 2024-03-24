@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { getUserProfileService, updateUserProfileService, userJobSeekerRegisterService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
-//------ Create user by phone ------
+//------ Create user ------
 const userRegister = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password, role, fullname, dob, gender, phone_number, city, disability_id } = req.body;
@@ -45,5 +45,39 @@ const userRegister = async (req: Request, res: Response, next: NextFunction) => 
 //   }
 // };
 
+const getUserProfile = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = (req.user as JwtPayload).id;
+    const result = await getUserProfileService(userId);
+    if (result.success) {
+      res.status(200).json({
+        success: true,
+        message: result.message,
+        data: result.data
+      })
+    }
 
-export { userRegister }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateUserProfile = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+      const userId = (req.user as JwtPayload).id;
+      const updateData = req.body;
+      const result = await updateUserProfileService(userId, updateData);
+      
+      if (result.success) {
+        res.status(200).json({
+          success: true,
+          message: result.message,
+          data: result.data
+        })
+      }
+  } catch (error) {
+      next(error);
+  }
+}
+
+export { userRegister, getUserProfile, updateUserProfile }

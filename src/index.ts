@@ -6,8 +6,6 @@ import middleWares from './middlewares';
 import router from './routes';
 import rootRoute from './routes/root';
 import corsMiddleware from './middlewares/corsOption';
-import cors from 'cors';
-import corsOptions from './middlewares/corsOption';
 
 // integration with .env
 dotenv.config();
@@ -18,8 +16,6 @@ db();
 app.use(express.json());
 // server port
 const server_port = process.env.SERVER_PORT || 3001;
-//accept all cors for auth
-// app.use(cors());
 // API root route
 app.use(rootRoute)
 // set cors accept client access

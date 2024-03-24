@@ -10,40 +10,18 @@ import { getToken } from '../utils/decodedToken';
 
 
 
-const authenticationMiddleware = (req: Request, res: Response, next: NextFunction) => {
-    const token = req.cookies.access_token;
-
-    if (!token) {
-        const error = new ErrorHandler({
-            success: false,
-            message: 'Unauthorized Access..',
-            status: 400
-        });
-        return next(error);
-    } else {
+const authentication = () => {
+    return async (req: Request, res: Response, next: NextFunction) => {
+        const decodedToken = getToken(req)
         try {
-            const decodedToken = jwt.verify(token, JWT_TOKEN as Secret) as JwtPayload;
-            console.log("Decoded Token: ", decodedToken);
-            // if ('role' in decodedToken) {
-                req.user = decodedToken
-                next();
-            // } else {
-            //     const error = new ErrorHandler({
-            //         success: false,
-            //         message: 'Unidentified Role...',
-            //         status: 401
-            //     });
-            //     return next(error); 
-            // }
+            if (!decodedToken) {
+                return res.status(401).send({ message: "Unauthorized, please login" });
+            }
+            next();
         } catch (error) {
-            const err = new ErrorHandler({
-                success: false,
-                message: 'Invalid Request..!',
-                status: 500
-            });
-            return next(err);
+            res.status(401).send({ message: "Invalid Access" });
         }
-    }
-}
+    };
+};
 
-export default authenticationMiddleware
+export default authentication
