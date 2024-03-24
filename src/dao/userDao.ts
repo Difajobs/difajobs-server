@@ -122,7 +122,7 @@ const getUserDisabilityList = async (userId: number) => {
 
 const getUserSkillList = async (userId: number) => {
     try {
-        const user = await prisma.list_skill.findMany({
+        const user = await prisma.list_skills.findMany({
             where: {user_id: userId}
         })
         return user
