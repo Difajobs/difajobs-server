@@ -1,6 +1,5 @@
-import { Request, Response, NextFunction } from 'express'
-import { getToken } from '../utils/getToken';
-
+import { Request, Response, NextFunction } from 'express';
+import { getToken } from '../utils/decodedToken';
 
 const authentication = () => {
     return async (req: Request, res: Response, next: NextFunction) => {

@@ -1,13 +1,12 @@
 import ErrorHandler from '../utils/errorHandler';
 import { getEmail, getOneUser, getUserCertificateList, getUserDisabilityList, getUserSkillList, postCreateListDisability, postCreateUser, updateUser } from '../dao/userDao';
-import bcryptjs from "bcryptjs"
-import * as jwt from "jsonwebtoken"
-import { add } from "date-fns";
-import JWT_TOKEN from '../config/jwt/jwt';
+import bcryptjs from "bcryptjs";
 
-// ------ Register by Email service ------
-const userRegistrationService = async (firstName: string, lastName: string, email: string, password: string, dob: Date, gender: string, disabilityId: number[]) => {
+// ------ Register by Email ------
+const userJobSeekerRegisterService = async (userData: UserRegistrationData, disabilityId: number[]) => {
     try {
+        const { email, password, role } = userData;
+
         if(!email) {
             throw new ErrorHandler({
                 success: false,
@@ -29,6 +28,13 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
                 status: 400
             })
         }
+        if (role !== "job seeker" || "recruiter") {
+            throw new ErrorHandler({
+                success: false,
+                message: 'only "job seeker" or "recruiter" allowed for user role',
+                status: 400
+            })
+        }
         const userPhone = await getEmail(email)
         if (userPhone) {
             throw new ErrorHandler({
@@ -37,13 +43,12 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
                 status: 409,
             });
         }
-        const hashedPassword = await bcryptjs.hash(password, 10);
-        const createUser = await postCreateUser(firstName, lastName, email, hashedPassword, dob, gender)
-        const disability = await postCreateListDisability(createUser.id, disabilityId)
+        const createUser = await postCreateUser(userData)
+        const disability = await postCreateListDisability(createUser.newJobSeeker.id, disabilityId)
         return {
             success: true,
             message: "User registered successfully",
-                data: {createUser, disability}
+            data: {createUser, disability}
         }
     } catch (error: any) {
         console.error(error);
@@ -52,8 +57,8 @@ const userRegistrationService = async (firstName: string, lastName: string, emai
             status: error.status,
             message: error.message,
         });
-    }
-}
+    };
+};
 
 // ------ Register by Google service ------
 // const registerUserbyGoogleService = async (fullname: string, email: string) => {
@@ -108,8 +113,8 @@ const getUserProfileService = async (userId: number) => {
             status: error.status,
             message: error.message,
         });
-    }
-}
+    };
+};
 
 const updateUserProfileService = async (userId: number, updateData: any) => {
     try {
@@ -146,4 +151,4 @@ const updateUserProfileService = async (userId: number, updateData: any) => {
     }
 }
 
-export { userRegistrationService, getUserProfileService, updateUserProfileService }
+export { userJobSeekerRegisterService, getUserProfileService, updateUserProfileService }

@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { getUserProfileService, updateUserProfileService, userRegistrationService } from '../services/userService';
+import { getUserProfileService, updateUserProfileService, userJobSeekerRegisterService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user ------
 const userRegister = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { first_name, last_name, email, password, dob, gender, disability_id } = req.body;
-    const result = await userRegistrationService(first_name, last_name, email, password, dob, gender, disability_id)
+    const { email, password, role, fullname, dob, gender, phone_number, city, disability_id } = req.body;
+    const result = await userJobSeekerRegisterService({email, password, role, fullname, dob, gender, phone_number, city}, disability_id)
     if (result.success) {
       res.status(200).json({
         success: true,
