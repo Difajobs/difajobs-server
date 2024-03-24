@@ -1,9 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-<<<<<<< Updated upstream
-import { userRegistrationService } from '../services/userService';
-=======
 import { getUserProfileService, updateUserProfileService, userJobSeekerRegisterService } from '../services/userService';
->>>>>>> Stashed changes
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user by phone ------

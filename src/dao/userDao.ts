@@ -84,8 +84,6 @@ const postCreateListDisability = async (jobSeekerId: number, disabilityIds : num
     }
 }
 
-<<<<<<< Updated upstream
-=======
 const getOneUser = async (userId: number) => {
     try {
         const user = await prisma.user.findUnique({
@@ -176,7 +174,6 @@ const updateUser = async (userId: number, data: any) => {
         await disconnectDB();
     }
 }
->>>>>>> Stashed changes
 
 // const postCreateUserGoogle = async (fullname: string, email : string)=> {
 //     try {
@@ -203,4 +200,4 @@ const updateUser = async (userId: number, data: any) => {
 // }
 
 
-export { getEmail, postCreateUser, postCreateListDisability }
+export { getEmail, postCreateUser, postCreateListDisability, getOneUser, getUserDisabilityList, getUserSkillList, getUserCertificateList, updateUser }

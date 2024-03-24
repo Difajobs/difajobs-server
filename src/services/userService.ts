@@ -1,14 +1,6 @@
 import ErrorHandler from '../utils/errorHandler';
-<<<<<<< Updated upstream
-import { getEmail, postCreateListDisability, postCreateUser } from '../dao/userDao';
-import bcryptjs from "bcryptjs"
-import * as jwt from "jsonwebtoken"
-import { add } from "date-fns";
-import JWT_TOKEN from '../config/jwt/jwt';
-=======
 import { getEmail, getOneUser, getUserCertificateList, getUserDisabilityList, getUserSkillList, postCreateListDisability, postCreateUser, updateUser } from '../dao/userDao';
 import bcryptjs from "bcryptjs";
->>>>>>> Stashed changes
 
 // ------ Register by Email ------
 const userJobSeekerRegisterService = async (userData: UserRegistrationData, disabilityId: number[]) => {
@@ -88,10 +80,10 @@ const userJobSeekerRegisterService = async (userData: UserRegistrationData, disa
 //     }
 // }
 
+const getUserProfileService = async (userId: number) => {
+    try {
+        const userData = await getOneUser(userId)
 
-<<<<<<< Updated upstream
-export { userRegistrationService }
-=======
         if (!userData) {
             throw new ErrorHandler({
                 success: false,
@@ -160,4 +152,3 @@ const updateUserProfileService = async (userId: number, updateData: any) => {
 }
 
 export { userJobSeekerRegisterService, getUserProfileService, updateUserProfileService }
->>>>>>> Stashed changes

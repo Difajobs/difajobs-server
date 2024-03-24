@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-interface RegisterInput {
-    email: string;
-    password: string;
-}
-=======
 interface UserRegistrationData {
     email: string;
     password: string;
@@ -21,4 +15,3 @@ interface Disability {
     name: string;
     description: string | null;
 }
->>>>>>> Stashed changes
