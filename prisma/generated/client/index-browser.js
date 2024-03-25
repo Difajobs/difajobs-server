@@ -112,7 +112,7 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   role: 'role',
-  isVerified: 'isVerified'
+  is_verified: 'is_verified'
 };
 
 exports.Prisma.Job_seekerScalarFieldEnum = {

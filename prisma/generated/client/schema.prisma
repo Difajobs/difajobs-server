@@ -15,7 +15,7 @@ model User {
   email       String       @unique
   password    String
   role        String
-  isVerified  Boolean      @default(false)
+  is_verified  Boolean      @default(false)
   job_seeker  Job_seeker[]
   company     Company[]
 }

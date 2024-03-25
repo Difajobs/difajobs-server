@@ -2216,7 +2216,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     role: string | null
-    isVerified: boolean | null
+    is_verified: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2224,7 +2224,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     role: string | null
-    isVerified: boolean | null
+    is_verified: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2232,7 +2232,7 @@ export namespace Prisma {
     email: number
     password: number
     role: number
-    isVerified: number
+    is_verified: number
     _all: number
   }
 
@@ -2250,7 +2250,7 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    isVerified?: true
+    is_verified?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2258,7 +2258,7 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    isVerified?: true
+    is_verified?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2266,7 +2266,7 @@ export namespace Prisma {
     email?: true
     password?: true
     role?: true
-    isVerified?: true
+    is_verified?: true
     _all?: true
   }
 
@@ -2361,7 +2361,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified: boolean
+    is_verified: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2388,7 +2388,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    isVerified?: boolean
+    is_verified?: boolean
     job_seeker?: boolean | User$job_seekerArgs<ExtArgs>
     company?: boolean | User$companyArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2399,7 +2399,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     role?: boolean
-    isVerified?: boolean
+    is_verified?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2420,7 +2420,7 @@ export namespace Prisma {
       email: string
       password: string
       role: string
-      isVerified: boolean
+      is_verified: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2822,7 +2822,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
-    readonly isVerified: FieldRef<"User", 'Boolean'>
+    readonly is_verified: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -14961,7 +14961,7 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     role: 'role',
-    isVerified: 'isVerified'
+    is_verified: 'is_verified'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -15191,7 +15191,7 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
-    isVerified?: BoolFilter<"User"> | boolean
+    is_verified?: BoolFilter<"User"> | boolean
     job_seeker?: Job_seekerListRelationFilter
     company?: CompanyListRelationFilter
   }
@@ -15201,7 +15201,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    isVerified?: SortOrder
+    is_verified?: SortOrder
     job_seeker?: Job_seekerOrderByRelationAggregateInput
     company?: CompanyOrderByRelationAggregateInput
   }
@@ -15214,7 +15214,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
-    isVerified?: BoolFilter<"User"> | boolean
+    is_verified?: BoolFilter<"User"> | boolean
     job_seeker?: Job_seekerListRelationFilter
     company?: CompanyListRelationFilter
   }, "id" | "email">
@@ -15224,7 +15224,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    isVerified?: SortOrder
+    is_verified?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -15240,7 +15240,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     role?: StringWithAggregatesFilter<"User"> | string
-    isVerified?: BoolWithAggregatesFilter<"User"> | boolean
+    is_verified?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type Job_seekerWhereInput = {
@@ -15924,7 +15924,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
     company?: CompanyCreateNestedManyWithoutUserInput
   }
@@ -15934,7 +15934,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
   }
@@ -15943,7 +15943,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     job_seeker?: Job_seekerUpdateManyWithoutUserNestedInput
     company?: CompanyUpdateManyWithoutUserNestedInput
   }
@@ -15953,7 +15953,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     job_seeker?: Job_seekerUncheckedUpdateManyWithoutUserNestedInput
     company?: CompanyUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -15963,14 +15963,14 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -15978,7 +15978,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type Job_seekerCreateInput = {
@@ -16636,7 +16636,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    isVerified?: SortOrder
+    is_verified?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -16648,7 +16648,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    isVerified?: SortOrder
+    is_verified?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -16656,7 +16656,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     role?: SortOrder
-    isVerified?: SortOrder
+    is_verified?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -18466,7 +18466,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     company?: CompanyCreateNestedManyWithoutUserInput
   }
 
@@ -18475,7 +18475,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -18581,7 +18581,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     company?: CompanyUpdateManyWithoutUserNestedInput
   }
 
@@ -18590,7 +18590,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     company?: CompanyUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -18701,7 +18701,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
   }
 
@@ -18710,7 +18710,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    isVerified?: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -18788,7 +18788,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     job_seeker?: Job_seekerUpdateManyWithoutUserNestedInput
   }
 
@@ -18797,7 +18797,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    isVerified?: BoolFieldUpdateOperationsInput | boolean
+    is_verified?: BoolFieldUpdateOperationsInput | boolean
     job_seeker?: Job_seekerUncheckedUpdateManyWithoutUserNestedInput
   }
 
