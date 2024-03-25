@@ -131,8 +131,8 @@ model Category {
 }
 
 model Required_skills {
-  id          Int    @id @default(autoincrement())
-  job         Jobs   @relation(fields: [job_id], references: [id])
+  id          Int     @id @default(autoincrement())
+  job         Jobs    @relation(fields: [job_id], references: [id])
   job_id      Int
   skills      Skills  @relation(fields: [skill_id], references: [id])
   skill_id    Int
