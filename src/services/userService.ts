@@ -92,7 +92,7 @@ const userRecruiterRegisterService = async (userData: RecruiterRegistrationData)
         if (role !== "job seeker" && role !== "recruiter") {
             throw new ErrorHandler({
                 success: false,
-                message: 'only "job seeker" or "recruiter" allowed for user role',
+                message: "only 'job seeker' or 'recruiter' allowed for user role",
                 status: 400
             })
         }
