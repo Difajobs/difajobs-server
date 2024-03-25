@@ -152,7 +152,7 @@ exports.Prisma.List_certificateScalarFieldEnum = {
   description: 'description'
 };
 
-exports.Prisma.SkillScalarFieldEnum = {
+exports.Prisma.SkillsScalarFieldEnum = {
   id: 'id',
   name: 'name'
 };
@@ -182,10 +182,10 @@ exports.Prisma.AbilityScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.List_skillsScalarFieldEnum = {
+exports.Prisma.Job_seeker_skillsScalarFieldEnum = {
   id: 'id',
   job_seeker_id: 'job_seeker_id',
-  skillId: 'skillId'
+  skill_id: 'skill_id'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -193,7 +193,7 @@ exports.Prisma.CategoryScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.List_job_skillScalarFieldEnum = {
+exports.Prisma.Required_skillsScalarFieldEnum = {
   id: 'id',
   job_id: 'job_id',
   skill_id: 'skill_id'
@@ -221,14 +221,14 @@ exports.Prisma.ModelName = {
   Company: 'Company',
   Jobs: 'Jobs',
   List_certificate: 'List_certificate',
-  Skill: 'Skill',
+  Skills: 'Skills',
   List_disability: 'List_disability',
   Job_application: 'Job_application',
   Disability: 'Disability',
   Ability: 'Ability',
-  List_skills: 'List_skills',
+  Job_seeker_skills: 'Job_seeker_skills',
   Category: 'Category',
-  List_job_skill: 'List_job_skill'
+  Required_skills: 'Required_skills'
 };
 
 /**
