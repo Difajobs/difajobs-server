@@ -103,16 +103,16 @@ model Disability {
 }
 
 model Ability {
-  id    Int     @id @default(autoincrement())
-  name  String
+  id          Int     @id @default(autoincrement())
+  name        String
   list_abilty List_ability[]
 }
 
 model List_ability {
-  id          Int     @id @default(autoincrement())
-  ability     Ability? @relation(fields: [ability_id], references: [id])
+  id          Int       @id @default(autoincrement())
+  ability     Ability?  @relation(fields: [ability_id], references: [id])
   ability_id  Int?
-  job         Jobs?    @relation(fields: [job_id], references: [id])
+  job         Jobs?     @relation(fields: [job_id], references: [id])
   job_id      Int?
 }
 
