@@ -141,8 +141,7 @@ exports.Prisma.JobsScalarFieldEnum = {
   title: 'title',
   description: 'description',
   employmentType: 'employmentType',
-  estimateSalary: 'estimateSalary',
-  ability_id: 'ability_id'
+  estimateSalary: 'estimateSalary'
 };
 
 exports.Prisma.List_certificateScalarFieldEnum = {
@@ -180,6 +179,12 @@ exports.Prisma.DisabilityScalarFieldEnum = {
 exports.Prisma.AbilityScalarFieldEnum = {
   id: 'id',
   name: 'name'
+};
+
+exports.Prisma.List_abilityScalarFieldEnum = {
+  id: 'id',
+  ability_id: 'ability_id',
+  job_id: 'job_id'
 };
 
 exports.Prisma.Job_seeker_skillsScalarFieldEnum = {
@@ -226,6 +231,7 @@ exports.Prisma.ModelName = {
   Job_application: 'Job_application',
   Disability: 'Disability',
   Ability: 'Ability',
+  List_ability: 'List_ability',
   Job_seeker_skills: 'Job_seeker_skills',
   Category: 'Category',
   Required_skills: 'Required_skills'
