@@ -149,7 +149,7 @@ const getJobSeekerDisabilityList = async (jobSeekerId: number) => {
 
 const getJobSeekerSkillList = async (jobSeekerId: number) => {
     try {
-        const jobSeeker = await prisma.list_skills.findMany({
+        const jobSeeker = await prisma.job_seeker_skills.findMany({
             where: {job_seeker_id: jobSeekerId}
         })
         return jobSeeker
