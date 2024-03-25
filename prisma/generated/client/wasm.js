@@ -174,8 +174,7 @@ exports.Prisma.Job_applicationScalarFieldEnum = {
 exports.Prisma.DisabilityScalarFieldEnum = {
   id: 'id',
   category_id: 'category_id',
-  name: 'name',
-  description: 'description'
+  name: 'name'
 };
 
 exports.Prisma.AbilityScalarFieldEnum = {
