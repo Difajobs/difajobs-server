@@ -24,7 +24,7 @@ const getEmail = async (email : string )=> {
     }
 }
 
-const postCreateUser = async (userData: UserRegistrationData) => {
+const postCreateJobSeeker = async (userData: JobSeekerRegistrationData) => {
     try {
         const {email, password, role, fullname, dob, gender, phone_number, city} = userData
         const formattedDob = formatISO(dob);
@@ -59,19 +59,28 @@ const postCreateUser = async (userData: UserRegistrationData) => {
     }
 }
 
-const postCreateListDisability = async (jobSeekerId: number, disabilityIds : number[])=> {
+const postCreateRecruiter = async (userData: RecruiterRegistrationData) => {
     try {
-        const listDisability = await Promise.all(disabilityIds.map(async (disabilityId) => {
-            const createdRecord = await prisma.list_disability.create({
-                data: {
-                    job_seeker_id: jobSeekerId,
-                    disability_id: disabilityId
-                }
-            });
-            return createdRecord
-        }));
-
-        return listDisability
+        const { email, password, role, name, city, about, logo, picture } = userData
+        const hashedPassword = await bcryptjs.hash(password, 10);
+        const newUser = await prisma.user.create({
+            data:{
+                email: email,
+                password: hashedPassword,
+                role: role,
+            }
+        })
+        const newCompany = await prisma.company.create({
+            data: {
+                user_id: newUser.id,
+                name: name,
+                city: city,
+                about: about,
+                logo: logo,
+                picture:picture
+            }
+        })
+        return{ newUser, newCompany}
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -218,4 +227,4 @@ const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
 // }
 
 
-export { getEmail, postCreateUser, postCreateListDisability, getOneUser, getOneJobSeeker, getJobSeekerSkillList, getJobSeekerDisabilityList, getJobSeekerCertificateList, updateJobSeekerData }
+export { getEmail, postCreateJobSeeker, getOneUser, getOneJobSeeker, getJobSeekerSkillList, getJobSeekerDisabilityList, getJobSeekerCertificateList, updateJobSeekerData, postCreateRecruiter }

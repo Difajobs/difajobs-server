@@ -1,9 +1,10 @@
 import express from 'express';
-import { userRegister } from '../../../controllers/user';
+import { jobSeekerRegister, recruiterRegister } from '../../../controllers/user';
 
 const authRouter = express.Router()
 
-authRouter.post('/register', userRegister)
+authRouter.post('/jobseeker-register', jobSeekerRegister)
+authRouter.post('/recruiter-register', recruiterRegister)
 
 
 

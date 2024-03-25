@@ -1,9 +1,12 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getJobSeekerCertificateList, getJobSeekerDisabilityList, getJobSeekerSkillList, getOneJobSeeker, getOneUser, postCreateListDisability, postCreateUser, updateJobSeekerData } from '../dao/userDao';
+import { getEmail, getJobSeekerCertificateList, getJobSeekerDisabilityList, getJobSeekerSkillList, getOneJobSeeker, getOneUser, postCreateJobSeeker, postCreateRecruiter, updateJobSeekerData } from '../dao/userDao';
 import bcryptjs from "bcryptjs";
+import { postCreateListDisability } from '../dao/disabilityDao';
 
 // ------ Register by Email ------
-const userJobSeekerRegisterService = async (userData: UserRegistrationData, disabilityId: number[]) => {
+
+// jobseeker registration
+const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData, disabilityId: number[]) => {
     try {
         const { email, password, role } = userData;
 
@@ -43,12 +46,69 @@ const userJobSeekerRegisterService = async (userData: UserRegistrationData, disa
                 status: 409,
             });
         }
-        const createUser = await postCreateUser(userData)
+        const createUser = await postCreateJobSeeker(userData)
         const disability = await postCreateListDisability(createUser.newJobSeeker.id, disabilityId)
         return {
             success: true,
             message: "User registered successfully",
             data: {createUser, disability}
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    };
+};
+
+// recruiter registration
+const userRecruiterRegisterService = async (userData: RecruiterRegistrationData) => {
+    try {
+        const { email, password, role } = userData;
+
+        if(!email) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email cannot be empty',
+                status: 400
+            })
+        }
+        if (password.length < 6) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Password must be at least 6 characters long',
+                status: 400
+            })
+        }
+        if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Password must contain both alphabetic and numeric characters',
+                status: 400
+            })
+        }
+        if (role !== "job seeker" && role !== "recruiter") {
+            throw new ErrorHandler({
+                success: false,
+                message: 'only "job seeker" or "recruiter" allowed for user role',
+                status: 400
+            })
+        }
+        const userPhone = await getEmail(email)
+        if (userPhone) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email already registered, please use other Email',
+                status: 409,
+            });
+        }
+        const createRecuiter = await postCreateRecruiter(userData)
+        return {
+            success: true,
+            message: "User registered successfully",
+            data: createRecuiter
         }
     } catch (error: any) {
         console.error(error);
@@ -151,4 +211,4 @@ const updateJobSeekerProfileService = async (userId: number, updateData: any) =>
     }
 }
 
-export { userJobSeekerRegisterService, getJobSeekerProfileService, updateJobSeekerProfileService }
+export { userJobSeekerRegisterService, getJobSeekerProfileService, updateJobSeekerProfileService, userRecruiterRegisterService }

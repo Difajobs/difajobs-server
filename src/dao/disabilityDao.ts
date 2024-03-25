@@ -26,4 +26,29 @@ const postListDisability = async (categoryIds: number[]) => {
     }
 }
 
-export { postListDisability }
+const postCreateListDisability = async (jobSeekerId: number, disabilityIds : number[])=> {
+    try {
+        const listDisability = await Promise.all(disabilityIds.map(async (disabilityId) => {
+            const createdRecord = await prisma.list_disability.create({
+                data: {
+                    job_seeker_id: jobSeekerId,
+                    disability_id: disabilityId
+                }
+            });
+            return createdRecord
+        }));
+
+        return listDisability
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { postListDisability, postCreateListDisability }
