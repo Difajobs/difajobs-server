@@ -117,7 +117,7 @@ model List_ability {
 }
 
 model Job_seeker_skills {
-  id              Int      @id @default(autoincrement())
+  id              Int         @id @default(autoincrement())
   job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id   Int
   skills          Skills      @relation(fields: [skill_id], references: [id])
