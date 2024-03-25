@@ -102,12 +102,12 @@ const getOneUser = async (userId: number) => {
     }
 }
 
-const getUserDisabilityList = async (userId: number) => {
+const getOneJobSeeker = async (userId: number) => {
     try {
-        const user = await prisma.list_disability.findMany({
+        const jobSeeker = await prisma.job_seeker.findFirst({
             where: {user_id: userId}
         })
-        return user
+        return jobSeeker
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -120,12 +120,12 @@ const getUserDisabilityList = async (userId: number) => {
     }
 }
 
-const getUserSkillList = async (userId: number) => {
+const getJobSeekerDisabilityList = async (jobSeekerId: number) => {
     try {
-        const user = await prisma.list_skills.findMany({
-            where: {user_id: userId}
+        const jobSeekerDisabilityList = await prisma.list_disability.findMany({
+            where: {job_seeker_id: jobSeekerId}
         })
-        return user
+        return jobSeekerDisabilityList
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -138,12 +138,12 @@ const getUserSkillList = async (userId: number) => {
     }
 }
 
-const getUserCertificateList = async (userId: number) => {
+const getJobSeekerSkillList = async (jobSeekerId: number) => {
     try {
-        const user = await prisma.list_certificate.findMany({
-            where: {user_id: userId}
+        const jobSeeker = await prisma.list_skills.findMany({
+            where: {job_seeker_id: jobSeekerId}
         })
-        return user
+        return jobSeeker
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -156,13 +156,31 @@ const getUserCertificateList = async (userId: number) => {
     }
 }
 
-const updateUser = async (userId: number, data: any) => {
+const getJobSeekerCertificateList = async (jobSeekerId: number) => {
     try {
-        const updateUser = await prisma.user.update({
-            where: {id: userId},
+        const jobSeeker = await prisma.list_certificate.findMany({
+            where: {job_seeker_id: jobSeekerId}
+        })
+        return jobSeeker
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
+    try {
+        const updateJobSeeker = await prisma.job_seeker.update({
+            where: {id: jobSeekerId},
             data
         });
-        return updateUser;
+        return updateJobSeeker;
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -200,4 +218,4 @@ const updateUser = async (userId: number, data: any) => {
 // }
 
 
-export { getEmail, postCreateUser, postCreateListDisability, getOneUser, getUserDisabilityList, getUserSkillList, getUserCertificateList, updateUser }
+export { getEmail, postCreateUser, postCreateListDisability, getOneUser, getOneJobSeeker, getJobSeekerSkillList, getJobSeekerDisabilityList, getJobSeekerCertificateList, updateJobSeekerData }
