@@ -1,12 +1,28 @@
 import { Request, Response, NextFunction } from 'express';
-import { getJobSeekerProfileService, updateJobSeekerProfileService, userJobSeekerRegisterService } from '../services/userService';
+import { getJobSeekerProfileService, updateJobSeekerProfileService, userJobSeekerRegisterService, userRecruiterRegisterService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user ------
-const userRegister = async (req: Request, res: Response, next: NextFunction) => {
+const jobSeekerRegister = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password, role, fullname, dob, gender, phone_number, city, disability_id } = req.body;
     const result = await userJobSeekerRegisterService({email, password, role, fullname, dob, gender, phone_number, city}, disability_id)
+    if (result.success) {
+      res.status(200).json({
+        success: true,
+        message: result.message,
+        data: result.data
+      })
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const recruiterRegister = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { email, password, role, name, city, about, logo, picture } = req.body;
+    const result = await userRecruiterRegisterService({email, password, role, name, city, about, logo, picture})
     if (result.success) {
       res.status(200).json({
         success: true,
@@ -80,4 +96,4 @@ const updateJobSeekerProfile = async (req: Request, res: Response, next: NextFun
   }
 }
 
-export { userRegister, getJobSeekerProfile, updateJobSeekerProfile }
+export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerProfile }
