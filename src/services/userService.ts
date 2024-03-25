@@ -1,5 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getOneUser, getUserCertificateList, getUserDisabilityList, getUserSkillList, postCreateListDisability, postCreateUser, updateUser } from '../dao/userDao';
+import { getEmail, getJobSeekerCertificateList, getJobSeekerDisabilityList, getJobSeekerSkillList, getOneJobSeeker, getOneUser, postCreateListDisability, postCreateUser, updateJobSeekerData } from '../dao/userDao';
 import bcryptjs from "bcryptjs";
 
 // ------ Register by Email ------
@@ -80,31 +80,31 @@ const userJobSeekerRegisterService = async (userData: UserRegistrationData, disa
 //     }
 // }
 
-const getUserProfileService = async (userId: number) => {
+const getJobSeekerProfileService = async (userId: number) => {
     try {
-        const userData = await getOneUser(userId)
+        const jobSeeker = await getOneJobSeeker(userId)
 
-        if (!userData) {
+        if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'User not found',
+                message: 'Job Seeker not found',
                 status: 404
             });
         }
-        const userDisabilityList = await getUserDisabilityList(userId)
-        if (!userDisabilityList) {
+        const jobSeekerDisabilityList = await getJobSeekerDisabilityList(jobSeeker.id)
+        if (!jobSeekerDisabilityList) {
             throw new ErrorHandler({
                 success: false,
-                message: 'User disability list not found',
+                message: 'Job Seeker disability list not found',
                 status: 404
             });
         }
-        const userSkillList = await getUserSkillList(userId)
-        const userCertificateList = await getUserCertificateList(userId)
+        const jobSeekerSkillList = await getJobSeekerSkillList(jobSeeker.id)
+        const jobSeekerCertificateList = await getJobSeekerCertificateList(jobSeeker.id)
         return {
             success: true,
-            message: "Successfully fetch User Profile.",
-                data: {userData, userDisabilityList, userSkillList, userCertificateList}
+            message: "Successfully fetch Job Seeker Profile.",
+                data: {jobSeeker, jobSeekerDisabilityList, jobSeekerSkillList, jobSeekerCertificateList}
         }
     } catch (error: any) {
         console.error(error);
@@ -116,13 +116,13 @@ const getUserProfileService = async (userId: number) => {
     };
 };
 
-const updateUserProfileService = async (userId: number, updateData: any) => {
+const updateJobSeekerProfileService = async (userId: number, updateData: any) => {
     try {
-        const user = await getOneUser(userId);
-        if (!user) {
+        const jobSeeker = await getOneJobSeeker(userId);
+        if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'User Not Found.. Please login',
+                message: 'Job Seeker Not Found.. Please login',
                 status: 404
             });
         }
@@ -134,7 +134,7 @@ const updateUserProfileService = async (userId: number, updateData: any) => {
             }
         }
 
-        const updatedUserProfile = await updateUser(userId, filteredUpdateData);
+        const updatedUserProfile = await updateJobSeekerData(jobSeeker.id, filteredUpdateData);
         
         return {
             success: true,
@@ -151,4 +151,4 @@ const updateUserProfileService = async (userId: number, updateData: any) => {
     }
 }
 
-export { userJobSeekerRegisterService, getUserProfileService, updateUserProfileService }
+export { userJobSeekerRegisterService, getJobSeekerProfileService, updateJobSeekerProfileService }
