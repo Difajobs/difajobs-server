@@ -61,8 +61,8 @@ model Jobs {
 }
 
 model List_certificate {
-  id              Int      @id @default(autoincrement())
-  job_seeker      Job_seeker @relation(fields: [job_seeker_id], references: [id])
+  id              Int         @id @default(autoincrement())
+  job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id   Int
   name            String?
   description     String?
@@ -76,16 +76,16 @@ model Skills {
 }
 
 model List_disability {
-  id                Int        @id @default(autoincrement())
+  id                Int         @id @default(autoincrement())
   job_seeker        Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id     Int
-  disability        Disability @relation(fields: [disability_id], references: [id])
+  disability        Disability  @relation(fields: [disability_id], references: [id])
   disability_id     Int
 }
 
 model Job_application {
   id             Int         @id @default(autoincrement())
-  job_seeker     Job_seeker   @relation(fields: [job_seeker_id], references: [id])
+  job_seeker     Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id  Int
   job            Jobs        @relation(fields: [job_id], references: [id])
   job_id         Int
