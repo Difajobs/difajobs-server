@@ -19,7 +19,8 @@ export const getToken = (req: Request): JwtPayload | null => {
 
 export const loggedUser = (decodedToken: JwtPayload | null) => {
   return {
-    userId: decodedToken?._id,
-    userEmail: decodedToken?.username,
+    userId: decodedToken?.id,
+    email: decodedToken?.email,
+    role: decodedToken?.role
   };
 };
