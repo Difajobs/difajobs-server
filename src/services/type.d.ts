@@ -26,3 +26,10 @@ interface Disability {
     name: string;
     description: string | null;
 }
+
+interface Certificate {
+    id: number;
+    job_seeker_id: number;
+    name: string;
+    description: string | null;
+}
