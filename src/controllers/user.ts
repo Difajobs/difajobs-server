@@ -120,4 +120,12 @@ const userLogin = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerData, userLogin }
+const userLogout = async (req: Request, res: Response) => {
+  res.clearCookie('access_token');
+  res.status(200).json({
+    success: true,
+    message: "Logout Successfully",
+  })
+}
+
+export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerData, userLogin, userLogout }
