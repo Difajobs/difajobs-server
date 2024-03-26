@@ -5,7 +5,6 @@ export const getAllCompaniesDao = async () => {
         const companies = await prisma.company.findMany({
         include: {
             user: true,
-            
         },
         });
         return companies;
