@@ -54,7 +54,8 @@ const postCreateListDisability = async (jobSeekerId: number, disabilityIds : num
 const getJobSeekerDisabilityList = async (jobSeekerId: number) => {
     try {
         const jobSeekerDisabilityList = await prisma.list_disability.findMany({
-            where: {job_seeker_id: jobSeekerId}
+            where: {job_seeker_id: jobSeekerId},
+            include: { disability: true }
         })
         return jobSeekerDisabilityList
     } catch (error: any) {
