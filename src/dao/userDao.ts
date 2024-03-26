@@ -129,60 +129,6 @@ const getOneJobSeeker = async (userId: number) => {
     }
 }
 
-const getJobSeekerDisabilityList = async (jobSeekerId: number) => {
-    try {
-        const jobSeekerDisabilityList = await prisma.list_disability.findMany({
-            where: {job_seeker_id: jobSeekerId}
-        })
-        return jobSeekerDisabilityList
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: error.status,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
-
-const getJobSeekerSkillList = async (jobSeekerId: number) => {
-    try {
-        const jobSeeker = await prisma.job_seeker_skills.findMany({
-            where: {job_seeker_id: jobSeekerId}
-        })
-        return jobSeeker
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: error.status,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
-
-const getJobSeekerCertificateList = async (jobSeekerId: number) => {
-    try {
-        const jobSeeker = await prisma.list_certificate.findMany({
-            where: {job_seeker_id: jobSeekerId}
-        })
-        return jobSeeker
-    } catch (error: any) {
-        console.error(error);
-        throw new ErrorHandler({
-            success: false,
-            status: error.status,
-            message: error.message,
-        });
-    } finally {
-        await disconnectDB();
-    }
-}
-
 const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
     try {
         const updateJobSeeker = await prisma.job_seeker.update({
@@ -226,5 +172,4 @@ const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
 //     }
 // }
 
-
-export { getEmail, postCreateJobSeeker, getOneUser, getOneJobSeeker, getJobSeekerSkillList, getJobSeekerDisabilityList, getJobSeekerCertificateList, updateJobSeekerData, postCreateRecruiter }
+export { getEmail, postCreateJobSeeker, getOneUser, getOneJobSeeker, updateJobSeekerData, postCreateRecruiter }
