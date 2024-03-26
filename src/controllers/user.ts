@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getJobSeekerProfileService, updateJobSeekerProfileService, userJobSeekerRegisterService, userRecruiterRegisterService } from '../services/userService';
+import { getJobSeekerProfileService, updateJobSeekerDataService, userJobSeekerRegisterService, userRecruiterRegisterService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user ------
@@ -78,11 +78,11 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
   }
 };
 
-const updateJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
+const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
       const userId = (req.user as JwtPayload).id;
       const updateData = req.body;
-      const result = await updateJobSeekerProfileService(userId, updateData);
+      const result = await updateJobSeekerDataService(userId, updateData);
       
       if (result.success) {
         res.status(200).json({
@@ -96,4 +96,4 @@ const updateJobSeekerProfile = async (req: Request, res: Response, next: NextFun
   }
 }
 
-export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerProfile }
+export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerData }
