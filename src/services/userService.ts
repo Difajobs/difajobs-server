@@ -9,51 +9,51 @@ import { getJobSeekerCertificateList } from '../dao/certificateDao';
 
 // jobseeker registration
 const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData, disabilityId: number[]) => {
-    try {
-        const { email, password, role } = userData;
+    const { email, password, role } = userData;
 
-        if(!email) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Email cannot be empty',
-                status: 400
-            })
-        }
-        if (password.length < 6) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Password must be at least 6 characters long',
-                status: 400
-            })
-        }
-        if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Password must contain both alphabetic and numeric characters',
-                status: 400
-            })
-        }
-        if (role !== "job seeker" && role !== "recruiter") {
-            throw new ErrorHandler({
-                success: false,
-                message: 'only "job seeker" or "recruiter" allowed for user role',
-                status: 400
-            })
-        }
-        const userPhone = await getEmail(email)
-        if (userPhone) {
+    if (!email) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Email cannot be empty',
+            status: 400
+        })
+    }
+    if (password.length < 6) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Password must be at least 6 characters long',
+            status: 400
+        })
+    }
+    if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Password must contain both alphabetic and numeric characters',
+            status: 400
+        })
+    }
+    if (role !== "job seeker" && role !== "recruiter") {
+        throw new ErrorHandler({
+            success: false,
+            message: 'only "job seeker" or "recruiter" allowed for user role',
+            status: 400
+        })
+    }
+    try {
+        const userEmail = await getEmail(email)
+        if (userEmail) {
             throw new ErrorHandler({
                 success: false,
                 message: 'Email already registered, please use other Email',
                 status: 409,
             });
         }
-        const createUser = await postCreateJobSeeker(userData)
-        const disability = await postCreateListDisability(createUser.newJobSeeker.id, disabilityId)
+        const user = await postCreateJobSeeker(userData)
+        const disability = await postCreateListDisability(user.newJobSeeker.id, disabilityId)
         return {
             success: true,
             message: "User registered successfully",
-            data: {createUser, disability}
+            data: { user, disability }
         }
     } catch (error: any) {
         console.error(error);
@@ -67,39 +67,39 @@ const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData,
 
 // recruiter registration
 const userRecruiterRegisterService = async (userData: RecruiterRegistrationData) => {
-    try {
-        const { email, password, role } = userData;
+    const { email, password, role } = userData;
 
-        if(!email) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Email cannot be empty',
-                status: 400
-            })
-        }
-        if (password.length < 6) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Password must be at least 6 characters long',
-                status: 400
-            })
-        }
-        if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Password must contain both alphabetic and numeric characters',
-                status: 400
-            })
-        }
-        if (role !== "job seeker" && role !== "recruiter") {
-            throw new ErrorHandler({
-                success: false,
-                message: "only 'job seeker' or 'recruiter' allowed for user role",
-                status: 400
-            })
-        }
-        const userPhone = await getEmail(email)
-        if (userPhone) {
+    if (!email) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Email cannot be empty',
+            status: 400
+        })
+    }
+    if (password.length < 6) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Password must be at least 6 characters long',
+            status: 400
+        })
+    }
+    if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Password must contain both alphabetic and numeric characters',
+            status: 400
+        })
+    }
+    if (role !== "job seeker" && role !== "recruiter") {
+        throw new ErrorHandler({
+            success: false,
+            message: "only 'job seeker' or 'recruiter' allowed for user role",
+            status: 400
+        })
+    }
+    try {
+        const userEmail = await getEmail(email)
+        if (userEmail) {
             throw new ErrorHandler({
                 success: false,
                 message: 'Email already registered, please use other Email',
@@ -166,7 +166,7 @@ const getJobSeekerProfileService = async (userId: number) => {
         return {
             success: true,
             message: "Successfully fetch Job Seeker Profile.",
-                data: {jobSeeker, jobSeekerDisabilityList, jobSeekerSkillList, jobSeekerCertificateList}
+            data: { jobSeeker, jobSeekerDisabilityList, jobSeekerSkillList, jobSeekerCertificateList }
         }
     } catch (error: any) {
         console.error(error);
@@ -197,11 +197,11 @@ const updateJobSeekerProfileService = async (userId: number, updateData: any) =>
         }
 
         const updatedUserProfile = await updateJobSeekerData(jobSeeker.id, filteredUpdateData);
-        
+
         return {
             success: true,
             message: "Successfully Update User Profile.",
-                data: {updatedUserProfile}
+            data: { updatedUserProfile }
         }
     } catch (error: any) {
         console.error(error);
