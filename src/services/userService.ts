@@ -1,7 +1,9 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getJobSeekerCertificateList, getJobSeekerDisabilityList, getJobSeekerSkillList, getOneJobSeeker, getOneUser, postCreateJobSeeker, postCreateRecruiter, updateJobSeekerData } from '../dao/userDao';
+import { getEmail, getOneJobSeeker, postCreateJobSeeker, postCreateRecruiter, updateJobSeekerData } from '../dao/userDao';
 import bcryptjs from "bcryptjs";
-import { postCreateListDisability } from '../dao/disabilityDao';
+import { getJobSeekerDisabilityList, postCreateListDisability } from '../dao/disabilityDao';
+import { getJobSeekerSkillList } from '../dao/skillsDao';
+import { getJobSeekerCertificateList } from '../dao/certificateDao';
 
 // ------ Register by Email ------
 
