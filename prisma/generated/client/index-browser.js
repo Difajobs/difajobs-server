@@ -141,7 +141,8 @@ exports.Prisma.JobsScalarFieldEnum = {
   title: 'title',
   description: 'description',
   employment_type: 'employment_type',
-  estimate_salary: 'estimate_salary',
+  min_salary: 'min_salary',
+  max_salary: 'max_salary',
   gender: 'gender'
 };
 

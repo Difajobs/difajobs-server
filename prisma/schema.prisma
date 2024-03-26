@@ -53,8 +53,9 @@ model Jobs {
   company_id        Int
   title             String
   description       String
-  employment_type    String?
-  estimate_salary    Int?
+  employment_type   String?
+  min_salary        Int?
+  max_salary        Int?
   gender            String?
   required_skills   Required_skills[]
   jobApplications   Job_application[]
