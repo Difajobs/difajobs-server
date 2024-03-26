@@ -33,3 +33,8 @@ interface Certificate {
     name: string;
     description: string | null;
 }
+
+interface LoginInput{
+    email: string,
+    password: string
+}

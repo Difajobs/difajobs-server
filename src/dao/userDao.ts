@@ -5,13 +5,10 @@ import bcryptjs from "bcryptjs";
 
 const getEmail = async (email : string )=> {
     try {
-        await prisma.user.findUnique({
+        const existEmail = await prisma.user.findUnique({
             where: { email }
         });
-        const user = await prisma.user.findUnique({
-            where: {email: email}
-        })
-        return user?.id
+        return existEmail
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
