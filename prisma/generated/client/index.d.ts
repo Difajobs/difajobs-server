@@ -5415,13 +5415,13 @@ export namespace Prisma {
   export type JobsAvgAggregateOutputType = {
     id: number | null
     company_id: number | null
-    estimateSalary: number | null
+    estimate_salary: number | null
   }
 
   export type JobsSumAggregateOutputType = {
     id: number | null
     company_id: number | null
-    estimateSalary: number | null
+    estimate_salary: number | null
   }
 
   export type JobsMinAggregateOutputType = {
@@ -5429,8 +5429,9 @@ export namespace Prisma {
     company_id: number | null
     title: string | null
     description: string | null
-    employmentType: string | null
-    estimateSalary: number | null
+    employment_type: string | null
+    estimate_salary: number | null
+    gender: string | null
   }
 
   export type JobsMaxAggregateOutputType = {
@@ -5438,8 +5439,9 @@ export namespace Prisma {
     company_id: number | null
     title: string | null
     description: string | null
-    employmentType: string | null
-    estimateSalary: number | null
+    employment_type: string | null
+    estimate_salary: number | null
+    gender: string | null
   }
 
   export type JobsCountAggregateOutputType = {
@@ -5447,8 +5449,9 @@ export namespace Prisma {
     company_id: number
     title: number
     description: number
-    employmentType: number
-    estimateSalary: number
+    employment_type: number
+    estimate_salary: number
+    gender: number
     _all: number
   }
 
@@ -5456,13 +5459,13 @@ export namespace Prisma {
   export type JobsAvgAggregateInputType = {
     id?: true
     company_id?: true
-    estimateSalary?: true
+    estimate_salary?: true
   }
 
   export type JobsSumAggregateInputType = {
     id?: true
     company_id?: true
-    estimateSalary?: true
+    estimate_salary?: true
   }
 
   export type JobsMinAggregateInputType = {
@@ -5470,8 +5473,9 @@ export namespace Prisma {
     company_id?: true
     title?: true
     description?: true
-    employmentType?: true
-    estimateSalary?: true
+    employment_type?: true
+    estimate_salary?: true
+    gender?: true
   }
 
   export type JobsMaxAggregateInputType = {
@@ -5479,8 +5483,9 @@ export namespace Prisma {
     company_id?: true
     title?: true
     description?: true
-    employmentType?: true
-    estimateSalary?: true
+    employment_type?: true
+    estimate_salary?: true
+    gender?: true
   }
 
   export type JobsCountAggregateInputType = {
@@ -5488,8 +5493,9 @@ export namespace Prisma {
     company_id?: true
     title?: true
     description?: true
-    employmentType?: true
-    estimateSalary?: true
+    employment_type?: true
+    estimate_salary?: true
+    gender?: true
     _all?: true
   }
 
@@ -5584,8 +5590,9 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary: number | null
+    employment_type: string | null
+    estimate_salary: number | null
+    gender: string | null
     _count: JobsCountAggregateOutputType | null
     _avg: JobsAvgAggregateOutputType | null
     _sum: JobsSumAggregateOutputType | null
@@ -5612,8 +5619,9 @@ export namespace Prisma {
     company_id?: boolean
     title?: boolean
     description?: boolean
-    employmentType?: boolean
-    estimateSalary?: boolean
+    employment_type?: boolean
+    estimate_salary?: boolean
+    gender?: boolean
     company?: boolean | CompanyDefaultArgs<ExtArgs>
     required_skills?: boolean | Jobs$required_skillsArgs<ExtArgs>
     jobApplications?: boolean | Jobs$jobApplicationsArgs<ExtArgs>
@@ -5626,8 +5634,9 @@ export namespace Prisma {
     company_id?: boolean
     title?: boolean
     description?: boolean
-    employmentType?: boolean
-    estimateSalary?: boolean
+    employment_type?: boolean
+    estimate_salary?: boolean
+    gender?: boolean
   }
 
   export type JobsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5652,8 +5661,9 @@ export namespace Prisma {
       company_id: number
       title: string
       description: string
-      employmentType: string
-      estimateSalary: number | null
+      employment_type: string | null
+      estimate_salary: number | null
+      gender: string | null
     }, ExtArgs["result"]["jobs"]>
     composites: {}
   }
@@ -6059,8 +6069,9 @@ export namespace Prisma {
     readonly company_id: FieldRef<"Jobs", 'Int'>
     readonly title: FieldRef<"Jobs", 'String'>
     readonly description: FieldRef<"Jobs", 'String'>
-    readonly employmentType: FieldRef<"Jobs", 'String'>
-    readonly estimateSalary: FieldRef<"Jobs", 'Int'>
+    readonly employment_type: FieldRef<"Jobs", 'String'>
+    readonly estimate_salary: FieldRef<"Jobs", 'Int'>
+    readonly gender: FieldRef<"Jobs", 'String'>
   }
     
 
@@ -9338,6 +9349,7 @@ export namespace Prisma {
     job_seeker_id: number | null
     job_id: number | null
     company_id: number | null
+    cover_letter: string | null
     status: string | null
   }
 
@@ -9346,6 +9358,7 @@ export namespace Prisma {
     job_seeker_id: number | null
     job_id: number | null
     company_id: number | null
+    cover_letter: string | null
     status: string | null
   }
 
@@ -9354,6 +9367,7 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
+    cover_letter: number
     status: number
     _all: number
   }
@@ -9378,6 +9392,7 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
+    cover_letter?: true
     status?: true
   }
 
@@ -9386,6 +9401,7 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
+    cover_letter?: true
     status?: true
   }
 
@@ -9394,6 +9410,7 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
+    cover_letter?: true
     status?: true
     _all?: true
   }
@@ -9489,6 +9506,7 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
+    cover_letter: string | null
     status: string
     _count: Job_applicationCountAggregateOutputType | null
     _avg: Job_applicationAvgAggregateOutputType | null
@@ -9516,6 +9534,7 @@ export namespace Prisma {
     job_seeker_id?: boolean
     job_id?: boolean
     company_id?: boolean
+    cover_letter?: boolean
     status?: boolean
     job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
     job?: boolean | JobsDefaultArgs<ExtArgs>
@@ -9527,6 +9546,7 @@ export namespace Prisma {
     job_seeker_id?: boolean
     job_id?: boolean
     company_id?: boolean
+    cover_letter?: boolean
     status?: boolean
   }
 
@@ -9549,6 +9569,7 @@ export namespace Prisma {
       job_seeker_id: number
       job_id: number
       company_id: number
+      cover_letter: string | null
       status: string
     }, ExtArgs["result"]["job_application"]>
     composites: {}
@@ -9953,6 +9974,7 @@ export namespace Prisma {
     readonly job_seeker_id: FieldRef<"Job_application", 'Int'>
     readonly job_id: FieldRef<"Job_application", 'Int'>
     readonly company_id: FieldRef<"Job_application", 'Int'>
+    readonly cover_letter: FieldRef<"Job_application", 'String'>
     readonly status: FieldRef<"Job_application", 'String'>
   }
     
@@ -16044,8 +16066,9 @@ export namespace Prisma {
     company_id: 'company_id',
     title: 'title',
     description: 'description',
-    employmentType: 'employmentType',
-    estimateSalary: 'estimateSalary'
+    employment_type: 'employment_type',
+    estimate_salary: 'estimate_salary',
+    gender: 'gender'
   };
 
   export type JobsScalarFieldEnum = (typeof JobsScalarFieldEnum)[keyof typeof JobsScalarFieldEnum]
@@ -16083,6 +16106,7 @@ export namespace Prisma {
     job_seeker_id: 'job_seeker_id',
     job_id: 'job_id',
     company_id: 'company_id',
+    cover_letter: 'cover_letter',
     status: 'status'
   };
 
@@ -16456,8 +16480,9 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employmentType?: StringFilter<"Jobs"> | string
-    estimateSalary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringNullableFilter<"Jobs"> | string | null
+    estimate_salary?: IntNullableFilter<"Jobs"> | number | null
+    gender?: StringNullableFilter<"Jobs"> | string | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     required_skills?: Required_skillsListRelationFilter
     jobApplications?: Job_applicationListRelationFilter
@@ -16469,8 +16494,9 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employmentType?: SortOrder
-    estimateSalary?: SortOrderInput | SortOrder
+    employment_type?: SortOrderInput | SortOrder
+    estimate_salary?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
     company?: CompanyOrderByWithRelationInput
     required_skills?: Required_skillsOrderByRelationAggregateInput
     jobApplications?: Job_applicationOrderByRelationAggregateInput
@@ -16485,8 +16511,9 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employmentType?: StringFilter<"Jobs"> | string
-    estimateSalary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringNullableFilter<"Jobs"> | string | null
+    estimate_salary?: IntNullableFilter<"Jobs"> | number | null
+    gender?: StringNullableFilter<"Jobs"> | string | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     required_skills?: Required_skillsListRelationFilter
     jobApplications?: Job_applicationListRelationFilter
@@ -16498,8 +16525,9 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employmentType?: SortOrder
-    estimateSalary?: SortOrderInput | SortOrder
+    employment_type?: SortOrderInput | SortOrder
+    estimate_salary?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
     _count?: JobsCountOrderByAggregateInput
     _avg?: JobsAvgOrderByAggregateInput
     _max?: JobsMaxOrderByAggregateInput
@@ -16515,8 +16543,9 @@ export namespace Prisma {
     company_id?: IntWithAggregatesFilter<"Jobs"> | number
     title?: StringWithAggregatesFilter<"Jobs"> | string
     description?: StringWithAggregatesFilter<"Jobs"> | string
-    employmentType?: StringWithAggregatesFilter<"Jobs"> | string
-    estimateSalary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
+    employment_type?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
+    estimate_salary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
+    gender?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
   }
 
   export type List_certificateWhereInput = {
@@ -16674,6 +16703,7 @@ export namespace Prisma {
     job_seeker_id?: IntFilter<"Job_application"> | number
     job_id?: IntFilter<"Job_application"> | number
     company_id?: IntFilter<"Job_application"> | number
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     status?: StringFilter<"Job_application"> | string
     job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
     job?: XOR<JobsRelationFilter, JobsWhereInput>
@@ -16685,6 +16715,7 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
+    cover_letter?: SortOrderInput | SortOrder
     status?: SortOrder
     job_seeker?: Job_seekerOrderByWithRelationInput
     job?: JobsOrderByWithRelationInput
@@ -16699,6 +16730,7 @@ export namespace Prisma {
     job_seeker_id?: IntFilter<"Job_application"> | number
     job_id?: IntFilter<"Job_application"> | number
     company_id?: IntFilter<"Job_application"> | number
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     status?: StringFilter<"Job_application"> | string
     job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
     job?: XOR<JobsRelationFilter, JobsWhereInput>
@@ -16710,6 +16742,7 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
+    cover_letter?: SortOrderInput | SortOrder
     status?: SortOrder
     _count?: Job_applicationCountOrderByAggregateInput
     _avg?: Job_applicationAvgOrderByAggregateInput
@@ -16726,6 +16759,7 @@ export namespace Prisma {
     job_seeker_id?: IntWithAggregatesFilter<"Job_application"> | number
     job_id?: IntWithAggregatesFilter<"Job_application"> | number
     company_id?: IntWithAggregatesFilter<"Job_application"> | number
+    cover_letter?: StringNullableWithAggregatesFilter<"Job_application"> | string | null
     status?: StringWithAggregatesFilter<"Job_application"> | string
   }
 
@@ -17233,8 +17267,9 @@ export namespace Prisma {
   export type JobsCreateInput = {
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     company: CompanyCreateNestedOneWithoutJobsInput
     required_skills?: Required_skillsCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
@@ -17246,8 +17281,9 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
@@ -17256,8 +17292,9 @@ export namespace Prisma {
   export type JobsUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
@@ -17269,8 +17306,9 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
@@ -17281,15 +17319,17 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
   }
 
   export type JobsUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type JobsUncheckedUpdateManyInput = {
@@ -17297,8 +17337,9 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type List_certificateCreateInput = {
@@ -17425,6 +17466,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationCreateInput = {
+    cover_letter?: string | null
     status: string
     job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
     job: JobsCreateNestedOneWithoutJobApplicationsInput
@@ -17436,10 +17478,12 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
   export type Job_applicationUpdateInput = {
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
     job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
@@ -17451,6 +17495,7 @@ export namespace Prisma {
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -17459,10 +17504,12 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
   export type Job_applicationUpdateManyMutationInput = {
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -17471,6 +17518,7 @@ export namespace Prisma {
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18066,14 +18114,15 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employmentType?: SortOrder
-    estimateSalary?: SortOrder
+    employment_type?: SortOrder
+    estimate_salary?: SortOrder
+    gender?: SortOrder
   }
 
   export type JobsAvgOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
-    estimateSalary?: SortOrder
+    estimate_salary?: SortOrder
   }
 
   export type JobsMaxOrderByAggregateInput = {
@@ -18081,8 +18130,9 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employmentType?: SortOrder
-    estimateSalary?: SortOrder
+    employment_type?: SortOrder
+    estimate_salary?: SortOrder
+    gender?: SortOrder
   }
 
   export type JobsMinOrderByAggregateInput = {
@@ -18090,14 +18140,15 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employmentType?: SortOrder
-    estimateSalary?: SortOrder
+    employment_type?: SortOrder
+    estimate_salary?: SortOrder
+    gender?: SortOrder
   }
 
   export type JobsSumOrderByAggregateInput = {
     id?: SortOrder
     company_id?: SortOrder
-    estimateSalary?: SortOrder
+    estimate_salary?: SortOrder
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18220,6 +18271,7 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
+    cover_letter?: SortOrder
     status?: SortOrder
   }
 
@@ -18235,6 +18287,7 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
+    cover_letter?: SortOrder
     status?: SortOrder
   }
 
@@ -18243,6 +18296,7 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
+    cover_letter?: SortOrder
     status?: SortOrder
   }
 
@@ -19761,6 +19815,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationCreateWithoutJob_seekerInput = {
+    cover_letter?: string | null
     status: string
     job: JobsCreateNestedOneWithoutJobApplicationsInput
     company: CompanyCreateNestedOneWithoutJob_applicationInput
@@ -19770,6 +19825,7 @@ export namespace Prisma {
     id?: number
     job_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
@@ -19911,6 +19967,7 @@ export namespace Prisma {
     job_seeker_id?: IntFilter<"Job_application"> | number
     job_id?: IntFilter<"Job_application"> | number
     company_id?: IntFilter<"Job_application"> | number
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     status?: StringFilter<"Job_application"> | string
   }
 
@@ -19939,8 +19996,9 @@ export namespace Prisma {
   export type JobsCreateWithoutCompanyInput = {
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     required_skills?: Required_skillsCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
@@ -19950,8 +20008,9 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
@@ -19968,6 +20027,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationCreateWithoutCompanyInput = {
+    cover_letter?: string | null
     status: string
     job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
     job: JobsCreateNestedOneWithoutJobApplicationsInput
@@ -19977,6 +20037,7 @@ export namespace Prisma {
     id?: number
     job_seeker_id: number
     job_id: number
+    cover_letter?: string | null
     status: string
   }
 
@@ -20042,8 +20103,9 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employmentType?: StringFilter<"Jobs"> | string
-    estimateSalary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringNullableFilter<"Jobs"> | string | null
+    estimate_salary?: IntNullableFilter<"Jobs"> | number | null
+    gender?: StringNullableFilter<"Jobs"> | string | null
   }
 
   export type Job_applicationUpsertWithWhereUniqueWithoutCompanyInput = {
@@ -20108,6 +20170,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationCreateWithoutJobInput = {
+    cover_letter?: string | null
     status: string
     job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
     company: CompanyCreateNestedOneWithoutJob_applicationInput
@@ -20117,6 +20180,7 @@ export namespace Prisma {
     id?: number
     job_seeker_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
@@ -20520,8 +20584,9 @@ export namespace Prisma {
   export type JobsCreateWithoutJobApplicationsInput = {
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     company: CompanyCreateNestedOneWithoutJobsInput
     required_skills?: Required_skillsCreateNestedManyWithoutJobInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
@@ -20532,8 +20597,9 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
   }
@@ -20619,8 +20685,9 @@ export namespace Prisma {
   export type JobsUpdateWithoutJobApplicationsInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
@@ -20631,8 +20698,9 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
   }
@@ -20790,8 +20858,9 @@ export namespace Prisma {
   export type JobsCreateWithoutList_abilityInput = {
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     company: CompanyCreateNestedOneWithoutJobsInput
     required_skills?: Required_skillsCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
@@ -20802,8 +20871,9 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
   }
@@ -20847,8 +20917,9 @@ export namespace Prisma {
   export type JobsUpdateWithoutList_abilityInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
@@ -20859,8 +20930,9 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
   }
@@ -21018,8 +21090,9 @@ export namespace Prisma {
   export type JobsCreateWithoutRequired_skillsInput = {
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     company: CompanyCreateNestedOneWithoutJobsInput
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
@@ -21030,8 +21103,9 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
   }
@@ -21071,8 +21145,9 @@ export namespace Prisma {
   export type JobsUpdateWithoutRequired_skillsInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
@@ -21083,8 +21158,9 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
   }
@@ -21213,6 +21289,7 @@ export namespace Prisma {
     id?: number
     job_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
@@ -21262,6 +21339,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationUpdateWithoutJob_seekerInput = {
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
     company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
@@ -21271,6 +21349,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -21278,6 +21357,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -21285,22 +21365,25 @@ export namespace Prisma {
     id?: number
     title: string
     description: string
-    employmentType: string
-    estimateSalary?: number | null
+    employment_type?: string | null
+    estimate_salary?: number | null
+    gender?: string | null
   }
 
   export type Job_applicationCreateManyCompanyInput = {
     id?: number
     job_seeker_id: number
     job_id: number
+    cover_letter?: string | null
     status: string
   }
 
   export type JobsUpdateWithoutCompanyInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
@@ -21310,8 +21393,9 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
@@ -21321,11 +21405,13 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employmentType?: StringFieldUpdateOperationsInput | string
-    estimateSalary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
+    estimate_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationUpdateWithoutCompanyInput = {
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
     job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
@@ -21335,6 +21421,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -21342,6 +21429,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -21354,6 +21442,7 @@ export namespace Prisma {
     id?: number
     job_seeker_id: number
     company_id: number
+    cover_letter?: string | null
     status: string
   }
 
@@ -21377,6 +21466,7 @@ export namespace Prisma {
   }
 
   export type Job_applicationUpdateWithoutJobInput = {
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
     company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
@@ -21386,6 +21476,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 
@@ -21393,6 +21484,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
   }
 

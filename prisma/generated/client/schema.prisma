@@ -53,16 +53,17 @@ model Jobs {
   company_id        Int
   title             String
   description       String
-  employmentType    String
-  estimateSalary    Int?
+  employment_type    String?
+  estimate_salary    Int?
+  gender            String?
   required_skills   Required_skills[]
   jobApplications   Job_application[]
   list_ability      List_ability[]
 }
 
 model List_certificate {
-  id              Int      @id @default(autoincrement())
-  job_seeker      Job_seeker @relation(fields: [job_seeker_id], references: [id])
+  id              Int         @id @default(autoincrement())
+  job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id   Int
   name            String?
   description     String?
@@ -76,21 +77,22 @@ model Skills {
 }
 
 model List_disability {
-  id                Int        @id @default(autoincrement())
+  id                Int         @id @default(autoincrement())
   job_seeker        Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id     Int
-  disability        Disability @relation(fields: [disability_id], references: [id])
+  disability        Disability  @relation(fields: [disability_id], references: [id])
   disability_id     Int
 }
 
 model Job_application {
   id             Int         @id @default(autoincrement())
-  job_seeker     Job_seeker   @relation(fields: [job_seeker_id], references: [id])
+  job_seeker     Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id  Int
   job            Jobs        @relation(fields: [job_id], references: [id])
   job_id         Int
   company        Company     @relation(fields: [company_id], references: [id])
   company_id     Int
+  cover_letter   String?
   status         String
 }
 
@@ -103,21 +105,21 @@ model Disability {
 }
 
 model Ability {
-  id    Int     @id @default(autoincrement())
-  name  String
+  id          Int     @id @default(autoincrement())
+  name        String
   list_abilty List_ability[]
 }
 
 model List_ability {
-  id          Int     @id @default(autoincrement())
-  ability     Ability? @relation(fields: [ability_id], references: [id])
+  id          Int       @id @default(autoincrement())
+  ability     Ability?  @relation(fields: [ability_id], references: [id])
   ability_id  Int?
-  job         Jobs?    @relation(fields: [job_id], references: [id])
+  job         Jobs?     @relation(fields: [job_id], references: [id])
   job_id      Int?
 }
 
 model Job_seeker_skills {
-  id              Int      @id @default(autoincrement())
+  id              Int         @id @default(autoincrement())
   job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
   job_seeker_id   Int
   skills          Skills      @relation(fields: [skill_id], references: [id])
@@ -131,8 +133,8 @@ model Category {
 }
 
 model Required_skills {
-  id          Int    @id @default(autoincrement())
-  job         Jobs   @relation(fields: [job_id], references: [id])
+  id          Int     @id @default(autoincrement())
+  job         Jobs    @relation(fields: [job_id], references: [id])
   job_id      Int
   skills      Skills  @relation(fields: [skill_id], references: [id])
   skill_id    Int

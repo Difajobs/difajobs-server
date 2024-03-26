@@ -140,8 +140,9 @@ exports.Prisma.JobsScalarFieldEnum = {
   company_id: 'company_id',
   title: 'title',
   description: 'description',
-  employmentType: 'employmentType',
-  estimateSalary: 'estimateSalary'
+  employment_type: 'employment_type',
+  estimate_salary: 'estimate_salary',
+  gender: 'gender'
 };
 
 exports.Prisma.List_certificateScalarFieldEnum = {
@@ -167,6 +168,7 @@ exports.Prisma.Job_applicationScalarFieldEnum = {
   job_seeker_id: 'job_seeker_id',
   job_id: 'job_id',
   company_id: 'company_id',
+  cover_letter: 'cover_letter',
   status: 'status'
 };
 

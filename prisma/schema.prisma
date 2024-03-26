@@ -53,8 +53,9 @@ model Jobs {
   company_id        Int
   title             String
   description       String
-  employmentType    String
-  estimateSalary    Int?
+  employment_type    String?
+  estimate_salary    Int?
+  gender            String?
   required_skills   Required_skills[]
   jobApplications   Job_application[]
   list_ability      List_ability[]
@@ -91,6 +92,7 @@ model Job_application {
   job_id         Int
   company        Company     @relation(fields: [company_id], references: [id])
   company_id     Int
+  cover_letter   String?
   status         String
 }
 
