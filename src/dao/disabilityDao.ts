@@ -51,4 +51,22 @@ const postCreateListDisability = async (jobSeekerId: number, disabilityIds : num
     }
 }
 
-export { postListDisability, postCreateListDisability }
+const getJobSeekerDisabilityList = async (jobSeekerId: number) => {
+    try {
+        const jobSeekerDisabilityList = await prisma.list_disability.findMany({
+            where: {job_seeker_id: jobSeekerId}
+        })
+        return jobSeekerDisabilityList
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { postListDisability, postCreateListDisability, getJobSeekerDisabilityList }
