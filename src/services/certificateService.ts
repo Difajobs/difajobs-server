@@ -25,7 +25,7 @@ const createJobSeekerCertificateService = async (userId: number, userData: Certi
         return {
             success: true,
             message: "Successfully Create Job Seeker Certificate.",
-            data: { newCertificate }
+            data: newCertificate
         }
     } catch (error: any) {
         console.error(error);
@@ -52,7 +52,7 @@ const getJobSeekerCertificateListService = async (userId: number) => {
         return {
             success: true,
             message: "Successfully Fetch Job Seeker Certificate List:",
-            data: { certificateList }
+            data: certificateList
         }
     } catch (error: any) {
         console.error(error);
@@ -96,7 +96,7 @@ const updateJobSeekerCertificateService = async (userId: number, certificateId: 
         return {
             success: true,
             message: "Successfully Update Job Seeker Certificate.",
-            data: { updatedCertificate }
+            data: updatedCertificate
         }
     } catch (error: any) {
         console.error(error);
@@ -132,7 +132,7 @@ const deleteJobSeekerCertificateService = async (userId: number, certificateId: 
         return {
             success: true,
             message: "Successfully removed job seeker certificate.",
-            data: { deleteCertificate }
+            data: deleteCertificate
         }
     } catch (error: any) {
         console.error(error);
