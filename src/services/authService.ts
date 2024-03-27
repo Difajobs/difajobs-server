@@ -3,13 +3,13 @@ import { getEmail, postCreateJobSeeker, postCreateRecruiter } from '../dao/userD
 import bcryptjs from "bcryptjs";
 import { postCreateListDisability } from '../dao/disabilityDao';
 import * as jwt from "jsonwebtoken"
+import JWT_TOKEN from '../config/jwt/jwt';
 
 // ------ Register by Email ------
 
 // jobseeker registration
 const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData, disabilityId: number[]) => {
     const { email, password, role } = userData;
-
     if (!email) {
         throw new ErrorHandler({
             success: false,
@@ -67,7 +67,6 @@ const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData,
 // recruiter registration
 const userRecruiterRegisterService = async (userData: RecruiterRegistrationData) => {
     const { email, password, role } = userData;
-
     if (!email) {
         throw new ErrorHandler({
             success: false,
@@ -121,6 +120,55 @@ const userRecruiterRegisterService = async (userData: RecruiterRegistrationData)
     };
 };
 
+// ------ login ------
+const userLoginService = async (email: string, password: string) => {
+    if (!email) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Email cannot be empty',
+            status: 400
+        })
+    }
+    try {
+        const user = await getEmail(email)
+        if (!user) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email or Password invalid',
+                status: 401
+            })
+        }
+        const isPasswordValid = await bcryptjs.compare(password, user.password)
+        if (!isPasswordValid) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email or Password invalid',
+                status: 401
+            })
+        }
+        const token = jwt.sign(
+            {
+              id: user.id,
+              email: user.email,
+              role: user.role,
+            },
+            JWT_TOKEN!
+          );
+        return {
+            success: true,
+            message: "Successfully logged in",
+            token: token
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
 // ------ Register by Google service ------
 // const registerUserbyGoogleService = async (fullname: string, email: string) => {
 //     try {
@@ -141,4 +189,4 @@ const userRecruiterRegisterService = async (userData: RecruiterRegistrationData)
 //     }
 // }
 
-export { userJobSeekerRegisterService, userRecruiterRegisterService }
+export { userJobSeekerRegisterService, userRecruiterRegisterService, userLoginService }
