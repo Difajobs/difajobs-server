@@ -1,18 +1,57 @@
 import { disconnectDB, prisma } from "../config/db/dbConnection";
 import ErrorHandler from "../utils/errorHandler";
 
-const createJobSeekerSkills = async (jobSeekerId: number, skillIds: number[]) => {
+const createSkills = async (skillName: string) => {
     try {
-        const createSkills = await Promise.all(skillIds.map(async (skillId) => {
-            const skillsData = await prisma.job_seeker_skills.create({
-                data: {
-                    job_seeker_id: jobSeekerId,
-                    skill_id: skillId
-                }
-            });
-            return skillsData;
-        }));
-        return createSkills;
+        const createSkill = await prisma.skills.create({
+            data: {
+                name: skillName
+            }
+        })
+        return createSkill
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getSkillByName = async (skillName: string) => {
+    try {
+        const skill = await prisma.skills.findFirst({
+            where: {
+                name: skillName
+            }
+        })
+        return skill
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const createJobSeekerSkill = async (jobSeekerId: number, skillId: number) => {
+    try {
+        const createSkill = await prisma.job_seeker_skills.create({
+            data: {
+                job_seeker_id: jobSeekerId,
+                skill_id: skillId
+            },
+            include: { skills: true }
+        });
+
+        return createSkill;
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
@@ -62,10 +101,10 @@ const getOneJobSeekerSkill = async (jobSeekerSkillId: number) => {
     }
 }
 
-const deleteJobSeekerSkill = async (jobSeekerSkillId: number) => {
+const deleteJobSeekerSkill = async (jobSeekerSkillId: number, jobSeekerId: number) => {
     try {
         const jobSeeker = await prisma.job_seeker_skills.delete({
-            where: {id: jobSeekerSkillId}
+            where: {id: jobSeekerSkillId, job_seeker_id: jobSeekerId}
         })
         return jobSeeker
     } catch (error: any) {
@@ -80,4 +119,4 @@ const deleteJobSeekerSkill = async (jobSeekerSkillId: number) => {
     }
 }
 
-export { createJobSeekerSkills, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill }
+export { createSkills, getSkillByName, createJobSeekerSkill, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill }
