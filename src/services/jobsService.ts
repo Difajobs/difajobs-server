@@ -4,9 +4,9 @@ import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 
 // ------ create jobs ------
-const createJobService = async (userData: JobCreate, ability_id: number[]) => {
+const createJobService = async (userId: number, userData: JobCreate, ability_id: number[]) => {
     try {
-        const company = await getCompanyId(4);        
+        const company = await getCompanyId(userId);        
         if (!company) {
             throw new ErrorHandler({
                 success: false,

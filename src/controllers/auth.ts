@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { userJobSeekerRegisterService, userRecruiterRegisterService } from '../services/authService';
+import { userJobSeekerRegisterService, userLoginService, userRecruiterRegisterService } from '../services/authService';
 
 //------ Create Jobseeker ------
 const jobSeekerRegister = async (req: Request, res: Response, next: NextFunction) => {
@@ -35,4 +35,21 @@ const recruiterRegister = async (req: Request, res: Response, next: NextFunction
     }
 };
 
-export { jobSeekerRegister, recruiterRegister }
+//------ user login ------
+const userLogin = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { email, password } = req.body;
+        const result = await userLoginService(email, password)
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                token: result.token
+            })
+        }
+    } catch (error) {
+        next(error);
+    }
+};
+
+export { jobSeekerRegister, recruiterRegister, userLogin }
