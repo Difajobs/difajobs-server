@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getJobSeekerProfileService, updateJobSeekerProfileService, userJobSeekerRegisterService, userRecruiterRegisterService } from '../services/userService';
+import { getJobSeekerProfileService, updateJobSeekerDataService, userJobSeekerRegisterService, userRecruiterRegisterService, loginUserService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
 
 //------ Create user ------
@@ -78,11 +78,11 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
   }
 };
 
-const updateJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
+const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
       const userId = (req.user as JwtPayload).id;
       const updateData = req.body;
-      const result = await updateJobSeekerProfileService(userId, updateData);
+      const result = await updateJobSeekerDataService(userId, updateData);
       
       if (result.success) {
         res.status(200).json({
@@ -96,4 +96,36 @@ const updateJobSeekerProfile = async (req: Request, res: Response, next: NextFun
   }
 }
 
-export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerProfile }
+const userLogin = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { email, password } = req.body;
+    const result = await loginUserService({email, password});
+    if (result.success) {
+      const oneWeekInSeconds = 7 * 24 * 3600;
+      res.cookie("access_token", result.data.accessToken, {
+        maxAge: oneWeekInSeconds * 1000,
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        path: '/',
+      });
+      return res.status(200).json({
+        success: true,
+        message: result.message,
+        expired_cookies: result.data.expiredToken,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const userLogout = async (req: Request, res: Response) => {
+  res.clearCookie('access_token');
+  res.status(200).json({
+    success: true,
+    message: "Logout Successfully",
+  })
+}
+
+export { jobSeekerRegister, recruiterRegister, getJobSeekerProfile, updateJobSeekerData, userLogin, userLogout }

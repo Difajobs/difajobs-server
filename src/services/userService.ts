@@ -4,6 +4,9 @@ import bcryptjs from "bcryptjs";
 import { getJobSeekerDisabilityList, postCreateListDisability } from '../dao/disabilityDao';
 import { getJobSeekerSkillList } from '../dao/skillsDao';
 import { getJobSeekerCertificateList } from '../dao/certificateDao';
+import * as jwt from "jsonwebtoken"
+import { add } from "date-fns";
+import JWT_TOKEN from '../config/jwt/jwt';
 
 // ------ Register by Email ------
 
@@ -178,7 +181,7 @@ const getJobSeekerProfileService = async (userId: number) => {
     };
 };
 
-const updateJobSeekerProfileService = async (userId: number, updateData: any) => {
+const updateJobSeekerDataService = async (userId: number, updateData: any) => {
     try {
         const jobSeeker = await getOneJobSeeker(userId);
         if (!jobSeeker) {
@@ -196,12 +199,12 @@ const updateJobSeekerProfileService = async (userId: number, updateData: any) =>
             }
         }
 
-        const updatedUserProfile = await updateJobSeekerData(jobSeeker.id, filteredUpdateData);
+        const updatedPersonalData = await updateJobSeekerData(jobSeeker.id, filteredUpdateData);
 
         return {
             success: true,
-            message: "Successfully Update User Profile.",
-            data: { updatedUserProfile }
+            message: "Successfully Update Job Seeker Personal Data:",
+            data: { updatedPersonalData }
         }
     } catch (error: any) {
         console.error(error);
@@ -213,4 +216,43 @@ const updateJobSeekerProfileService = async (userId: number, updateData: any) =>
     }
 }
 
-export { userJobSeekerRegisterService, getJobSeekerProfileService, updateJobSeekerProfileService, userRecruiterRegisterService }
+const loginUserService = async ({ email, password }: LoginInput) => {
+    try {  
+        const user = await getEmail(email)
+        if (!user) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email or Password invalid',
+                status: 401,
+            });
+        }
+        const isPasswordValid = await bcryptjs.compare(password, user.password || '');
+        if (!isPasswordValid) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Email or Password invalid',
+                status: 401,
+            });
+        }        
+        const currentDate = new Date()
+        const expiredToken = add(currentDate, { weeks: 1 });
+        const accessToken = jwt.sign(
+            { id: user.id, role: user.role }, JWT_TOKEN!, {expiresIn: '7d'}
+        );
+        return {
+            success: true,
+            message: 'User logged in successfully.',
+            data: { accessToken, expiredToken },
+        };
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            message: error.message,
+            status: error.status || 500,
+        });
+    }
+}
+
+export { userJobSeekerRegisterService, getJobSeekerProfileService, updateJobSeekerDataService, userRecruiterRegisterService }
+export { loginUserService }

@@ -27,6 +27,18 @@ interface Disability {
     description: string | null;
 }
 
+interface Certificate {
+    id: number;
+    job_seeker_id: number;
+    name: string;
+    description: string | null;
+}
+
+interface LoginInput{
+    email: string,
+    password: string
+}
+
 interface JobCreate {
     title: string;
     description: string;
