@@ -5,8 +5,8 @@ import userRouter from './user';
 import authentication from '../../middlewares/authentication';
 import certificateRouter from './certificate';
 import skillRouter from './skill';
-import { recruiterAuth } from '../../middlewares/authorization';
 import jobsRouter from './jobs';
+import { recruiterAuth } from '../../middlewares/authorization';
 
 const v1Router = express.Router()
 
