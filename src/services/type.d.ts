@@ -38,3 +38,12 @@ interface LoginInput{
     email: string,
     password: string
 }
+
+interface JobCreate {
+    title: string;
+    description: string;
+    gender: string | null;
+    employment_type: string;
+    min_salary: number | null;
+    max_salary: number | null;
+}
