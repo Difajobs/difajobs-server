@@ -1,6 +1,6 @@
 import express from 'express';
 import { jobSeekerRegister, recruiterRegister, userLogin } from '../../../controllers/auth';
-import { sendOtp } from '../../../controllers/otp';
+import { sendTokenLink, verifyTokenLink } from '../../../controllers/verification';
 
 
 
@@ -9,6 +9,7 @@ const authRouter = express.Router()
 authRouter.post('/jobseeker-register', jobSeekerRegister)
 authRouter.post('/recruiter-register', recruiterRegister)
 authRouter.post('/login', userLogin)
-authRouter.post('/sendotp', sendOtp)
+authRouter.post('/token-send', sendTokenLink)
+authRouter.get('/token-verify', verifyTokenLink)
 
 export default authRouter;

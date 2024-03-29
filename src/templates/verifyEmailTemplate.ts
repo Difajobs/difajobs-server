@@ -73,8 +73,8 @@ const verifyEmail = function (otp: string) {
 
     <body
       style="margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; --bg-opacity: 1; background-color: #eceff1;">
-      <div style="display: none;">A request OTP was received.
-Use this OTP to verify your email</div>
+      <div style="display: none;">A request verifiction link was received.
+Use this link to verify your email</div>
       <div role="article" aria-roledescription="email" aria-label="Reset your Password" lang="en">
         <table style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; width: 100%;" width="100%"
           cellpadding="0" cellspacing="0" role="presentation">
@@ -103,8 +103,8 @@ Use this OTP to verify your email</div>
                           <p style="font-weight: 600; font-size: 18px; margin-bottom: 0;">Hey there,</p>
 
                           <p style="margin: 0 0 24px;">
-                          A request OTP was received.
-                          Use this OTP to verify your email
+                          A request verifiction link was received.
+                          Use this link to verify your email
                           </p>
 
                           <lable style="display: block; font-size: 24px; line-height: 100%; margin-bottom: 24px; --text-opacity: 1; color: #000000; text-decoration: none;">${otp}</lable>
@@ -155,8 +155,8 @@ Use this OTP to verify your email</div>
 
     </html>`;
     const text = `
-        Verify Email, A request OTP was received.
-        Use this OTP to verify your email`;
+        Verify Email, A request verifiction link was received.
+        Use this link to verify your email`;
     return {
         html: html,
         text: text,
