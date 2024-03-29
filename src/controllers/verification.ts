@@ -12,7 +12,7 @@ const sendTokenLink = async (req: Request, res: Response) => {
     //localhost
     //const verificationLink: string = `http://localhost:3000/v1/auth/token-verify?email=${email}&token=${token}`;
 
-    const verificationLink: string = `https://difajobs-server.vercel.app//v1/auth/token-verify?email=${email}&token=${token}`;
+    const verificationLink: string = `https://difajobs-server.vercel.app/v1/auth/token-verify?email=${email}&token=${token}`;
 
 
     try {
