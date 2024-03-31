@@ -30,7 +30,8 @@ const postJob = async (company_id: number, userData: JobCreate) => {
                 gender: gender,
                 employment_type: employment_type,
                 min_salary: min_salary,
-                max_salary: max_salary
+                max_salary: max_salary,
+                date_posted: new Date()
             }
         })
         return newJob
