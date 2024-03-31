@@ -1932,13 +1932,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    job_seeker: number
     company: number
+    job_seeker: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    job_seeker?: boolean | UserCountOutputTypeCountJob_seekerArgs
     company?: boolean | UserCountOutputTypeCountCompanyArgs
+    job_seeker?: boolean | UserCountOutputTypeCountJob_seekerArgs
   }
 
   // Custom InputTypes
@@ -1957,16 +1957,16 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountJob_seekerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Job_seekerWhereInput
+  export type UserCountOutputTypeCountCompanyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CompanyWhereInput
   }
 
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCompanyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CompanyWhereInput
+  export type UserCountOutputTypeCountJob_seekerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Job_seekerWhereInput
   }
 
 
@@ -1976,17 +1976,17 @@ export namespace Prisma {
    */
 
   export type Job_seekerCountOutputType = {
+    job_applications: number
+    job_seeker_skills: number
     certificates: number
     disabilities: number
-    job_seeker_skills: number
-    job_applications: number
   }
 
   export type Job_seekerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    job_applications?: boolean | Job_seekerCountOutputTypeCountJob_applicationsArgs
+    job_seeker_skills?: boolean | Job_seekerCountOutputTypeCountJob_seeker_skillsArgs
     certificates?: boolean | Job_seekerCountOutputTypeCountCertificatesArgs
     disabilities?: boolean | Job_seekerCountOutputTypeCountDisabilitiesArgs
-    job_seeker_skills?: boolean | Job_seekerCountOutputTypeCountJob_seeker_skillsArgs
-    job_applications?: boolean | Job_seekerCountOutputTypeCountJob_applicationsArgs
   }
 
   // Custom InputTypes
@@ -1999,6 +1999,22 @@ export namespace Prisma {
      * Select specific fields to fetch from the Job_seekerCountOutputType
      */
     select?: Job_seekerCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Job_seekerCountOutputType without action
+   */
+  export type Job_seekerCountOutputTypeCountJob_applicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Job_applicationWhereInput
+  }
+
+
+  /**
+   * Job_seekerCountOutputType without action
+   */
+  export type Job_seekerCountOutputTypeCountJob_seeker_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Job_seeker_skillsWhereInput
   }
 
 
@@ -2018,35 +2034,19 @@ export namespace Prisma {
   }
 
 
-  /**
-   * Job_seekerCountOutputType without action
-   */
-  export type Job_seekerCountOutputTypeCountJob_seeker_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Job_seeker_skillsWhereInput
-  }
-
-
-  /**
-   * Job_seekerCountOutputType without action
-   */
-  export type Job_seekerCountOutputTypeCountJob_applicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Job_applicationWhereInput
-  }
-
-
 
   /**
    * Count Type CompanyCountOutputType
    */
 
   export type CompanyCountOutputType = {
-    jobs: number
     job_application: number
+    jobs: number
   }
 
   export type CompanyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jobs?: boolean | CompanyCountOutputTypeCountJobsArgs
     job_application?: boolean | CompanyCountOutputTypeCountJob_applicationArgs
+    jobs?: boolean | CompanyCountOutputTypeCountJobsArgs
   }
 
   // Custom InputTypes
@@ -2065,16 +2065,16 @@ export namespace Prisma {
   /**
    * CompanyCountOutputType without action
    */
-  export type CompanyCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JobsWhereInput
+  export type CompanyCountOutputTypeCountJob_applicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Job_applicationWhereInput
   }
 
 
   /**
    * CompanyCountOutputType without action
    */
-  export type CompanyCountOutputTypeCountJob_applicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Job_applicationWhereInput
+  export type CompanyCountOutputTypeCountJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobsWhereInput
   }
 
 
@@ -2084,15 +2084,15 @@ export namespace Prisma {
    */
 
   export type JobsCountOutputType = {
-    required_skills: number
     jobApplications: number
     list_ability: number
+    required_skills: number
   }
 
   export type JobsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    required_skills?: boolean | JobsCountOutputTypeCountRequired_skillsArgs
     jobApplications?: boolean | JobsCountOutputTypeCountJobApplicationsArgs
     list_ability?: boolean | JobsCountOutputTypeCountList_abilityArgs
+    required_skills?: boolean | JobsCountOutputTypeCountRequired_skillsArgs
   }
 
   // Custom InputTypes
@@ -2111,14 +2111,6 @@ export namespace Prisma {
   /**
    * JobsCountOutputType without action
    */
-  export type JobsCountOutputTypeCountRequired_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Required_skillsWhereInput
-  }
-
-
-  /**
-   * JobsCountOutputType without action
-   */
   export type JobsCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Job_applicationWhereInput
   }
@@ -2129,6 +2121,14 @@ export namespace Prisma {
    */
   export type JobsCountOutputTypeCountList_abilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: List_abilityWhereInput
+  }
+
+
+  /**
+   * JobsCountOutputType without action
+   */
+  export type JobsCountOutputTypeCountRequired_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Required_skillsWhereInput
   }
 
 
@@ -2481,8 +2481,8 @@ export namespace Prisma {
     password?: boolean
     role?: boolean
     is_verified?: boolean
-    job_seeker?: boolean | User$job_seekerArgs<ExtArgs>
     company?: boolean | User$companyArgs<ExtArgs>
+    job_seeker?: boolean | User$job_seekerArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2495,8 +2495,8 @@ export namespace Prisma {
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    job_seeker?: boolean | User$job_seekerArgs<ExtArgs>
     company?: boolean | User$companyArgs<ExtArgs>
+    job_seeker?: boolean | User$job_seekerArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2504,8 +2504,8 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>[]
       company: Prisma.$CompanyPayload<ExtArgs>[]
+      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2878,9 +2878,9 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    job_seeker<T extends User$job_seekerArgs<ExtArgs> = {}>(args?: Subset<T, User$job_seekerArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     company<T extends User$companyArgs<ExtArgs> = {}>(args?: Subset<T, User$companyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    job_seeker<T extends User$job_seekerArgs<ExtArgs> = {}>(args?: Subset<T, User$job_seekerArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3227,27 +3227,6 @@ export namespace Prisma {
 
 
   /**
-   * User.job_seeker
-   */
-  export type User$job_seekerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Job_seeker
-     */
-    select?: Job_seekerSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: Job_seekerInclude<ExtArgs> | null
-    where?: Job_seekerWhereInput
-    orderBy?: Job_seekerOrderByWithRelationInput | Job_seekerOrderByWithRelationInput[]
-    cursor?: Job_seekerWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Job_seekerScalarFieldEnum | Job_seekerScalarFieldEnum[]
-  }
-
-
-  /**
    * User.company
    */
   export type User$companyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3265,6 +3244,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CompanyScalarFieldEnum | CompanyScalarFieldEnum[]
+  }
+
+
+  /**
+   * User.job_seeker
+   */
+  export type User$job_seekerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Job_seeker
+     */
+    select?: Job_seekerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: Job_seekerInclude<ExtArgs> | null
+    where?: Job_seekerWhereInput
+    orderBy?: Job_seekerOrderByWithRelationInput | Job_seekerOrderByWithRelationInput[]
+    cursor?: Job_seekerWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Job_seekerScalarFieldEnum | Job_seekerScalarFieldEnum[]
   }
 
 
@@ -3310,30 +3310,30 @@ export namespace Prisma {
     id: number | null
     user_id: number | null
     fullname: string | null
-    dob: Date | null
-    gender: string | null
     phone_number: string | null
     city: string | null
+    dob: Date | null
+    gender: string | null
   }
 
   export type Job_seekerMaxAggregateOutputType = {
     id: number | null
     user_id: number | null
     fullname: string | null
-    dob: Date | null
-    gender: string | null
     phone_number: string | null
     city: string | null
+    dob: Date | null
+    gender: string | null
   }
 
   export type Job_seekerCountAggregateOutputType = {
     id: number
     user_id: number
     fullname: number
-    dob: number
-    gender: number
     phone_number: number
     city: number
+    dob: number
+    gender: number
     _all: number
   }
 
@@ -3352,30 +3352,30 @@ export namespace Prisma {
     id?: true
     user_id?: true
     fullname?: true
-    dob?: true
-    gender?: true
     phone_number?: true
     city?: true
+    dob?: true
+    gender?: true
   }
 
   export type Job_seekerMaxAggregateInputType = {
     id?: true
     user_id?: true
     fullname?: true
-    dob?: true
-    gender?: true
     phone_number?: true
     city?: true
+    dob?: true
+    gender?: true
   }
 
   export type Job_seekerCountAggregateInputType = {
     id?: true
     user_id?: true
     fullname?: true
-    dob?: true
-    gender?: true
     phone_number?: true
     city?: true
+    dob?: true
+    gender?: true
     _all?: true
   }
 
@@ -3469,10 +3469,10 @@ export namespace Prisma {
     id: number
     user_id: number
     fullname: string
-    dob: Date
-    gender: string
     phone_number: string | null
     city: string | null
+    dob: Date
+    gender: string
     _count: Job_seekerCountAggregateOutputType | null
     _avg: Job_seekerAvgAggregateOutputType | null
     _sum: Job_seekerSumAggregateOutputType | null
@@ -3498,15 +3498,15 @@ export namespace Prisma {
     id?: boolean
     user_id?: boolean
     fullname?: boolean
-    dob?: boolean
-    gender?: boolean
     phone_number?: boolean
     city?: boolean
+    dob?: boolean
+    gender?: boolean
+    job_applications?: boolean | Job_seeker$job_applicationsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    job_seeker_skills?: boolean | Job_seeker$job_seeker_skillsArgs<ExtArgs>
     certificates?: boolean | Job_seeker$certificatesArgs<ExtArgs>
     disabilities?: boolean | Job_seeker$disabilitiesArgs<ExtArgs>
-    job_seeker_skills?: boolean | Job_seeker$job_seeker_skillsArgs<ExtArgs>
-    job_applications?: boolean | Job_seeker$job_applicationsArgs<ExtArgs>
     _count?: boolean | Job_seekerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["job_seeker"]>
 
@@ -3514,18 +3514,18 @@ export namespace Prisma {
     id?: boolean
     user_id?: boolean
     fullname?: boolean
-    dob?: boolean
-    gender?: boolean
     phone_number?: boolean
     city?: boolean
+    dob?: boolean
+    gender?: boolean
   }
 
   export type Job_seekerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    job_applications?: boolean | Job_seeker$job_applicationsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
+    job_seeker_skills?: boolean | Job_seeker$job_seeker_skillsArgs<ExtArgs>
     certificates?: boolean | Job_seeker$certificatesArgs<ExtArgs>
     disabilities?: boolean | Job_seeker$disabilitiesArgs<ExtArgs>
-    job_seeker_skills?: boolean | Job_seeker$job_seeker_skillsArgs<ExtArgs>
-    job_applications?: boolean | Job_seeker$job_applicationsArgs<ExtArgs>
     _count?: boolean | Job_seekerCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3533,20 +3533,20 @@ export namespace Prisma {
   export type $Job_seekerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Job_seeker"
     objects: {
+      job_applications: Prisma.$Job_applicationPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs>
+      job_seeker_skills: Prisma.$Job_seeker_skillsPayload<ExtArgs>[]
       certificates: Prisma.$List_certificatePayload<ExtArgs>[]
       disabilities: Prisma.$List_disabilityPayload<ExtArgs>[]
-      job_seeker_skills: Prisma.$Job_seeker_skillsPayload<ExtArgs>[]
-      job_applications: Prisma.$Job_applicationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       user_id: number
       fullname: string
-      dob: Date
-      gender: string
       phone_number: string | null
       city: string | null
+      dob: Date
+      gender: string
     }, ExtArgs["result"]["job_seeker"]>
     composites: {}
   }
@@ -3912,15 +3912,15 @@ export namespace Prisma {
   export interface Prisma__Job_seekerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    job_applications<T extends Job_seeker$job_applicationsArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$job_applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    job_seeker_skills<T extends Job_seeker$job_seeker_skillsArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$job_seeker_skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_seeker_skillsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     certificates<T extends Job_seeker$certificatesArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$certificatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_certificatePayload<ExtArgs>, T, 'findMany'> | Null>;
 
     disabilities<T extends Job_seeker$disabilitiesArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$disabilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_disabilityPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    job_seeker_skills<T extends Job_seeker$job_seeker_skillsArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$job_seeker_skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_seeker_skillsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    job_applications<T extends Job_seeker$job_applicationsArgs<ExtArgs> = {}>(args?: Subset<T, Job_seeker$job_applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3953,10 +3953,10 @@ export namespace Prisma {
     readonly id: FieldRef<"Job_seeker", 'Int'>
     readonly user_id: FieldRef<"Job_seeker", 'Int'>
     readonly fullname: FieldRef<"Job_seeker", 'String'>
-    readonly dob: FieldRef<"Job_seeker", 'DateTime'>
-    readonly gender: FieldRef<"Job_seeker", 'String'>
     readonly phone_number: FieldRef<"Job_seeker", 'String'>
     readonly city: FieldRef<"Job_seeker", 'String'>
+    readonly dob: FieldRef<"Job_seeker", 'DateTime'>
+    readonly gender: FieldRef<"Job_seeker", 'String'>
   }
     
 
@@ -4269,6 +4269,48 @@ export namespace Prisma {
 
 
   /**
+   * Job_seeker.job_applications
+   */
+  export type Job_seeker$job_applicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Job_application
+     */
+    select?: Job_applicationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: Job_applicationInclude<ExtArgs> | null
+    where?: Job_applicationWhereInput
+    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
+    cursor?: Job_applicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Job_seeker.job_seeker_skills
+   */
+  export type Job_seeker$job_seeker_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Job_seeker_skills
+     */
+    select?: Job_seeker_skillsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: Job_seeker_skillsInclude<ExtArgs> | null
+    where?: Job_seeker_skillsWhereInput
+    orderBy?: Job_seeker_skillsOrderByWithRelationInput | Job_seeker_skillsOrderByWithRelationInput[]
+    cursor?: Job_seeker_skillsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Job_seeker_skillsScalarFieldEnum | Job_seeker_skillsScalarFieldEnum[]
+  }
+
+
+  /**
    * Job_seeker.certificates
    */
   export type Job_seeker$certificatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4307,48 +4349,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: List_disabilityScalarFieldEnum | List_disabilityScalarFieldEnum[]
-  }
-
-
-  /**
-   * Job_seeker.job_seeker_skills
-   */
-  export type Job_seeker$job_seeker_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Job_seeker_skills
-     */
-    select?: Job_seeker_skillsSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: Job_seeker_skillsInclude<ExtArgs> | null
-    where?: Job_seeker_skillsWhereInput
-    orderBy?: Job_seeker_skillsOrderByWithRelationInput | Job_seeker_skillsOrderByWithRelationInput[]
-    cursor?: Job_seeker_skillsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Job_seeker_skillsScalarFieldEnum | Job_seeker_skillsScalarFieldEnum[]
-  }
-
-
-  /**
-   * Job_seeker.job_applications
-   */
-  export type Job_seeker$job_applicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Job_application
-     */
-    select?: Job_applicationSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: Job_applicationInclude<ExtArgs> | null
-    where?: Job_applicationWhereInput
-    orderBy?: Job_applicationOrderByWithRelationInput | Job_applicationOrderByWithRelationInput[]
-    cursor?: Job_applicationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
   }
 
 
@@ -4587,8 +4587,8 @@ export namespace Prisma {
     logo?: boolean
     picture?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jobs?: boolean | Company$jobsArgs<ExtArgs>
     job_application?: boolean | Company$job_applicationArgs<ExtArgs>
+    jobs?: boolean | Company$jobsArgs<ExtArgs>
     _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["company"]>
 
@@ -4604,8 +4604,8 @@ export namespace Prisma {
 
   export type CompanyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jobs?: boolean | Company$jobsArgs<ExtArgs>
     job_application?: boolean | Company$job_applicationArgs<ExtArgs>
+    jobs?: boolean | Company$jobsArgs<ExtArgs>
     _count?: boolean | CompanyCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -4614,8 +4614,8 @@ export namespace Prisma {
     name: "Company"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      jobs: Prisma.$JobsPayload<ExtArgs>[]
       job_application: Prisma.$Job_applicationPayload<ExtArgs>[]
+      jobs: Prisma.$JobsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4992,9 +4992,9 @@ export namespace Prisma {
 
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    jobs<T extends Company$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     job_application<T extends Company$job_applicationArgs<ExtArgs> = {}>(args?: Subset<T, Company$job_applicationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    jobs<T extends Company$jobsArgs<ExtArgs> = {}>(args?: Subset<T, Company$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5343,27 +5343,6 @@ export namespace Prisma {
 
 
   /**
-   * Company.jobs
-   */
-  export type Company$jobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Jobs
-     */
-    select?: JobsSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: JobsInclude<ExtArgs> | null
-    where?: JobsWhereInput
-    orderBy?: JobsOrderByWithRelationInput | JobsOrderByWithRelationInput[]
-    cursor?: JobsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: JobsScalarFieldEnum | JobsScalarFieldEnum[]
-  }
-
-
-  /**
    * Company.job_application
    */
   export type Company$job_applicationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5381,6 +5360,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Job_applicationScalarFieldEnum | Job_applicationScalarFieldEnum[]
+  }
+
+
+  /**
+   * Company.jobs
+   */
+  export type Company$jobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jobs
+     */
+    select?: JobsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: JobsInclude<ExtArgs> | null
+    where?: JobsWhereInput
+    orderBy?: JobsOrderByWithRelationInput | JobsOrderByWithRelationInput[]
+    cursor?: JobsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobsScalarFieldEnum | JobsScalarFieldEnum[]
   }
 
 
@@ -5422,8 +5422,8 @@ export namespace Prisma {
   export type JobsSumAggregateOutputType = {
     id: number | null
     company_id: number | null
-    min_salary: number | null
-    max_salary: number | null
+    min_salary: bigint | null
+    max_salary: bigint | null
   }
 
   export type JobsMinAggregateOutputType = {
@@ -5432,9 +5432,10 @@ export namespace Prisma {
     title: string | null
     description: string | null
     employment_type: string | null
-    min_salary: number | null
-    max_salary: number | null
+    min_salary: bigint | null
     gender: string | null
+    max_salary: bigint | null
+    date_posted: Date | null
   }
 
   export type JobsMaxAggregateOutputType = {
@@ -5443,9 +5444,10 @@ export namespace Prisma {
     title: string | null
     description: string | null
     employment_type: string | null
-    min_salary: number | null
-    max_salary: number | null
+    min_salary: bigint | null
     gender: string | null
+    max_salary: bigint | null
+    date_posted: Date | null
   }
 
   export type JobsCountAggregateOutputType = {
@@ -5455,8 +5457,9 @@ export namespace Prisma {
     description: number
     employment_type: number
     min_salary: number
-    max_salary: number
     gender: number
+    max_salary: number
+    date_posted: number
     _all: number
   }
 
@@ -5482,8 +5485,9 @@ export namespace Prisma {
     description?: true
     employment_type?: true
     min_salary?: true
-    max_salary?: true
     gender?: true
+    max_salary?: true
+    date_posted?: true
   }
 
   export type JobsMaxAggregateInputType = {
@@ -5493,8 +5497,9 @@ export namespace Prisma {
     description?: true
     employment_type?: true
     min_salary?: true
-    max_salary?: true
     gender?: true
+    max_salary?: true
+    date_posted?: true
   }
 
   export type JobsCountAggregateInputType = {
@@ -5504,8 +5509,9 @@ export namespace Prisma {
     description?: true
     employment_type?: true
     min_salary?: true
-    max_salary?: true
     gender?: true
+    max_salary?: true
+    date_posted?: true
     _all?: true
   }
 
@@ -5600,10 +5606,11 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employment_type: string | null
-    min_salary: number | null
-    max_salary: number | null
+    employment_type: string
+    min_salary: bigint | null
     gender: string | null
+    max_salary: bigint | null
+    date_posted: Date | null
     _count: JobsCountAggregateOutputType | null
     _avg: JobsAvgAggregateOutputType | null
     _sum: JobsSumAggregateOutputType | null
@@ -5632,12 +5639,13 @@ export namespace Prisma {
     description?: boolean
     employment_type?: boolean
     min_salary?: boolean
-    max_salary?: boolean
     gender?: boolean
-    company?: boolean | CompanyDefaultArgs<ExtArgs>
-    required_skills?: boolean | Jobs$required_skillsArgs<ExtArgs>
+    max_salary?: boolean
+    date_posted?: boolean
     jobApplications?: boolean | Jobs$jobApplicationsArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     list_ability?: boolean | Jobs$list_abilityArgs<ExtArgs>
+    required_skills?: boolean | Jobs$required_skillsArgs<ExtArgs>
     _count?: boolean | JobsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["jobs"]>
 
@@ -5648,15 +5656,16 @@ export namespace Prisma {
     description?: boolean
     employment_type?: boolean
     min_salary?: boolean
-    max_salary?: boolean
     gender?: boolean
+    max_salary?: boolean
+    date_posted?: boolean
   }
 
   export type JobsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    company?: boolean | CompanyDefaultArgs<ExtArgs>
-    required_skills?: boolean | Jobs$required_skillsArgs<ExtArgs>
     jobApplications?: boolean | Jobs$jobApplicationsArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     list_ability?: boolean | Jobs$list_abilityArgs<ExtArgs>
+    required_skills?: boolean | Jobs$required_skillsArgs<ExtArgs>
     _count?: boolean | JobsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -5664,20 +5673,21 @@ export namespace Prisma {
   export type $JobsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Jobs"
     objects: {
-      company: Prisma.$CompanyPayload<ExtArgs>
-      required_skills: Prisma.$Required_skillsPayload<ExtArgs>[]
       jobApplications: Prisma.$Job_applicationPayload<ExtArgs>[]
+      company: Prisma.$CompanyPayload<ExtArgs>
       list_ability: Prisma.$List_abilityPayload<ExtArgs>[]
+      required_skills: Prisma.$Required_skillsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       company_id: number
       title: string
       description: string
-      employment_type: string | null
-      min_salary: number | null
-      max_salary: number | null
+      employment_type: string
+      min_salary: bigint | null
       gender: string | null
+      max_salary: bigint | null
+      date_posted: Date | null
     }, ExtArgs["result"]["jobs"]>
     composites: {}
   }
@@ -6043,13 +6053,13 @@ export namespace Prisma {
   export interface Prisma__JobsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
-
-    required_skills<T extends Jobs$required_skillsArgs<ExtArgs> = {}>(args?: Subset<T, Jobs$required_skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Required_skillsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     jobApplications<T extends Jobs$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, Jobs$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Job_applicationPayload<ExtArgs>, T, 'findMany'> | Null>;
 
+    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
     list_ability<T extends Jobs$list_abilityArgs<ExtArgs> = {}>(args?: Subset<T, Jobs$list_abilityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$List_abilityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    required_skills<T extends Jobs$required_skillsArgs<ExtArgs> = {}>(args?: Subset<T, Jobs$required_skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Required_skillsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6084,9 +6094,10 @@ export namespace Prisma {
     readonly title: FieldRef<"Jobs", 'String'>
     readonly description: FieldRef<"Jobs", 'String'>
     readonly employment_type: FieldRef<"Jobs", 'String'>
-    readonly min_salary: FieldRef<"Jobs", 'Int'>
-    readonly max_salary: FieldRef<"Jobs", 'Int'>
+    readonly min_salary: FieldRef<"Jobs", 'BigInt'>
     readonly gender: FieldRef<"Jobs", 'String'>
+    readonly max_salary: FieldRef<"Jobs", 'BigInt'>
+    readonly date_posted: FieldRef<"Jobs", 'DateTime'>
   }
     
 
@@ -6399,27 +6410,6 @@ export namespace Prisma {
 
 
   /**
-   * Jobs.required_skills
-   */
-  export type Jobs$required_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Required_skills
-     */
-    select?: Required_skillsSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: Required_skillsInclude<ExtArgs> | null
-    where?: Required_skillsWhereInput
-    orderBy?: Required_skillsOrderByWithRelationInput | Required_skillsOrderByWithRelationInput[]
-    cursor?: Required_skillsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Required_skillsScalarFieldEnum | Required_skillsScalarFieldEnum[]
-  }
-
-
-  /**
    * Jobs.jobApplications
    */
   export type Jobs$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6458,6 +6448,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: List_abilityScalarFieldEnum | List_abilityScalarFieldEnum[]
+  }
+
+
+  /**
+   * Jobs.required_skills
+   */
+  export type Jobs$required_skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Required_skills
+     */
+    select?: Required_skillsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: Required_skillsInclude<ExtArgs> | null
+    where?: Required_skillsWhereInput
+    orderBy?: Required_skillsOrderByWithRelationInput | Required_skillsOrderByWithRelationInput[]
+    cursor?: Required_skillsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Required_skillsScalarFieldEnum | Required_skillsScalarFieldEnum[]
   }
 
 
@@ -8580,8 +8591,8 @@ export namespace Prisma {
     id?: boolean
     job_seeker_id?: boolean
     disability_id?: boolean
-    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
     disability?: boolean | DisabilityDefaultArgs<ExtArgs>
+    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["list_disability"]>
 
   export type List_disabilitySelectScalar = {
@@ -8591,16 +8602,16 @@ export namespace Prisma {
   }
 
   export type List_disabilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
     disability?: boolean | DisabilityDefaultArgs<ExtArgs>
+    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
   }
 
 
   export type $List_disabilityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "List_disability"
     objects: {
-      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>
       disability: Prisma.$DisabilityPayload<ExtArgs>
+      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8971,9 +8982,9 @@ export namespace Prisma {
   export interface Prisma__List_disabilityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    job_seeker<T extends Job_seekerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Job_seekerDefaultArgs<ExtArgs>>): Prisma__Job_seekerClient<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
-
     disability<T extends DisabilityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DisabilityDefaultArgs<ExtArgs>>): Prisma__DisabilityClient<$Result.GetResult<Prisma.$DisabilityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    job_seeker<T extends Job_seekerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Job_seekerDefaultArgs<ExtArgs>>): Prisma__Job_seekerClient<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -9364,8 +9375,8 @@ export namespace Prisma {
     job_seeker_id: number | null
     job_id: number | null
     company_id: number | null
-    cover_letter: string | null
     status: string | null
+    cover_letter: string | null
   }
 
   export type Job_applicationMaxAggregateOutputType = {
@@ -9373,8 +9384,8 @@ export namespace Prisma {
     job_seeker_id: number | null
     job_id: number | null
     company_id: number | null
-    cover_letter: string | null
     status: string | null
+    cover_letter: string | null
   }
 
   export type Job_applicationCountAggregateOutputType = {
@@ -9382,8 +9393,8 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
-    cover_letter: number
     status: number
+    cover_letter: number
     _all: number
   }
 
@@ -9407,8 +9418,8 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
-    cover_letter?: true
     status?: true
+    cover_letter?: true
   }
 
   export type Job_applicationMaxAggregateInputType = {
@@ -9416,8 +9427,8 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
-    cover_letter?: true
     status?: true
+    cover_letter?: true
   }
 
   export type Job_applicationCountAggregateInputType = {
@@ -9425,8 +9436,8 @@ export namespace Prisma {
     job_seeker_id?: true
     job_id?: true
     company_id?: true
-    cover_letter?: true
     status?: true
+    cover_letter?: true
     _all?: true
   }
 
@@ -9521,8 +9532,8 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
-    cover_letter: string | null
     status: string
+    cover_letter: string | null
     _count: Job_applicationCountAggregateOutputType | null
     _avg: Job_applicationAvgAggregateOutputType | null
     _sum: Job_applicationSumAggregateOutputType | null
@@ -9549,11 +9560,11 @@ export namespace Prisma {
     job_seeker_id?: boolean
     job_id?: boolean
     company_id?: boolean
-    cover_letter?: boolean
     status?: boolean
-    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
-    job?: boolean | JobsDefaultArgs<ExtArgs>
+    cover_letter?: boolean
     company?: boolean | CompanyDefaultArgs<ExtArgs>
+    job?: boolean | JobsDefaultArgs<ExtArgs>
+    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["job_application"]>
 
   export type Job_applicationSelectScalar = {
@@ -9561,31 +9572,31 @@ export namespace Prisma {
     job_seeker_id?: boolean
     job_id?: boolean
     company_id?: boolean
-    cover_letter?: boolean
     status?: boolean
+    cover_letter?: boolean
   }
 
   export type Job_applicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
-    job?: boolean | JobsDefaultArgs<ExtArgs>
     company?: boolean | CompanyDefaultArgs<ExtArgs>
+    job?: boolean | JobsDefaultArgs<ExtArgs>
+    job_seeker?: boolean | Job_seekerDefaultArgs<ExtArgs>
   }
 
 
   export type $Job_applicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Job_application"
     objects: {
-      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>
-      job: Prisma.$JobsPayload<ExtArgs>
       company: Prisma.$CompanyPayload<ExtArgs>
+      job: Prisma.$JobsPayload<ExtArgs>
+      job_seeker: Prisma.$Job_seekerPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       job_seeker_id: number
       job_id: number
       company_id: number
-      cover_letter: string | null
       status: string
+      cover_letter: string | null
     }, ExtArgs["result"]["job_application"]>
     composites: {}
   }
@@ -9951,11 +9962,11 @@ export namespace Prisma {
   export interface Prisma__Job_applicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    job_seeker<T extends Job_seekerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Job_seekerDefaultArgs<ExtArgs>>): Prisma__Job_seekerClient<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     job<T extends JobsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JobsDefaultArgs<ExtArgs>>): Prisma__JobsClient<$Result.GetResult<Prisma.$JobsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    job_seeker<T extends Job_seekerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Job_seekerDefaultArgs<ExtArgs>>): Prisma__Job_seekerClient<$Result.GetResult<Prisma.$Job_seekerPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -9989,8 +10000,8 @@ export namespace Prisma {
     readonly job_seeker_id: FieldRef<"Job_application", 'Int'>
     readonly job_id: FieldRef<"Job_application", 'Int'>
     readonly company_id: FieldRef<"Job_application", 'Int'>
-    readonly cover_letter: FieldRef<"Job_application", 'String'>
     readonly status: FieldRef<"Job_application", 'String'>
+    readonly cover_letter: FieldRef<"Job_application", 'String'>
   }
     
 
@@ -12236,64 +12247,64 @@ export namespace Prisma {
 
   export type List_abilityAvgAggregateOutputType = {
     id: number | null
-    ability_id: number | null
     job_id: number | null
+    ability_id: number | null
   }
 
   export type List_abilitySumAggregateOutputType = {
     id: number | null
-    ability_id: number | null
     job_id: number | null
+    ability_id: number | null
   }
 
   export type List_abilityMinAggregateOutputType = {
     id: number | null
-    ability_id: number | null
     job_id: number | null
+    ability_id: number | null
   }
 
   export type List_abilityMaxAggregateOutputType = {
     id: number | null
-    ability_id: number | null
     job_id: number | null
+    ability_id: number | null
   }
 
   export type List_abilityCountAggregateOutputType = {
     id: number
-    ability_id: number
     job_id: number
+    ability_id: number
     _all: number
   }
 
 
   export type List_abilityAvgAggregateInputType = {
     id?: true
-    ability_id?: true
     job_id?: true
+    ability_id?: true
   }
 
   export type List_abilitySumAggregateInputType = {
     id?: true
-    ability_id?: true
     job_id?: true
+    ability_id?: true
   }
 
   export type List_abilityMinAggregateInputType = {
     id?: true
-    ability_id?: true
     job_id?: true
+    ability_id?: true
   }
 
   export type List_abilityMaxAggregateInputType = {
     id?: true
-    ability_id?: true
     job_id?: true
+    ability_id?: true
   }
 
   export type List_abilityCountAggregateInputType = {
     id?: true
-    ability_id?: true
     job_id?: true
+    ability_id?: true
     _all?: true
   }
 
@@ -12385,8 +12396,8 @@ export namespace Prisma {
 
   export type List_abilityGroupByOutputType = {
     id: number
-    ability_id: number | null
     job_id: number | null
+    ability_id: number | null
     _count: List_abilityCountAggregateOutputType | null
     _avg: List_abilityAvgAggregateOutputType | null
     _sum: List_abilitySumAggregateOutputType | null
@@ -12410,34 +12421,34 @@ export namespace Prisma {
 
   export type List_abilitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    ability_id?: boolean
     job_id?: boolean
-    ability?: boolean | List_ability$abilityArgs<ExtArgs>
+    ability_id?: boolean
     job?: boolean | List_ability$jobArgs<ExtArgs>
+    ability?: boolean | List_ability$abilityArgs<ExtArgs>
   }, ExtArgs["result"]["list_ability"]>
 
   export type List_abilitySelectScalar = {
     id?: boolean
-    ability_id?: boolean
     job_id?: boolean
+    ability_id?: boolean
   }
 
   export type List_abilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ability?: boolean | List_ability$abilityArgs<ExtArgs>
     job?: boolean | List_ability$jobArgs<ExtArgs>
+    ability?: boolean | List_ability$abilityArgs<ExtArgs>
   }
 
 
   export type $List_abilityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "List_ability"
     objects: {
-      ability: Prisma.$AbilityPayload<ExtArgs> | null
       job: Prisma.$JobsPayload<ExtArgs> | null
+      ability: Prisma.$AbilityPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      ability_id: number | null
       job_id: number | null
+      ability_id: number | null
     }, ExtArgs["result"]["list_ability"]>
     composites: {}
   }
@@ -12803,9 +12814,9 @@ export namespace Prisma {
   export interface Prisma__List_abilityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    ability<T extends List_ability$abilityArgs<ExtArgs> = {}>(args?: Subset<T, List_ability$abilityArgs<ExtArgs>>): Prisma__AbilityClient<$Result.GetResult<Prisma.$AbilityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
-
     job<T extends List_ability$jobArgs<ExtArgs> = {}>(args?: Subset<T, List_ability$jobArgs<ExtArgs>>): Prisma__JobsClient<$Result.GetResult<Prisma.$JobsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+
+    ability<T extends List_ability$abilityArgs<ExtArgs> = {}>(args?: Subset<T, List_ability$abilityArgs<ExtArgs>>): Prisma__AbilityClient<$Result.GetResult<Prisma.$AbilityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12836,8 +12847,8 @@ export namespace Prisma {
    */ 
   interface List_abilityFieldRefs {
     readonly id: FieldRef<"List_ability", 'Int'>
-    readonly ability_id: FieldRef<"List_ability", 'Int'>
     readonly job_id: FieldRef<"List_ability", 'Int'>
+    readonly ability_id: FieldRef<"List_ability", 'Int'>
   }
     
 
@@ -13150,22 +13161,6 @@ export namespace Prisma {
 
 
   /**
-   * List_ability.ability
-   */
-  export type List_ability$abilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Ability
-     */
-    select?: AbilitySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: AbilityInclude<ExtArgs> | null
-    where?: AbilityWhereInput
-  }
-
-
-  /**
    * List_ability.job
    */
   export type List_ability$jobArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13178,6 +13173,22 @@ export namespace Prisma {
      */
     include?: JobsInclude<ExtArgs> | null
     where?: JobsWhereInput
+  }
+
+
+  /**
+   * List_ability.ability
+   */
+  export type List_ability$abilityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ability
+     */
+    select?: AbilitySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: AbilityInclude<ExtArgs> | null
+    where?: AbilityWhereInput
   }
 
 
@@ -16054,10 +16065,10 @@ export namespace Prisma {
     id: 'id',
     user_id: 'user_id',
     fullname: 'fullname',
-    dob: 'dob',
-    gender: 'gender',
     phone_number: 'phone_number',
-    city: 'city'
+    city: 'city',
+    dob: 'dob',
+    gender: 'gender'
   };
 
   export type Job_seekerScalarFieldEnum = (typeof Job_seekerScalarFieldEnum)[keyof typeof Job_seekerScalarFieldEnum]
@@ -16083,8 +16094,9 @@ export namespace Prisma {
     description: 'description',
     employment_type: 'employment_type',
     min_salary: 'min_salary',
+    gender: 'gender',
     max_salary: 'max_salary',
-    gender: 'gender'
+    date_posted: 'date_posted'
   };
 
   export type JobsScalarFieldEnum = (typeof JobsScalarFieldEnum)[keyof typeof JobsScalarFieldEnum]
@@ -16122,8 +16134,8 @@ export namespace Prisma {
     job_seeker_id: 'job_seeker_id',
     job_id: 'job_id',
     company_id: 'company_id',
-    cover_letter: 'cover_letter',
-    status: 'status'
+    status: 'status',
+    cover_letter: 'cover_letter'
   };
 
   export type Job_applicationScalarFieldEnum = (typeof Job_applicationScalarFieldEnum)[keyof typeof Job_applicationScalarFieldEnum]
@@ -16148,8 +16160,8 @@ export namespace Prisma {
 
   export const List_abilityScalarFieldEnum: {
     id: 'id',
-    ability_id: 'ability_id',
-    job_id: 'job_id'
+    job_id: 'job_id',
+    ability_id: 'ability_id'
   };
 
   export type List_abilityScalarFieldEnum = (typeof List_abilityScalarFieldEnum)[keyof typeof List_abilityScalarFieldEnum]
@@ -16260,6 +16272,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -16285,8 +16311,8 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     is_verified?: BoolFilter<"User"> | boolean
-    job_seeker?: Job_seekerListRelationFilter
     company?: CompanyListRelationFilter
+    job_seeker?: Job_seekerListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -16295,22 +16321,22 @@ export namespace Prisma {
     password?: SortOrder
     role?: SortOrder
     is_verified?: SortOrder
-    job_seeker?: Job_seekerOrderByRelationAggregateInput
     company?: CompanyOrderByRelationAggregateInput
+    job_seeker?: Job_seekerOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
+    email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     is_verified?: BoolFilter<"User"> | boolean
-    job_seeker?: Job_seekerListRelationFilter
     company?: CompanyListRelationFilter
-  }, "id" | "email">
+    job_seeker?: Job_seekerListRelationFilter
+  }, "id">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16343,30 +16369,30 @@ export namespace Prisma {
     id?: IntFilter<"Job_seeker"> | number
     user_id?: IntFilter<"Job_seeker"> | number
     fullname?: StringFilter<"Job_seeker"> | string
-    dob?: DateTimeFilter<"Job_seeker"> | Date | string
-    gender?: StringFilter<"Job_seeker"> | string
     phone_number?: StringNullableFilter<"Job_seeker"> | string | null
     city?: StringNullableFilter<"Job_seeker"> | string | null
+    dob?: DateTimeFilter<"Job_seeker"> | Date | string
+    gender?: StringFilter<"Job_seeker"> | string
+    job_applications?: Job_applicationListRelationFilter
     user?: XOR<UserRelationFilter, UserWhereInput>
+    job_seeker_skills?: Job_seeker_skillsListRelationFilter
     certificates?: List_certificateListRelationFilter
     disabilities?: List_disabilityListRelationFilter
-    job_seeker_skills?: Job_seeker_skillsListRelationFilter
-    job_applications?: Job_applicationListRelationFilter
   }
 
   export type Job_seekerOrderByWithRelationInput = {
     id?: SortOrder
     user_id?: SortOrder
     fullname?: SortOrder
-    dob?: SortOrder
-    gender?: SortOrder
     phone_number?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
+    dob?: SortOrder
+    gender?: SortOrder
+    job_applications?: Job_applicationOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
+    job_seeker_skills?: Job_seeker_skillsOrderByRelationAggregateInput
     certificates?: List_certificateOrderByRelationAggregateInput
     disabilities?: List_disabilityOrderByRelationAggregateInput
-    job_seeker_skills?: Job_seeker_skillsOrderByRelationAggregateInput
-    job_applications?: Job_applicationOrderByRelationAggregateInput
   }
 
   export type Job_seekerWhereUniqueInput = Prisma.AtLeast<{
@@ -16376,25 +16402,25 @@ export namespace Prisma {
     NOT?: Job_seekerWhereInput | Job_seekerWhereInput[]
     user_id?: IntFilter<"Job_seeker"> | number
     fullname?: StringFilter<"Job_seeker"> | string
-    dob?: DateTimeFilter<"Job_seeker"> | Date | string
-    gender?: StringFilter<"Job_seeker"> | string
     phone_number?: StringNullableFilter<"Job_seeker"> | string | null
     city?: StringNullableFilter<"Job_seeker"> | string | null
+    dob?: DateTimeFilter<"Job_seeker"> | Date | string
+    gender?: StringFilter<"Job_seeker"> | string
+    job_applications?: Job_applicationListRelationFilter
     user?: XOR<UserRelationFilter, UserWhereInput>
+    job_seeker_skills?: Job_seeker_skillsListRelationFilter
     certificates?: List_certificateListRelationFilter
     disabilities?: List_disabilityListRelationFilter
-    job_seeker_skills?: Job_seeker_skillsListRelationFilter
-    job_applications?: Job_applicationListRelationFilter
   }, "id">
 
   export type Job_seekerOrderByWithAggregationInput = {
     id?: SortOrder
     user_id?: SortOrder
     fullname?: SortOrder
-    dob?: SortOrder
-    gender?: SortOrder
     phone_number?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
+    dob?: SortOrder
+    gender?: SortOrder
     _count?: Job_seekerCountOrderByAggregateInput
     _avg?: Job_seekerAvgOrderByAggregateInput
     _max?: Job_seekerMaxOrderByAggregateInput
@@ -16409,10 +16435,10 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Job_seeker"> | number
     user_id?: IntWithAggregatesFilter<"Job_seeker"> | number
     fullname?: StringWithAggregatesFilter<"Job_seeker"> | string
-    dob?: DateTimeWithAggregatesFilter<"Job_seeker"> | Date | string
-    gender?: StringWithAggregatesFilter<"Job_seeker"> | string
     phone_number?: StringNullableWithAggregatesFilter<"Job_seeker"> | string | null
     city?: StringNullableWithAggregatesFilter<"Job_seeker"> | string | null
+    dob?: DateTimeWithAggregatesFilter<"Job_seeker"> | Date | string
+    gender?: StringWithAggregatesFilter<"Job_seeker"> | string
   }
 
   export type CompanyWhereInput = {
@@ -16427,8 +16453,8 @@ export namespace Prisma {
     logo?: StringNullableFilter<"Company"> | string | null
     picture?: StringNullableFilter<"Company"> | string | null
     user?: XOR<UserRelationFilter, UserWhereInput>
-    jobs?: JobsListRelationFilter
     job_application?: Job_applicationListRelationFilter
+    jobs?: JobsListRelationFilter
   }
 
   export type CompanyOrderByWithRelationInput = {
@@ -16440,8 +16466,8 @@ export namespace Prisma {
     logo?: SortOrderInput | SortOrder
     picture?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
-    jobs?: JobsOrderByRelationAggregateInput
     job_application?: Job_applicationOrderByRelationAggregateInput
+    jobs?: JobsOrderByRelationAggregateInput
   }
 
   export type CompanyWhereUniqueInput = Prisma.AtLeast<{
@@ -16456,8 +16482,8 @@ export namespace Prisma {
     logo?: StringNullableFilter<"Company"> | string | null
     picture?: StringNullableFilter<"Company"> | string | null
     user?: XOR<UserRelationFilter, UserWhereInput>
-    jobs?: JobsListRelationFilter
     job_application?: Job_applicationListRelationFilter
+    jobs?: JobsListRelationFilter
   }, "id">
 
   export type CompanyOrderByWithAggregationInput = {
@@ -16496,14 +16522,15 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employment_type?: StringNullableFilter<"Jobs"> | string | null
-    min_salary?: IntNullableFilter<"Jobs"> | number | null
-    max_salary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringFilter<"Jobs"> | string
+    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
-    company?: XOR<CompanyRelationFilter, CompanyWhereInput>
-    required_skills?: Required_skillsListRelationFilter
+    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
     jobApplications?: Job_applicationListRelationFilter
+    company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     list_ability?: List_abilityListRelationFilter
+    required_skills?: Required_skillsListRelationFilter
   }
 
   export type JobsOrderByWithRelationInput = {
@@ -16511,14 +16538,15 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employment_type?: SortOrderInput | SortOrder
+    employment_type?: SortOrder
     min_salary?: SortOrderInput | SortOrder
-    max_salary?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
-    company?: CompanyOrderByWithRelationInput
-    required_skills?: Required_skillsOrderByRelationAggregateInput
+    max_salary?: SortOrderInput | SortOrder
+    date_posted?: SortOrderInput | SortOrder
     jobApplications?: Job_applicationOrderByRelationAggregateInput
+    company?: CompanyOrderByWithRelationInput
     list_ability?: List_abilityOrderByRelationAggregateInput
+    required_skills?: Required_skillsOrderByRelationAggregateInput
   }
 
   export type JobsWhereUniqueInput = Prisma.AtLeast<{
@@ -16529,14 +16557,15 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employment_type?: StringNullableFilter<"Jobs"> | string | null
-    min_salary?: IntNullableFilter<"Jobs"> | number | null
-    max_salary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringFilter<"Jobs"> | string
+    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
-    company?: XOR<CompanyRelationFilter, CompanyWhereInput>
-    required_skills?: Required_skillsListRelationFilter
+    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
     jobApplications?: Job_applicationListRelationFilter
+    company?: XOR<CompanyRelationFilter, CompanyWhereInput>
     list_ability?: List_abilityListRelationFilter
+    required_skills?: Required_skillsListRelationFilter
   }, "id">
 
   export type JobsOrderByWithAggregationInput = {
@@ -16544,10 +16573,11 @@ export namespace Prisma {
     company_id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    employment_type?: SortOrderInput | SortOrder
+    employment_type?: SortOrder
     min_salary?: SortOrderInput | SortOrder
-    max_salary?: SortOrderInput | SortOrder
     gender?: SortOrderInput | SortOrder
+    max_salary?: SortOrderInput | SortOrder
+    date_posted?: SortOrderInput | SortOrder
     _count?: JobsCountOrderByAggregateInput
     _avg?: JobsAvgOrderByAggregateInput
     _max?: JobsMaxOrderByAggregateInput
@@ -16563,10 +16593,11 @@ export namespace Prisma {
     company_id?: IntWithAggregatesFilter<"Jobs"> | number
     title?: StringWithAggregatesFilter<"Jobs"> | string
     description?: StringWithAggregatesFilter<"Jobs"> | string
-    employment_type?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
-    min_salary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
-    max_salary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
+    employment_type?: StringWithAggregatesFilter<"Jobs"> | string
+    min_salary?: BigIntNullableWithAggregatesFilter<"Jobs"> | bigint | number | null
     gender?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
+    max_salary?: BigIntNullableWithAggregatesFilter<"Jobs"> | bigint | number | null
+    date_posted?: DateTimeNullableWithAggregatesFilter<"Jobs"> | Date | string | null
   }
 
   export type List_certificateWhereInput = {
@@ -16673,16 +16704,16 @@ export namespace Prisma {
     id?: IntFilter<"List_disability"> | number
     job_seeker_id?: IntFilter<"List_disability"> | number
     disability_id?: IntFilter<"List_disability"> | number
-    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
     disability?: XOR<DisabilityRelationFilter, DisabilityWhereInput>
+    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
   }
 
   export type List_disabilityOrderByWithRelationInput = {
     id?: SortOrder
     job_seeker_id?: SortOrder
     disability_id?: SortOrder
-    job_seeker?: Job_seekerOrderByWithRelationInput
     disability?: DisabilityOrderByWithRelationInput
+    job_seeker?: Job_seekerOrderByWithRelationInput
   }
 
   export type List_disabilityWhereUniqueInput = Prisma.AtLeast<{
@@ -16692,8 +16723,8 @@ export namespace Prisma {
     NOT?: List_disabilityWhereInput | List_disabilityWhereInput[]
     job_seeker_id?: IntFilter<"List_disability"> | number
     disability_id?: IntFilter<"List_disability"> | number
-    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
     disability?: XOR<DisabilityRelationFilter, DisabilityWhereInput>
+    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
   }, "id">
 
   export type List_disabilityOrderByWithAggregationInput = {
@@ -16724,11 +16755,11 @@ export namespace Prisma {
     job_seeker_id?: IntFilter<"Job_application"> | number
     job_id?: IntFilter<"Job_application"> | number
     company_id?: IntFilter<"Job_application"> | number
-    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     status?: StringFilter<"Job_application"> | string
-    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
-    job?: XOR<JobsRelationFilter, JobsWhereInput>
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
+    job?: XOR<JobsRelationFilter, JobsWhereInput>
+    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
   }
 
   export type Job_applicationOrderByWithRelationInput = {
@@ -16736,11 +16767,11 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
-    cover_letter?: SortOrderInput | SortOrder
     status?: SortOrder
-    job_seeker?: Job_seekerOrderByWithRelationInput
-    job?: JobsOrderByWithRelationInput
+    cover_letter?: SortOrderInput | SortOrder
     company?: CompanyOrderByWithRelationInput
+    job?: JobsOrderByWithRelationInput
+    job_seeker?: Job_seekerOrderByWithRelationInput
   }
 
   export type Job_applicationWhereUniqueInput = Prisma.AtLeast<{
@@ -16751,11 +16782,11 @@ export namespace Prisma {
     job_seeker_id?: IntFilter<"Job_application"> | number
     job_id?: IntFilter<"Job_application"> | number
     company_id?: IntFilter<"Job_application"> | number
-    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     status?: StringFilter<"Job_application"> | string
-    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
-    job?: XOR<JobsRelationFilter, JobsWhereInput>
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
+    job?: XOR<JobsRelationFilter, JobsWhereInput>
+    job_seeker?: XOR<Job_seekerRelationFilter, Job_seekerWhereInput>
   }, "id">
 
   export type Job_applicationOrderByWithAggregationInput = {
@@ -16763,8 +16794,8 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
-    cover_letter?: SortOrderInput | SortOrder
     status?: SortOrder
+    cover_letter?: SortOrderInput | SortOrder
     _count?: Job_applicationCountOrderByAggregateInput
     _avg?: Job_applicationAvgOrderByAggregateInput
     _max?: Job_applicationMaxOrderByAggregateInput
@@ -16780,8 +16811,8 @@ export namespace Prisma {
     job_seeker_id?: IntWithAggregatesFilter<"Job_application"> | number
     job_id?: IntWithAggregatesFilter<"Job_application"> | number
     company_id?: IntWithAggregatesFilter<"Job_application"> | number
-    cover_letter?: StringNullableWithAggregatesFilter<"Job_application"> | string | null
     status?: StringWithAggregatesFilter<"Job_application"> | string
+    cover_letter?: StringNullableWithAggregatesFilter<"Job_application"> | string | null
   }
 
   export type DisabilityWhereInput = {
@@ -16881,18 +16912,18 @@ export namespace Prisma {
     OR?: List_abilityWhereInput[]
     NOT?: List_abilityWhereInput | List_abilityWhereInput[]
     id?: IntFilter<"List_ability"> | number
-    ability_id?: IntNullableFilter<"List_ability"> | number | null
     job_id?: IntNullableFilter<"List_ability"> | number | null
-    ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
+    ability_id?: IntNullableFilter<"List_ability"> | number | null
     job?: XOR<JobsNullableRelationFilter, JobsWhereInput> | null
+    ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
   }
 
   export type List_abilityOrderByWithRelationInput = {
     id?: SortOrder
-    ability_id?: SortOrderInput | SortOrder
     job_id?: SortOrderInput | SortOrder
-    ability?: AbilityOrderByWithRelationInput
+    ability_id?: SortOrderInput | SortOrder
     job?: JobsOrderByWithRelationInput
+    ability?: AbilityOrderByWithRelationInput
   }
 
   export type List_abilityWhereUniqueInput = Prisma.AtLeast<{
@@ -16900,16 +16931,16 @@ export namespace Prisma {
     AND?: List_abilityWhereInput | List_abilityWhereInput[]
     OR?: List_abilityWhereInput[]
     NOT?: List_abilityWhereInput | List_abilityWhereInput[]
-    ability_id?: IntNullableFilter<"List_ability"> | number | null
     job_id?: IntNullableFilter<"List_ability"> | number | null
-    ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
+    ability_id?: IntNullableFilter<"List_ability"> | number | null
     job?: XOR<JobsNullableRelationFilter, JobsWhereInput> | null
+    ability?: XOR<AbilityNullableRelationFilter, AbilityWhereInput> | null
   }, "id">
 
   export type List_abilityOrderByWithAggregationInput = {
     id?: SortOrder
-    ability_id?: SortOrderInput | SortOrder
     job_id?: SortOrderInput | SortOrder
+    ability_id?: SortOrderInput | SortOrder
     _count?: List_abilityCountOrderByAggregateInput
     _avg?: List_abilityAvgOrderByAggregateInput
     _max?: List_abilityMaxOrderByAggregateInput
@@ -16922,8 +16953,8 @@ export namespace Prisma {
     OR?: List_abilityScalarWhereWithAggregatesInput[]
     NOT?: List_abilityScalarWhereWithAggregatesInput | List_abilityScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"List_ability"> | number
-    ability_id?: IntNullableWithAggregatesFilter<"List_ability"> | number | null
     job_id?: IntNullableWithAggregatesFilter<"List_ability"> | number | null
+    ability_id?: IntNullableWithAggregatesFilter<"List_ability"> | number | null
   }
 
   export type Job_seeker_skillsWhereInput = {
@@ -17072,9 +17103,9 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified?: boolean
-    job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
+    is_verified: boolean
     company?: CompanyCreateNestedManyWithoutUserInput
+    job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -17082,9 +17113,9 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified?: boolean
-    job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
+    is_verified: boolean
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
+    job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -17092,8 +17123,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    job_seeker?: Job_seekerUpdateManyWithoutUserNestedInput
     company?: CompanyUpdateManyWithoutUserNestedInput
+    job_seeker?: Job_seekerUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -17102,8 +17133,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
-    job_seeker?: Job_seekerUncheckedUpdateManyWithoutUserNestedInput
     company?: CompanyUncheckedUpdateManyWithoutUserNestedInput
+    job_seeker?: Job_seekerUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -17111,7 +17142,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified?: boolean
+    is_verified: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -17131,84 +17162,84 @@ export namespace Prisma {
 
   export type Job_seekerCreateInput = {
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerUncheckedCreateInput = {
     id?: number
     user_id: number
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerUpdateInput = {
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type Job_seekerUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type Job_seekerCreateManyInput = {
     id?: number
     user_id: number
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
+    dob: Date | string
+    gender: string
   }
 
   export type Job_seekerUpdateManyMutationInput = {
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type Job_seekerUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type CompanyCreateInput = {
@@ -17218,8 +17249,8 @@ export namespace Prisma {
     logo?: string | null
     picture?: string | null
     user: UserCreateNestedOneWithoutCompanyInput
-    jobs?: JobsCreateNestedManyWithoutCompanyInput
     job_application?: Job_applicationCreateNestedManyWithoutCompanyInput
+    jobs?: JobsCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateInput = {
@@ -17230,8 +17261,8 @@ export namespace Prisma {
     about: string
     logo?: string | null
     picture?: string | null
-    jobs?: JobsUncheckedCreateNestedManyWithoutCompanyInput
     job_application?: Job_applicationUncheckedCreateNestedManyWithoutCompanyInput
+    jobs?: JobsUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUpdateInput = {
@@ -17241,8 +17272,8 @@ export namespace Prisma {
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutCompanyNestedInput
-    jobs?: JobsUpdateManyWithoutCompanyNestedInput
     job_application?: Job_applicationUpdateManyWithoutCompanyNestedInput
+    jobs?: JobsUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateInput = {
@@ -17253,8 +17284,8 @@ export namespace Prisma {
     about?: StringFieldUpdateOperationsInput | string
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    jobs?: JobsUncheckedUpdateManyWithoutCompanyNestedInput
     job_application?: Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput
+    jobs?: JobsUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyCreateManyInput = {
@@ -17288,14 +17319,15 @@ export namespace Prisma {
   export type JobsCreateInput = {
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
-    company: CompanyCreateNestedOneWithoutJobsInput
-    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
+    company: CompanyCreateNestedOneWithoutJobsInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
   }
 
   export type JobsUncheckedCreateInput = {
@@ -17303,26 +17335,28 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
-    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
   }
 
   export type JobsUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
-    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
+    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
   }
 
   export type JobsUncheckedUpdateInput = {
@@ -17330,13 +17364,14 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type JobsCreateManyInput = {
@@ -17344,19 +17379,21 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
   }
 
   export type JobsUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type JobsUncheckedUpdateManyInput = {
@@ -17364,10 +17401,11 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type List_certificateCreateInput = {
@@ -17456,8 +17494,8 @@ export namespace Prisma {
   }
 
   export type List_disabilityCreateInput = {
-    job_seeker: Job_seekerCreateNestedOneWithoutDisabilitiesInput
     disability: DisabilityCreateNestedOneWithoutList_disabilitiesInput
+    job_seeker: Job_seekerCreateNestedOneWithoutDisabilitiesInput
   }
 
   export type List_disabilityUncheckedCreateInput = {
@@ -17467,8 +17505,8 @@ export namespace Prisma {
   }
 
   export type List_disabilityUpdateInput = {
-    job_seeker?: Job_seekerUpdateOneRequiredWithoutDisabilitiesNestedInput
     disability?: DisabilityUpdateOneRequiredWithoutList_disabilitiesNestedInput
+    job_seeker?: Job_seekerUpdateOneRequiredWithoutDisabilitiesNestedInput
   }
 
   export type List_disabilityUncheckedUpdateInput = {
@@ -17494,11 +17532,11 @@ export namespace Prisma {
   }
 
   export type Job_applicationCreateInput = {
-    cover_letter?: string | null
     status: string
-    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
-    job: JobsCreateNestedOneWithoutJobApplicationsInput
+    cover_letter?: string | null
     company: CompanyCreateNestedOneWithoutJob_applicationInput
+    job: JobsCreateNestedOneWithoutJobApplicationsInput
+    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
   }
 
   export type Job_applicationUncheckedCreateInput = {
@@ -17506,16 +17544,16 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
-    cover_letter?: string | null
     status: string
+    cover_letter?: string | null
   }
 
   export type Job_applicationUpdateInput = {
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
-    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
-    job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
+    job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
+    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
   }
 
   export type Job_applicationUncheckedUpdateInput = {
@@ -17523,8 +17561,8 @@ export namespace Prisma {
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationCreateManyInput = {
@@ -17532,13 +17570,13 @@ export namespace Prisma {
     job_seeker_id: number
     job_id: number
     company_id: number
-    cover_letter?: string | null
     status: string
+    cover_letter?: string | null
   }
 
   export type Job_applicationUpdateManyMutationInput = {
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationUncheckedUpdateManyInput = {
@@ -17546,8 +17584,8 @@ export namespace Prisma {
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DisabilityCreateInput = {
@@ -17629,31 +17667,31 @@ export namespace Prisma {
   }
 
   export type List_abilityCreateInput = {
-    ability?: AbilityCreateNestedOneWithoutList_abiltyInput
     job?: JobsCreateNestedOneWithoutList_abilityInput
+    ability?: AbilityCreateNestedOneWithoutList_abiltyInput
   }
 
   export type List_abilityUncheckedCreateInput = {
     id?: number
-    ability_id?: number | null
     job_id?: number | null
+    ability_id?: number | null
   }
 
   export type List_abilityUpdateInput = {
-    ability?: AbilityUpdateOneWithoutList_abiltyNestedInput
     job?: JobsUpdateOneWithoutList_abilityNestedInput
+    ability?: AbilityUpdateOneWithoutList_abiltyNestedInput
   }
 
   export type List_abilityUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     job_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type List_abilityCreateManyInput = {
     id?: number
-    ability_id?: number | null
     job_id?: number | null
+    ability_id?: number | null
   }
 
   export type List_abilityUpdateManyMutationInput = {
@@ -17662,8 +17700,8 @@ export namespace Prisma {
 
   export type List_abilityUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
     job_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ability_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type Job_seeker_skillsCreateInput = {
@@ -17809,23 +17847,23 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type Job_seekerListRelationFilter = {
-    every?: Job_seekerWhereInput
-    some?: Job_seekerWhereInput
-    none?: Job_seekerWhereInput
-  }
-
   export type CompanyListRelationFilter = {
     every?: CompanyWhereInput
     some?: CompanyWhereInput
     none?: CompanyWhereInput
   }
 
-  export type Job_seekerOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type Job_seekerListRelationFilter = {
+    every?: Job_seekerWhereInput
+    some?: Job_seekerWhereInput
+    none?: Job_seekerWhereInput
   }
 
   export type CompanyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Job_seekerOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17903,17 +17941,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -17929,9 +17956,32 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type Job_applicationListRelationFilter = {
+    every?: Job_applicationWhereInput
+    some?: Job_applicationWhereInput
+    none?: Job_applicationWhereInput
+  }
+
   export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
+  }
+
+  export type Job_seeker_skillsListRelationFilter = {
+    every?: Job_seeker_skillsWhereInput
+    some?: Job_seeker_skillsWhereInput
+    none?: Job_seeker_skillsWhereInput
   }
 
   export type List_certificateListRelationFilter = {
@@ -17946,21 +17996,17 @@ export namespace Prisma {
     none?: List_disabilityWhereInput
   }
 
-  export type Job_seeker_skillsListRelationFilter = {
-    every?: Job_seeker_skillsWhereInput
-    some?: Job_seeker_skillsWhereInput
-    none?: Job_seeker_skillsWhereInput
-  }
-
-  export type Job_applicationListRelationFilter = {
-    every?: Job_applicationWhereInput
-    some?: Job_applicationWhereInput
-    none?: Job_applicationWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type Job_applicationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Job_seeker_skillsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type List_certificateOrderByRelationAggregateInput = {
@@ -17971,22 +18017,14 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type Job_seeker_skillsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type Job_applicationOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type Job_seekerCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
     fullname?: SortOrder
-    dob?: SortOrder
-    gender?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    dob?: SortOrder
+    gender?: SortOrder
   }
 
   export type Job_seekerAvgOrderByAggregateInput = {
@@ -17998,39 +18036,25 @@ export namespace Prisma {
     id?: SortOrder
     user_id?: SortOrder
     fullname?: SortOrder
-    dob?: SortOrder
-    gender?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    dob?: SortOrder
+    gender?: SortOrder
   }
 
   export type Job_seekerMinOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
     fullname?: SortOrder
-    dob?: SortOrder
-    gender?: SortOrder
     phone_number?: SortOrder
     city?: SortOrder
+    dob?: SortOrder
+    gender?: SortOrder
   }
 
   export type Job_seekerSumOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18049,6 +18073,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type JobsListRelationFilter = {
@@ -18101,26 +18139,31 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type CompanyRelationFilter = {
     is?: CompanyWhereInput
     isNot?: CompanyWhereInput
-  }
-
-  export type Required_skillsListRelationFilter = {
-    every?: Required_skillsWhereInput
-    some?: Required_skillsWhereInput
-    none?: Required_skillsWhereInput
   }
 
   export type List_abilityListRelationFilter = {
@@ -18129,11 +18172,17 @@ export namespace Prisma {
     none?: List_abilityWhereInput
   }
 
-  export type Required_skillsOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type Required_skillsListRelationFilter = {
+    every?: Required_skillsWhereInput
+    some?: Required_skillsWhereInput
+    none?: Required_skillsWhereInput
   }
 
   export type List_abilityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Required_skillsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -18144,8 +18193,9 @@ export namespace Prisma {
     description?: SortOrder
     employment_type?: SortOrder
     min_salary?: SortOrder
-    max_salary?: SortOrder
     gender?: SortOrder
+    max_salary?: SortOrder
+    date_posted?: SortOrder
   }
 
   export type JobsAvgOrderByAggregateInput = {
@@ -18162,8 +18212,9 @@ export namespace Prisma {
     description?: SortOrder
     employment_type?: SortOrder
     min_salary?: SortOrder
-    max_salary?: SortOrder
     gender?: SortOrder
+    max_salary?: SortOrder
+    date_posted?: SortOrder
   }
 
   export type JobsMinOrderByAggregateInput = {
@@ -18173,8 +18224,9 @@ export namespace Prisma {
     description?: SortOrder
     employment_type?: SortOrder
     min_salary?: SortOrder
-    max_salary?: SortOrder
     gender?: SortOrder
+    max_salary?: SortOrder
+    date_posted?: SortOrder
   }
 
   export type JobsSumOrderByAggregateInput = {
@@ -18184,20 +18236,34 @@ export namespace Prisma {
     max_salary?: SortOrder
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type Job_seekerRelationFilter = {
@@ -18304,8 +18370,8 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
-    cover_letter?: SortOrder
     status?: SortOrder
+    cover_letter?: SortOrder
   }
 
   export type Job_applicationAvgOrderByAggregateInput = {
@@ -18320,8 +18386,8 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
-    cover_letter?: SortOrder
     status?: SortOrder
+    cover_letter?: SortOrder
   }
 
   export type Job_applicationMinOrderByAggregateInput = {
@@ -18329,8 +18395,8 @@ export namespace Prisma {
     job_seeker_id?: SortOrder
     job_id?: SortOrder
     company_id?: SortOrder
-    cover_letter?: SortOrder
     status?: SortOrder
+    cover_letter?: SortOrder
   }
 
   export type Job_applicationSumOrderByAggregateInput = {
@@ -18396,9 +18462,15 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type AbilityNullableRelationFilter = {
-    is?: AbilityWhereInput | null
-    isNot?: AbilityWhereInput | null
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type JobsNullableRelationFilter = {
@@ -18406,34 +18478,55 @@ export namespace Prisma {
     isNot?: JobsWhereInput | null
   }
 
+  export type AbilityNullableRelationFilter = {
+    is?: AbilityWhereInput | null
+    isNot?: AbilityWhereInput | null
+  }
+
   export type List_abilityCountOrderByAggregateInput = {
     id?: SortOrder
-    ability_id?: SortOrder
     job_id?: SortOrder
+    ability_id?: SortOrder
   }
 
   export type List_abilityAvgOrderByAggregateInput = {
     id?: SortOrder
-    ability_id?: SortOrder
     job_id?: SortOrder
+    ability_id?: SortOrder
   }
 
   export type List_abilityMaxOrderByAggregateInput = {
     id?: SortOrder
-    ability_id?: SortOrder
     job_id?: SortOrder
+    ability_id?: SortOrder
   }
 
   export type List_abilityMinOrderByAggregateInput = {
     id?: SortOrder
-    ability_id?: SortOrder
     job_id?: SortOrder
+    ability_id?: SortOrder
   }
 
   export type List_abilitySumOrderByAggregateInput = {
     id?: SortOrder
-    ability_id?: SortOrder
     job_id?: SortOrder
+    ability_id?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SkillsRelationFilter = {
@@ -18534,13 +18627,6 @@ export namespace Prisma {
     skill_id?: SortOrder
   }
 
-  export type Job_seekerCreateNestedManyWithoutUserInput = {
-    create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
-    createMany?: Job_seekerCreateManyUserInputEnvelope
-    connect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
-  }
-
   export type CompanyCreateNestedManyWithoutUserInput = {
     create?: XOR<CompanyCreateWithoutUserInput, CompanyUncheckedCreateWithoutUserInput> | CompanyCreateWithoutUserInput[] | CompanyUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CompanyCreateOrConnectWithoutUserInput | CompanyCreateOrConnectWithoutUserInput[]
@@ -18548,7 +18634,7 @@ export namespace Prisma {
     connect?: CompanyWhereUniqueInput | CompanyWhereUniqueInput[]
   }
 
-  export type Job_seekerUncheckedCreateNestedManyWithoutUserInput = {
+  export type Job_seekerCreateNestedManyWithoutUserInput = {
     create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
     connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
     createMany?: Job_seekerCreateManyUserInputEnvelope
@@ -18562,26 +18648,19 @@ export namespace Prisma {
     connect?: CompanyWhereUniqueInput | CompanyWhereUniqueInput[]
   }
 
+  export type Job_seekerUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
+    createMany?: Job_seekerCreateManyUserInputEnvelope
+    connect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
-  }
-
-  export type Job_seekerUpdateManyWithoutUserNestedInput = {
-    create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
-    upsert?: Job_seekerUpsertWithWhereUniqueWithoutUserInput | Job_seekerUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: Job_seekerCreateManyUserInputEnvelope
-    set?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
-    disconnect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
-    delete?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
-    connect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
-    update?: Job_seekerUpdateWithWhereUniqueWithoutUserInput | Job_seekerUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: Job_seekerUpdateManyWithWhereWithoutUserInput | Job_seekerUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
   }
 
   export type CompanyUpdateManyWithoutUserNestedInput = {
@@ -18598,15 +18677,7 @@ export namespace Prisma {
     deleteMany?: CompanyScalarWhereInput | CompanyScalarWhereInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type Job_seekerUncheckedUpdateManyWithoutUserNestedInput = {
+  export type Job_seekerUpdateManyWithoutUserNestedInput = {
     create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
     connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
     upsert?: Job_seekerUpsertWithWhereUniqueWithoutUserInput | Job_seekerUpsertWithWhereUniqueWithoutUserInput[]
@@ -18618,6 +18689,14 @@ export namespace Prisma {
     update?: Job_seekerUpdateWithWhereUniqueWithoutUserInput | Job_seekerUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: Job_seekerUpdateManyWithWhereWithoutUserInput | Job_seekerUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type CompanyUncheckedUpdateManyWithoutUserNestedInput = {
@@ -18634,10 +18713,38 @@ export namespace Prisma {
     deleteMany?: CompanyScalarWhereInput | CompanyScalarWhereInput[]
   }
 
+  export type Job_seekerUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput> | Job_seekerCreateWithoutUserInput[] | Job_seekerUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Job_seekerCreateOrConnectWithoutUserInput | Job_seekerCreateOrConnectWithoutUserInput[]
+    upsert?: Job_seekerUpsertWithWhereUniqueWithoutUserInput | Job_seekerUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Job_seekerCreateManyUserInputEnvelope
+    set?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
+    disconnect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
+    delete?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
+    connect?: Job_seekerWhereUniqueInput | Job_seekerWhereUniqueInput[]
+    update?: Job_seekerUpdateWithWhereUniqueWithoutUserInput | Job_seekerUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Job_seekerUpdateManyWithWhereWithoutUserInput | Job_seekerUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
+  }
+
+  export type Job_applicationCreateNestedManyWithoutJob_seekerInput = {
+    create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
+    createMany?: Job_applicationCreateManyJob_seekerInputEnvelope
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+  }
+
   export type UserCreateNestedOneWithoutJob_seekerInput = {
     create?: XOR<UserCreateWithoutJob_seekerInput, UserUncheckedCreateWithoutJob_seekerInput>
     connectOrCreate?: UserCreateOrConnectWithoutJob_seekerInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput = {
+    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
+    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
+    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
   }
 
   export type List_certificateCreateNestedManyWithoutJob_seekerInput = {
@@ -18654,18 +18761,18 @@ export namespace Prisma {
     connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
-  export type Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput = {
-    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
-    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
-    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-  }
-
-  export type Job_applicationCreateNestedManyWithoutJob_seekerInput = {
+  export type Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput = {
     create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
     connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
     createMany?: Job_applicationCreateManyJob_seekerInputEnvelope
     connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+  }
+
+  export type Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput = {
+    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
+    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
+    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
   }
 
   export type List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput = {
@@ -18682,26 +18789,26 @@ export namespace Prisma {
     connect?: List_disabilityWhereUniqueInput | List_disabilityWhereUniqueInput[]
   }
 
-  export type Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput = {
-    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
-    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
-    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-  }
-
-  export type Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput = {
-    create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
-    createMany?: Job_applicationCreateManyJob_seekerInputEnvelope
-    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type Job_applicationUpdateManyWithoutJob_seekerNestedInput = {
+    create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
+    upsert?: Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput[]
+    createMany?: Job_applicationCreateManyJob_seekerInputEnvelope
+    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
+    update?: Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput[]
+    updateMany?: Job_applicationUpdateManyWithWhereWithoutJob_seekerInput | Job_applicationUpdateManyWithWhereWithoutJob_seekerInput[]
+    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
   export type UserUpdateOneRequiredWithoutJob_seekerNestedInput = {
@@ -18710,6 +18817,20 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutJob_seekerInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJob_seekerInput, UserUpdateWithoutJob_seekerInput>, UserUncheckedUpdateWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput = {
+    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
+    upsert?: Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput[]
+    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
+    set?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    disconnect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    delete?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    update?: Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput[]
+    updateMany?: Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput | Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput[]
+    deleteMany?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
   }
 
   export type List_certificateUpdateManyWithoutJob_seekerNestedInput = {
@@ -18740,21 +18861,7 @@ export namespace Prisma {
     deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
-  export type Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput = {
-    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
-    upsert?: Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput[]
-    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
-    set?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    disconnect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    delete?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    update?: Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput[]
-    updateMany?: Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput | Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput[]
-    deleteMany?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
-  }
-
-  export type Job_applicationUpdateManyWithoutJob_seekerNestedInput = {
+  export type Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput = {
     create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
     connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
     upsert?: Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput[]
@@ -18766,6 +18873,20 @@ export namespace Prisma {
     update?: Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput[]
     updateMany?: Job_applicationUpdateManyWithWhereWithoutJob_seekerInput | Job_applicationUpdateManyWithWhereWithoutJob_seekerInput[]
     deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+  }
+
+  export type Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput = {
+    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
+    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
+    upsert?: Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput[]
+    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
+    set?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    disconnect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    delete?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
+    update?: Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput[]
+    updateMany?: Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput | Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput[]
+    deleteMany?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
   }
 
   export type List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput = {
@@ -18796,45 +18917,10 @@ export namespace Prisma {
     deleteMany?: List_disabilityScalarWhereInput | List_disabilityScalarWhereInput[]
   }
 
-  export type Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput = {
-    create?: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput> | Job_seeker_skillsCreateWithoutJob_seekerInput[] | Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput | Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput[]
-    upsert?: Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput[]
-    createMany?: Job_seeker_skillsCreateManyJob_seekerInputEnvelope
-    set?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    disconnect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    delete?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    connect?: Job_seeker_skillsWhereUniqueInput | Job_seeker_skillsWhereUniqueInput[]
-    update?: Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput | Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput[]
-    updateMany?: Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput | Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput[]
-    deleteMany?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
-  }
-
-  export type Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput = {
-    create?: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput> | Job_applicationCreateWithoutJob_seekerInput[] | Job_applicationUncheckedCreateWithoutJob_seekerInput[]
-    connectOrCreate?: Job_applicationCreateOrConnectWithoutJob_seekerInput | Job_applicationCreateOrConnectWithoutJob_seekerInput[]
-    upsert?: Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput[]
-    createMany?: Job_applicationCreateManyJob_seekerInputEnvelope
-    set?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
-    disconnect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
-    delete?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
-    connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
-    update?: Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput | Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput[]
-    updateMany?: Job_applicationUpdateManyWithWhereWithoutJob_seekerInput | Job_applicationUpdateManyWithWhereWithoutJob_seekerInput[]
-    deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
-  }
-
   export type UserCreateNestedOneWithoutCompanyInput = {
     create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput>
     connectOrCreate?: UserCreateOrConnectWithoutCompanyInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type JobsCreateNestedManyWithoutCompanyInput = {
-    create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
-    createMany?: JobsCreateManyCompanyInputEnvelope
-    connect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
   }
 
   export type Job_applicationCreateNestedManyWithoutCompanyInput = {
@@ -18844,7 +18930,7 @@ export namespace Prisma {
     connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
-  export type JobsUncheckedCreateNestedManyWithoutCompanyInput = {
+  export type JobsCreateNestedManyWithoutCompanyInput = {
     create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
     connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
     createMany?: JobsCreateManyCompanyInputEnvelope
@@ -18858,26 +18944,19 @@ export namespace Prisma {
     connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
+  export type JobsUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
+    createMany?: JobsCreateManyCompanyInputEnvelope
+    connect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
+  }
+
   export type UserUpdateOneRequiredWithoutCompanyNestedInput = {
     create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput>
     connectOrCreate?: UserCreateOrConnectWithoutCompanyInput
     upsert?: UserUpsertWithoutCompanyInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCompanyInput, UserUpdateWithoutCompanyInput>, UserUncheckedUpdateWithoutCompanyInput>
-  }
-
-  export type JobsUpdateManyWithoutCompanyNestedInput = {
-    create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
-    connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
-    upsert?: JobsUpsertWithWhereUniqueWithoutCompanyInput | JobsUpsertWithWhereUniqueWithoutCompanyInput[]
-    createMany?: JobsCreateManyCompanyInputEnvelope
-    set?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
-    disconnect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
-    delete?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
-    connect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
-    update?: JobsUpdateWithWhereUniqueWithoutCompanyInput | JobsUpdateWithWhereUniqueWithoutCompanyInput[]
-    updateMany?: JobsUpdateManyWithWhereWithoutCompanyInput | JobsUpdateManyWithWhereWithoutCompanyInput[]
-    deleteMany?: JobsScalarWhereInput | JobsScalarWhereInput[]
   }
 
   export type Job_applicationUpdateManyWithoutCompanyNestedInput = {
@@ -18894,7 +18973,7 @@ export namespace Prisma {
     deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type JobsUncheckedUpdateManyWithoutCompanyNestedInput = {
+  export type JobsUpdateManyWithoutCompanyNestedInput = {
     create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
     connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
     upsert?: JobsUpsertWithWhereUniqueWithoutCompanyInput | JobsUpsertWithWhereUniqueWithoutCompanyInput[]
@@ -18922,17 +19001,18 @@ export namespace Prisma {
     deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
-  export type CompanyCreateNestedOneWithoutJobsInput = {
-    create?: XOR<CompanyCreateWithoutJobsInput, CompanyUncheckedCreateWithoutJobsInput>
-    connectOrCreate?: CompanyCreateOrConnectWithoutJobsInput
-    connect?: CompanyWhereUniqueInput
-  }
-
-  export type Required_skillsCreateNestedManyWithoutJobInput = {
-    create?: XOR<Required_skillsCreateWithoutJobInput, Required_skillsUncheckedCreateWithoutJobInput> | Required_skillsCreateWithoutJobInput[] | Required_skillsUncheckedCreateWithoutJobInput[]
-    connectOrCreate?: Required_skillsCreateOrConnectWithoutJobInput | Required_skillsCreateOrConnectWithoutJobInput[]
-    createMany?: Required_skillsCreateManyJobInputEnvelope
-    connect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
+  export type JobsUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput> | JobsCreateWithoutCompanyInput[] | JobsUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: JobsCreateOrConnectWithoutCompanyInput | JobsCreateOrConnectWithoutCompanyInput[]
+    upsert?: JobsUpsertWithWhereUniqueWithoutCompanyInput | JobsUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: JobsCreateManyCompanyInputEnvelope
+    set?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
+    disconnect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
+    delete?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
+    connect?: JobsWhereUniqueInput | JobsWhereUniqueInput[]
+    update?: JobsUpdateWithWhereUniqueWithoutCompanyInput | JobsUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: JobsUpdateManyWithWhereWithoutCompanyInput | JobsUpdateManyWithWhereWithoutCompanyInput[]
+    deleteMany?: JobsScalarWhereInput | JobsScalarWhereInput[]
   }
 
   export type Job_applicationCreateNestedManyWithoutJobInput = {
@@ -18942,6 +19022,12 @@ export namespace Prisma {
     connect?: Job_applicationWhereUniqueInput | Job_applicationWhereUniqueInput[]
   }
 
+  export type CompanyCreateNestedOneWithoutJobsInput = {
+    create?: XOR<CompanyCreateWithoutJobsInput, CompanyUncheckedCreateWithoutJobsInput>
+    connectOrCreate?: CompanyCreateOrConnectWithoutJobsInput
+    connect?: CompanyWhereUniqueInput
+  }
+
   export type List_abilityCreateNestedManyWithoutJobInput = {
     create?: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput> | List_abilityCreateWithoutJobInput[] | List_abilityUncheckedCreateWithoutJobInput[]
     connectOrCreate?: List_abilityCreateOrConnectWithoutJobInput | List_abilityCreateOrConnectWithoutJobInput[]
@@ -18949,7 +19035,7 @@ export namespace Prisma {
     connect?: List_abilityWhereUniqueInput | List_abilityWhereUniqueInput[]
   }
 
-  export type Required_skillsUncheckedCreateNestedManyWithoutJobInput = {
+  export type Required_skillsCreateNestedManyWithoutJobInput = {
     create?: XOR<Required_skillsCreateWithoutJobInput, Required_skillsUncheckedCreateWithoutJobInput> | Required_skillsCreateWithoutJobInput[] | Required_skillsUncheckedCreateWithoutJobInput[]
     connectOrCreate?: Required_skillsCreateOrConnectWithoutJobInput | Required_skillsCreateOrConnectWithoutJobInput[]
     createMany?: Required_skillsCreateManyJobInputEnvelope
@@ -18970,34 +19056,23 @@ export namespace Prisma {
     connect?: List_abilityWhereUniqueInput | List_abilityWhereUniqueInput[]
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type CompanyUpdateOneRequiredWithoutJobsNestedInput = {
-    create?: XOR<CompanyCreateWithoutJobsInput, CompanyUncheckedCreateWithoutJobsInput>
-    connectOrCreate?: CompanyCreateOrConnectWithoutJobsInput
-    upsert?: CompanyUpsertWithoutJobsInput
-    connect?: CompanyWhereUniqueInput
-    update?: XOR<XOR<CompanyUpdateToOneWithWhereWithoutJobsInput, CompanyUpdateWithoutJobsInput>, CompanyUncheckedUpdateWithoutJobsInput>
-  }
-
-  export type Required_skillsUpdateManyWithoutJobNestedInput = {
+  export type Required_skillsUncheckedCreateNestedManyWithoutJobInput = {
     create?: XOR<Required_skillsCreateWithoutJobInput, Required_skillsUncheckedCreateWithoutJobInput> | Required_skillsCreateWithoutJobInput[] | Required_skillsUncheckedCreateWithoutJobInput[]
     connectOrCreate?: Required_skillsCreateOrConnectWithoutJobInput | Required_skillsCreateOrConnectWithoutJobInput[]
-    upsert?: Required_skillsUpsertWithWhereUniqueWithoutJobInput | Required_skillsUpsertWithWhereUniqueWithoutJobInput[]
     createMany?: Required_skillsCreateManyJobInputEnvelope
-    set?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
-    disconnect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
-    delete?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
     connect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
-    update?: Required_skillsUpdateWithWhereUniqueWithoutJobInput | Required_skillsUpdateWithWhereUniqueWithoutJobInput[]
-    updateMany?: Required_skillsUpdateManyWithWhereWithoutJobInput | Required_skillsUpdateManyWithWhereWithoutJobInput[]
-    deleteMany?: Required_skillsScalarWhereInput | Required_skillsScalarWhereInput[]
+  }
+
+  export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type Job_applicationUpdateManyWithoutJobNestedInput = {
@@ -19014,6 +19089,14 @@ export namespace Prisma {
     deleteMany?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
   }
 
+  export type CompanyUpdateOneRequiredWithoutJobsNestedInput = {
+    create?: XOR<CompanyCreateWithoutJobsInput, CompanyUncheckedCreateWithoutJobsInput>
+    connectOrCreate?: CompanyCreateOrConnectWithoutJobsInput
+    upsert?: CompanyUpsertWithoutJobsInput
+    connect?: CompanyWhereUniqueInput
+    update?: XOR<XOR<CompanyUpdateToOneWithWhereWithoutJobsInput, CompanyUpdateWithoutJobsInput>, CompanyUncheckedUpdateWithoutJobsInput>
+  }
+
   export type List_abilityUpdateManyWithoutJobNestedInput = {
     create?: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput> | List_abilityCreateWithoutJobInput[] | List_abilityUncheckedCreateWithoutJobInput[]
     connectOrCreate?: List_abilityCreateOrConnectWithoutJobInput | List_abilityCreateOrConnectWithoutJobInput[]
@@ -19028,7 +19111,7 @@ export namespace Prisma {
     deleteMany?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
   }
 
-  export type Required_skillsUncheckedUpdateManyWithoutJobNestedInput = {
+  export type Required_skillsUpdateManyWithoutJobNestedInput = {
     create?: XOR<Required_skillsCreateWithoutJobInput, Required_skillsUncheckedCreateWithoutJobInput> | Required_skillsCreateWithoutJobInput[] | Required_skillsUncheckedCreateWithoutJobInput[]
     connectOrCreate?: Required_skillsCreateOrConnectWithoutJobInput | Required_skillsCreateOrConnectWithoutJobInput[]
     upsert?: Required_skillsUpsertWithWhereUniqueWithoutJobInput | Required_skillsUpsertWithWhereUniqueWithoutJobInput[]
@@ -19068,6 +19151,20 @@ export namespace Prisma {
     update?: List_abilityUpdateWithWhereUniqueWithoutJobInput | List_abilityUpdateWithWhereUniqueWithoutJobInput[]
     updateMany?: List_abilityUpdateManyWithWhereWithoutJobInput | List_abilityUpdateManyWithWhereWithoutJobInput[]
     deleteMany?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
+  }
+
+  export type Required_skillsUncheckedUpdateManyWithoutJobNestedInput = {
+    create?: XOR<Required_skillsCreateWithoutJobInput, Required_skillsUncheckedCreateWithoutJobInput> | Required_skillsCreateWithoutJobInput[] | Required_skillsUncheckedCreateWithoutJobInput[]
+    connectOrCreate?: Required_skillsCreateOrConnectWithoutJobInput | Required_skillsCreateOrConnectWithoutJobInput[]
+    upsert?: Required_skillsUpsertWithWhereUniqueWithoutJobInput | Required_skillsUpsertWithWhereUniqueWithoutJobInput[]
+    createMany?: Required_skillsCreateManyJobInputEnvelope
+    set?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
+    disconnect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
+    delete?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
+    connect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
+    update?: Required_skillsUpdateWithWhereUniqueWithoutJobInput | Required_skillsUpdateWithWhereUniqueWithoutJobInput[]
+    updateMany?: Required_skillsUpdateManyWithWhereWithoutJobInput | Required_skillsUpdateManyWithWhereWithoutJobInput[]
+    deleteMany?: Required_skillsScalarWhereInput | Required_skillsScalarWhereInput[]
   }
 
   export type Job_seekerCreateNestedOneWithoutCertificatesInput = {
@@ -19168,24 +19265,16 @@ export namespace Prisma {
     deleteMany?: Required_skillsScalarWhereInput | Required_skillsScalarWhereInput[]
   }
 
-  export type Job_seekerCreateNestedOneWithoutDisabilitiesInput = {
-    create?: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
-    connectOrCreate?: Job_seekerCreateOrConnectWithoutDisabilitiesInput
-    connect?: Job_seekerWhereUniqueInput
-  }
-
   export type DisabilityCreateNestedOneWithoutList_disabilitiesInput = {
     create?: XOR<DisabilityCreateWithoutList_disabilitiesInput, DisabilityUncheckedCreateWithoutList_disabilitiesInput>
     connectOrCreate?: DisabilityCreateOrConnectWithoutList_disabilitiesInput
     connect?: DisabilityWhereUniqueInput
   }
 
-  export type Job_seekerUpdateOneRequiredWithoutDisabilitiesNestedInput = {
+  export type Job_seekerCreateNestedOneWithoutDisabilitiesInput = {
     create?: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
     connectOrCreate?: Job_seekerCreateOrConnectWithoutDisabilitiesInput
-    upsert?: Job_seekerUpsertWithoutDisabilitiesInput
     connect?: Job_seekerWhereUniqueInput
-    update?: XOR<XOR<Job_seekerUpdateToOneWithWhereWithoutDisabilitiesInput, Job_seekerUpdateWithoutDisabilitiesInput>, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
   }
 
   export type DisabilityUpdateOneRequiredWithoutList_disabilitiesNestedInput = {
@@ -19196,16 +19285,12 @@ export namespace Prisma {
     update?: XOR<XOR<DisabilityUpdateToOneWithWhereWithoutList_disabilitiesInput, DisabilityUpdateWithoutList_disabilitiesInput>, DisabilityUncheckedUpdateWithoutList_disabilitiesInput>
   }
 
-  export type Job_seekerCreateNestedOneWithoutJob_applicationsInput = {
-    create?: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
-    connectOrCreate?: Job_seekerCreateOrConnectWithoutJob_applicationsInput
+  export type Job_seekerUpdateOneRequiredWithoutDisabilitiesNestedInput = {
+    create?: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
+    connectOrCreate?: Job_seekerCreateOrConnectWithoutDisabilitiesInput
+    upsert?: Job_seekerUpsertWithoutDisabilitiesInput
     connect?: Job_seekerWhereUniqueInput
-  }
-
-  export type JobsCreateNestedOneWithoutJobApplicationsInput = {
-    create?: XOR<JobsCreateWithoutJobApplicationsInput, JobsUncheckedCreateWithoutJobApplicationsInput>
-    connectOrCreate?: JobsCreateOrConnectWithoutJobApplicationsInput
-    connect?: JobsWhereUniqueInput
+    update?: XOR<XOR<Job_seekerUpdateToOneWithWhereWithoutDisabilitiesInput, Job_seekerUpdateWithoutDisabilitiesInput>, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
   }
 
   export type CompanyCreateNestedOneWithoutJob_applicationInput = {
@@ -19214,12 +19299,24 @@ export namespace Prisma {
     connect?: CompanyWhereUniqueInput
   }
 
-  export type Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput = {
+  export type JobsCreateNestedOneWithoutJobApplicationsInput = {
+    create?: XOR<JobsCreateWithoutJobApplicationsInput, JobsUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: JobsCreateOrConnectWithoutJobApplicationsInput
+    connect?: JobsWhereUniqueInput
+  }
+
+  export type Job_seekerCreateNestedOneWithoutJob_applicationsInput = {
     create?: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
     connectOrCreate?: Job_seekerCreateOrConnectWithoutJob_applicationsInput
-    upsert?: Job_seekerUpsertWithoutJob_applicationsInput
     connect?: Job_seekerWhereUniqueInput
-    update?: XOR<XOR<Job_seekerUpdateToOneWithWhereWithoutJob_applicationsInput, Job_seekerUpdateWithoutJob_applicationsInput>, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
+  }
+
+  export type CompanyUpdateOneRequiredWithoutJob_applicationNestedInput = {
+    create?: XOR<CompanyCreateWithoutJob_applicationInput, CompanyUncheckedCreateWithoutJob_applicationInput>
+    connectOrCreate?: CompanyCreateOrConnectWithoutJob_applicationInput
+    upsert?: CompanyUpsertWithoutJob_applicationInput
+    connect?: CompanyWhereUniqueInput
+    update?: XOR<XOR<CompanyUpdateToOneWithWhereWithoutJob_applicationInput, CompanyUpdateWithoutJob_applicationInput>, CompanyUncheckedUpdateWithoutJob_applicationInput>
   }
 
   export type JobsUpdateOneRequiredWithoutJobApplicationsNestedInput = {
@@ -19230,12 +19327,12 @@ export namespace Prisma {
     update?: XOR<XOR<JobsUpdateToOneWithWhereWithoutJobApplicationsInput, JobsUpdateWithoutJobApplicationsInput>, JobsUncheckedUpdateWithoutJobApplicationsInput>
   }
 
-  export type CompanyUpdateOneRequiredWithoutJob_applicationNestedInput = {
-    create?: XOR<CompanyCreateWithoutJob_applicationInput, CompanyUncheckedCreateWithoutJob_applicationInput>
-    connectOrCreate?: CompanyCreateOrConnectWithoutJob_applicationInput
-    upsert?: CompanyUpsertWithoutJob_applicationInput
-    connect?: CompanyWhereUniqueInput
-    update?: XOR<XOR<CompanyUpdateToOneWithWhereWithoutJob_applicationInput, CompanyUpdateWithoutJob_applicationInput>, CompanyUncheckedUpdateWithoutJob_applicationInput>
+  export type Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput = {
+    create?: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
+    connectOrCreate?: Job_seekerCreateOrConnectWithoutJob_applicationsInput
+    upsert?: Job_seekerUpsertWithoutJob_applicationsInput
+    connect?: Job_seekerWhereUniqueInput
+    update?: XOR<XOR<Job_seekerUpdateToOneWithWhereWithoutJob_applicationsInput, Job_seekerUpdateWithoutJob_applicationsInput>, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
   }
 
   export type CategoryCreateNestedOneWithoutDisabilitiesInput = {
@@ -19336,16 +19433,26 @@ export namespace Prisma {
     deleteMany?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
   }
 
+  export type JobsCreateNestedOneWithoutList_abilityInput = {
+    create?: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
+    connectOrCreate?: JobsCreateOrConnectWithoutList_abilityInput
+    connect?: JobsWhereUniqueInput
+  }
+
   export type AbilityCreateNestedOneWithoutList_abiltyInput = {
     create?: XOR<AbilityCreateWithoutList_abiltyInput, AbilityUncheckedCreateWithoutList_abiltyInput>
     connectOrCreate?: AbilityCreateOrConnectWithoutList_abiltyInput
     connect?: AbilityWhereUniqueInput
   }
 
-  export type JobsCreateNestedOneWithoutList_abilityInput = {
+  export type JobsUpdateOneWithoutList_abilityNestedInput = {
     create?: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
     connectOrCreate?: JobsCreateOrConnectWithoutList_abilityInput
+    upsert?: JobsUpsertWithoutList_abilityInput
+    disconnect?: JobsWhereInput | boolean
+    delete?: JobsWhereInput | boolean
     connect?: JobsWhereUniqueInput
+    update?: XOR<XOR<JobsUpdateToOneWithWhereWithoutList_abilityInput, JobsUpdateWithoutList_abilityInput>, JobsUncheckedUpdateWithoutList_abilityInput>
   }
 
   export type AbilityUpdateOneWithoutList_abiltyNestedInput = {
@@ -19358,14 +19465,12 @@ export namespace Prisma {
     update?: XOR<XOR<AbilityUpdateToOneWithWhereWithoutList_abiltyInput, AbilityUpdateWithoutList_abiltyInput>, AbilityUncheckedUpdateWithoutList_abiltyInput>
   }
 
-  export type JobsUpdateOneWithoutList_abilityNestedInput = {
-    create?: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
-    connectOrCreate?: JobsCreateOrConnectWithoutList_abilityInput
-    upsert?: JobsUpsertWithoutList_abilityInput
-    disconnect?: JobsWhereInput | boolean
-    delete?: JobsWhereInput | boolean
-    connect?: JobsWhereUniqueInput
-    update?: XOR<XOR<JobsUpdateToOneWithWhereWithoutList_abilityInput, JobsUpdateWithoutList_abilityInput>, JobsUncheckedUpdateWithoutList_abilityInput>
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type Job_seekerCreateNestedOneWithoutJob_seeker_skillsInput = {
@@ -19548,17 +19653,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -19573,7 +19667,7 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -19581,10 +19675,7 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19615,6 +19706,83 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -19631,60 +19799,14 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type Job_seekerCreateWithoutUserInput = {
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
-    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
-  }
-
-  export type Job_seekerUncheckedCreateWithoutUserInput = {
-    id?: number
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
-    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
-  }
-
-  export type Job_seekerCreateOrConnectWithoutUserInput = {
-    where: Job_seekerWhereUniqueInput
-    create: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput>
-  }
-
-  export type Job_seekerCreateManyUserInputEnvelope = {
-    data: Job_seekerCreateManyUserInput | Job_seekerCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type CompanyCreateWithoutUserInput = {
     name: string
     city: string
     about: string
     logo?: string | null
     picture?: string | null
-    jobs?: JobsCreateNestedManyWithoutCompanyInput
     job_application?: Job_applicationCreateNestedManyWithoutCompanyInput
+    jobs?: JobsCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutUserInput = {
@@ -19694,8 +19816,8 @@ export namespace Prisma {
     about: string
     logo?: string | null
     picture?: string | null
-    jobs?: JobsUncheckedCreateNestedManyWithoutCompanyInput
     job_application?: Job_applicationUncheckedCreateNestedManyWithoutCompanyInput
+    jobs?: JobsUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutUserInput = {
@@ -19708,33 +19830,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Job_seekerUpsertWithWhereUniqueWithoutUserInput = {
+  export type Job_seekerCreateWithoutUserInput = {
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
+  }
+
+  export type Job_seekerUncheckedCreateWithoutUserInput = {
+    id?: number
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
+  }
+
+  export type Job_seekerCreateOrConnectWithoutUserInput = {
     where: Job_seekerWhereUniqueInput
-    update: XOR<Job_seekerUpdateWithoutUserInput, Job_seekerUncheckedUpdateWithoutUserInput>
     create: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput>
   }
 
-  export type Job_seekerUpdateWithWhereUniqueWithoutUserInput = {
-    where: Job_seekerWhereUniqueInput
-    data: XOR<Job_seekerUpdateWithoutUserInput, Job_seekerUncheckedUpdateWithoutUserInput>
-  }
-
-  export type Job_seekerUpdateManyWithWhereWithoutUserInput = {
-    where: Job_seekerScalarWhereInput
-    data: XOR<Job_seekerUpdateManyMutationInput, Job_seekerUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type Job_seekerScalarWhereInput = {
-    AND?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
-    OR?: Job_seekerScalarWhereInput[]
-    NOT?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
-    id?: IntFilter<"Job_seeker"> | number
-    user_id?: IntFilter<"Job_seeker"> | number
-    fullname?: StringFilter<"Job_seeker"> | string
-    dob?: DateTimeFilter<"Job_seeker"> | Date | string
-    gender?: StringFilter<"Job_seeker"> | string
-    phone_number?: StringNullableFilter<"Job_seeker"> | string | null
-    city?: StringNullableFilter<"Job_seeker"> | string | null
+  export type Job_seekerCreateManyUserInputEnvelope = {
+    data: Job_seekerCreateManyUserInput | Job_seekerCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type CompanyUpsertWithWhereUniqueWithoutUserInput = {
@@ -19766,11 +19894,65 @@ export namespace Prisma {
     picture?: StringNullableFilter<"Company"> | string | null
   }
 
+  export type Job_seekerUpsertWithWhereUniqueWithoutUserInput = {
+    where: Job_seekerWhereUniqueInput
+    update: XOR<Job_seekerUpdateWithoutUserInput, Job_seekerUncheckedUpdateWithoutUserInput>
+    create: XOR<Job_seekerCreateWithoutUserInput, Job_seekerUncheckedCreateWithoutUserInput>
+  }
+
+  export type Job_seekerUpdateWithWhereUniqueWithoutUserInput = {
+    where: Job_seekerWhereUniqueInput
+    data: XOR<Job_seekerUpdateWithoutUserInput, Job_seekerUncheckedUpdateWithoutUserInput>
+  }
+
+  export type Job_seekerUpdateManyWithWhereWithoutUserInput = {
+    where: Job_seekerScalarWhereInput
+    data: XOR<Job_seekerUpdateManyMutationInput, Job_seekerUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type Job_seekerScalarWhereInput = {
+    AND?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
+    OR?: Job_seekerScalarWhereInput[]
+    NOT?: Job_seekerScalarWhereInput | Job_seekerScalarWhereInput[]
+    id?: IntFilter<"Job_seeker"> | number
+    user_id?: IntFilter<"Job_seeker"> | number
+    fullname?: StringFilter<"Job_seeker"> | string
+    phone_number?: StringNullableFilter<"Job_seeker"> | string | null
+    city?: StringNullableFilter<"Job_seeker"> | string | null
+    dob?: DateTimeFilter<"Job_seeker"> | Date | string
+    gender?: StringFilter<"Job_seeker"> | string
+  }
+
+  export type Job_applicationCreateWithoutJob_seekerInput = {
+    status: string
+    cover_letter?: string | null
+    company: CompanyCreateNestedOneWithoutJob_applicationInput
+    job: JobsCreateNestedOneWithoutJobApplicationsInput
+  }
+
+  export type Job_applicationUncheckedCreateWithoutJob_seekerInput = {
+    id?: number
+    job_id: number
+    company_id: number
+    status: string
+    cover_letter?: string | null
+  }
+
+  export type Job_applicationCreateOrConnectWithoutJob_seekerInput = {
+    where: Job_applicationWhereUniqueInput
+    create: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput>
+  }
+
+  export type Job_applicationCreateManyJob_seekerInputEnvelope = {
+    data: Job_applicationCreateManyJob_seekerInput | Job_applicationCreateManyJob_seekerInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserCreateWithoutJob_seekerInput = {
     email: string
     password: string
     role: string
-    is_verified?: boolean
+    is_verified: boolean
     company?: CompanyCreateNestedManyWithoutUserInput
   }
 
@@ -19779,13 +19961,32 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified?: boolean
+    is_verified: boolean
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutJob_seekerInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutJob_seekerInput, UserUncheckedCreateWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsCreateWithoutJob_seekerInput = {
+    skills: SkillsCreateNestedOneWithoutJob_seeker_skillsInput
+  }
+
+  export type Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput = {
+    id?: number
+    skill_id: number
+  }
+
+  export type Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput = {
+    where: Job_seeker_skillsWhereUniqueInput
+    create: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsCreateManyJob_seekerInputEnvelope = {
+    data: Job_seeker_skillsCreateManyJob_seekerInput | Job_seeker_skillsCreateManyJob_seekerInput[]
+    skipDuplicates?: boolean
   }
 
   export type List_certificateCreateWithoutJob_seekerInput = {
@@ -19828,48 +20029,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Job_seeker_skillsCreateWithoutJob_seekerInput = {
-    skills: SkillsCreateNestedOneWithoutJob_seeker_skillsInput
-  }
-
-  export type Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput = {
-    id?: number
-    skill_id: number
-  }
-
-  export type Job_seeker_skillsCreateOrConnectWithoutJob_seekerInput = {
-    where: Job_seeker_skillsWhereUniqueInput
-    create: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput>
-  }
-
-  export type Job_seeker_skillsCreateManyJob_seekerInputEnvelope = {
-    data: Job_seeker_skillsCreateManyJob_seekerInput | Job_seeker_skillsCreateManyJob_seekerInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type Job_applicationCreateWithoutJob_seekerInput = {
-    cover_letter?: string | null
-    status: string
-    job: JobsCreateNestedOneWithoutJobApplicationsInput
-    company: CompanyCreateNestedOneWithoutJob_applicationInput
-  }
-
-  export type Job_applicationUncheckedCreateWithoutJob_seekerInput = {
-    id?: number
-    job_id: number
-    company_id: number
-    cover_letter?: string | null
-    status: string
-  }
-
-  export type Job_applicationCreateOrConnectWithoutJob_seekerInput = {
+  export type Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput = {
     where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutJob_seekerInput, Job_applicationUncheckedUpdateWithoutJob_seekerInput>
     create: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput>
   }
 
-  export type Job_applicationCreateManyJob_seekerInputEnvelope = {
-    data: Job_applicationCreateManyJob_seekerInput | Job_applicationCreateManyJob_seekerInput[]
-    skipDuplicates?: boolean
+  export type Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutJob_seekerInput, Job_applicationUncheckedUpdateWithoutJob_seekerInput>
+  }
+
+  export type Job_applicationUpdateManyWithWhereWithoutJob_seekerInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutJob_seekerInput>
+  }
+
+  export type Job_applicationScalarWhereInput = {
+    AND?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+    OR?: Job_applicationScalarWhereInput[]
+    NOT?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
+    id?: IntFilter<"Job_application"> | number
+    job_seeker_id?: IntFilter<"Job_application"> | number
+    job_id?: IntFilter<"Job_application"> | number
+    company_id?: IntFilter<"Job_application"> | number
+    status?: StringFilter<"Job_application"> | string
+    cover_letter?: StringNullableFilter<"Job_application"> | string | null
   }
 
   export type UserUpsertWithoutJob_seekerInput = {
@@ -19898,6 +20083,31 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     is_verified?: BoolFieldUpdateOperationsInput | boolean
     company?: CompanyUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput = {
+    where: Job_seeker_skillsWhereUniqueInput
+    update: XOR<Job_seeker_skillsUpdateWithoutJob_seekerInput, Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput>
+    create: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput = {
+    where: Job_seeker_skillsWhereUniqueInput
+    data: XOR<Job_seeker_skillsUpdateWithoutJob_seekerInput, Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput = {
+    where: Job_seeker_skillsScalarWhereInput
+    data: XOR<Job_seeker_skillsUpdateManyMutationInput, Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerInput>
+  }
+
+  export type Job_seeker_skillsScalarWhereInput = {
+    AND?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
+    OR?: Job_seeker_skillsScalarWhereInput[]
+    NOT?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
+    id?: IntFilter<"Job_seeker_skills"> | number
+    job_seeker_id?: IntFilter<"Job_seeker_skills"> | number
+    skill_id?: IntFilter<"Job_seeker_skills"> | number
   }
 
   export type List_certificateUpsertWithWhereUniqueWithoutJob_seekerInput = {
@@ -19951,64 +20161,11 @@ export namespace Prisma {
     disability_id?: IntFilter<"List_disability"> | number
   }
 
-  export type Job_seeker_skillsUpsertWithWhereUniqueWithoutJob_seekerInput = {
-    where: Job_seeker_skillsWhereUniqueInput
-    update: XOR<Job_seeker_skillsUpdateWithoutJob_seekerInput, Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput>
-    create: XOR<Job_seeker_skillsCreateWithoutJob_seekerInput, Job_seeker_skillsUncheckedCreateWithoutJob_seekerInput>
-  }
-
-  export type Job_seeker_skillsUpdateWithWhereUniqueWithoutJob_seekerInput = {
-    where: Job_seeker_skillsWhereUniqueInput
-    data: XOR<Job_seeker_skillsUpdateWithoutJob_seekerInput, Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput>
-  }
-
-  export type Job_seeker_skillsUpdateManyWithWhereWithoutJob_seekerInput = {
-    where: Job_seeker_skillsScalarWhereInput
-    data: XOR<Job_seeker_skillsUpdateManyMutationInput, Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerInput>
-  }
-
-  export type Job_seeker_skillsScalarWhereInput = {
-    AND?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
-    OR?: Job_seeker_skillsScalarWhereInput[]
-    NOT?: Job_seeker_skillsScalarWhereInput | Job_seeker_skillsScalarWhereInput[]
-    id?: IntFilter<"Job_seeker_skills"> | number
-    job_seeker_id?: IntFilter<"Job_seeker_skills"> | number
-    skill_id?: IntFilter<"Job_seeker_skills"> | number
-  }
-
-  export type Job_applicationUpsertWithWhereUniqueWithoutJob_seekerInput = {
-    where: Job_applicationWhereUniqueInput
-    update: XOR<Job_applicationUpdateWithoutJob_seekerInput, Job_applicationUncheckedUpdateWithoutJob_seekerInput>
-    create: XOR<Job_applicationCreateWithoutJob_seekerInput, Job_applicationUncheckedCreateWithoutJob_seekerInput>
-  }
-
-  export type Job_applicationUpdateWithWhereUniqueWithoutJob_seekerInput = {
-    where: Job_applicationWhereUniqueInput
-    data: XOR<Job_applicationUpdateWithoutJob_seekerInput, Job_applicationUncheckedUpdateWithoutJob_seekerInput>
-  }
-
-  export type Job_applicationUpdateManyWithWhereWithoutJob_seekerInput = {
-    where: Job_applicationScalarWhereInput
-    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutJob_seekerInput>
-  }
-
-  export type Job_applicationScalarWhereInput = {
-    AND?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
-    OR?: Job_applicationScalarWhereInput[]
-    NOT?: Job_applicationScalarWhereInput | Job_applicationScalarWhereInput[]
-    id?: IntFilter<"Job_application"> | number
-    job_seeker_id?: IntFilter<"Job_application"> | number
-    job_id?: IntFilter<"Job_application"> | number
-    company_id?: IntFilter<"Job_application"> | number
-    cover_letter?: StringNullableFilter<"Job_application"> | string | null
-    status?: StringFilter<"Job_application"> | string
-  }
-
   export type UserCreateWithoutCompanyInput = {
     email: string
     password: string
     role: string
-    is_verified?: boolean
+    is_verified: boolean
     job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
   }
 
@@ -20017,7 +20174,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified?: boolean
+    is_verified: boolean
     job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -20026,54 +20183,19 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput>
   }
 
-  export type JobsCreateWithoutCompanyInput = {
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
-    jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
-    list_ability?: List_abilityCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsUncheckedCreateWithoutCompanyInput = {
-    id?: number
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
-    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
-    list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsCreateOrConnectWithoutCompanyInput = {
-    where: JobsWhereUniqueInput
-    create: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput>
-  }
-
-  export type JobsCreateManyCompanyInputEnvelope = {
-    data: JobsCreateManyCompanyInput | JobsCreateManyCompanyInput[]
-    skipDuplicates?: boolean
-  }
-
   export type Job_applicationCreateWithoutCompanyInput = {
-    cover_letter?: string | null
     status: string
-    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
+    cover_letter?: string | null
     job: JobsCreateNestedOneWithoutJobApplicationsInput
+    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
   }
 
   export type Job_applicationUncheckedCreateWithoutCompanyInput = {
     id?: number
     job_seeker_id: number
     job_id: number
-    cover_letter?: string | null
     status: string
+    cover_letter?: string | null
   }
 
   export type Job_applicationCreateOrConnectWithoutCompanyInput = {
@@ -20083,6 +20205,43 @@ export namespace Prisma {
 
   export type Job_applicationCreateManyCompanyInputEnvelope = {
     data: Job_applicationCreateManyCompanyInput | Job_applicationCreateManyCompanyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JobsCreateWithoutCompanyInput = {
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
+    list_ability?: List_abilityCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
+  }
+
+  export type JobsUncheckedCreateWithoutCompanyInput = {
+    id?: number
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
+    list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
+  }
+
+  export type JobsCreateOrConnectWithoutCompanyInput = {
+    where: JobsWhereUniqueInput
+    create: XOR<JobsCreateWithoutCompanyInput, JobsUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type JobsCreateManyCompanyInputEnvelope = {
+    data: JobsCreateManyCompanyInput | JobsCreateManyCompanyInput[]
     skipDuplicates?: boolean
   }
 
@@ -20114,6 +20273,22 @@ export namespace Prisma {
     job_seeker?: Job_seekerUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type Job_applicationUpsertWithWhereUniqueWithoutCompanyInput = {
+    where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
+    create: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput>
+  }
+
+  export type Job_applicationUpdateWithWhereUniqueWithoutCompanyInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
+  }
+
+  export type Job_applicationUpdateManyWithWhereWithoutCompanyInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutCompanyInput>
+  }
+
   export type JobsUpsertWithWhereUniqueWithoutCompanyInput = {
     where: JobsWhereUniqueInput
     update: XOR<JobsUpdateWithoutCompanyInput, JobsUncheckedUpdateWithoutCompanyInput>
@@ -20138,26 +20313,36 @@ export namespace Prisma {
     company_id?: IntFilter<"Jobs"> | number
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
-    employment_type?: StringNullableFilter<"Jobs"> | string | null
-    min_salary?: IntNullableFilter<"Jobs"> | number | null
-    max_salary?: IntNullableFilter<"Jobs"> | number | null
+    employment_type?: StringFilter<"Jobs"> | string
+    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
+    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
   }
 
-  export type Job_applicationUpsertWithWhereUniqueWithoutCompanyInput = {
+  export type Job_applicationCreateWithoutJobInput = {
+    status: string
+    cover_letter?: string | null
+    company: CompanyCreateNestedOneWithoutJob_applicationInput
+    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
+  }
+
+  export type Job_applicationUncheckedCreateWithoutJobInput = {
+    id?: number
+    job_seeker_id: number
+    company_id: number
+    status: string
+    cover_letter?: string | null
+  }
+
+  export type Job_applicationCreateOrConnectWithoutJobInput = {
     where: Job_applicationWhereUniqueInput
-    update: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
-    create: XOR<Job_applicationCreateWithoutCompanyInput, Job_applicationUncheckedCreateWithoutCompanyInput>
+    create: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput>
   }
 
-  export type Job_applicationUpdateWithWhereUniqueWithoutCompanyInput = {
-    where: Job_applicationWhereUniqueInput
-    data: XOR<Job_applicationUpdateWithoutCompanyInput, Job_applicationUncheckedUpdateWithoutCompanyInput>
-  }
-
-  export type Job_applicationUpdateManyWithWhereWithoutCompanyInput = {
-    where: Job_applicationScalarWhereInput
-    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutCompanyInput>
+  export type Job_applicationCreateManyJobInputEnvelope = {
+    data: Job_applicationCreateManyJobInput | Job_applicationCreateManyJobInput[]
+    skipDuplicates?: boolean
   }
 
   export type CompanyCreateWithoutJobsInput = {
@@ -20186,6 +20371,25 @@ export namespace Prisma {
     create: XOR<CompanyCreateWithoutJobsInput, CompanyUncheckedCreateWithoutJobsInput>
   }
 
+  export type List_abilityCreateWithoutJobInput = {
+    ability?: AbilityCreateNestedOneWithoutList_abiltyInput
+  }
+
+  export type List_abilityUncheckedCreateWithoutJobInput = {
+    id?: number
+    ability_id?: number | null
+  }
+
+  export type List_abilityCreateOrConnectWithoutJobInput = {
+    where: List_abilityWhereUniqueInput
+    create: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput>
+  }
+
+  export type List_abilityCreateManyJobInputEnvelope = {
+    data: List_abilityCreateManyJobInput | List_abilityCreateManyJobInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Required_skillsCreateWithoutJobInput = {
     skills: SkillsCreateNestedOneWithoutRequired_skillsInput
   }
@@ -20205,48 +20409,20 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Job_applicationCreateWithoutJobInput = {
-    cover_letter?: string | null
-    status: string
-    job_seeker: Job_seekerCreateNestedOneWithoutJob_applicationsInput
-    company: CompanyCreateNestedOneWithoutJob_applicationInput
-  }
-
-  export type Job_applicationUncheckedCreateWithoutJobInput = {
-    id?: number
-    job_seeker_id: number
-    company_id: number
-    cover_letter?: string | null
-    status: string
-  }
-
-  export type Job_applicationCreateOrConnectWithoutJobInput = {
+  export type Job_applicationUpsertWithWhereUniqueWithoutJobInput = {
     where: Job_applicationWhereUniqueInput
+    update: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
     create: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput>
   }
 
-  export type Job_applicationCreateManyJobInputEnvelope = {
-    data: Job_applicationCreateManyJobInput | Job_applicationCreateManyJobInput[]
-    skipDuplicates?: boolean
+  export type Job_applicationUpdateWithWhereUniqueWithoutJobInput = {
+    where: Job_applicationWhereUniqueInput
+    data: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
   }
 
-  export type List_abilityCreateWithoutJobInput = {
-    ability?: AbilityCreateNestedOneWithoutList_abiltyInput
-  }
-
-  export type List_abilityUncheckedCreateWithoutJobInput = {
-    id?: number
-    ability_id?: number | null
-  }
-
-  export type List_abilityCreateOrConnectWithoutJobInput = {
-    where: List_abilityWhereUniqueInput
-    create: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput>
-  }
-
-  export type List_abilityCreateManyJobInputEnvelope = {
-    data: List_abilityCreateManyJobInput | List_abilityCreateManyJobInput[]
-    skipDuplicates?: boolean
+  export type Job_applicationUpdateManyWithWhereWithoutJobInput = {
+    where: Job_applicationScalarWhereInput
+    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutJobInput>
   }
 
   export type CompanyUpsertWithoutJobsInput = {
@@ -20281,6 +20457,31 @@ export namespace Prisma {
     job_application?: Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
+  export type List_abilityUpsertWithWhereUniqueWithoutJobInput = {
+    where: List_abilityWhereUniqueInput
+    update: XOR<List_abilityUpdateWithoutJobInput, List_abilityUncheckedUpdateWithoutJobInput>
+    create: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput>
+  }
+
+  export type List_abilityUpdateWithWhereUniqueWithoutJobInput = {
+    where: List_abilityWhereUniqueInput
+    data: XOR<List_abilityUpdateWithoutJobInput, List_abilityUncheckedUpdateWithoutJobInput>
+  }
+
+  export type List_abilityUpdateManyWithWhereWithoutJobInput = {
+    where: List_abilityScalarWhereInput
+    data: XOR<List_abilityUpdateManyMutationInput, List_abilityUncheckedUpdateManyWithoutJobInput>
+  }
+
+  export type List_abilityScalarWhereInput = {
+    AND?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
+    OR?: List_abilityScalarWhereInput[]
+    NOT?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
+    id?: IntFilter<"List_ability"> | number
+    job_id?: IntNullableFilter<"List_ability"> | number | null
+    ability_id?: IntNullableFilter<"List_ability"> | number | null
+  }
+
   export type Required_skillsUpsertWithWhereUniqueWithoutJobInput = {
     where: Required_skillsWhereUniqueInput
     update: XOR<Required_skillsUpdateWithoutJobInput, Required_skillsUncheckedUpdateWithoutJobInput>
@@ -20306,70 +20507,29 @@ export namespace Prisma {
     skill_id?: IntFilter<"Required_skills"> | number
   }
 
-  export type Job_applicationUpsertWithWhereUniqueWithoutJobInput = {
-    where: Job_applicationWhereUniqueInput
-    update: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
-    create: XOR<Job_applicationCreateWithoutJobInput, Job_applicationUncheckedCreateWithoutJobInput>
-  }
-
-  export type Job_applicationUpdateWithWhereUniqueWithoutJobInput = {
-    where: Job_applicationWhereUniqueInput
-    data: XOR<Job_applicationUpdateWithoutJobInput, Job_applicationUncheckedUpdateWithoutJobInput>
-  }
-
-  export type Job_applicationUpdateManyWithWhereWithoutJobInput = {
-    where: Job_applicationScalarWhereInput
-    data: XOR<Job_applicationUpdateManyMutationInput, Job_applicationUncheckedUpdateManyWithoutJobInput>
-  }
-
-  export type List_abilityUpsertWithWhereUniqueWithoutJobInput = {
-    where: List_abilityWhereUniqueInput
-    update: XOR<List_abilityUpdateWithoutJobInput, List_abilityUncheckedUpdateWithoutJobInput>
-    create: XOR<List_abilityCreateWithoutJobInput, List_abilityUncheckedCreateWithoutJobInput>
-  }
-
-  export type List_abilityUpdateWithWhereUniqueWithoutJobInput = {
-    where: List_abilityWhereUniqueInput
-    data: XOR<List_abilityUpdateWithoutJobInput, List_abilityUncheckedUpdateWithoutJobInput>
-  }
-
-  export type List_abilityUpdateManyWithWhereWithoutJobInput = {
-    where: List_abilityScalarWhereInput
-    data: XOR<List_abilityUpdateManyMutationInput, List_abilityUncheckedUpdateManyWithoutJobInput>
-  }
-
-  export type List_abilityScalarWhereInput = {
-    AND?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
-    OR?: List_abilityScalarWhereInput[]
-    NOT?: List_abilityScalarWhereInput | List_abilityScalarWhereInput[]
-    id?: IntFilter<"List_ability"> | number
-    ability_id?: IntNullableFilter<"List_ability"> | number | null
-    job_id?: IntNullableFilter<"List_ability"> | number | null
-  }
-
   export type Job_seekerCreateWithoutCertificatesInput = {
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
-    user: UserCreateNestedOneWithoutJob_seekerInput
-    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+    dob: Date | string
+    gender: string
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
+    user: UserCreateNestedOneWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerUncheckedCreateWithoutCertificatesInput = {
     id?: number
     user_id: number
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
-    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+    dob: Date | string
+    gender: string
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerCreateOrConnectWithoutCertificatesInput = {
@@ -20390,27 +20550,27 @@ export namespace Prisma {
 
   export type Job_seekerUpdateWithoutCertificatesInput = {
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
-    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
+    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type Job_seekerUncheckedUpdateWithoutCertificatesInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
-    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type Job_seeker_skillsCreateWithoutSkillsInput = {
@@ -20483,36 +20643,6 @@ export namespace Prisma {
     data: XOR<Required_skillsUpdateManyMutationInput, Required_skillsUncheckedUpdateManyWithoutSkillsInput>
   }
 
-  export type Job_seekerCreateWithoutDisabilitiesInput = {
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    user: UserCreateNestedOneWithoutJob_seekerInput
-    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
-  }
-
-  export type Job_seekerUncheckedCreateWithoutDisabilitiesInput = {
-    id?: number
-    user_id: number
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
-  }
-
-  export type Job_seekerCreateOrConnectWithoutDisabilitiesInput = {
-    where: Job_seekerWhereUniqueInput
-    create: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
-  }
-
   export type DisabilityCreateWithoutList_disabilitiesInput = {
     name: string
     category: CategoryCreateNestedOneWithoutDisabilitiesInput
@@ -20529,40 +20659,34 @@ export namespace Prisma {
     create: XOR<DisabilityCreateWithoutList_disabilitiesInput, DisabilityUncheckedCreateWithoutList_disabilitiesInput>
   }
 
-  export type Job_seekerUpsertWithoutDisabilitiesInput = {
-    update: XOR<Job_seekerUpdateWithoutDisabilitiesInput, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
+  export type Job_seekerCreateWithoutDisabilitiesInput = {
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
+    user: UserCreateNestedOneWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
+  }
+
+  export type Job_seekerUncheckedCreateWithoutDisabilitiesInput = {
+    id?: number
+    user_id: number
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
+  }
+
+  export type Job_seekerCreateOrConnectWithoutDisabilitiesInput = {
+    where: Job_seekerWhereUniqueInput
     create: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
-    where?: Job_seekerWhereInput
-  }
-
-  export type Job_seekerUpdateToOneWithWhereWithoutDisabilitiesInput = {
-    where?: Job_seekerWhereInput
-    data: XOR<Job_seekerUpdateWithoutDisabilitiesInput, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
-  }
-
-  export type Job_seekerUpdateWithoutDisabilitiesInput = {
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
-    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
-  }
-
-  export type Job_seekerUncheckedUpdateWithoutDisabilitiesInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type DisabilityUpsertWithoutList_disabilitiesInput = {
@@ -20587,64 +20711,40 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type Job_seekerCreateWithoutJob_applicationsInput = {
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    user: UserCreateNestedOneWithoutJob_seekerInput
-    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
-    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+  export type Job_seekerUpsertWithoutDisabilitiesInput = {
+    update: XOR<Job_seekerUpdateWithoutDisabilitiesInput, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
+    create: XOR<Job_seekerCreateWithoutDisabilitiesInput, Job_seekerUncheckedCreateWithoutDisabilitiesInput>
+    where?: Job_seekerWhereInput
   }
 
-  export type Job_seekerUncheckedCreateWithoutJob_applicationsInput = {
-    id?: number
-    user_id: number
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
-    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+  export type Job_seekerUpdateToOneWithWhereWithoutDisabilitiesInput = {
+    where?: Job_seekerWhereInput
+    data: XOR<Job_seekerUpdateWithoutDisabilitiesInput, Job_seekerUncheckedUpdateWithoutDisabilitiesInput>
   }
 
-  export type Job_seekerCreateOrConnectWithoutJob_applicationsInput = {
-    where: Job_seekerWhereUniqueInput
-    create: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
+  export type Job_seekerUpdateWithoutDisabilitiesInput = {
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
+    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
   }
 
-  export type JobsCreateWithoutJobApplicationsInput = {
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    company: CompanyCreateNestedOneWithoutJobsInput
-    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
-    list_ability?: List_abilityCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsUncheckedCreateWithoutJobApplicationsInput = {
-    id?: number
-    company_id: number
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
-    list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsCreateOrConnectWithoutJobApplicationsInput = {
-    where: JobsWhereUniqueInput
-    create: XOR<JobsCreateWithoutJobApplicationsInput, JobsUncheckedCreateWithoutJobApplicationsInput>
+  export type Job_seekerUncheckedUpdateWithoutDisabilitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type CompanyCreateWithoutJob_applicationInput = {
@@ -20673,76 +20773,66 @@ export namespace Prisma {
     create: XOR<CompanyCreateWithoutJob_applicationInput, CompanyUncheckedCreateWithoutJob_applicationInput>
   }
 
-  export type Job_seekerUpsertWithoutJob_applicationsInput = {
-    update: XOR<Job_seekerUpdateWithoutJob_applicationsInput, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
-    create: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
-    where?: Job_seekerWhereInput
+  export type JobsCreateWithoutJobApplicationsInput = {
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    company: CompanyCreateNestedOneWithoutJobsInput
+    list_ability?: List_abilityCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
   }
 
-  export type Job_seekerUpdateToOneWithWhereWithoutJob_applicationsInput = {
-    where?: Job_seekerWhereInput
-    data: XOR<Job_seekerUpdateWithoutJob_applicationsInput, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
+  export type JobsUncheckedCreateWithoutJobApplicationsInput = {
+    id?: number
+    company_id: number
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
   }
 
-  export type Job_seekerUpdateWithoutJob_applicationsInput = {
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
-    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
-    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
-  }
-
-  export type Job_seekerUncheckedUpdateWithoutJob_applicationsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
-    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
-  }
-
-  export type JobsUpsertWithoutJobApplicationsInput = {
-    update: XOR<JobsUpdateWithoutJobApplicationsInput, JobsUncheckedUpdateWithoutJobApplicationsInput>
+  export type JobsCreateOrConnectWithoutJobApplicationsInput = {
+    where: JobsWhereUniqueInput
     create: XOR<JobsCreateWithoutJobApplicationsInput, JobsUncheckedCreateWithoutJobApplicationsInput>
-    where?: JobsWhereInput
   }
 
-  export type JobsUpdateToOneWithWhereWithoutJobApplicationsInput = {
-    where?: JobsWhereInput
-    data: XOR<JobsUpdateWithoutJobApplicationsInput, JobsUncheckedUpdateWithoutJobApplicationsInput>
+  export type Job_seekerCreateWithoutJob_applicationsInput = {
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    user: UserCreateNestedOneWithoutJob_seekerInput
+    job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
   }
 
-  export type JobsUpdateWithoutJobApplicationsInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
-    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
-    list_ability?: List_abilityUpdateManyWithoutJobNestedInput
+  export type Job_seekerUncheckedCreateWithoutJob_applicationsInput = {
+    id?: number
+    user_id: number
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
+    job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
+    certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
+    disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
   }
 
-  export type JobsUncheckedUpdateWithoutJobApplicationsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    company_id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
-    list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
+  export type Job_seekerCreateOrConnectWithoutJob_applicationsInput = {
+    where: Job_seekerWhereUniqueInput
+    create: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
   }
 
   export type CompanyUpsertWithoutJob_applicationInput = {
@@ -20775,6 +20865,80 @@ export namespace Prisma {
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
     jobs?: JobsUncheckedUpdateManyWithoutCompanyNestedInput
+  }
+
+  export type JobsUpsertWithoutJobApplicationsInput = {
+    update: XOR<JobsUpdateWithoutJobApplicationsInput, JobsUncheckedUpdateWithoutJobApplicationsInput>
+    create: XOR<JobsCreateWithoutJobApplicationsInput, JobsUncheckedCreateWithoutJobApplicationsInput>
+    where?: JobsWhereInput
+  }
+
+  export type JobsUpdateToOneWithWhereWithoutJobApplicationsInput = {
+    where?: JobsWhereInput
+    data: XOR<JobsUpdateWithoutJobApplicationsInput, JobsUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type JobsUpdateWithoutJobApplicationsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
+    list_ability?: List_abilityUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobsUncheckedUpdateWithoutJobApplicationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
+  }
+
+  export type Job_seekerUpsertWithoutJob_applicationsInput = {
+    update: XOR<Job_seekerUpdateWithoutJob_applicationsInput, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
+    create: XOR<Job_seekerCreateWithoutJob_applicationsInput, Job_seekerUncheckedCreateWithoutJob_applicationsInput>
+    where?: Job_seekerWhereInput
+  }
+
+  export type Job_seekerUpdateToOneWithWhereWithoutJob_applicationsInput = {
+    where?: Job_seekerWhereInput
+    data: XOR<Job_seekerUpdateWithoutJob_applicationsInput, Job_seekerUncheckedUpdateWithoutJob_applicationsInput>
+  }
+
+  export type Job_seekerUpdateWithoutJob_applicationsInput = {
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
+  }
+
+  export type Job_seekerUncheckedUpdateWithoutJob_applicationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type CategoryCreateWithoutDisabilitiesInput = {
@@ -20881,6 +21045,38 @@ export namespace Prisma {
     data: XOR<List_abilityUpdateManyMutationInput, List_abilityUncheckedUpdateManyWithoutAbilityInput>
   }
 
+  export type JobsCreateWithoutList_abilityInput = {
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
+    company: CompanyCreateNestedOneWithoutJobsInput
+    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
+  }
+
+  export type JobsUncheckedCreateWithoutList_abilityInput = {
+    id?: number
+    company_id: number
+    title: string
+    description: string
+    employment_type: string
+    min_salary?: bigint | number | null
+    gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
+    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
+    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
+  }
+
+  export type JobsCreateOrConnectWithoutList_abilityInput = {
+    where: JobsWhereUniqueInput
+    create: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
+  }
+
   export type AbilityCreateWithoutList_abiltyInput = {
     name: string
   }
@@ -20895,34 +21091,42 @@ export namespace Prisma {
     create: XOR<AbilityCreateWithoutList_abiltyInput, AbilityUncheckedCreateWithoutList_abiltyInput>
   }
 
-  export type JobsCreateWithoutList_abilityInput = {
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    company: CompanyCreateNestedOneWithoutJobsInput
-    required_skills?: Required_skillsCreateNestedManyWithoutJobInput
-    jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsUncheckedCreateWithoutList_abilityInput = {
-    id?: number
-    company_id: number
-    title: string
-    description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
-    gender?: string | null
-    required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
-    jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
-  }
-
-  export type JobsCreateOrConnectWithoutList_abilityInput = {
-    where: JobsWhereUniqueInput
+  export type JobsUpsertWithoutList_abilityInput = {
+    update: XOR<JobsUpdateWithoutList_abilityInput, JobsUncheckedUpdateWithoutList_abilityInput>
     create: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
+    where?: JobsWhereInput
+  }
+
+  export type JobsUpdateToOneWithWhereWithoutList_abilityInput = {
+    where?: JobsWhereInput
+    data: XOR<JobsUpdateWithoutList_abilityInput, JobsUncheckedUpdateWithoutList_abilityInput>
+  }
+
+  export type JobsUpdateWithoutList_abilityInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
+    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
+    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobsUncheckedUpdateWithoutList_abilityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
   }
 
   export type AbilityUpsertWithoutList_abiltyInput = {
@@ -20945,65 +21149,29 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type JobsUpsertWithoutList_abilityInput = {
-    update: XOR<JobsUpdateWithoutList_abilityInput, JobsUncheckedUpdateWithoutList_abilityInput>
-    create: XOR<JobsCreateWithoutList_abilityInput, JobsUncheckedCreateWithoutList_abilityInput>
-    where?: JobsWhereInput
-  }
-
-  export type JobsUpdateToOneWithWhereWithoutList_abilityInput = {
-    where?: JobsWhereInput
-    data: XOR<JobsUpdateWithoutList_abilityInput, JobsUncheckedUpdateWithoutList_abilityInput>
-  }
-
-  export type JobsUpdateWithoutList_abilityInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
-    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
-    jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
-  }
-
-  export type JobsUncheckedUpdateWithoutList_abilityInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    company_id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
-    jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
-  }
-
   export type Job_seekerCreateWithoutJob_seeker_skillsInput = {
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
     certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerUncheckedCreateWithoutJob_seeker_skillsInput = {
     id?: number
     user_id: number
     fullname: string
-    dob: Date | string
-    gender: string
     phone_number?: string | null
     city?: string | null
+    dob: Date | string
+    gender: string
+    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
-    job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
   }
 
   export type Job_seekerCreateOrConnectWithoutJob_seeker_skillsInput = {
@@ -21040,27 +21208,27 @@ export namespace Prisma {
 
   export type Job_seekerUpdateWithoutJob_seeker_skillsInput = {
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type Job_seekerUncheckedUpdateWithoutJob_seeker_skillsInput = {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
     phone_number?: NullableStringFieldUpdateOperationsInput | string | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
   }
 
   export type SkillsUpsertWithoutJob_seeker_skillsInput = {
@@ -21134,12 +21302,13 @@ export namespace Prisma {
   export type JobsCreateWithoutRequired_skillsInput = {
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
-    company: CompanyCreateNestedOneWithoutJobsInput
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
+    company: CompanyCreateNestedOneWithoutJobsInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
   }
 
@@ -21148,10 +21317,11 @@ export namespace Prisma {
     company_id: number
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
   }
@@ -21191,12 +21361,13 @@ export namespace Prisma {
   export type JobsUpdateWithoutRequired_skillsInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
+    company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
   }
 
@@ -21205,10 +21376,11 @@ export namespace Prisma {
     company_id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
   }
@@ -21235,15 +21407,6 @@ export namespace Prisma {
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutSkillsNestedInput
   }
 
-  export type Job_seekerCreateManyUserInput = {
-    id?: number
-    fullname: string
-    dob: Date | string
-    gender: string
-    phone_number?: string | null
-    city?: string | null
-  }
-
   export type CompanyCreateManyUserInput = {
     id?: number
     name: string
@@ -21253,38 +21416,13 @@ export namespace Prisma {
     picture?: string | null
   }
 
-  export type Job_seekerUpdateWithoutUserInput = {
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
-    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
-  }
-
-  export type Job_seekerUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
-    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
-    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
-    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
-  }
-
-  export type Job_seekerUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fullname?: StringFieldUpdateOperationsInput | string
-    dob?: DateTimeFieldUpdateOperationsInput | Date | string
-    gender?: StringFieldUpdateOperationsInput | string
-    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
-    city?: NullableStringFieldUpdateOperationsInput | string | null
+  export type Job_seekerCreateManyUserInput = {
+    id?: number
+    fullname: string
+    phone_number?: string | null
+    city?: string | null
+    dob: Date | string
+    gender: string
   }
 
   export type CompanyUpdateWithoutUserInput = {
@@ -21293,8 +21431,8 @@ export namespace Prisma {
     about?: StringFieldUpdateOperationsInput | string
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    jobs?: JobsUpdateManyWithoutCompanyNestedInput
     job_application?: Job_applicationUpdateManyWithoutCompanyNestedInput
+    jobs?: JobsUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutUserInput = {
@@ -21304,8 +21442,8 @@ export namespace Prisma {
     about?: StringFieldUpdateOperationsInput | string
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    jobs?: JobsUncheckedUpdateManyWithoutCompanyNestedInput
     job_application?: Job_applicationUncheckedUpdateManyWithoutCompanyNestedInput
+    jobs?: JobsUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateManyWithoutUserInput = {
@@ -21315,6 +21453,53 @@ export namespace Prisma {
     about?: StringFieldUpdateOperationsInput | string
     logo?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Job_seekerUpdateWithoutUserInput = {
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUpdateManyWithoutJob_seekerNestedInput
+  }
+
+  export type Job_seekerUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+    job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
+    job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
+    certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
+    disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
+  }
+
+  export type Job_seekerUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fullname?: StringFieldUpdateOperationsInput | string
+    phone_number?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    gender?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Job_applicationCreateManyJob_seekerInput = {
+    id?: number
+    job_id: number
+    company_id: number
+    status: string
+    cover_letter?: string | null
+  }
+
+  export type Job_seeker_skillsCreateManyJob_seekerInput = {
+    id?: number
+    skill_id: number
   }
 
   export type List_certificateCreateManyJob_seekerInput = {
@@ -21328,17 +21513,41 @@ export namespace Prisma {
     disability_id: number
   }
 
-  export type Job_seeker_skillsCreateManyJob_seekerInput = {
-    id?: number
-    skill_id: number
+  export type Job_applicationUpdateWithoutJob_seekerInput = {
+    status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
+    job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
   }
 
-  export type Job_applicationCreateManyJob_seekerInput = {
-    id?: number
-    job_id: number
-    company_id: number
-    cover_letter?: string | null
-    status: string
+  export type Job_applicationUncheckedUpdateWithoutJob_seekerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    job_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Job_applicationUncheckedUpdateManyWithoutJob_seekerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    job_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Job_seeker_skillsUpdateWithoutJob_seekerInput = {
+    skills?: SkillsUpdateOneRequiredWithoutJob_seeker_skillsNestedInput
+  }
+
+  export type Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    skill_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    skill_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type List_certificateUpdateWithoutJob_seekerInput = {
@@ -21372,130 +21581,92 @@ export namespace Prisma {
     disability_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type Job_seeker_skillsUpdateWithoutJob_seekerInput = {
-    skills?: SkillsUpdateOneRequiredWithoutJob_seeker_skillsNestedInput
-  }
-
-  export type Job_seeker_skillsUncheckedUpdateWithoutJob_seekerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Job_applicationUpdateWithoutJob_seekerInput = {
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
-    company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
-  }
-
-  export type Job_applicationUncheckedUpdateWithoutJob_seekerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    job_id?: IntFieldUpdateOperationsInput | number
-    company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Job_applicationUncheckedUpdateManyWithoutJob_seekerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    job_id?: IntFieldUpdateOperationsInput | number
-    company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
+  export type Job_applicationCreateManyCompanyInput = {
+    id?: number
+    job_seeker_id: number
+    job_id: number
+    status: string
+    cover_letter?: string | null
   }
 
   export type JobsCreateManyCompanyInput = {
     id?: number
     title: string
     description: string
-    employment_type?: string | null
-    min_salary?: number | null
-    max_salary?: number | null
+    employment_type: string
+    min_salary?: bigint | number | null
     gender?: string | null
-  }
-
-  export type Job_applicationCreateManyCompanyInput = {
-    id?: number
-    job_seeker_id: number
-    job_id: number
-    cover_letter?: string | null
-    status: string
-  }
-
-  export type JobsUpdateWithoutCompanyInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
-    jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
-    list_ability?: List_abilityUpdateManyWithoutJobNestedInput
-  }
-
-  export type JobsUncheckedUpdateWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
-    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
-    jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
-    list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
-  }
-
-  export type JobsUncheckedUpdateManyWithoutCompanyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    employment_type?: NullableStringFieldUpdateOperationsInput | string | null
-    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: bigint | number | null
+    date_posted?: Date | string | null
   }
 
   export type Job_applicationUpdateWithoutCompanyInput = {
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
-    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     job?: JobsUpdateOneRequiredWithoutJobApplicationsNestedInput
+    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
   }
 
   export type Job_applicationUncheckedUpdateWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationUncheckedUpdateManyWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     job_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type Required_skillsCreateManyJobInput = {
-    id?: number
-    skill_id: number
+  export type JobsUpdateWithoutCompanyInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
+    list_ability?: List_abilityUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobsUncheckedUpdateWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
+    list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
+    required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
+  }
+
+  export type JobsUncheckedUpdateManyWithoutCompanyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    employment_type?: StringFieldUpdateOperationsInput | string
+    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type Job_applicationCreateManyJobInput = {
     id?: number
     job_seeker_id: number
     company_id: number
-    cover_letter?: string | null
     status: string
+    cover_letter?: string | null
   }
 
   export type List_abilityCreateManyJobInput = {
@@ -21503,41 +21674,32 @@ export namespace Prisma {
     ability_id?: number | null
   }
 
-  export type Required_skillsUpdateWithoutJobInput = {
-    skills?: SkillsUpdateOneRequiredWithoutRequired_skillsNestedInput
-  }
-
-  export type Required_skillsUncheckedUpdateWithoutJobInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Required_skillsUncheckedUpdateManyWithoutJobInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    skill_id?: IntFieldUpdateOperationsInput | number
+  export type Required_skillsCreateManyJobInput = {
+    id?: number
+    skill_id: number
   }
 
   export type Job_applicationUpdateWithoutJobInput = {
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
-    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     company?: CompanyUpdateOneRequiredWithoutJob_applicationNestedInput
+    job_seeker?: Job_seekerUpdateOneRequiredWithoutJob_applicationsNestedInput
   }
 
   export type Job_applicationUncheckedUpdateWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationUncheckedUpdateManyWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     job_seeker_id?: IntFieldUpdateOperationsInput | number
     company_id?: IntFieldUpdateOperationsInput | number
-    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    cover_letter?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type List_abilityUpdateWithoutJobInput = {
@@ -21552,6 +21714,20 @@ export namespace Prisma {
   export type List_abilityUncheckedUpdateManyWithoutJobInput = {
     id?: IntFieldUpdateOperationsInput | number
     ability_id?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type Required_skillsUpdateWithoutJobInput = {
+    skills?: SkillsUpdateOneRequiredWithoutRequired_skillsNestedInput
+  }
+
+  export type Required_skillsUncheckedUpdateWithoutJobInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    skill_id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Required_skillsUncheckedUpdateManyWithoutJobInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    skill_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type Job_seeker_skillsCreateManySkillsInput = {
