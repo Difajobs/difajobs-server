@@ -175,7 +175,7 @@ const searchJobByTitleAndLocationService = async (searchLocation: string | undef
         return {
             success: true,
             message: "Successfully Fetch Job Listings:",
-            data: { jobsByLocation, jobsByTitle}
+            data: [...jobsByLocation, ...jobsByTitle]
         };
         
     } catch (error: any) {
