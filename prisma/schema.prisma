@@ -27,6 +27,7 @@ model Job_seeker {
   city              String?             @db.VarChar(255)
   dob               DateTime            @db.Date
   gender            String              @db.VarChar
+  description       String?
   job_applications  Job_application[]
   user              User                @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_seeker_user_id_foreign")
   job_seeker_skills Job_seeker_skills[]

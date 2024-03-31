@@ -3314,6 +3314,7 @@ export namespace Prisma {
     city: string | null
     dob: Date | null
     gender: string | null
+    description: string | null
   }
 
   export type Job_seekerMaxAggregateOutputType = {
@@ -3324,6 +3325,7 @@ export namespace Prisma {
     city: string | null
     dob: Date | null
     gender: string | null
+    description: string | null
   }
 
   export type Job_seekerCountAggregateOutputType = {
@@ -3334,6 +3336,7 @@ export namespace Prisma {
     city: number
     dob: number
     gender: number
+    description: number
     _all: number
   }
 
@@ -3356,6 +3359,7 @@ export namespace Prisma {
     city?: true
     dob?: true
     gender?: true
+    description?: true
   }
 
   export type Job_seekerMaxAggregateInputType = {
@@ -3366,6 +3370,7 @@ export namespace Prisma {
     city?: true
     dob?: true
     gender?: true
+    description?: true
   }
 
   export type Job_seekerCountAggregateInputType = {
@@ -3376,6 +3381,7 @@ export namespace Prisma {
     city?: true
     dob?: true
     gender?: true
+    description?: true
     _all?: true
   }
 
@@ -3473,6 +3479,7 @@ export namespace Prisma {
     city: string | null
     dob: Date
     gender: string
+    description: string | null
     _count: Job_seekerCountAggregateOutputType | null
     _avg: Job_seekerAvgAggregateOutputType | null
     _sum: Job_seekerSumAggregateOutputType | null
@@ -3502,6 +3509,7 @@ export namespace Prisma {
     city?: boolean
     dob?: boolean
     gender?: boolean
+    description?: boolean
     job_applications?: boolean | Job_seeker$job_applicationsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     job_seeker_skills?: boolean | Job_seeker$job_seeker_skillsArgs<ExtArgs>
@@ -3518,6 +3526,7 @@ export namespace Prisma {
     city?: boolean
     dob?: boolean
     gender?: boolean
+    description?: boolean
   }
 
   export type Job_seekerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3547,6 +3556,7 @@ export namespace Prisma {
       city: string | null
       dob: Date
       gender: string
+      description: string | null
     }, ExtArgs["result"]["job_seeker"]>
     composites: {}
   }
@@ -3957,6 +3967,7 @@ export namespace Prisma {
     readonly city: FieldRef<"Job_seeker", 'String'>
     readonly dob: FieldRef<"Job_seeker", 'DateTime'>
     readonly gender: FieldRef<"Job_seeker", 'String'>
+    readonly description: FieldRef<"Job_seeker", 'String'>
   }
     
 
@@ -16068,7 +16079,8 @@ export namespace Prisma {
     phone_number: 'phone_number',
     city: 'city',
     dob: 'dob',
-    gender: 'gender'
+    gender: 'gender',
+    description: 'description'
   };
 
   export type Job_seekerScalarFieldEnum = (typeof Job_seekerScalarFieldEnum)[keyof typeof Job_seekerScalarFieldEnum]
@@ -16373,6 +16385,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"Job_seeker"> | string | null
     dob?: DateTimeFilter<"Job_seeker"> | Date | string
     gender?: StringFilter<"Job_seeker"> | string
+    description?: StringNullableFilter<"Job_seeker"> | string | null
     job_applications?: Job_applicationListRelationFilter
     user?: XOR<UserRelationFilter, UserWhereInput>
     job_seeker_skills?: Job_seeker_skillsListRelationFilter
@@ -16388,6 +16401,7 @@ export namespace Prisma {
     city?: SortOrderInput | SortOrder
     dob?: SortOrder
     gender?: SortOrder
+    description?: SortOrderInput | SortOrder
     job_applications?: Job_applicationOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
     job_seeker_skills?: Job_seeker_skillsOrderByRelationAggregateInput
@@ -16406,6 +16420,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"Job_seeker"> | string | null
     dob?: DateTimeFilter<"Job_seeker"> | Date | string
     gender?: StringFilter<"Job_seeker"> | string
+    description?: StringNullableFilter<"Job_seeker"> | string | null
     job_applications?: Job_applicationListRelationFilter
     user?: XOR<UserRelationFilter, UserWhereInput>
     job_seeker_skills?: Job_seeker_skillsListRelationFilter
@@ -16421,6 +16436,7 @@ export namespace Prisma {
     city?: SortOrderInput | SortOrder
     dob?: SortOrder
     gender?: SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: Job_seekerCountOrderByAggregateInput
     _avg?: Job_seekerAvgOrderByAggregateInput
     _max?: Job_seekerMaxOrderByAggregateInput
@@ -16439,6 +16455,7 @@ export namespace Prisma {
     city?: StringNullableWithAggregatesFilter<"Job_seeker"> | string | null
     dob?: DateTimeWithAggregatesFilter<"Job_seeker"> | Date | string
     gender?: StringWithAggregatesFilter<"Job_seeker"> | string
+    description?: StringNullableWithAggregatesFilter<"Job_seeker"> | string | null
   }
 
   export type CompanyWhereInput = {
@@ -17166,6 +17183,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
@@ -17181,6 +17199,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -17193,6 +17212,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
@@ -17208,6 +17228,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -17222,6 +17243,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
   }
 
   export type Job_seekerUpdateManyMutationInput = {
@@ -17230,6 +17252,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_seekerUncheckedUpdateManyInput = {
@@ -17240,6 +17263,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CompanyCreateInput = {
@@ -18025,6 +18049,7 @@ export namespace Prisma {
     city?: SortOrder
     dob?: SortOrder
     gender?: SortOrder
+    description?: SortOrder
   }
 
   export type Job_seekerAvgOrderByAggregateInput = {
@@ -18040,6 +18065,7 @@ export namespace Prisma {
     city?: SortOrder
     dob?: SortOrder
     gender?: SortOrder
+    description?: SortOrder
   }
 
   export type Job_seekerMinOrderByAggregateInput = {
@@ -18050,6 +18076,7 @@ export namespace Prisma {
     city?: SortOrder
     dob?: SortOrder
     gender?: SortOrder
+    description?: SortOrder
   }
 
   export type Job_seekerSumOrderByAggregateInput = {
@@ -19836,6 +19863,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
@@ -19849,6 +19877,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -19921,6 +19950,7 @@ export namespace Prisma {
     city?: StringNullableFilter<"Job_seeker"> | string | null
     dob?: DateTimeFilter<"Job_seeker"> | Date | string
     gender?: StringFilter<"Job_seeker"> | string
+    description?: StringNullableFilter<"Job_seeker"> | string | null
   }
 
   export type Job_applicationCreateWithoutJob_seekerInput = {
@@ -20513,6 +20543,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
@@ -20527,6 +20558,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -20554,6 +20586,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
@@ -20568,6 +20601,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -20665,6 +20699,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
@@ -20679,6 +20714,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -20728,6 +20764,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
@@ -20742,6 +20779,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -20811,6 +20849,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     user: UserCreateNestedOneWithoutJob_seekerInput
     job_seeker_skills?: Job_seeker_skillsCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
@@ -20825,6 +20864,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_seeker_skills?: Job_seeker_skillsUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -20922,6 +20962,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
@@ -20936,6 +20977,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -21155,6 +21197,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationCreateNestedManyWithoutJob_seekerInput
     user: UserCreateNestedOneWithoutJob_seekerInput
     certificates?: List_certificateCreateNestedManyWithoutJob_seekerInput
@@ -21169,6 +21212,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
     job_applications?: Job_applicationUncheckedCreateNestedManyWithoutJob_seekerInput
     certificates?: List_certificateUncheckedCreateNestedManyWithoutJob_seekerInput
     disabilities?: List_disabilityUncheckedCreateNestedManyWithoutJob_seekerInput
@@ -21212,6 +21256,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     user?: UserUpdateOneRequiredWithoutJob_seekerNestedInput
     certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
@@ -21226,6 +21271,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
     disabilities?: List_disabilityUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -21423,6 +21469,7 @@ export namespace Prisma {
     city?: string | null
     dob: Date | string
     gender: string
+    description?: string | null
   }
 
   export type CompanyUpdateWithoutUserInput = {
@@ -21461,6 +21508,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUpdateManyWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUpdateManyWithoutJob_seekerNestedInput
@@ -21474,6 +21522,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     job_applications?: Job_applicationUncheckedUpdateManyWithoutJob_seekerNestedInput
     job_seeker_skills?: Job_seeker_skillsUncheckedUpdateManyWithoutJob_seekerNestedInput
     certificates?: List_certificateUncheckedUpdateManyWithoutJob_seekerNestedInput
@@ -21487,6 +21536,7 @@ export namespace Prisma {
     city?: NullableStringFieldUpdateOperationsInput | string | null
     dob?: DateTimeFieldUpdateOperationsInput | Date | string
     gender?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Job_applicationCreateManyJob_seekerInput = {

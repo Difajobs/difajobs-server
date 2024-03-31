@@ -122,7 +122,8 @@ exports.Prisma.Job_seekerScalarFieldEnum = {
   phone_number: 'phone_number',
   city: 'city',
   dob: 'dob',
-  gender: 'gender'
+  gender: 'gender',
+  description: 'description'
 };
 
 exports.Prisma.CompanyScalarFieldEnum = {
