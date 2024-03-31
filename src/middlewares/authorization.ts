@@ -16,7 +16,7 @@ const authorization = (allowedRoles: string[]) => {
       if (!allowedRoles.includes(role)) {
         return res.status(403).send({ message: "Access forbidden: Role not allowed" });
       }
-
+      req.user = decodedToken;
       next();
     } catch (error) {
       res.status(401).send({ message: "Invalid Access" });
