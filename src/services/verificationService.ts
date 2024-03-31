@@ -22,7 +22,7 @@ const sendVerificationLink = async (to: string, link: string) => {
         await transporter.sendMail({
             from: process.env.SMTP_SENDER,
             to: to,
-            subject: 'Kode Verifikasi OTP',
+            subject: 'Verifikasi email',
             html: verifyEmailTemplate(link).html
         });
     } catch (error) {
