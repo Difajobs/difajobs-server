@@ -102,11 +102,11 @@ const searchJobListingByTitle = async (searchTitle: string | undefined, limit: n
             where: {
                 OR: [
                     { title: { 
-                        contains: searchTitle 
+                        contains: searchTitle ? searchTitle.toLowerCase() : undefined,
                         }
                     },
                     { description: { 
-                        contains: searchTitle 
+                        contains: searchTitle ? searchTitle.toLowerCase() : undefined,
                         }
                     }
                 ]
@@ -167,8 +167,8 @@ const searchJobListingByLocation = async (searchLocation: string | undefined, li
                 OR: [
                     {company: {
                         city: {
-                            contains: searchLocation
-                            }
+                            contains: searchLocation ? searchLocation.toLowerCase() : undefined,
+                            },
                         }
                     }
                 ]
