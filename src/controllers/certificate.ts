@@ -1,12 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import { JwtPayload } from 'jsonwebtoken';
 import { createJobSeekerCertificateService, deleteJobSeekerCertificateService, getJobSeekerCertificateListService, updateJobSeekerCertificateService } from '../services/certificateService';
-import { getToken, loggedUser } from '../utils/decodedToken';
+import { loggedUser } from '../utils/decodedToken';
 
 const createJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const userData: Certificate = req.body
         const result = await createJobSeekerCertificateService(userId, userData)
         if (result.success) {
@@ -23,8 +21,7 @@ const createJobSeekerCertificate = async (req: Request, res: Response, next: Nex
 
 const getJobSeekerCertificateList = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const result = await getJobSeekerCertificateListService(userId)
         if (result.success) {
             res.status(200).json({
@@ -40,8 +37,7 @@ const getJobSeekerCertificateList = async (req: Request, res: Response, next: Ne
 
 const updateJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const certificateId  = parseInt(req.params.certificateId)
         const updateData = req.body
         const result = await updateJobSeekerCertificateService(userId, certificateId, updateData)
@@ -59,8 +55,7 @@ const updateJobSeekerCertificate = async (req: Request, res: Response, next: Nex
 
 const deleteJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const certificateId = parseInt(req.params.certificateId)
         const result = await deleteJobSeekerCertificateService(userId, certificateId)
         if(result.success) {

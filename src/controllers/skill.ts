@@ -19,8 +19,7 @@ const getAllSkill = async (req: Request, res: Response, next: NextFunction) => {
 
 const getJobSeekerSkillList = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const result = await getJobSeekerSkillListService(userId)
         if (result.success) {
             res.status(200).json({
@@ -36,8 +35,7 @@ const getJobSeekerSkillList = async (req: Request, res: Response, next: NextFunc
 
 const createNewJobSeekerSkill = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const { name } = req.body;
         const result = await createnewJobSeekerSkillService(userId, name);
         if (result.success) {
@@ -54,8 +52,7 @@ const createNewJobSeekerSkill = async (req: Request, res: Response, next: NextFu
 
 const deleteJobSeekerSkill = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = getToken(req)
-        const { userId } = loggedUser(token)
+        const { userId } = loggedUser(req.user!)
         const jobSeekerSkillId = parseInt(req.params.jobSeekerSkillId)
         const result = await deleteJobSeekerSkillService(userId, jobSeekerSkillId)
         if (result.success) {
