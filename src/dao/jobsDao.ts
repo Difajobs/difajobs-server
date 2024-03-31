@@ -50,6 +50,9 @@ const getCompanyJobsList = async (companyId: number) => {
     try {
         const companyJobsList = await prisma.jobs.findMany({
             where: {company_id: companyId},
+            orderBy: {
+                date_posted: 'desc'
+            },
             include: { 
                 company : {
                     select: {
@@ -113,6 +116,9 @@ const searchJobListing = async (searchTitle: string, searchLocation: string) => 
                     }
                 ]
             },
+            orderBy: {
+                date_posted: 'desc'
+            },
             include: {
                 company: {
                     select: {
@@ -157,4 +163,26 @@ const searchJobListing = async (searchTitle: string, searchLocation: string) => 
     }
 }
 
-export { getCompanyId, postJob, getCompanyJobsList, searchJobListing }
+const getAllJobListing = async (limit: number, offset: number) => {
+    try {
+        const allJobListing = await prisma.jobs.findMany({
+            orderBy: {
+                date_posted: 'desc'
+            },
+            take: limit,
+            skip: offset
+        })
+        return allJobListing
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { getCompanyId, postJob, getCompanyJobsList, searchJobListing, getAllJobListing }
