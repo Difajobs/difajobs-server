@@ -5,8 +5,8 @@ import bcryptjs from "bcryptjs";
 
 const getEmail = async (email : string )=> {
     try {
-        const existEmail = await prisma.user.findUnique({
-            where: { email }
+        const existEmail = await prisma.user.findFirst({
+            where: { email: email }
         });
         return existEmail
     } catch (error: any) {
@@ -30,7 +30,8 @@ const postCreateJobSeeker = async (userData: JobSeekerRegistrationData) => {
             data: {
                 email: email, 
                 password: hashedPassword,
-                role: role
+                role: role,
+                is_verified: false
             }
         });
         const newJobSeeker = await prisma.job_seeker.create({
@@ -65,6 +66,7 @@ const postCreateRecruiter = async (userData: RecruiterRegistrationData) => {
                 email: email,
                 password: hashedPassword,
                 role: role,
+                is_verified: false
             }
         })
         const newCompany = await prisma.company.create({
@@ -111,7 +113,54 @@ const getOneUser = async (userId: number) => {
 const getOneJobSeeker = async (userId: number) => {
     try {
         const jobSeeker = await prisma.job_seeker.findFirst({
-            where: {user_id: userId}
+            where: {user_id: userId},
+            include: {
+                job_seeker_skills: {
+                    select: {
+                        skills: {
+                            select: {
+                                name: true
+                            }
+                        }
+                    }
+                },
+                disabilities: {
+                    select: {
+                        disability: {
+                            select: {
+                                category: {
+                                    select: {
+                                        name: true
+                                    }
+                                },
+                                name: true
+                            }
+                        }
+                    }
+                },
+                certificates: {
+                    select: {
+                        name: true,
+                        description: true
+                    }
+                },
+                job_applications: {
+                    select: {
+                        job: {
+                            select: {
+                                title: true,
+                                description: true,
+                                company: {
+                                    select: {
+                                        name: true,
+                                        city: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         })
         return jobSeeker
     } catch (error: any) {
