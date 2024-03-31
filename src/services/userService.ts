@@ -1,12 +1,5 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getEmail, getOneJobSeeker, postCreateJobSeeker, postCreateRecruiter, updateJobSeekerData } from '../dao/userDao';
-import bcryptjs from "bcryptjs";
-import { getJobSeekerDisabilityList, postCreateListDisability } from '../dao/disabilityDao';
-import { getJobSeekerSkillList } from '../dao/skillsDao';
-import { getJobSeekerCertificateList } from '../dao/certificateDao';
-import * as jwt from "jsonwebtoken"
-import { add } from "date-fns";
-import JWT_TOKEN from '../config/jwt/jwt';
+import { getOneJobSeeker, updateJobSeekerData } from '../dao/userDao';
 
 const getJobSeekerProfileService = async (userId: number) => {
     try {
@@ -19,20 +12,10 @@ const getJobSeekerProfileService = async (userId: number) => {
                 status: 404
             });
         }
-        const jobSeekerDisabilityList = await getJobSeekerDisabilityList(jobSeeker.id)
-        if (!jobSeekerDisabilityList) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Job Seeker disability list not found',
-                status: 404
-            });
-        }
-        const jobSeekerSkillList = await getJobSeekerSkillList(jobSeeker.id)
-        const jobSeekerCertificateList = await getJobSeekerCertificateList(jobSeeker.id)
         return {
             success: true,
             message: "Successfully fetch Job Seeker Profile.",
-            data: { jobSeeker, jobSeekerDisabilityList, jobSeekerSkillList, jobSeekerCertificateList }
+            data: jobSeeker
         }
     } catch (error: any) {
         console.error(error);
@@ -54,16 +37,13 @@ const updateJobSeekerDataService = async (userId: number, updateData: any) => {
                 status: 404
             });
         }
-
         const filteredUpdateData: any = {};
         for (const key in updateData) {
             if (updateData[key] !== undefined) {
                 filteredUpdateData[key] = updateData[key];
             }
         }
-
         const updatedPersonalData = await updateJobSeekerData(jobSeeker.id, filteredUpdateData);
-
         return {
             success: true,
             message: "Successfully Update Job Seeker Personal Data:",
