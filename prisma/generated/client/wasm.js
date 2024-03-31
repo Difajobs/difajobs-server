@@ -119,10 +119,10 @@ exports.Prisma.Job_seekerScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   fullname: 'fullname',
-  dob: 'dob',
-  gender: 'gender',
   phone_number: 'phone_number',
-  city: 'city'
+  city: 'city',
+  dob: 'dob',
+  gender: 'gender'
 };
 
 exports.Prisma.CompanyScalarFieldEnum = {
@@ -142,8 +142,9 @@ exports.Prisma.JobsScalarFieldEnum = {
   description: 'description',
   employment_type: 'employment_type',
   min_salary: 'min_salary',
+  gender: 'gender',
   max_salary: 'max_salary',
-  gender: 'gender'
+  date_posted: 'date_posted'
 };
 
 exports.Prisma.List_certificateScalarFieldEnum = {
@@ -169,8 +170,8 @@ exports.Prisma.Job_applicationScalarFieldEnum = {
   job_seeker_id: 'job_seeker_id',
   job_id: 'job_id',
   company_id: 'company_id',
-  cover_letter: 'cover_letter',
-  status: 'status'
+  status: 'status',
+  cover_letter: 'cover_letter'
 };
 
 exports.Prisma.DisabilityScalarFieldEnum = {
@@ -186,8 +187,8 @@ exports.Prisma.AbilityScalarFieldEnum = {
 
 exports.Prisma.List_abilityScalarFieldEnum = {
   id: 'id',
-  ability_id: 'ability_id',
-  job_id: 'job_id'
+  job_id: 'job_id',
+  ability_id: 'ability_id'
 };
 
 exports.Prisma.Job_seeker_skillsScalarFieldEnum = {

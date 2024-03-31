@@ -1,143 +1,143 @@
 generator client {
-  provider      = "prisma-client-js"
-  output        = "./generated/client"
-  // binaryTargets = ["native", "debian-openssl-3.0.x"]
+  provider = "prisma-client-js"
+  output   = "./generated/client"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DB_URL")
+  provider  = "postgresql"
+  url       = env("DB_URL")
   directUrl = env("DB_DIRECT")
 }
 
 model User {
-  id            Int          @id @default(autoincrement())
-  email         String       @unique
-  password      String
-  role          String
-  is_verified   Boolean      @default(false)
-  job_seeker    Job_seeker[]
-  company       Company[]
+  id          Int          @id(map: "user_pkey") @default(autoincrement())
+  email       String       @unique    @db.VarChar(255)
+  password    String       @db.VarChar(255)
+  role        String       @db.VarChar(255)
+  is_verified Boolean      @default(false)
+  company     Company[]
+  job_seeker  Job_seeker[]
 }
+
 model Job_seeker {
-  id                  Int          @id @default(autoincrement())
-  user                User         @relation(fields: [user_id], references: [id])
-  user_id             Int
-  fullname            String
-  dob                 DateTime
-  gender              String
-  phone_number        String?
-  city                String?
-  certificates        List_certificate[]
-  disabilities        List_disability[]
-  job_seeker_skills   Job_seeker_skills[]
-  job_applications    Job_application[]
+  id                Int                 @id(map: "job_seeker_pkey") @default(autoincrement())
+  user_id           Int
+  fullname          String              @db.VarChar(255)
+  phone_number      String?             @db.VarChar(255)
+  city              String?             @db.VarChar(255)
+  dob               DateTime            @db.Date
+  gender            String              @db.VarChar
+  job_applications  Job_application[]
+  user              User                @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_seeker_user_id_foreign")
+  job_seeker_skills Job_seeker_skills[]
+  certificates      List_certificate[]
+  disabilities      List_disability[]
 }
 
 model Company {
-  id                Int       @id @default(autoincrement())
-  user              User      @relation(fields: [user_id], references: [id])
-  user_id           Int
-  name              String
-  city              String
-  about             String
-  logo              String?
-  picture           String?
-  jobs              Jobs[]
-  job_application   Job_application[]
+  id              Int               @id(map: "company_pkey") @default(autoincrement())
+  user_id         Int
+  name            String            @db.VarChar(255)
+  city            String            @db.VarChar(255)
+  about           String            @db.VarChar(255)
+  logo            String?           @db.VarChar(255)
+  picture         String?           @db.VarChar(255)
+  user            User              @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "company_user_id_foreign")
+  job_application Job_application[]
+  jobs            Jobs[]
 }
 
 model Jobs {
-  id                Int           @id @default(autoincrement())
-  company           Company       @relation(fields: [company_id], references: [id])
-  company_id        Int
-  title             String
-  description       String
-  employment_type   String?
-  min_salary        Int?
-  max_salary        Int?
-  gender            String?
-  required_skills   Required_skills[]
-  jobApplications   Job_application[]
-  list_ability      List_ability[]
+  id              Int               @id(map: "jobs_pkey") @default(autoincrement())
+  company_id      Int
+  title           String            @db.VarChar(255)
+  description     String            @db.VarChar(255)
+  employment_type String            @db.VarChar(255)
+  min_salary      BigInt?
+  gender          String?           @db.VarChar
+  max_salary      BigInt?
+  date_posted     DateTime?         @db.Date
+  jobApplications Job_application[]
+  company         Company           @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "jobs_company_id_foreign")
+  list_ability    List_ability[]
+  required_skills Required_skills[]
 }
 
 model List_certificate {
-  id              Int         @id @default(autoincrement())
-  job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
-  job_seeker_id   Int
-  name            String?
-  description     String?
+  id            Int        @id(map: "list_certificate_pkey") @default(autoincrement())
+  job_seeker_id Int
+  name          String?    @db.VarChar(255)
+  description   String?    @db.VarChar(255)
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_certificate_job_seeker_id_foreign")
 }
 
 model Skills {
-  id                    Int          @id @default(autoincrement())
-  name                  String
-  job_seeker_skills     Job_seeker_skills[]
-  required_skills       Required_skills[]
+  id                Int                 @id(map: "skill_pkey") @default(autoincrement())
+  name              String              @db.VarChar(255)
+  job_seeker_skills Job_seeker_skills[]
+  required_skills   Required_skills[]
 }
 
 model List_disability {
-  id                Int         @id @default(autoincrement())
-  job_seeker        Job_seeker  @relation(fields: [job_seeker_id], references: [id])
-  job_seeker_id     Int
-  disability        Disability  @relation(fields: [disability_id], references: [id])
-  disability_id     Int
+  id            Int        @id(map: "list_disability_pkey") @default(autoincrement())
+  job_seeker_id Int
+  disability_id Int
+  disability    Disability @relation(fields: [disability_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_disability_disability_id_foreign")
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_disability_job_seeker_id_foreign")
 }
 
 model Job_application {
-  id             Int         @id @default(autoincrement())
-  job_seeker     Job_seeker  @relation(fields: [job_seeker_id], references: [id])
-  job_seeker_id  Int
-  job            Jobs        @relation(fields: [job_id], references: [id])
-  job_id         Int
-  company        Company     @relation(fields: [company_id], references: [id])
-  company_id     Int
-  cover_letter   String?
-  status         String
+  id            Int        @id(map: "job_application_pkey") @default(autoincrement())
+  job_seeker_id Int
+  job_id        Int
+  company_id    Int
+  status        String     @db.VarChar(255)
+  cover_letter  String?    @db.VarChar
+  company       Company    @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_company_id_foreign")
+  job           Jobs       @relation(fields: [job_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_job_id_foreign")
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_job_seeker_id_foreign")
 }
 
 model Disability {
-  id                Int          @id @default(autoincrement())
-  category          Category     @relation(fields: [category_id], references: [id])
+  id                Int               @id(map: "disability_pkey") @default(autoincrement())
   category_id       Int
-  name              String
+  name              String            @db.VarChar(255)
+  category          Category          @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disability_category_id_foreign")
   list_disabilities List_disability[]
 }
 
 model Ability {
-  id          Int     @id @default(autoincrement())
-  name        String
+  id          Int            @id(map: "ability_pkey") @default(autoincrement())
+  name        String         @db.VarChar(255)
   list_abilty List_ability[]
 }
 
 model List_ability {
-  id          Int       @id @default(autoincrement())
-  ability     Ability?  @relation(fields: [ability_id], references: [id])
-  ability_id  Int?
-  job         Jobs?     @relation(fields: [job_id], references: [id])
-  job_id      Int?
+  id         Int      @id(map: "List_abilty_pkey") @default(autoincrement())
+  job_id     Int?
+  ability_id Int?
+  job        Jobs?    @relation(fields: [job_id], references: [id], onDelete: Cascade, map: "public_List_ability_job_id_fkey")
+  ability    Ability? @relation(fields: [ability_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "public_List_abilty_ability_id_fkey")
 }
 
 model Job_seeker_skills {
-  id              Int         @id @default(autoincrement())
-  job_seeker      Job_seeker  @relation(fields: [job_seeker_id], references: [id])
-  job_seeker_id   Int
-  skills          Skills      @relation(fields: [skill_id], references: [id])
-  skill_id        Int
+  id            Int        @id(map: "list_skills_pkey") @default(autoincrement())
+  job_seeker_id Int
+  skill_id      Int
+  job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_skills_job_seeker_id_foreign")
+  skills        Skills     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_skills_skill_id_foreign")
 }
 
 model Category {
-  id            Int          @id @default(autoincrement())
-  name          String
-  disabilities  Disability[]
+  id           Int          @id(map: "category_pkey") @default(autoincrement())
+  name         String       @db.VarChar(255)
+  disabilities Disability[]
 }
 
 model Required_skills {
-  id          Int     @id @default(autoincrement())
-  job         Jobs    @relation(fields: [job_id], references: [id])
-  job_id      Int
-  skills      Skills  @relation(fields: [skill_id], references: [id])
-  skill_id    Int
+  id       Int    @id(map: "list_job_skill_pkey") @default(autoincrement())
+  job_id   Int
+  skill_id Int
+  job      Jobs   @relation(fields: [job_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_job_skill_job_id_foreign")
+  skills   Skills @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "list_job_skill_skill_id_foreign")
 }
-
