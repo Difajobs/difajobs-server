@@ -92,4 +92,69 @@ const getCompanyJobsList = async (companyId: number) => {
     }
 }
 
-export { getCompanyId, postJob, getCompanyJobsList }
+const searchJobListing = async (searchTitle: string, searchLocation: string) => {
+    try {
+        const getJobListing = await prisma.jobs.findMany({
+            where: {
+                OR: [
+                    { title: { 
+                        contains: searchTitle 
+                        }
+                    },
+                    { description: { 
+                        contains: searchTitle 
+                        }
+                    },
+                    {company: {
+                        city: {
+                            contains: searchLocation
+                            }
+                        }
+                    }
+                ]
+            },
+            include: {
+                company: {
+                    select: {
+                        name: true,
+                        city: true,
+                        logo: true
+                    }
+                },
+                list_ability: {
+                    select: {
+                        ability: {
+                            select: {
+                                name: true
+                            }
+                        }
+                    }
+                },
+                required_skills: {
+                    select: {
+                        skills: {
+                            select: {
+                                name: true
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        })
+
+        return getJobListing
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { getCompanyId, postJob, getCompanyJobsList, searchJobListing }
