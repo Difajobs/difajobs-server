@@ -1,5 +1,5 @@
 import { getOneCompany } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListing } from '../dao/jobsDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation } from '../dao/jobsDao';
 import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 
@@ -59,23 +59,20 @@ const getCompanyJobsListService = async (companyId: number) => {
     }
 }
 
-const searchJobService = async (searchTitle: string | undefined, searchLocation: string | undefined, pageSize: number, pageNumber: number) => {
+const getAllJobsService = async (pageSize: number, pageNumber: number) => {
     try {
         const offset = (pageNumber - 1) * pageSize;
-        if (searchTitle || searchLocation) {
-            const searchJobs = await searchJobListing(searchTitle, searchLocation, pageSize, offset)
-            return {
-                success: true,
-                message: "Successfully Fetch Job Listings:",
-                data: searchJobs
-            };
-        } 
-            const allJob = await getAllJobListing(pageSize, offset)
-            return {
-                success: true,
-                message: "Successfully Fetch All Job listing:",
-                data: allJob
-            };
+        const jobs = await getAllJobListing(pageSize, offset)
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job listings:",
+            data: jobs.map(job => ({
+                ...job,
+                min_salary: job.min_salary?.toString,
+                max_salary: job.max_salary?.toString
+            }))
+        };
 
     } catch (error: any) {
         console.error(error);
@@ -86,4 +83,109 @@ const searchJobService = async (searchTitle: string | undefined, searchLocation:
         });
     }
 }
-export { createJobService, getCompanyJobsListService, searchJobService }
+
+const searchJobByTitleService = async (searchTitle: string | undefined, pageSize: number, pageNumber: number) => {
+    try {
+        const offset = (pageNumber - 1) * pageSize;
+        const searchJobs = await searchJobListingByTitle(searchTitle, pageSize, offset)
+        if (!searchJobs) {
+            throw new ErrorHandler({
+                success: false,
+                message: `Job listing with ${searchTitle} Not Available..`,
+                status: 404
+            });
+        }
+        return {
+            success: true,
+            message: "Successfully Fetch Job Listings:",
+            data: searchJobs.map(job => ({
+                ...job,
+                min_salary: job.min_salary?.toString,
+                max_salary: job.max_salary?.toString
+            }))
+        };
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const searchJobByLocationService = async (searchLocation: string | undefined, pageSize: number, pageNumber: number) => {
+    try {
+        const offset = (pageNumber - 1) * pageSize;
+        const searchJobs = await searchJobListingByLocation(searchLocation, pageSize, offset)
+        if (!searchJobs) {
+            throw new ErrorHandler({
+                success: false,
+                message: `Job listing Not Found in ${searchLocation}..`,
+                status: 404
+            });
+        }
+        return {
+            success: true,
+            message: "Successfully Fetch Job Listings:",
+            data: searchJobs.map(job => ({
+                ...job,
+                min_salary: job.min_salary?.toString,
+                max_salary: job.max_salary?.toString
+            }))
+        };
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const searchJobByTitleAndLocationService = async (searchLocation: string | undefined, searchTitle: string | undefined, pageSize: number, pageNumber: number) => {
+    try {
+        const offset = (pageNumber - 1) * pageSize;
+        const searchJobsByLocation = await searchJobListingByLocation(searchLocation, pageSize, offset)
+        const searchJobsByTitle = await searchJobListingByTitle(searchTitle, pageSize, offset)
+
+        if (!searchJobsByLocation && !searchJobsByTitle) {
+            throw new ErrorHandler({
+                success: false,
+                message: `Job listing with ${searchTitle} Not Found in ${searchLocation}..`,
+                status: 404
+            });
+        }
+
+        const jobsByLocation = searchJobsByLocation.map(job => ({
+            ...job,
+            min_salary: job.min_salary?.toString,
+            max_salary: job.max_salary?.toString
+        }))
+
+        const jobsByTitle = searchJobsByTitle.map(job => ({
+            ...job,
+            min_salary: job.min_salary?.toString,
+            max_salary: job.max_salary?.toString
+        }))
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Listings:",
+            data: { jobsByLocation, jobsByTitle}
+        };
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService }

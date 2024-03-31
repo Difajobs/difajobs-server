@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService, searchJobService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService } from '../services/jobsService';
 import { JwtPayload } from 'jsonwebtoken';
 import { getToken, loggedUser } from '../utils/decodedToken';
 
@@ -38,13 +38,12 @@ const getCompanyJobList = async (req: Request, res: Response, next: NextFunction
     }
 }
 
-const searchJobs = async (req: Request, res: Response, next: NextFunction) => {
+const searchJobsByTitle = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const searchTitle = req.query.searchTitle?.toString() || ''
-        const searchLocation = req.query.searchLocation?.toString() || ''
+        const searchTitle = req.query.searchTitle?.toString()
         const pageSize = parseInt(req.query.pageSize as string) || 10; 
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
-        const result = await searchJobService(searchTitle, searchLocation, pageSize, pageNumber)
+        const result = await searchJobByTitleService(searchTitle, pageSize, pageNumber)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -56,4 +55,61 @@ const searchJobs = async (req: Request, res: Response, next: NextFunction) => {
         next(error)
     }
 }
-export { createJob, getCompanyJobList, searchJobs }
+
+const searchJobsByLocation = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const searchLocation = req.query.searchLocation?.toString()
+        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageNumber = parseInt(req.query.pageNumber as string) || 1;
+        const result = await searchJobByLocationService(searchLocation, pageSize, pageNumber)
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+const searchJobsByTitleAndLocation = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {searchLocation, searchTitle} = req.query
+        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageNumber = parseInt(req.query.pageNumber as string) || 1;
+        if (typeof searchLocation === 'string' && typeof searchTitle === 'string') {
+            const result = await searchJobByTitleAndLocationService(searchLocation, searchTitle, pageSize, pageNumber)
+            
+            if (result.success) {
+                res.status(200).json({
+                    success: true,
+                    message: result.message,
+                    data: result.data
+                })
+            }
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+const getAllJobs = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageNumber = parseInt(req.query.pageNumber as string) || 1;
+        const result = await getAllJobsService(pageSize, pageNumber)
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation }
