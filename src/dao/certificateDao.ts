@@ -8,6 +8,13 @@ const createNewCertificate = async (jobSeekerId: number, userData: Certificate) 
                 job_seeker_id: jobSeekerId,
                 name: userData.name,
                 description: userData.description
+            },
+            include: {
+                job_seeker: {
+                    select: {
+                        fullname: true
+                    }
+                }
             }
         })
 
@@ -27,7 +34,14 @@ const createNewCertificate = async (jobSeekerId: number, userData: Certificate) 
 const getOneJobSeekerCertificate = async (certificateId: number, jobSeekerId: number) => {
     try {
         const certificate = await prisma.list_certificate.findUnique({
-            where: {id: certificateId, job_seeker_id: jobSeekerId}
+            where: {id: certificateId, job_seeker_id: jobSeekerId},
+            include: {
+                job_seeker: {
+                    select: {
+                        fullname: true
+                    }
+                }
+            }
         })
         return certificate
     } catch (error: any) {
@@ -45,7 +59,14 @@ const getOneJobSeekerCertificate = async (certificateId: number, jobSeekerId: nu
 const getJobSeekerCertificateList = async (jobSeekerId: number) => {
     try {
         const certificateList = await prisma.list_certificate.findMany({
-            where: {job_seeker_id: jobSeekerId}
+            where: {job_seeker_id: jobSeekerId},
+            include: { 
+                job_seeker: {
+                    select: {
+                        fullname: true
+                    }
+                }
+            }
         })
         return certificateList
     } catch (error: any) {
