@@ -16327,16 +16327,16 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     is_verified?: BoolFilter<"User"> | boolean
     company?: CompanyListRelationFilter
     job_seeker?: Job_seekerListRelationFilter
-  }, "id">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -17103,7 +17103,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     company?: CompanyCreateNestedManyWithoutUserInput
     job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
   }
@@ -17113,7 +17113,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
     job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
   }
@@ -17142,7 +17142,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -19952,7 +19952,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     company?: CompanyCreateNestedManyWithoutUserInput
   }
 
@@ -19961,7 +19961,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     company?: CompanyUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -20165,7 +20165,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerCreateNestedManyWithoutUserInput
   }
 
@@ -20174,7 +20174,7 @@ export namespace Prisma {
     email: string
     password: string
     role: string
-    is_verified: boolean
+    is_verified?: boolean
     job_seeker?: Job_seekerUncheckedCreateNestedManyWithoutUserInput
   }
 
