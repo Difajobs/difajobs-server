@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { getJobSeekerProfileService, updateJobSeekerDataService } from '../services/userService';
 import { JwtPayload } from 'jsonwebtoken';
+import { getToken, loggedUser } from '../utils/decodedToken';
 
 const getJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const user = (req as JwtPayload).user;
-    console.log("test", user)
-    const result = await getJobSeekerProfileService(user.id);
+    const token = getToken(req)
+    const { userId } = loggedUser(token)
+    const result = await getJobSeekerProfileService(userId);
     if (result.success) {
       res.status(200).json({
         success: true,
@@ -21,10 +22,10 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
 
 const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
-      const user = (req as JwtPayload).user;
-      console.log("test", user)
+    const token = getToken(req)
+    const { userId } = loggedUser(token)
       const updateData = req.body;
-      const result = await updateJobSeekerDataService(user.id, updateData);
+      const result = await updateJobSeekerDataService(userId, updateData);
       
       if (result.success) {
         res.status(200).json({
