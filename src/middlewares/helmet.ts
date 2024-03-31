@@ -8,10 +8,16 @@ const setPermissionsPolicy = (req: Request, res: Response, next: NextFunction) =
 
 const helmetApp = (app: Express) => {
   app.use(helmet({
-    xFrameOptions: {action: "deny"},
-    crossOriginEmbedderPolicy: true
+    contentSecurityPolicy: false,
+    frameguard: {
+      action: 'deny'
+    },
+    referrerPolicy: {
+      policy: 'same-origin'
+    },
+    xssFilter: true
   }));
-  app.use(helmet.frameguard({ action: 'deny' }));
+
   app.use(setPermissionsPolicy);
 };
 
