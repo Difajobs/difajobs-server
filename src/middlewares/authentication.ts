@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { getToken } from '../utils/decodedToken';
 
-const authentication = () => {
+const auth = () => {
     return async (req: Request, res: Response, next: NextFunction) => {
         const decodedToken = getToken(req)
         try {
@@ -14,5 +14,7 @@ const authentication = () => {
         }
     };
 };
+
+const authentication = auth()
 
 export default authentication
