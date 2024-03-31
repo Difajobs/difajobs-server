@@ -5,8 +5,7 @@ import { getToken, loggedUser } from '../utils/decodedToken';
 
 const getJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = getToken(req)
-    const { userId } = loggedUser(token)
+    const { userId } = loggedUser(req.user!)
     const result = await getJobSeekerProfileService(userId);
     if (result.success) {
       res.status(200).json({
@@ -22,8 +21,7 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
 
 const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = getToken(req)
-    const { userId } = loggedUser(token)
+      const { userId } = loggedUser(req.user!)
       const updateData = req.body;
       const result = await updateJobSeekerDataService(userId, updateData);
       
