@@ -4,8 +4,9 @@ import { JwtPayload } from 'jsonwebtoken';
 
 const getJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const userId = (req.user as JwtPayload).id;
-    const result = await getJobSeekerProfileService(userId);
+    const user = (req as JwtPayload).user;
+    console.log("test", user)
+    const result = await getJobSeekerProfileService(user.id);
     if (result.success) {
       res.status(200).json({
         success: true,
@@ -13,7 +14,6 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
         data: result.data
       })
     }
-
   } catch (error) {
     next(error);
   }
@@ -21,9 +21,10 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
 
 const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
-      const userId = (req.user as JwtPayload).id;
+      const user = (req as JwtPayload).user;
+      console.log("test", user)
       const updateData = req.body;
-      const result = await updateJobSeekerDataService(userId, updateData);
+      const result = await updateJobSeekerDataService(user.id, updateData);
       
       if (result.success) {
         res.status(200).json({
