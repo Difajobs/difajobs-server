@@ -1,5 +1,5 @@
 const verifyEmail = function (otp: string) {
-    const html = `
+  const html = `
     <!DOCTYPE html>
     <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -74,7 +74,8 @@ const verifyEmail = function (otp: string) {
     <body
       style="margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; --bg-opacity: 1; background-color: #eceff1;">
       <div style="display: none;">A request verifiction link was received.
-Use this link to verify your email</div>
+        Use this link to verify your email
+      </div>
       <div role="article" aria-roledescription="email" aria-label="Reset your Password" lang="en">
         <table style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; width: 100%;" width="100%"
           cellpadding="0" cellspacing="0" role="presentation">
@@ -154,13 +155,13 @@ Use this link to verify your email</div>
     </body>
 
     </html>`;
-    const text = `
+  const text = `
         Verify Email, A request verifiction link was received.
         Use this link to verify your email`;
-    return {
-        html: html,
-        text: text,
-    };
+  return {
+    html: html,
+    text: text,
+  };
 };
 
 export default verifyEmail;
