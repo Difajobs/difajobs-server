@@ -1,5 +1,5 @@
 import { getOneCompany } from '../dao/companyDao';
-import { getCompanyId, getCompanyJobsList, postJob } from '../dao/jobsDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListing } from '../dao/jobsDao';
 import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 
@@ -59,4 +59,31 @@ const getCompanyJobsListService = async (companyId: number) => {
     }
 }
 
-export { createJobService, getCompanyJobsListService }
+const searchJobService = async (searchTitle: string | undefined, searchLocation: string | undefined, pageSize: number, pageNumber: number) => {
+    try {
+        const offset = (pageNumber - 1) * pageSize;
+        if (searchTitle || searchLocation) {
+            const searchJobs = await searchJobListing(searchTitle, searchLocation, pageSize, offset)
+            return {
+                success: true,
+                message: "Successfully Fetch Job Listings:",
+                data: searchJobs
+            };
+        } 
+            const allJob = await getAllJobListing(pageSize, offset)
+            return {
+                success: true,
+                message: "Successfully Fetch All Job listing:",
+                data: allJob
+            };
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+export { createJobService, getCompanyJobsListService, searchJobService }

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobService } from '../services/jobsService';
 import { JwtPayload } from 'jsonwebtoken';
 import { getToken, loggedUser } from '../utils/decodedToken';
 
@@ -38,4 +38,22 @@ const getCompanyJobList = async (req: Request, res: Response, next: NextFunction
     }
 }
 
-export { createJob, getCompanyJobList }
+const searchJobs = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const searchTitle = req.query.searchTitle?.toString() || ''
+        const searchLocation = req.query.searchLocation?.toString() || ''
+        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageNumber = parseInt(req.query.pageNumber as string) || 1;
+        const result = await searchJobService(searchTitle, searchLocation, pageSize, pageNumber)
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+export { createJob, getCompanyJobList, searchJobs }

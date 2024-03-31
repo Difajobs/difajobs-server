@@ -96,7 +96,7 @@ const getCompanyJobsList = async (companyId: number) => {
     }
 }
 
-const searchJobListing = async (searchTitle: string, searchLocation: string) => {
+const searchJobListing = async (searchTitle: string | undefined, searchLocation: string | undefined, limit: number, offset: number) => {
     try {
         const getJobListing = await prisma.jobs.findMany({
             where: {
@@ -116,9 +116,6 @@ const searchJobListing = async (searchTitle: string, searchLocation: string) => 
                         }
                     }
                 ]
-            },
-            orderBy: {
-                date_posted: 'desc'
             },
             include: {
                 company: {
@@ -147,7 +144,12 @@ const searchJobListing = async (searchTitle: string, searchLocation: string) => 
                     }
                 }
 
-            }
+            },
+            orderBy: {
+                date_posted: 'desc'
+            },
+            take: limit,
+            skip: offset,
 
         })
 
