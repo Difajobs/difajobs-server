@@ -89,6 +89,14 @@ const getAllJobsService = async (pageSize: number, pageNumber: number) => {
         const offset = (pageNumber - 1) * pageSize;
         const jobs = await getAllJobListing(pageSize, offset)
 
+        if (!jobs.length) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Search Failed.. No Job Listing Found',
+                status: 404
+            });
+        }
+
         return {
             success: true,
             message: "Successfully Fetch Job listings:",
@@ -115,10 +123,10 @@ const searchJobByTitleService = async (title: string | undefined, pageSize: numb
     try {
         const offset = (pageNumber - 1) * pageSize;
         const searchJobs = await searchJobListingByTitle(title, pageSize, offset)
-        if (!searchJobs) {
+        if (!searchJobs.length) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing with ${title} Not Available..`,
+                message: 'Search Failed.. No Job Listing Found',
                 status: 404
             });
         }
@@ -148,10 +156,10 @@ const searchJobByLocationService = async (location: string | undefined, pageSize
     try {
         const offset = (pageNumber - 1) * pageSize;
         const searchJobs = await searchJobListingByLocation(location, pageSize, offset)
-        if (!searchJobs) {
+        if (!searchJobs.length) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing Not Found in ${location}..`,
+                message: 'Search Failed.. No Job Listing Found',
                 status: 404
             });
         }
@@ -183,13 +191,14 @@ const searchJobByTitleAndLocationService = async (location: string | undefined, 
         const searchJobsByLocation = await searchJobListingByLocation(location, pageSize, offset)
         const searchJobsByTitle = await searchJobListingByTitle(title, pageSize, offset)
 
-        if (!searchJobsByLocation && !searchJobsByTitle) {
+        if (!searchJobsByLocation.length && !searchJobsByTitle.length) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing with ${title} Not Found in ${location}..`,
+                message: 'Search Failed.. No Job Listing Found',
                 status: 404
             });
         }
+        console.log(searchJobsByLocation, searchJobsByTitle )
 
         const jobsByLocation = searchJobsByLocation.map(job => ({
             ...job,
