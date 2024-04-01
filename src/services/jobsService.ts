@@ -4,9 +4,10 @@ import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
 import { postCreateRequiredSkills } from '../dao/requiredSkillDao';
+import { postCreateQuestions } from '../dao/questionsDao';
 
 // ------ create jobs ------
-const createJobService = async (userId: number, userData: JobCreate, ability_id: number[], skillNames: string[]) => {
+const createJobService = async (userId: number, userData: JobCreate, ability_id: number[], skillNames: string[], question_1: string, question_2: string, question_3: string) => {
     try {
         const company = await getCompanyId(userId);
         if (!company) {
@@ -21,7 +22,6 @@ const createJobService = async (userId: number, userData: JobCreate, ability_id:
 
         const createRequiredSkill = async () => {
             const skills: any = [];
-
             if (checkSkills.length > 0) {
                 await Promise.all(checkSkills.map(async (skill) => {
                     const addExistingSkill = await postCreateRequiredSkills(job.id, skill.id);
@@ -34,17 +34,16 @@ const createJobService = async (userId: number, userData: JobCreate, ability_id:
                     skills.push(addNewSkill);
                 }));
             }
-
             return skills;
         };
 
         const listAbility = await postCreateListAbility(job.id, ability_id);
         const requiredSkills = await createRequiredSkill();
-
+        const additionalQuestion = await postCreateQuestions(job.id, question_1, question_2, question_3)
         return {
             success: true,
             message: "New job created successfully",
-            data: { job, listAbility, requiredSkills }
+            data: { job, listAbility, requiredSkills, additionalQuestion }
         };
     } catch (error: any) {
         console.error(error);

@@ -7,8 +7,8 @@ import { getToken, loggedUser } from '../utils/decodedToken';
 const createJob = async (req: Request, res: Response, next: NextFunction) => {
     const { userId } = loggedUser(req.user!)
     try {
-        const { title, description, gender, employment_type, min_salary, max_salary, ability_id, skill_names } = req.body;
-        const result = await createJobService(userId, { title, description, gender, employment_type, min_salary, max_salary }, ability_id, skill_names)
+        const { title, description, gender, employment_type, min_salary, max_salary, ability_id, skill_names, question_1, question_2, question_3 } = req.body;
+        const result = await createJobService(userId, { title, description, gender, employment_type, min_salary, max_salary }, ability_id, skill_names, question_1, question_2, question_3)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -40,7 +40,7 @@ const getCompanyJobList = async (req: Request, res: Response, next: NextFunction
 const searchJobsByTitle = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const title = req.query.title?.toString()
-        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageSize = parseInt(req.query.pageSize as string) || 10;
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
         const result = await searchJobByTitleService(title, pageSize, pageNumber)
         if (result.success) {
@@ -58,7 +58,7 @@ const searchJobsByTitle = async (req: Request, res: Response, next: NextFunction
 const searchJobsByLocation = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const location = req.query.location?.toString()
-        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageSize = parseInt(req.query.pageSize as string) || 10;
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
         const result = await searchJobByLocationService(location, pageSize, pageNumber)
         if (result.success) {
@@ -75,12 +75,12 @@ const searchJobsByLocation = async (req: Request, res: Response, next: NextFunct
 
 const searchJobsByTitleAndLocation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const {location, title} = req.query
-        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const { location, title } = req.query
+        const pageSize = parseInt(req.query.pageSize as string) || 10;
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
         if (typeof location === 'string' && typeof title === 'string') {
             const result = await searchJobByTitleAndLocationService(location, title, pageSize, pageNumber)
-            
+
             if (result.success) {
                 res.status(200).json({
                     success: true,
@@ -96,7 +96,7 @@ const searchJobsByTitleAndLocation = async (req: Request, res: Response, next: N
 
 const getAllJobs = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const pageSize = parseInt(req.query.pageSize as string) || 10; 
+        const pageSize = parseInt(req.query.pageSize as string) || 10;
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
         const result = await getAllJobsService(pageSize, pageNumber)
         if (result.success) {
