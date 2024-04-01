@@ -6,12 +6,12 @@ const jobsRouter = express.Router()
 
 jobsRouter.post('/', recruiterAuth, createJob)
 jobsRouter.get('/', async (req, res, next) => {
-    const { searchTitle, searchLocation } = req.query
-    if (searchLocation && searchTitle) {
+    const { title, location } = req.query
+    if (location && title) {
         await searchJobsByTitleAndLocation(req,res,next)
-    } else if (searchLocation) {
+    } else if (location) {
         await searchJobsByLocation(req,res,next)
-    } else if (searchTitle) {
+    } else if (title) {
         await searchJobsByTitle(req,res,next)
     } else {
         await getAllJobs(req,res,next)
