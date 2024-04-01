@@ -2,34 +2,59 @@ import { getOneCompany } from '../dao/companyDao';
 import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation } from '../dao/jobsDao';
 import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
+import { createSkills, getSkillListByName } from '../dao/skillsDao';
+import { postCreateRequiredSkills } from '../dao/requiredSkillDao';
 
 // ------ create jobs ------
-const createJobService = async (userId: number, userData: JobCreate, ability_id: number[]) => {
+const createJobService = async (userId: number, userData: JobCreate, ability_id: number[], skillNames: string[]) => {
     try {
-        const company = await getCompanyId(userId);        
+        const company = await getCompanyId(userId);
         if (!company) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Conmpany not found',
+                message: 'Company not found',
                 status: 404
-            })
+            });
         }
-        const job = await postJob(company.id, userData)
-        const listAbility = await postCreateListAbility(job.id, ability_id)
+        const job = await postJob(company.id, userData);
+        const checkSkills = await getSkillListByName(skillNames);
+
+        const createRequiredSkill = async () => {
+            const skills: any = [];
+
+            if (checkSkills.length > 0) {
+                await Promise.all(checkSkills.map(async (skill) => {
+                    const addExistingSkill = await postCreateRequiredSkills(job.id, skill.id);
+                    skills.push(addExistingSkill);
+                }));
+            } else {
+                await Promise.all(skillNames.map(async (skill) => {
+                    const newSkill = await createSkills(skill);
+                    const addNewSkill = await postCreateRequiredSkills(job.id, newSkill.id);
+                    skills.push(addNewSkill);
+                }));
+            }
+
+            return skills;
+        };
+
+        const listAbility = await postCreateListAbility(job.id, ability_id);
+        const requiredSkills = await createRequiredSkill();
+
         return {
             success: true,
             message: "New job created successfully",
-            data: { job, listAbility }
+            data: { job, listAbility, requiredSkills }
         };
     } catch (error: any) {
         console.error(error);
         throw new ErrorHandler({
             success: false,
-            status: error.status,
-            message: error.message,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
         });
     }
-}
+};
 
 const getCompanyJobsListService = async (companyId: number) => {
     try {

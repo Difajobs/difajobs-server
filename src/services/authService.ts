@@ -48,11 +48,13 @@ const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData,
             });
         }
         const user = await postCreateJobSeeker(userData)
+        const newUser = user.newUser
+        const newJobseeker = user.newJobSeeker
         const disability = await postCreateListDisability(user.newJobSeeker.id, disabilityId)
         return {
             success: true,
             message: "User registered successfully",
-            data: { user, disability }
+            data: { newUser, newJobseeker, disability }
         }
     } catch (error: any) {
         console.error(error);

@@ -54,9 +54,9 @@ model Jobs {
   title           String            @db.VarChar(255)
   description     String            @db.VarChar(255)
   employment_type String            @db.VarChar(255)
-  min_salary      BigInt?
+  min_salary      Int?
   gender          String?           @db.VarChar
-  max_salary      BigInt?
+  max_salary      Int?
   date_posted     DateTime?         @default(now())
   jobApplications Job_application[]
   company         Company           @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "jobs_company_id_foreign")

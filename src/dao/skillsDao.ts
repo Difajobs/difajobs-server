@@ -41,6 +41,32 @@ const getSkillByName = async (skillName: string) => {
     }
 }
 
+const getSkillListByName = async (skillNames: string[]): Promise<Skill[]> => {
+    try {
+        const listSkill: (Skill | null)[] = await Promise.all(skillNames.map(async (skill) => {
+            const createdRecord: Skill[] = await prisma.skills.findMany({
+                where: {
+                    name: skill
+                }
+            });
+            console.log(createdRecord)
+            return createdRecord.length > 0 ? createdRecord[0] : null;
+        }));
+        const filteredListSkill: Skill[] = listSkill.filter(skill => skill !== null) as Skill[];
+        console.log('Fetched skills:', filteredListSkill);
+        return filteredListSkill;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
 const getAllSkill = async () => {
     try {
         const skills = await prisma.skills.findMany()
@@ -142,4 +168,4 @@ const deleteJobSeekerSkill = async (jobSeekerSkillId: number, jobSeekerId: numbe
     }
 }
 
-export { createSkills, getAllSkill, getSkillByName, createJobSeekerSkill, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill }
+export { createSkills, getAllSkill, getSkillByName, createJobSeekerSkill, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill, getSkillListByName }

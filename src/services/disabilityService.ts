@@ -4,8 +4,7 @@ import ErrorHandler from '../utils/errorHandler';
 const disabiltyListService = async (categoryIds: number[]) => {
     try {
         const nestedDisabilities = await postListDisability(categoryIds);
-        const categorizedDisabilities = nestedDisabilities.map((disabilities, index) => ({
-            category_id: categoryIds[index],
+        const categorizedDisabilities = nestedDisabilities.map((disabilities) => ({
             disabilities: disabilities
         }));
 

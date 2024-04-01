@@ -5,11 +5,10 @@ import { getToken, loggedUser } from '../utils/decodedToken';
 
 // ------ create new job ------
 const createJob = async (req: Request, res: Response, next: NextFunction) => {
-    const token = getToken(req)
-    const { userId } = loggedUser(token)
+    const { userId } = loggedUser(req.user!)
     try {
-        const { title, description, gender, employment_type, min_salary, max_salary, ability_id } = req.body;
-        const result = await createJobService(userId, { title, description, gender, employment_type, min_salary, max_salary }, ability_id)
+        const { title, description, gender, employment_type, min_salary, max_salary, ability_id, skill_names } = req.body;
+        const result = await createJobService(userId, { title, description, gender, employment_type, min_salary, max_salary }, ability_id, skill_names)
         if (result.success) {
             res.status(200).json({
                 success: true,

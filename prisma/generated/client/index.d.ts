@@ -5433,8 +5433,8 @@ export namespace Prisma {
   export type JobsSumAggregateOutputType = {
     id: number | null
     company_id: number | null
-    min_salary: bigint | null
-    max_salary: bigint | null
+    min_salary: number | null
+    max_salary: number | null
   }
 
   export type JobsMinAggregateOutputType = {
@@ -5443,9 +5443,9 @@ export namespace Prisma {
     title: string | null
     description: string | null
     employment_type: string | null
-    min_salary: bigint | null
+    min_salary: number | null
     gender: string | null
-    max_salary: bigint | null
+    max_salary: number | null
     date_posted: Date | null
   }
 
@@ -5455,9 +5455,9 @@ export namespace Prisma {
     title: string | null
     description: string | null
     employment_type: string | null
-    min_salary: bigint | null
+    min_salary: number | null
     gender: string | null
-    max_salary: bigint | null
+    max_salary: number | null
     date_posted: Date | null
   }
 
@@ -5618,9 +5618,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary: bigint | null
+    min_salary: number | null
     gender: string | null
-    max_salary: bigint | null
+    max_salary: number | null
     date_posted: Date | null
     _count: JobsCountAggregateOutputType | null
     _avg: JobsAvgAggregateOutputType | null
@@ -5695,9 +5695,9 @@ export namespace Prisma {
       title: string
       description: string
       employment_type: string
-      min_salary: bigint | null
+      min_salary: number | null
       gender: string | null
-      max_salary: bigint | null
+      max_salary: number | null
       date_posted: Date | null
     }, ExtArgs["result"]["jobs"]>
     composites: {}
@@ -6105,9 +6105,9 @@ export namespace Prisma {
     readonly title: FieldRef<"Jobs", 'String'>
     readonly description: FieldRef<"Jobs", 'String'>
     readonly employment_type: FieldRef<"Jobs", 'String'>
-    readonly min_salary: FieldRef<"Jobs", 'BigInt'>
+    readonly min_salary: FieldRef<"Jobs", 'Int'>
     readonly gender: FieldRef<"Jobs", 'String'>
-    readonly max_salary: FieldRef<"Jobs", 'BigInt'>
+    readonly max_salary: FieldRef<"Jobs", 'Int'>
     readonly date_posted: FieldRef<"Jobs", 'DateTime'>
   }
     
@@ -16284,20 +16284,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt[]'
-   */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -16540,9 +16526,9 @@ export namespace Prisma {
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
     employment_type?: StringFilter<"Jobs"> | string
-    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    min_salary?: IntNullableFilter<"Jobs"> | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
-    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    max_salary?: IntNullableFilter<"Jobs"> | number | null
     date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
     jobApplications?: Job_applicationListRelationFilter
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
@@ -16575,9 +16561,9 @@ export namespace Prisma {
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
     employment_type?: StringFilter<"Jobs"> | string
-    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    min_salary?: IntNullableFilter<"Jobs"> | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
-    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    max_salary?: IntNullableFilter<"Jobs"> | number | null
     date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
     jobApplications?: Job_applicationListRelationFilter
     company?: XOR<CompanyRelationFilter, CompanyWhereInput>
@@ -16611,9 +16597,9 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Jobs"> | string
     description?: StringWithAggregatesFilter<"Jobs"> | string
     employment_type?: StringWithAggregatesFilter<"Jobs"> | string
-    min_salary?: BigIntNullableWithAggregatesFilter<"Jobs"> | bigint | number | null
+    min_salary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
     gender?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
-    max_salary?: BigIntNullableWithAggregatesFilter<"Jobs"> | bigint | number | null
+    max_salary?: IntNullableWithAggregatesFilter<"Jobs"> | number | null
     date_posted?: DateTimeNullableWithAggregatesFilter<"Jobs"> | Date | string | null
   }
 
@@ -17344,9 +17330,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     company: CompanyCreateNestedOneWithoutJobsInput
@@ -17360,9 +17346,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
@@ -17373,9 +17359,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
@@ -17389,9 +17375,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
@@ -17404,9 +17390,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
   }
 
@@ -17414,9 +17400,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -17426,9 +17412,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -18166,15 +18152,15 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
-  export type BigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -18263,20 +18249,20 @@ export namespace Prisma {
     max_salary?: SortOrder
   }
 
-  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedBigIntNullableFilter<$PrismaModel>
-    _min?: NestedBigIntNullableFilter<$PrismaModel>
-    _max?: NestedBigIntNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18489,17 +18475,6 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type JobsNullableRelationFilter = {
     is?: JobsWhereInput | null
     isNot?: JobsWhereInput | null
@@ -18538,22 +18513,6 @@ export namespace Prisma {
     id?: SortOrder
     job_id?: SortOrder
     ability_id?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SkillsRelationFilter = {
@@ -19090,12 +19049,12 @@ export namespace Prisma {
     connect?: Required_skillsWhereUniqueInput | Required_skillsWhereUniqueInput[]
   }
 
-  export type NullableBigIntFieldUpdateOperationsInput = {
-    set?: bigint | number | null
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -19492,14 +19451,6 @@ export namespace Prisma {
     update?: XOR<XOR<AbilityUpdateToOneWithWhereWithoutList_abiltyInput, AbilityUpdateWithoutList_abiltyInput>, AbilityUncheckedUpdateWithoutList_abiltyInput>
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type Job_seekerCreateNestedOneWithoutJob_seeker_skillsInput = {
     create?: XOR<Job_seekerCreateWithoutJob_seeker_skillsInput, Job_seekerUncheckedCreateWithoutJob_seeker_skillsInput>
     connectOrCreate?: Job_seekerCreateOrConnectWithoutJob_seeker_skillsInput
@@ -19747,17 +19698,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-  }
-
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -19769,20 +19709,20 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedBigIntNullableFilter<$PrismaModel>
-    _min?: NestedBigIntNullableFilter<$PrismaModel>
-    _max?: NestedBigIntNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
@@ -19808,22 +19748,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type CompanyCreateWithoutUserInput = {
@@ -20242,9 +20166,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
@@ -20256,9 +20180,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
@@ -20344,9 +20268,9 @@ export namespace Prisma {
     title?: StringFilter<"Jobs"> | string
     description?: StringFilter<"Jobs"> | string
     employment_type?: StringFilter<"Jobs"> | string
-    min_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    min_salary?: IntNullableFilter<"Jobs"> | number | null
     gender?: StringNullableFilter<"Jobs"> | string | null
-    max_salary?: BigIntNullableFilter<"Jobs"> | bigint | number | null
+    max_salary?: IntNullableFilter<"Jobs"> | number | null
     date_posted?: DateTimeNullableFilter<"Jobs"> | Date | string | null
   }
 
@@ -20815,9 +20739,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     company: CompanyCreateNestedOneWithoutJobsInput
     list_ability?: List_abilityCreateNestedManyWithoutJobInput
@@ -20830,9 +20754,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
@@ -20922,9 +20846,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
@@ -20937,9 +20861,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
@@ -21091,9 +21015,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     company: CompanyCreateNestedOneWithoutJobsInput
@@ -21106,9 +21030,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     required_skills?: Required_skillsUncheckedCreateNestedManyWithoutJobInput
@@ -21148,9 +21072,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
@@ -21163,9 +21087,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     required_skills?: Required_skillsUncheckedUpdateManyWithoutJobNestedInput
@@ -21349,9 +21273,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationCreateNestedManyWithoutJobInput
     company: CompanyCreateNestedOneWithoutJobsInput
@@ -21364,9 +21288,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
     jobApplications?: Job_applicationUncheckedCreateNestedManyWithoutJobInput
     list_ability?: List_abilityUncheckedCreateNestedManyWithoutJobInput
@@ -21408,9 +21332,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     company?: CompanyUpdateOneRequiredWithoutJobsNestedInput
@@ -21423,9 +21347,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
@@ -21644,9 +21568,9 @@ export namespace Prisma {
     title: string
     description: string
     employment_type: string
-    min_salary?: bigint | number | null
+    min_salary?: number | null
     gender?: string | null
-    max_salary?: bigint | number | null
+    max_salary?: number | null
     date_posted?: Date | string | null
   }
 
@@ -21677,9 +21601,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUpdateManyWithoutJobNestedInput
@@ -21691,9 +21615,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     jobApplications?: Job_applicationUncheckedUpdateManyWithoutJobNestedInput
     list_ability?: List_abilityUncheckedUpdateManyWithoutJobNestedInput
@@ -21705,9 +21629,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     employment_type?: StringFieldUpdateOperationsInput | string
-    min_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    min_salary?: NullableIntFieldUpdateOperationsInput | number | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
-    max_salary?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    max_salary?: NullableIntFieldUpdateOperationsInput | number | null
     date_posted?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 

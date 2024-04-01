@@ -47,3 +47,8 @@ interface JobCreate {
     min_salary: number | null;
     max_salary: number | null;
 }
+
+interface Skill {
+    id: number;
+    name: string;
+}
