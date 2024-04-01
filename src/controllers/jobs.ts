@@ -39,10 +39,10 @@ const getCompanyJobList = async (req: Request, res: Response, next: NextFunction
 
 const searchJobsByTitle = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const searchTitle = req.query.searchTitle?.toString()
+        const title = req.query.title?.toString()
         const pageSize = parseInt(req.query.pageSize as string) || 10; 
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
-        const result = await searchJobByTitleService(searchTitle, pageSize, pageNumber)
+        const result = await searchJobByTitleService(title, pageSize, pageNumber)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -57,10 +57,10 @@ const searchJobsByTitle = async (req: Request, res: Response, next: NextFunction
 
 const searchJobsByLocation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const searchLocation = req.query.searchLocation?.toString()
+        const location = req.query.location?.toString()
         const pageSize = parseInt(req.query.pageSize as string) || 10; 
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
-        const result = await searchJobByLocationService(searchLocation, pageSize, pageNumber)
+        const result = await searchJobByLocationService(location, pageSize, pageNumber)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -75,11 +75,11 @@ const searchJobsByLocation = async (req: Request, res: Response, next: NextFunct
 
 const searchJobsByTitleAndLocation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const {searchLocation, searchTitle} = req.query
+        const {location, title} = req.query
         const pageSize = parseInt(req.query.pageSize as string) || 10; 
         const pageNumber = parseInt(req.query.pageNumber as string) || 1;
-        if (typeof searchLocation === 'string' && typeof searchTitle === 'string') {
-            const result = await searchJobByTitleAndLocationService(searchLocation, searchTitle, pageSize, pageNumber)
+        if (typeof location === 'string' && typeof title === 'string') {
+            const result = await searchJobByTitleAndLocationService(location, title, pageSize, pageNumber)
             
             if (result.success) {
                 res.status(200).json({

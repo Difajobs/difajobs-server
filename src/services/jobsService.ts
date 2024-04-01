@@ -94,8 +94,10 @@ const getAllJobsService = async (pageSize: number, pageNumber: number) => {
             message: "Successfully Fetch Job listings:",
             data: jobs.map(job => ({
                 ...job,
-                min_salary: job.min_salary?.toString,
-                max_salary: job.max_salary?.toString
+                min_salary: job.min_salary?.toString(),
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
 
@@ -109,14 +111,14 @@ const getAllJobsService = async (pageSize: number, pageNumber: number) => {
     }
 }
 
-const searchJobByTitleService = async (searchTitle: string | undefined, pageSize: number, pageNumber: number) => {
+const searchJobByTitleService = async (title: string | undefined, pageSize: number, pageNumber: number) => {
     try {
         const offset = (pageNumber - 1) * pageSize;
-        const searchJobs = await searchJobListingByTitle(searchTitle, pageSize, offset)
+        const searchJobs = await searchJobListingByTitle(title, pageSize, offset)
         if (!searchJobs) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing with ${searchTitle} Not Available..`,
+                message: `Job listing with ${title} Not Available..`,
                 status: 404
             });
         }
@@ -125,8 +127,10 @@ const searchJobByTitleService = async (searchTitle: string | undefined, pageSize
             message: "Successfully Fetch Job Listings:",
             data: searchJobs.map(job => ({
                 ...job,
-                min_salary: job.min_salary?.toString,
-                max_salary: job.max_salary?.toString
+                min_salary: job.min_salary?.toString(),
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
 
@@ -140,14 +144,14 @@ const searchJobByTitleService = async (searchTitle: string | undefined, pageSize
     }
 }
 
-const searchJobByLocationService = async (searchLocation: string | undefined, pageSize: number, pageNumber: number) => {
+const searchJobByLocationService = async (location: string | undefined, pageSize: number, pageNumber: number) => {
     try {
         const offset = (pageNumber - 1) * pageSize;
-        const searchJobs = await searchJobListingByLocation(searchLocation, pageSize, offset)
+        const searchJobs = await searchJobListingByLocation(location, pageSize, offset)
         if (!searchJobs) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing Not Found in ${searchLocation}..`,
+                message: `Job listing Not Found in ${location}..`,
                 status: 404
             });
         }
@@ -156,8 +160,10 @@ const searchJobByLocationService = async (searchLocation: string | undefined, pa
             message: "Successfully Fetch Job Listings:",
             data: searchJobs.map(job => ({
                 ...job,
-                min_salary: job.min_salary?.toString,
-                max_salary: job.max_salary?.toString
+                min_salary: job.min_salary?.toString(),
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
         
@@ -171,30 +177,34 @@ const searchJobByLocationService = async (searchLocation: string | undefined, pa
     }
 }
 
-const searchJobByTitleAndLocationService = async (searchLocation: string | undefined, searchTitle: string | undefined, pageSize: number, pageNumber: number) => {
+const searchJobByTitleAndLocationService = async (location: string | undefined, title: string | undefined, pageSize: number, pageNumber: number) => {
     try {
         const offset = (pageNumber - 1) * pageSize;
-        const searchJobsByLocation = await searchJobListingByLocation(searchLocation, pageSize, offset)
-        const searchJobsByTitle = await searchJobListingByTitle(searchTitle, pageSize, offset)
+        const searchJobsByLocation = await searchJobListingByLocation(location, pageSize, offset)
+        const searchJobsByTitle = await searchJobListingByTitle(title, pageSize, offset)
 
         if (!searchJobsByLocation && !searchJobsByTitle) {
             throw new ErrorHandler({
                 success: false,
-                message: `Job listing with ${searchTitle} Not Found in ${searchLocation}..`,
+                message: `Job listing with ${title} Not Found in ${location}..`,
                 status: 404
             });
         }
 
         const jobsByLocation = searchJobsByLocation.map(job => ({
             ...job,
-            min_salary: job.min_salary?.toString,
-            max_salary: job.max_salary?.toString
+            min_salary: job.min_salary?.toString(),
+            max_salary: job.max_salary?.toString(),
+            list_ability: job.list_ability.map(ability => ability.ability?.name),
+            required_skills: job.required_skills.map(skill => skill.skills.name)
         }))
 
         const jobsByTitle = searchJobsByTitle.map(job => ({
             ...job,
-            min_salary: job.min_salary?.toString,
-            max_salary: job.max_salary?.toString
+            min_salary: job.min_salary?.toString(),
+            max_salary: job.max_salary?.toString(),
+            list_ability: job.list_ability.map(ability => ability.ability?.name),
+            required_skills: job.required_skills.map(skill => skill.skills.name)
         }))
 
         return {
