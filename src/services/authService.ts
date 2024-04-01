@@ -148,6 +148,13 @@ const userLoginService = async (email: string, password: string) => {
                 status: 401
             })
         }
+        if (!user.is_verified) {
+            throw new ErrorHandler({
+                success: false,
+                message: "email not verified, check email's inbox for email verification",
+                status: 403
+            });
+        }
         const token = jwt.sign(
             {
               id: user.id,
