@@ -4,7 +4,7 @@ import { Application, Request } from "express";
 const client = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://dutchpay-bill.web.app"
+    "https://difajobs.web.app"
 ];
 
 const corsOptions = (req: Request | any, callback: (err: Error | null, options?: CorsOptions) => void) => {
