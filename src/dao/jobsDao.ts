@@ -228,6 +228,34 @@ const getAllJobListing = async (limit: number, offset: number) => {
             orderBy: {
                 date_posted: 'desc'
             },
+            include: {
+                company: {
+                    select: {
+                        name: true,
+                        city: true,
+                        logo: true
+                    }
+                },
+                list_ability: {
+                    select: {
+                        ability: {
+                            select: {
+                                name: true
+                            }
+                        }
+                    }
+                },
+                required_skills: {
+                    select: {
+                        skills: {
+                            select: {
+                                name: true
+                            }
+                        }
+                    }
+                }
+
+            },
             take: limit,
             skip: offset
         })
