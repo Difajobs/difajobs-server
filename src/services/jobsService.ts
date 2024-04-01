@@ -70,7 +70,9 @@ const getAllJobsService = async (pageSize: number, pageNumber: number) => {
             data: jobs.map(job => ({
                 ...job,
                 min_salary: job.min_salary?.toString(),
-                max_salary: job.max_salary?.toString()
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
 
@@ -101,7 +103,9 @@ const searchJobByTitleService = async (title: string | undefined, pageSize: numb
             data: searchJobs.map(job => ({
                 ...job,
                 min_salary: job.min_salary?.toString(),
-                max_salary: job.max_salary?.toString()
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
 
@@ -132,7 +136,9 @@ const searchJobByLocationService = async (location: string | undefined, pageSize
             data: searchJobs.map(job => ({
                 ...job,
                 min_salary: job.min_salary?.toString(),
-                max_salary: job.max_salary?.toString()
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
             }))
         };
         
@@ -163,13 +169,17 @@ const searchJobByTitleAndLocationService = async (location: string | undefined, 
         const jobsByLocation = searchJobsByLocation.map(job => ({
             ...job,
             min_salary: job.min_salary?.toString(),
-            max_salary: job.max_salary?.toString()
+            max_salary: job.max_salary?.toString(),
+            list_ability: job.list_ability.map(ability => ability.ability?.name),
+            required_skills: job.required_skills.map(skill => skill.skills.name)
         }))
 
         const jobsByTitle = searchJobsByTitle.map(job => ({
             ...job,
             min_salary: job.min_salary?.toString(),
-            max_salary: job.max_salary?.toString()
+            max_salary: job.max_salary?.toString(),
+            list_ability: job.list_ability.map(ability => ability.ability?.name),
+            required_skills: job.required_skills.map(skill => skill.skills.name)
         }))
 
         return {
