@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService, updateJobService } from '../services/jobsService';
 import { JwtPayload } from 'jsonwebtoken';
 import { getToken, loggedUser } from '../utils/decodedToken';
 
@@ -111,4 +111,19 @@ const getAllJobs = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation }
+const patchJob = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const jobId = parseInt(req.params.jobId);
+        if (isNaN(jobId)) {
+            return res.status(400).json({ success: false, message: "Invalid job ID." });
+        }
+        const { userId } = loggedUser(req.user!);
+        const updateData = req.body; // Assuming all relevant job fields can be updated
+        const result = await updateJobService(userId, jobId, updateData);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation, patchJob }

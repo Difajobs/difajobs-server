@@ -272,4 +272,24 @@ const getAllJobListing = async (limit: number, offset: number) => {
     }
 }
 
-export { getCompanyId, postJob, getCompanyJobsList, searchJobListingByTitle, searchJobListingByLocation, getAllJobListing }
+const updateJobByIdAndCompanyId = async (jobId: number, companyId: number, updateData: any) => {
+    try {
+        const updatedJob = await prisma.jobs.updateMany({
+            where: {
+                id: jobId,
+                company_id: companyId,
+            },
+            data: updateData,
+        });
+        return updatedJob;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    }
+};
+
+export { getCompanyId, postJob, getCompanyJobsList, searchJobListingByTitle, searchJobListingByLocation, getAllJobListing, updateJobByIdAndCompanyId }
