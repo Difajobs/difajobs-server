@@ -3,6 +3,7 @@ import {
             // getJobApplicationsForJobSeeker, 
             // getJobApplicationByIdForJobSeeker
             getJobApplicationsByCompany,
+            getJobApplicationByIdForCompany
             // updateJobApplicationStatus, 
             // getJobApplicationsByStatusAndJobSeeker,
             // getJobApplicationsByStatusAndCompany,
@@ -16,6 +17,8 @@ import { jobSeekerAuth } from '../../../middlewares/authorization';
 const jobApplicationRouter = express.Router()
 
 jobApplicationRouter.get('/company', authentication, recruiterAuth, getJobApplicationsByCompany);
+jobApplicationRouter.get('/company/:jobApplicationId', authentication, recruiterAuth, getJobApplicationByIdForCompany);
+
 
 
 export default jobApplicationRouter

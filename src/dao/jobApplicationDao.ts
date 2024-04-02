@@ -11,3 +11,16 @@ export const getJobApplicationsByCompanyIdDao = async (companyId: number): Promi
         },
     });
 };
+
+export const getJobApplicationByIdAndCompanyIdDao = async (jobApplicationId: number, companyId: number): Promise<any | null> => {
+    return prisma.job_application.findFirst({
+        where: {
+            id: jobApplicationId,
+            company_id: companyId,
+        },
+        include: {
+            job_seeker: true,
+            job: true,
+        },
+    });
+};
