@@ -24,13 +24,9 @@ const getJobApplicationsByCompany = async (req: Request, res: Response, next: Ne
     }
 };
 
-export const getJobApplicationByIdForCompany = async (req: Request, res: Response, next: NextFunction) => {
+const getJobApplicationByIdForCompany = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const jobApplicationId = parseInt(req.params.jobApplicationId);
-        if (isNaN(jobApplicationId)) {
-            return res.status(400).json({ success: false, message: "Invalid job application ID." });
-        }
-
         const result = await getJobApplicationByIdForCompanyService(req, jobApplicationId);
         res.status(200).json(result);
     } catch (error) {
@@ -42,4 +38,4 @@ export const getJobApplicationByIdForCompany = async (req: Request, res: Respons
     }
 };
 
-export {getJobApplicationsByCompany}
+export {getJobApplicationsByCompany, getJobApplicationByIdForCompany}
