@@ -1,5 +1,5 @@
 import { getOneCompany } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation } from '../dao/jobsDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, deleteJobByIdAndCompanyId } from '../dao/jobsDao';
 import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
@@ -231,4 +231,36 @@ const searchJobByTitleAndLocationService = async (location: string | undefined, 
     }
 }
 
-export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService }
+const deleteJobService = async (userId: number, jobId: number) => {
+    try {
+        const company = await getCompanyId(userId);
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Company not found',
+                status: 404
+            });
+        }
+        const deletedJob = await deleteJobByIdAndCompanyId(jobId, company.id);
+        if (deletedJob.count === 0) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Job not found or does not belong to your company',
+                status: 404
+            });
+        }
+        return {
+            success: true,
+            message: "Job deleted successfully",
+        };
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    }
+};
+
+export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService, deleteJobService }

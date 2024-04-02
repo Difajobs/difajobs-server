@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService, deleteJobService } from '../services/jobsService';
 import { JwtPayload } from 'jsonwebtoken';
 import { getToken, loggedUser } from '../utils/decodedToken';
 
@@ -111,4 +111,15 @@ const getAllJobs = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation }
+const deleteJob = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const jobId = parseInt(req.params.jobId);
+        const { userId } = loggedUser(req.user!);
+        const result = await deleteJobService(userId, jobId);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation, deleteJob }

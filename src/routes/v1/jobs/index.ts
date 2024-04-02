@@ -1,6 +1,7 @@
 import express from 'express';
-import { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation } from '../../../controllers/jobs';
+import { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation, deleteJob } from '../../../controllers/jobs';
 import { recruiterAuth } from '../../../middlewares/authorization';
+import authentication from '../../../middlewares/authentication';
 
 const jobsRouter = express.Router()
 
@@ -18,5 +19,6 @@ jobsRouter.get('/', async (req, res, next) => {
     }
 })
 jobsRouter.get('/:companyId', getCompanyJobList)
+jobsRouter.delete('/:jobId', authentication, recruiterAuth, deleteJob)
 
 export default jobsRouter

@@ -272,4 +272,23 @@ const getAllJobListing = async (limit: number, offset: number) => {
     }
 }
 
-export { getCompanyId, postJob, getCompanyJobsList, searchJobListingByTitle, searchJobListingByLocation, getAllJobListing }
+const deleteJobByIdAndCompanyId = async (jobId: number, companyId: number) => {
+    try {
+        const deletedJob = await prisma.jobs.deleteMany({
+            where: {
+                id: jobId,
+                company_id: companyId,
+            },
+        });
+        return deletedJob;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    }
+};
+
+export { getCompanyId, postJob, getCompanyJobsList, searchJobListingByTitle, searchJobListingByLocation, getAllJobListing, deleteJobByIdAndCompanyId }
