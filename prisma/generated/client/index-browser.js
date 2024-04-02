@@ -122,7 +122,8 @@ exports.Prisma.Job_seekerScalarFieldEnum = {
   phone_number: 'phone_number',
   city: 'city',
   dob: 'dob',
-  gender: 'gender'
+  gender: 'gender',
+  description: 'description'
 };
 
 exports.Prisma.CompanyScalarFieldEnum = {
@@ -145,6 +146,23 @@ exports.Prisma.JobsScalarFieldEnum = {
   gender: 'gender',
   max_salary: 'max_salary',
   date_posted: 'date_posted'
+};
+
+exports.Prisma.QuestionsScalarFieldEnum = {
+  id: 'id',
+  job_id: 'job_id',
+  question_1: 'question_1',
+  question_2: 'question_2',
+  question_3: 'question_3'
+};
+
+exports.Prisma.AnswersScalarFieldEnum = {
+  id: 'id',
+  job_id: 'job_id',
+  job_application_id: 'job_application_id',
+  answer_1: 'answer_1',
+  answer_2: 'answer_2',
+  answer_3: 'answer_3'
 };
 
 exports.Prisma.List_certificateScalarFieldEnum = {
@@ -229,6 +247,8 @@ exports.Prisma.ModelName = {
   Job_seeker: 'Job_seeker',
   Company: 'Company',
   Jobs: 'Jobs',
+  Questions: 'Questions',
+  Answers: 'Answers',
   List_certificate: 'List_certificate',
   Skills: 'Skills',
   List_disability: 'List_disability',

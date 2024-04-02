@@ -1,6 +1,52 @@
-import { createJobSeekerSkill, createSkills, deleteJobSeekerSkill, getJobSeekerSkillList, getSkillByName } from '../dao/skillsDao';
+import { createJobSeekerSkill, createSkills, deleteJobSeekerSkill, getAllSkill, getJobSeekerSkillList, getSkillByName } from '../dao/skillsDao';
 import { getOneJobSeeker } from '../dao/userDao';
 import ErrorHandler from '../utils/errorHandler';
+
+const getAllSkillService = async () => {
+    try {
+
+        const skillList = await getAllSkill()
+        return {
+            success: true,
+            message: "Successfully Fetch All Skill:",
+            data: skillList
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const getJobSeekerSkillListService = async (userId: number) => {
+    try {
+        const jobSeeker = await getOneJobSeeker(userId)
+        if (!jobSeeker) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Job Seeker Not Found.. Please login',
+                status: 404
+            });
+        } 
+
+        const skillList = await getJobSeekerSkillList(jobSeeker.id)
+        return {
+            success: true,
+            message: "Successfully Fetch Job Seeker Skill List:",
+            data: skillList
+        }
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
 
 const createnewJobSeekerSkillService = async (userId: number, skillName: string) => {
     try {
@@ -66,4 +112,4 @@ const deleteJobSeekerSkillService = async (userId: number, JobSeekerSkillId: num
     }
 }
 
-export { createnewJobSeekerSkillService, deleteJobSeekerSkillService }
+export { getAllSkillService, getJobSeekerSkillListService, createnewJobSeekerSkillService, deleteJobSeekerSkillService }

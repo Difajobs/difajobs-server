@@ -41,6 +41,48 @@ const getSkillByName = async (skillName: string) => {
     }
 }
 
+const getSkillListByName = async (skillNames: string[]): Promise<Skill[]> => {
+    try {
+        const listSkill: (Skill | null)[] = await Promise.all(skillNames.map(async (skill) => {
+            const createdRecord: Skill[] = await prisma.skills.findMany({
+                where: {
+                    name: skill
+                }
+            });
+            console.log(createdRecord)
+            return createdRecord.length > 0 ? createdRecord[0] : null;
+        }));
+        const filteredListSkill: Skill[] = listSkill.filter(skill => skill !== null) as Skill[];
+        console.log('Fetched skills:', filteredListSkill);
+        return filteredListSkill;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getAllSkill = async () => {
+    try {
+        const skills = await prisma.skills.findMany()
+        return skills
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
 const createJobSeekerSkill = async (jobSeekerId: number, skillId: number) => {
     try {
         const createSkill = await prisma.job_seeker_skills.create({
@@ -104,7 +146,14 @@ const getOneJobSeekerSkill = async (jobSeekerSkillId: number) => {
 const deleteJobSeekerSkill = async (jobSeekerSkillId: number, jobSeekerId: number) => {
     try {
         const jobSeeker = await prisma.job_seeker_skills.delete({
-            where: {id: jobSeekerSkillId, job_seeker_id: jobSeekerId}
+            where: {id: jobSeekerSkillId, job_seeker_id: jobSeekerId},
+            include: {
+                skills: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
         })
         return jobSeeker
     } catch (error: any) {
@@ -119,4 +168,4 @@ const deleteJobSeekerSkill = async (jobSeekerSkillId: number, jobSeekerId: numbe
     }
 }
 
-export { createSkills, getSkillByName, createJobSeekerSkill, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill }
+export { createSkills, getAllSkill, getSkillByName, createJobSeekerSkill, getJobSeekerSkillList, getOneJobSeekerSkill, deleteJobSeekerSkill, getSkillListByName }

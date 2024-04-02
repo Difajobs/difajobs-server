@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { JwtPayload } from 'jsonwebtoken';
 import { createJobSeekerCertificateService, deleteJobSeekerCertificateService, getJobSeekerCertificateListService, updateJobSeekerCertificateService } from '../services/certificateService';
+import { loggedUser } from '../utils/decodedToken';
 
 const createJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user
+        const { userId } = loggedUser(req.user!)
         const userData: Certificate = req.body
-        const result = await createJobSeekerCertificateService(user.id, userData)
+        const result = await createJobSeekerCertificateService(userId, userData)
         if (result.success) {
             res.status(200).json({
               success: true,
@@ -21,8 +21,8 @@ const createJobSeekerCertificate = async (req: Request, res: Response, next: Nex
 
 const getJobSeekerCertificateList = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user
-        const result = await getJobSeekerCertificateListService(user.id)
+        const { userId } = loggedUser(req.user!)
+        const result = await getJobSeekerCertificateListService(userId)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -37,10 +37,10 @@ const getJobSeekerCertificateList = async (req: Request, res: Response, next: Ne
 
 const updateJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user
+        const { userId } = loggedUser(req.user!)
         const certificateId  = parseInt(req.params.certificateId)
         const updateData = req.body
-        const result = await updateJobSeekerCertificateService(user.id, certificateId, updateData)
+        const result = await updateJobSeekerCertificateService(userId, certificateId, updateData)
         if (result.success) {
             res.status(200).json({
               success: true,
@@ -55,9 +55,9 @@ const updateJobSeekerCertificate = async (req: Request, res: Response, next: Nex
 
 const deleteJobSeekerCertificate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user
+        const { userId } = loggedUser(req.user!)
         const certificateId = parseInt(req.params.certificateId)
-        const result = await deleteJobSeekerCertificateService(user.id, certificateId)
+        const result = await deleteJobSeekerCertificateService(userId, certificateId)
         if(result.success) {
             res.status(200).json({
                 success: true,

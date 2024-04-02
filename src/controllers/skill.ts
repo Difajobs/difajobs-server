@@ -1,12 +1,43 @@
 import { Request, Response, NextFunction } from "express";
-import { JwtPayload } from "jsonwebtoken";
-import { createnewJobSeekerSkillService, deleteJobSeekerSkillService } from "../services/skillService";
+import { createnewJobSeekerSkillService, deleteJobSeekerSkillService, getAllSkillService, getJobSeekerSkillListService } from "../services/skillService";
+import { getToken, loggedUser } from "../utils/decodedToken";
+
+const getAllSkill = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await getAllSkillService()
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+const getJobSeekerSkillList = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { userId } = loggedUser(req.user!)
+        const result = await getJobSeekerSkillListService(userId)
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
 
 const createNewJobSeekerSkill = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user;
+        const { userId } = loggedUser(req.user!)
         const { name } = req.body;
-        const result = await createnewJobSeekerSkillService(user.id, name);
+        const result = await createnewJobSeekerSkillService(userId, name);
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -21,9 +52,9 @@ const createNewJobSeekerSkill = async (req: Request, res: Response, next: NextFu
 
 const deleteJobSeekerSkill = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = (req as JwtPayload).user;
+        const { userId } = loggedUser(req.user!)
         const jobSeekerSkillId = parseInt(req.params.jobSeekerSkillId)
-        const result = await deleteJobSeekerSkillService(user.id, jobSeekerSkillId)
+        const result = await deleteJobSeekerSkillService(userId, jobSeekerSkillId)
         if (result.success) {
             res.status(200).json({
                 success: true,
@@ -36,4 +67,4 @@ const deleteJobSeekerSkill = async (req: Request, res: Response, next: NextFunct
     }
 }
 
-export { createNewJobSeekerSkill, deleteJobSeekerSkill }
+export { getAllSkill, getJobSeekerSkillList, createNewJobSeekerSkill, deleteJobSeekerSkill }

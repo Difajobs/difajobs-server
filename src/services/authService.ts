@@ -48,11 +48,13 @@ const userJobSeekerRegisterService = async (userData: JobSeekerRegistrationData,
             });
         }
         const user = await postCreateJobSeeker(userData)
+        const newUser = user.newUser
+        const newJobseeker = user.newJobSeeker
         const disability = await postCreateListDisability(user.newJobSeeker.id, disabilityId)
         return {
             success: true,
             message: "User registered successfully",
-            data: { user, disability }
+            data: { newUser, newJobseeker, disability }
         }
     } catch (error: any) {
         console.error(error);
@@ -145,6 +147,13 @@ const userLoginService = async (email: string, password: string) => {
                 message: 'Email or Password invalid',
                 status: 401
             })
+        }
+        if (!user.is_verified) {
+            throw new ErrorHandler({
+                success: false,
+                message: "email not verified, check email's inbox for email verification",
+                status: 403
+            });
         }
         const token = jwt.sign(
             {

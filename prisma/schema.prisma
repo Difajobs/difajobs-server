@@ -27,6 +27,7 @@ model Job_seeker {
   city              String?             @db.VarChar(255)
   dob               DateTime            @db.Date
   gender            String              @db.VarChar
+  description       String?
   job_applications  Job_application[]
   user              User                @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_seeker_user_id_foreign")
   job_seeker_skills Job_seeker_skills[]
@@ -53,14 +54,36 @@ model Jobs {
   title           String            @db.VarChar(255)
   description     String            @db.VarChar(255)
   employment_type String            @db.VarChar(255)
-  min_salary      BigInt?
+  min_salary      Int?
   gender          String?           @db.VarChar
-  max_salary      BigInt?
-  date_posted     DateTime?         @db.Date
+  max_salary      Int?
+  date_posted     DateTime?         @default(now())
   jobApplications Job_application[]
   company         Company           @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "jobs_company_id_foreign")
   list_ability    List_ability[]
   required_skills Required_skills[]
+  questions       Questions[]
+  answers         Answers[]
+}
+
+model Questions {
+  id                    Int               @id(map: "questions_pkey") @default(autoincrement())
+  jobs                  Jobs              @relation(fields: [job_id], references: [id])
+  job_id                Int
+  question_1            String?            @db.VarChar(255)
+  question_2            String?            @db.VarChar(255)
+  question_3            String?            @db.VarChar(255)
+}
+
+model Answers {
+  id                    Int               @id(map: "answers_pkey") @default(autoincrement())
+  jobs                  Jobs              @relation(fields: [job_id], references: [id])
+  job_id                Int
+  job_application       Job_application   @relation(fields: [job_application_id], references: [id])
+  job_application_id    Int
+  answer_1              String?            @db.VarChar(255)
+  answer_2              String?            @db.VarChar(255)
+  answer_3              String?            @db.VarChar(255)
 }
 
 model List_certificate {
@@ -96,6 +119,7 @@ model Job_application {
   company       Company    @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_company_id_foreign")
   job           Jobs       @relation(fields: [job_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_job_id_foreign")
   job_seeker    Job_seeker @relation(fields: [job_seeker_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "job_application_job_seeker_id_foreign")
+  answers       Answers[]
 }
 
 model Disability {
