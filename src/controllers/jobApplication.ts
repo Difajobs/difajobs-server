@@ -3,14 +3,8 @@ import ErrorHandler from '../utils/errorHandler';
 import { 
     getJobApplicationsByJobSeekerService,
     getJobApplicationByIdForJobSeekerService
-    // getJobApplicationsForCompanyService,
-    // updateJobApplicationStatusService,
-    // getJobApplicationsByStatusAndJobSeekerService,
-    // getJobApplicationsByStatusAndCompanyService,
-    // createJobApplicationService
 } from '../services/jobApplicationService';
 
-// Job Application Controller
 const getJobApplicationsForJobSeeker = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const result = await getJobApplicationsByJobSeekerService(req);
@@ -27,10 +21,6 @@ const getJobApplicationsForJobSeeker = async (req: Request, res: Response, next:
 const getJobApplicationByIdForJobSeeker = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const jobApplicationId = parseInt(req.params.jobApplicationId);
-        if (isNaN(jobApplicationId)) {
-            throw new ErrorHandler({ success: false, message: "Invalid job application ID.", status: 400 });
-        }
-        
         const result = await getJobApplicationByIdForJobSeekerService(req, jobApplicationId);
         res.status(200).json(result);
     } catch (error) {

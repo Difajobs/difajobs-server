@@ -8,6 +8,7 @@ export const findJobApplicationsByJobSeekerIdDao = async (jobSeekerId: number): 
         include: {
             job: true,
             company: true, 
+            answers: true,
         },
     });
 };
@@ -22,6 +23,7 @@ export const findJobApplicationByIdAndJobSeekerIdDao = async (jobApplicationId: 
         include: {
             job: true,
             company: true,
+            answers: true,
         },
     });
 };
