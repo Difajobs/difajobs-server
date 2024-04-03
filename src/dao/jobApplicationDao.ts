@@ -9,6 +9,7 @@ export const getJobApplicationByIdAndCompanyIdDao = async (jobApplicationId: num
         include: {
             job_seeker: true,
             job: true,
+            answers: true,
         },
     });
 };

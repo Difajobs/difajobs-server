@@ -1,14 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import ErrorHandler from '../utils/errorHandler';
 import { 
-    // getJobApplicationsByJobSeekerService,
-    // getJobApplicationByIdForJobSeekerService
-    // getJobApplicationsForCompanyService,
-    // getJobApplicationByIdForCompanyService
-    updateJobApplicationStatusService,
-    // getJobApplicationsByStatusAndJobSeekerService,
-    // getJobApplicationsByStatusAndCompanyService,
-    // createJobApplicationService
+    updateJobApplicationStatusService
 } from '../services/jobApplicationService';
 
 const STATUS_PROGRESSION = ["pending", "reviewing", "interview", "reject", "hired"];
