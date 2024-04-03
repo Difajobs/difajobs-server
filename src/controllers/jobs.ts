@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService } from '../services/jobsService';
-import { JwtPayload } from 'jsonwebtoken';
-import { getToken, loggedUser } from '../utils/decodedToken';
+import { loggedUser } from '../utils/decodedToken';
 
 // ------ create new job ------
 const createJob = async (req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { createnewJobSeekerSkillService, deleteJobSeekerSkillService, getAllSkillService, getJobSeekerSkillListService } from "../services/skillService";
-import { getToken, loggedUser } from "../utils/decodedToken";
+import { loggedUser } from "../utils/decodedToken";
 
 const getAllSkill = async (req: Request, res: Response, next: NextFunction) => {
     try {
