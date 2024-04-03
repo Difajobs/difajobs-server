@@ -2,7 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 import ErrorHandler from '../utils/errorHandler';
 import { 
     getJobApplicationsByJobSeekerService,
-    getJobApplicationByIdForJobSeekerService
+    getJobApplicationByIdForJobSeekerService,
+    getJobApplicationsByStatusAndJobSeekerService
 } from '../services/jobApplicationService';
 
 const getJobApplicationsForJobSeeker = async (req: Request, res: Response, next: NextFunction) => {
@@ -32,5 +33,27 @@ const getJobApplicationByIdForJobSeeker = async (req: Request, res: Response, ne
     }
 };
 
+const getJobApplicationsByJobSeekerAndStatus = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const status = req.query.status as string;
 
-export { getJobApplicationsForJobSeeker, getJobApplicationByIdForJobSeeker } 
+        if (!status) {
+            return res.status(400).json({ success: false, message: "Status query parameter is required." });
+        }
+
+        const result = await getJobApplicationsByStatusAndJobSeekerService(req, status);
+
+        if (!result.data || result.data.length === 0) {
+            return res.status(404).json({ success: false, message: "No job applications found for the specified status." });
+        }
+
+        res.status(200).json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "An unexpected error occurred." });
+    }
+};
+
+
+
+export { getJobApplicationsForJobSeeker, getJobApplicationByIdForJobSeeker, getJobApplicationsByJobSeekerAndStatus } 

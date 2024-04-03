@@ -28,6 +28,19 @@ export const findJobApplicationByIdAndJobSeekerIdDao = async (jobApplicationId: 
     });
 };
 
+export const getJobApplicationsByJobSeekerIdAndStatusDao = async (jobSeekerId: number, status: string): Promise<any[]> => {
+    return prisma.job_application.findMany({
+        where: {
+            job_seeker_id: jobSeekerId,
+            status: status,
+        },
+        include: {
+            job: true,
+            company: true,
+            answers: true,
+        },
+    });
+};
 
 
 
