@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { loggedUser } from '../utils/decodedToken';
 import { getCompanyProfileService } from '../services/companyService';
 
 const getCompanyProfile = async (req: Request, res: Response, next: NextFunction) => {

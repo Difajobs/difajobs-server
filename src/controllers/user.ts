@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { getJobSeekerProfileService, updateJobSeekerDataService } from '../services/userService';
-import { JwtPayload } from 'jsonwebtoken';
-import { getToken, loggedUser } from '../utils/decodedToken';
+import { loggedUser } from '../utils/decodedToken';
 
 const getJobSeekerProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
