@@ -1,5 +1,5 @@
 import express from 'express';
-import { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation } from '../../../controllers/jobs';
+import { createJob, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation } from '../../../controllers/jobs';
 import { recruiterAuth } from '../../../middlewares/authorization';
 
 const jobsRouter = express.Router()
@@ -17,6 +17,5 @@ jobsRouter.get('/', async (req, res, next) => {
         await getAllJobs(req,res,next)
     }
 })
-jobsRouter.get('/:companyId', getCompanyJobList)
 
 export default jobsRouter
