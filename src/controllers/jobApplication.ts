@@ -32,4 +32,5 @@ const getJobApplicationByIdForJobSeeker = async (req: Request, res: Response, ne
     }
 };
 
+
 export { getJobApplicationsForJobSeeker, getJobApplicationByIdForJobSeeker } 

@@ -16,6 +16,6 @@ v1Router.use('/user', jobSeekerAuth, userRouter);
 v1Router.use('/certificate', jobSeekerAuth, certificateRouter)
 v1Router.use('/skill', jobSeekerAuth, skillRouter)
 v1Router.use('/jobs', jobsRouter)
-v1Router.use('/job-application', jobApplicationRouter)
+v1Router.use('/my-job-applications', jobApplicationRouter)
 
 export default v1Router

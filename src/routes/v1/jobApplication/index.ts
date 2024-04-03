@@ -1,14 +1,14 @@
 import express from 'express';
 import {
             getJobApplicationsForJobSeeker, 
-            getJobApplicationByIdForJobSeeker
+            getJobApplicationByIdForJobSeeker,
         } from '../../../controllers/jobApplication';
 import authentication from '../../../middlewares/authentication';
 import { jobSeekerAuth } from '../../../middlewares/authorization';
 
 const jobApplicationRouter = express.Router()
 
-jobApplicationRouter.get('/my-job-applications',authentication, getJobApplicationsForJobSeeker)
-jobApplicationRouter.get('/my-job-applications/:jobApplicationId', authentication, getJobApplicationByIdForJobSeeker)
+jobApplicationRouter.get('/',authentication, jobSeekerAuth, getJobApplicationsForJobSeeker)
+jobApplicationRouter.get('/:jobApplicationId', authentication, jobSeekerAuth, getJobApplicationByIdForJobSeeker)
 
 export default jobApplicationRouter;
