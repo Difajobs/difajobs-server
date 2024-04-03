@@ -1,14 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import ErrorHandler from '../utils/errorHandler';
 import { 
-    // getJobApplicationsByJobSeekerService,
-    // getJobApplicationByIdForJobSeekerService
-    // getJobApplicationsForCompanyService,
-    // getJobApplicationByIdForCompanyService
-    // updateJobApplicationStatusService,
-    // getJobApplicationsByStatusAndJobSeekerService,
     getJobApplicationsByStatusAndCompanyService,
-    // createJobApplicationService
 } from '../services/jobApplicationService';
 
 const getJobApplicationsByCompanyAndStatus = async (req: Request, res: Response, next: NextFunction) => {

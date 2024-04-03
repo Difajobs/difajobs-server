@@ -9,6 +9,7 @@ export const getJobApplicationsByCompanyIdAndStatusDao = async (companyId: numbe
         include: {
             job_seeker: true,
             job: true,
+            answers: true,
         },
     });
 };
