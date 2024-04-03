@@ -79,6 +79,13 @@ const getCompanyJobsList = async (companyId: number) => {
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
             }
         })
