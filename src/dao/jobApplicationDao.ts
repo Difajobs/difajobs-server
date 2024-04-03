@@ -8,6 +8,7 @@ export const getJobApplicationsByCompanyIdDao = async (companyId: number): Promi
         include: {
             job_seeker: true,
             job: true,
+            answers:true,
         },
     });
 };
@@ -21,6 +22,7 @@ export const getJobApplicationByIdAndCompanyIdDao = async (jobApplicationId: num
         include: {
             job_seeker: true,
             job: true,
+            answers:true,
         },
     });
 };
