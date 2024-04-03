@@ -4,7 +4,7 @@ import * as jobApplicationDao from '../dao/jobApplicationDao';
 import { loggedUser, getToken } from '../utils/decodedToken';
 import { Request } from 'express';
 
-export const createJobApplicationService = async (req: Request, jobId: number, coverLetter: string) => {
+export const createJobApplicationService = async (req: Request, jobId: number, coverLetter: string, answers: { answer_1: string; answer_2: string; answer_3: string; }) => {
     try {
         const decodedToken = getToken(req);
         if (!decodedToken) {
@@ -66,10 +66,10 @@ export const createJobApplicationService = async (req: Request, jobId: number, c
             });
         }
 
-        const newJobApplication = await jobApplicationDao.createJobApplicationDao(jobSeeker.id, jobId, job.company_id, coverLetter);
+        const newJobApplication = await jobApplicationDao.createJobApplicationDao(jobSeeker.id, jobId, job.company_id, coverLetter, answers);
         return {
             success: true,
-            message: 'Job application created successfully.',
+            message: 'Job application and answers created successfully.',
             data: newJobApplication,
         };
     } catch (error) {
