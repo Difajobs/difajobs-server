@@ -6,6 +6,7 @@ import certificateRouter from './certificate';
 import skillRouter from './skill';
 import jobsRouter from './jobs';
 import { jobSeekerAuth } from '../../middlewares/authorization';
+import companyRouter from './company';
 
 const v1Router = express.Router()
 
@@ -15,5 +16,6 @@ v1Router.use('/user', jobSeekerAuth, userRouter);
 v1Router.use('/certificate', jobSeekerAuth, certificateRouter)
 v1Router.use('/skill', jobSeekerAuth, skillRouter)
 v1Router.use('/jobs', jobsRouter)
+v1Router.use('/company', companyRouter)
 
 export default v1Router
