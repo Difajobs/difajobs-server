@@ -21,7 +21,7 @@ const getJobSeekerProfile = async (req: Request, res: Response, next: NextFuncti
 const updateJobSeekerData = async (req: Request, res: Response, next: NextFunction) => {
   try {
       const { userId } = loggedUser(req.user!)
-      const updateData = req.body;
+      const updateData: JobSeekerDataUpdate = req.body;
       const result = await updateJobSeekerDataService(userId, updateData);
       
       if (result.success) {

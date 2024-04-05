@@ -64,3 +64,9 @@ interface Skill {
     id: number;
     name: string;
 }
+
+interface JobSeekerDataUpdate {
+    description: string;
+    phone_number: string;
+    city: string;
+}
