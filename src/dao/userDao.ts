@@ -179,7 +179,11 @@ const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
     try {
         const updateJobSeeker = await prisma.job_seeker.update({
             where: {id: jobSeekerId},
-            data
+            data: {
+                description: data.description,
+                city: data.city,
+                phone_number: data.phone_number
+            }
         });
         return updateJobSeeker;
     } catch (error: any) {
