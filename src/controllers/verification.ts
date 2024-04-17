@@ -13,9 +13,9 @@ const sendTokenLink = async (req: Request, res: Response) => {
   const token: string = uuidv4();
 
   //localhost
-  //const verificationLink: string = `http://localhost:3000/v1/auth/token-verify?email=${email}&token=${token}`;
+  //const verificationLink: string = `${client_url}/account-verified?email=${email}&token=${token}`;
 
-  const verificationLink: string = `https://difajobs-server.vercel.app/v1/auth/token-verify?email=${email}&token=${token}`;
+  const verificationLink: string = `${client_url}/account-verified?email=${email}&token=${token}`;
 
   try {
     await sendVerificationLink(email, verificationLink);
