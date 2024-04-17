@@ -70,8 +70,14 @@ const getCompanyJobsListService = async (companyId: number) => {
 
         return {
             success: true,
-            message: "Successfully Fetch Company Job listing list:",
-            data: companyJobsList
+            message: "Successfully Fetch Company's Job listing list:",
+            data: companyJobsList.map(job => ({
+                ...job,
+                min_salary: job.min_salary?.toString(),
+                max_salary: job.max_salary?.toString(),
+                list_ability: job.list_ability.map(ability => ability.ability?.name),
+                required_skills: job.required_skills.map(skill => skill.skills.name)
+            }))
         };
     } catch (error: any) {
         console.error(error);
