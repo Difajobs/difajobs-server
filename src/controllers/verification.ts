@@ -15,7 +15,7 @@ const sendTokenLink = async (req: Request, res: Response) => {
   //localhost
   //const verificationLink: string = `${client_url}/account-verified?email=${email}&token=${token}`;
 
-  const verificationLink: string = `${client_url}/account-verified?email=${email}&token=${token}`;
+  const verificationLink: string = `${client_url}/account-verified/${email}/${token}`;
 
   try {
     await sendVerificationLink(email, verificationLink);
