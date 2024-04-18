@@ -143,6 +143,13 @@ const searchJobListingByTitle = async (searchTitle: string | undefined, limit: n
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
 
             },
@@ -205,6 +212,13 @@ const searchJobListingByLocation = async (searchLocation: string | undefined, li
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
 
             },
@@ -259,6 +273,13 @@ const getAllJobListing = async (limit: number, offset: number) => {
                                 name: true
                             }
                         }
+                    }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
                     }
                 }
 
