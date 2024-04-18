@@ -17,15 +17,11 @@ const corsOptions = (
     callback(null, {
       origin: client,
       methods: "GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD",
-      allowedHeaders:
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
     });
   } else if (isPostman) {
     callback(null, {
       origin: "https://www.getpostman.com",
       methods: "GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD",
-      allowedHeaders:
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
     });
   } else {
     callback(new Error("Not allowed by CORS"));
@@ -34,7 +30,6 @@ const corsOptions = (
 
 const corsMiddleware = (app: Application) => {
   app.use(cors(corsOptions));
-  app.options("*", cors(corsOptions));
 };
 
 export default corsMiddleware;
