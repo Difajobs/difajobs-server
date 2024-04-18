@@ -6,6 +6,11 @@ const getOneCompany = async (companyId: number) => {
         const company = await prisma.company.findUnique({
             where: {id: companyId},
             include: {
+                user: {
+                    select: {
+                        email: true,
+                    }
+                },
                 jobs: {
                     include: {
                         list_ability: {
@@ -42,5 +47,29 @@ const getOneCompany = async (companyId: number) => {
         await disconnectDB();
     }
 }
+
+export const getAllCompany = async () => {
+    try {
+        const allCompany = await prisma.company.findMany({
+            include: {
+                user: {
+                    select: {
+                        email: true,
+                    }
+                }
+            },
+        });
+        return allCompany;
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+};
 
 export { getOneCompany }

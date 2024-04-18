@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getCompanyProfileService } from '../services/companyService';
+import { getAllCompanyService, getCompanyProfileService } from '../services/companyService';
 
 const getCompanyProfile = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -17,4 +17,20 @@ const getCompanyProfile = async (req: Request, res: Response, next: NextFunction
     }
 }
 
-export { getCompanyProfile }
+const getAllCompany = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await getAllCompanyService()
+        if (result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+export { getCompanyProfile, getAllCompany }
