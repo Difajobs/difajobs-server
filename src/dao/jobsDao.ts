@@ -151,7 +151,6 @@ const searchJobListingByTitle = async (searchTitle: string | undefined, limit: n
                         question_3: true
                     }
                 }
-
             },
             orderBy: {
                 date_posted: 'desc'
@@ -220,7 +219,6 @@ const searchJobListingByLocation = async (searchLocation: string | undefined, li
                         question_3: true
                     }
                 }
-
             },
             orderBy: {
                 date_posted: 'desc'
@@ -282,7 +280,6 @@ const getAllJobListing = async (limit: number, offset: number) => {
                         question_3: true
                     }
                 }
-
             },
             take: limit,
             skip: offset
