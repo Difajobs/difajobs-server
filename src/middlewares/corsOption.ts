@@ -15,7 +15,7 @@ const corsOptions = (
   const isPostman = req.header("User-Agent")?.includes("Postman");
   if (clientOrigin) {
     callback(null, {
-      origin: true,
+      origin: client,
       methods: "GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD",
       allowedHeaders:
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",

@@ -143,8 +143,14 @@ const searchJobListingByTitle = async (searchTitle: string | undefined, limit: n
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
-
             },
             orderBy: {
                 date_posted: 'desc'
@@ -205,8 +211,14 @@ const searchJobListingByLocation = async (searchLocation: string | undefined, li
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
-
             },
             orderBy: {
                 date_posted: 'desc'
@@ -260,8 +272,14 @@ const getAllJobListing = async (limit: number, offset: number) => {
                             }
                         }
                     }
+                },
+                questions: {
+                    select: {
+                        question_1: true,
+                        question_2: true,
+                        question_3: true
+                    }
                 }
-
             },
             take: limit,
             skip: offset
