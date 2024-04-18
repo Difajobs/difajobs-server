@@ -1,4 +1,4 @@
-import { getOneCompany } from "../dao/companyDao";
+import { getAllCompany, getOneCompany } from "../dao/companyDao";
 import ErrorHandler from "../utils/errorHandler";
 
 const getCompanyProfileService = async (companyId: number) => {
@@ -37,4 +37,22 @@ const getCompanyProfileService = async (companyId: number) => {
     }
 }
 
-export { getCompanyProfileService }
+const getAllCompanyService = async () => {
+    try {
+        const companyList = await getAllCompany()
+    
+        return {
+            success: true,
+            message: "Successfully Fetch List of Company:",
+            data: companyList
+        };
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message
+        })
+    }
+}
+export { getCompanyProfileService, getAllCompanyService }
