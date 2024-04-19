@@ -1,5 +1,5 @@
-import { getOneCompany, getOneCompanyByUserId } from '../dao/companyDao';
-import { getAllJobApplicationByCompany, getJobApplicationsByJobId } from '../dao/jobApplicationDao';
+import { getOneCompanyByUserId } from '../dao/companyDao';
+import { getAllJobApplicationByCompany, getJobApplicationsByJobId, getOneJobApplicationByCompany } from '../dao/jobApplicationDao';
 import ErrorHandler from '../utils/errorHandler';
 
 const getJobApplicationsByJobIdService = async (userId : number, jobId : number) => {
@@ -78,4 +78,41 @@ const getAllJobApplicationByCompanyService = async (userId: number) => {
     }
 }
 
-export { getJobApplicationsByJobIdService, getAllJobApplicationByCompanyService }
+const getOneJobApplicationByCompanyService = async (jobApplicationId: number, userId: number) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+        
+        const jobApplication = await getOneJobApplicationByCompany(jobApplicationId, company.id)
+        if (!jobApplication) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Application Not Found...",
+                status: 404
+            })
+        }
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Application",
+            data: jobApplication
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { getJobApplicationsByJobIdService, getAllJobApplicationByCompanyService, getOneJobApplicationByCompanyService }
