@@ -199,4 +199,69 @@ const getOneJobApplicationByCompany = async (jobApplicationId: number, companyId
     }
 }
 
-export { getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany }
+const getAllJobApplicationByCompanyAndStatus = async (companyId : number, status: string) => {
+    try {
+        const jobApplications = await prisma.job_application.findMany({
+            where: { company_id: companyId, status: status },
+            include: {
+                answers: true,
+                job_seeker: {
+                    select: {
+                        fullname: true,
+                        city: true,
+                        gender: true,
+                        description: true,
+                        phone_number: true,
+                        user: {
+                            select: {
+                                email: true
+                            }
+                        },
+                        job_seeker_skills: {
+                            select:{
+                                skills: {
+                                    select: {
+                                        name: true,
+                                        
+                                    }
+                                }
+                            }
+                        },
+                        disabilities: {
+                            select: {
+                                disability: {
+                                    select: {
+                                        category: {
+                                            select: {
+                                                name: true
+                                            }
+                                        },
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        certificates: {
+                            select: {
+                                name: true,
+                                description: true
+                            }
+                        },
+                    }
+                }
+            }
+        })
+        return jobApplications
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus }
