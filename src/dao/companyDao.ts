@@ -48,7 +48,54 @@ const getOneCompany = async (companyId: number) => {
     }
 }
 
-export const getAllCompany = async () => {
+const getOneCompanyByUserId = async (userId: number) => {
+    try {
+        const company = await prisma.company.findFirst({
+            where: {user_id: userId},
+            include: {
+                user: {
+                    select: {
+                        email: true,
+                    }
+                },
+                jobs: {
+                    include: {
+                        list_ability: {
+                            select: {
+                                ability: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        required_skills: {
+                            select: {
+                                skills:{
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        return company
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getAllCompany = async () => {
     try {
         const allCompany = await prisma.company.findMany({
             include: {
@@ -72,4 +119,4 @@ export const getAllCompany = async () => {
     }
 };
 
-export { getOneCompany }
+export { getOneCompany, getOneCompanyByUserId, getAllCompany }
