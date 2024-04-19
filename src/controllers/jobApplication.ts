@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getAllJobApplicationByCompanyService, getJobApplicationsByJobIdService } from '../services/jobApplication';
+import { getAllJobApplicationByCompanyService, getJobApplicationsByJobIdService } from '../services/jobApplicationService';
 import { loggedUser } from '../utils/decodedToken';
 
 const getJobApplicationsByJobId = async (req: Request, res: Response, next: NextFunction) => {
