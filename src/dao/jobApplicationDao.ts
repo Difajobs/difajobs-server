@@ -264,4 +264,70 @@ const getAllJobApplicationByCompanyAndStatus = async (companyId : number, status
     }
 }
 
-export { getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus }
+const updateOneJobApplication = async (jobApplicationId: number, companyId: number, newStatus: string) => {
+    try {
+        const updateJobApplication = await prisma.job_application.update({
+            where: { id: jobApplicationId, company_id: companyId },
+            data: { status: newStatus},
+            include: {
+                answers: true,
+                job_seeker: {
+                    select: {
+                        fullname: true,
+                        city: true,
+                        gender: true,
+                        description: true,
+                        phone_number: true,
+                        user: {
+                            select: {
+                                email: true
+                            }
+                        },
+                        job_seeker_skills: {
+                            select:{
+                                skills: {
+                                    select: {
+                                        name: true,
+                                        
+                                    }
+                                }
+                            }
+                        },
+                        disabilities: {
+                            select: {
+                                disability: {
+                                    select: {
+                                        category: {
+                                            select: {
+                                                name: true
+                                            }
+                                        },
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        certificates: {
+                            select: {
+                                name: true,
+                                description: true
+                            }
+                        },
+                    }
+                }
+            }
+        })
+        return updateJobApplication
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, updateOneJobApplication }
