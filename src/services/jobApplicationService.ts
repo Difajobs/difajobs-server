@@ -1,5 +1,5 @@
 import { getOneCompanyByUserId } from '../dao/companyDao';
-import { getAllJobApplicationByCompany, getJobApplicationsByJobId, getOneJobApplicationByCompany } from '../dao/jobApplicationDao';
+import { getAllJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, getJobApplicationsByJobId, getOneJobApplicationByCompany } from '../dao/jobApplicationDao';
 import ErrorHandler from '../utils/errorHandler';
 
 const getJobApplicationsByJobIdService = async (userId : number, jobId : number) => {
@@ -115,4 +115,51 @@ const getOneJobApplicationByCompanyService = async (jobApplicationId: number, us
     }
 }
 
-export { getJobApplicationsByJobIdService, getAllJobApplicationByCompanyService, getOneJobApplicationByCompanyService }
+const getAllJobApplicationByCompanyAndStatusService = async (userId: number, status: string) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+        const statusEnum = ["ongoing", "reviewing", "interview", "reject", "hired"]
+
+        if (!statusEnum.includes(status)) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Invalid Status Provided...",
+                status: 404
+            })
+        }
+
+        const jobApplications = await getAllJobApplicationByCompanyAndStatus(company.id, status)
+
+        if (jobApplications.length === 0) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Application Not Found...",
+                status: 404
+            })
+        } 
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Applications",
+            data: jobApplications
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { getJobApplicationsByJobIdService, getAllJobApplicationByCompanyService, getOneJobApplicationByCompanyService, getAllJobApplicationByCompanyAndStatusService }
