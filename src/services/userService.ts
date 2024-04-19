@@ -19,11 +19,7 @@ const getJobSeekerProfileService = async (userId: number) => {
                 ...jobSeeker,
                 job_seeker_skills: jobSeeker.job_seeker_skills.map(skill => skill.skills.name),
                 disabilities: jobSeeker.disabilities.map(disability => {
-                    return {
-                        category: disability.disability.category.name,
-                        name: disability.disability.name
-                    };
-                    
+                    return disability.disability.name
                 }),
                 certificates: jobSeeker.certificates.map(certificate => {
                     return {
