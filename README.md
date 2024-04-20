@@ -32,6 +32,48 @@ Hello! We are Team 1 from RevoU NEXT Batch 2 - Bellatrix, a team of Aspiring Sof
 - Front End (Deployed)      : [FrontEnd-Deployed](https://difajobs.web.app/)
 - Pitching Deck             : [Deck](https://docs.google.com/presentation/d/1yereBnAs77MJacHM9p1Jok5sD_O6mhUMJuEuH1WHPwE/edit?usp=sharing)
 
+## How to Set Up
+
+To Start the Difa Jobs Server, follow these steps:
+
+1. Clone this repository to your local machine:
+
+```bash
+git clone https://github.com/Difajobs/difajobs-server.git
+```
+
+2. Navigate into the project directory:
+
+```bash
+cd difajobs-server
+```
+
+3. Open it in VSCode or any other of your choice:
+
+```bash
+code .
+```
+4. Install The Dependencies:
+
+```bash
+npm install
+```
+
+5. Prepare the environment file `.env` (please contact us if you need help)
+<br>
+6. Run the Server
+
+```bash
+npm run dev
+```
+
+7. Test the APIs through Postman. by using this link as the base and check the next part (Endpoint List):
+
+```bash
+http://localhost:3000/
+```
+
+
 ## Endpoints
 
 **AUTH**
@@ -88,12 +130,11 @@ Hello! We are Team 1 from RevoU NEXT Batch 2 - Bellatrix, a team of Aspiring Sof
 | **Update Job Application Status** | `PUT` | [/v1/job-application/application/:jobApplicationId](https://difajobs-server.vercel.app/v1/job-application/application/1) | ✔ | **RECRUITER** |
 </div>
 
-## How to Set Up
-- Clone this Repository to your device `git clone [link]`
-- Install the dependencies `npm i / yarn i / pnpm i`
-- Prepare the .env file (please contact us if you need help)
-- Run the server `npm run dev`
-- Test the APIs through Postman.
+## Contributing
+Contributions to Difajobs Server (Back End) project are welcome! If you find any bugs, issues, or have feature requests, please open an issue on this repository. Additionally, if you'd like to contribute code, feel free to fork the repository and submit a pull request with your changes. Happy Coding!
+
+## License
+This project is licensed under the MIT License.
 
 <!-- **Login Endpoint:**
 
