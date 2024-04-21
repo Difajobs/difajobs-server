@@ -1,5 +1,5 @@
 import { getOneCompany } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation } from '../dao/jobsDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing } from '../dao/jobsDao';
 import { postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
@@ -237,4 +237,31 @@ const searchJobByTitleAndLocationService = async (location: string | undefined, 
     }
 }
 
-export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService }
+const getOneJobListingService = async (jobId: number) => {
+    try {
+        const job = await getOneJobListing(jobId)
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Job Listing Not Found..',
+                status: 404
+            });
+        }
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Listing",
+            data: job
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService, getOneJobListingService }
