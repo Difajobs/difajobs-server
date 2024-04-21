@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobApplicationService, getAllJobApplicationByCompanyAndStatusService, getAllJobApplicationByCompanyService, getAllJobApplicationByJobSeekerService, getJobApplicationsByJobIdService, getOneJobApplicationByCompanyService, getOneJobApplicationByJobSeekerService, updateOneJobApplicationService } from '../services/jobApplicationService';
+import { createJobApplicationService, getAllJobApplicationByCompanyAndStatusService, getAllJobApplicationByCompanyService, getAllJobApplicationByJobSeekerAndStatusService, getAllJobApplicationByJobSeekerService, getJobApplicationsByJobIdService, getOneJobApplicationByCompanyService, getOneJobApplicationByJobSeekerService, updateOneJobApplicationService } from '../services/jobApplicationService';
 import { loggedUser } from '../utils/decodedToken';
 
 const getJobApplicationsByJobId = async (req: Request, res: Response, next: NextFunction) => {
@@ -138,6 +138,23 @@ const getOneJobApplicationByJobSeeker = async (req: Request, res: Response, next
   }
 }
 
+const getAllJobApplicationByJobSeekerAndStatus = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+      const { userId } = loggedUser(req.user!)
+      const status = req.params.status
+      const result = await getAllJobApplicationByJobSeekerAndStatusService(userId, status)
+      if (result.success) {
+        res.status(200).json({
+          success: true,
+          message: result.message,
+          data: result.data
+        })
+      }
+  } catch (error) {
+      next(error)
+  }
+}
+
 export { 
   getJobApplicationsByJobId, 
   getAllJobApplicationByCompany, 
@@ -146,5 +163,6 @@ export {
   updateOneJobApplicationStatus, 
   createJobApplication,
   getAllJobApplicationByJobSeeker,
-  getOneJobApplicationByJobSeeker
+  getOneJobApplicationByJobSeeker,
+  getAllJobApplicationByJobSeekerAndStatus
 }

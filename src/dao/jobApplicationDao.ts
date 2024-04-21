@@ -475,6 +475,70 @@ const getOneJobApplicationByJobSeeker = async (jobApplicationId: number, jobSeek
         await disconnectDB();
     }
 }
+
+const getAllJobApplicationByJobSeekerAndStatus = async (jobSeekerId : number, status: string) => {
+    try {
+        const jobApplications = await prisma.job_application.findMany({
+            where: { job_seeker_id: jobSeekerId, status: status },
+            include: {
+                answers: true,
+                job: {
+                    select: {
+                        title: true,
+                        description: true, 
+                        employment_type: true,
+                        min_salary: true,
+                        gender: true,
+                        max_salary: true,
+                        date_posted: true,
+                        list_ability: {
+                            select: {
+                                ability: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        questions: {
+                            select: {
+                                question_1: true,
+                                question_2: true,
+                                question_3: true
+                            }
+                        },
+                        required_skills: {
+                            select: {
+                                skills: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        company: {
+                            select : {
+                                name: true,
+                                city: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        return jobApplications
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
 export { 
     createJobApplication, 
     getJobApplicationsByJobId, 
@@ -483,5 +547,6 @@ export {
     getAllJobApplicationByCompanyAndStatus, 
     updateOneJobApplication, 
     getAllJobApplicationByJobSeeker, 
-    getOneJobApplicationByJobSeeker 
+    getOneJobApplicationByJobSeeker,
+    getAllJobApplicationByJobSeekerAndStatus 
 }
