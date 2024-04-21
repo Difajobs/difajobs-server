@@ -1,6 +1,6 @@
 import { createAnswers } from '../dao/answersDao';
 import { getOneCompanyByUserId } from '../dao/companyDao';
-import { createJobApplication, getAllJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, getAllJobApplicationByJobSeeker, getJobApplicationsByJobId, getOneJobApplicationByCompany, getOneJobApplicationByJobSeeker, updateOneJobApplication } from '../dao/jobApplicationDao';
+import { createJobApplication, getAllJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, getAllJobApplicationByJobSeeker, getAllJobApplicationByJobSeekerAndStatus, getJobApplicationsByJobId, getOneJobApplicationByCompany, getOneJobApplicationByJobSeeker, updateOneJobApplication } from '../dao/jobApplicationDao';
 import { getOneJobListing } from '../dao/jobsDao';
 import { getOneJobSeeker } from '../dao/userDao';
 import ErrorHandler from '../utils/errorHandler';
@@ -356,6 +356,53 @@ const getOneJobApplicationByJobSeekerService = async (jobApplicationId: number, 
     }
 }
 
+const getAllJobApplicationByJobSeekerAndStatusService = async (userId: number, status: string) => {
+    try {
+        const jobSeeker = await getOneJobSeeker(userId)
+    
+        if (!jobSeeker) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Please Log In...",
+                status: 404
+            })
+        }
+        const statusEnum = ["pending", "reviewing", "interview", "reject", "hired"]
+
+        if (!statusEnum.includes(status)) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Invalid Status Provided...",
+                status: 404
+            })
+        }
+
+        const jobApplications = await getAllJobApplicationByJobSeekerAndStatus(jobSeeker.id, status)
+
+        if (jobApplications.length === 0) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Application Not Found...",
+                status: 404
+            })
+        } 
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Applications",
+            data: jobApplications
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
 export { 
     getJobApplicationsByJobIdService, 
     getAllJobApplicationByCompanyService, 
@@ -364,5 +411,6 @@ export {
     updateOneJobApplicationService, 
     createJobApplicationService, 
     getAllJobApplicationByJobSeekerService, 
-    getOneJobApplicationByJobSeekerService 
+    getOneJobApplicationByJobSeekerService,
+    getAllJobApplicationByJobSeekerAndStatusService 
 }
