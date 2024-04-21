@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobApplicationService, getAllJobApplicationByCompanyAndStatusService, getAllJobApplicationByCompanyService, getJobApplicationsByJobIdService, getOneJobApplicationByCompanyService, updateOneJobApplicationService } from '../services/jobApplicationService';
+import { createJobApplicationService, getAllJobApplicationByCompanyAndStatusService, getAllJobApplicationByCompanyService, getAllJobApplicationByJobSeekerService, getJobApplicationsByJobIdService, getOneJobApplicationByCompanyService, getOneJobApplicationByJobSeekerService, updateOneJobApplicationService } from '../services/jobApplicationService';
 import { loggedUser } from '../utils/decodedToken';
 
 const getJobApplicationsByJobId = async (req: Request, res: Response, next: NextFunction) => {
@@ -105,4 +105,46 @@ const createJobApplication = async (req: Request, res: Response, next: NextFunct
   }
 }
 
-export { getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, updateOneJobApplicationStatus, createJobApplication }
+const getAllJobApplicationByJobSeeker = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+      const { userId } = loggedUser(req.user!)
+      const result = await getAllJobApplicationByJobSeekerService(userId)
+      if (result.success) {
+        res.status(200).json({
+          success: true,
+          message: result.message,
+          data: result.data
+        })
+      }
+  } catch (error) {
+      next(error)
+  }
+}
+
+const getOneJobApplicationByJobSeeker = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+      const { userId } = loggedUser(req.user!)
+      const  jobApplicationId = parseInt(req.params.jobApplicationId)
+      const result = await getOneJobApplicationByJobSeekerService(jobApplicationId, userId)
+      if (result.success) {
+        res.status(200).json({
+          success: true,
+          message: result.message,
+          data: result.data
+        })
+      }
+  } catch (error) {
+      next(error)
+  }
+}
+
+export { 
+  getJobApplicationsByJobId, 
+  getAllJobApplicationByCompany, 
+  getOneJobApplicationByCompany, 
+  getAllJobApplicationByCompanyAndStatus, 
+  updateOneJobApplicationStatus, 
+  createJobApplication,
+  getAllJobApplicationByJobSeeker,
+  getOneJobApplicationByJobSeeker
+}
