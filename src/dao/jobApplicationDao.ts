@@ -350,4 +350,138 @@ const updateOneJobApplication = async (jobApplicationId: number, companyId: numb
     }
 }
 
-export { createJobApplication, getJobApplicationsByJobId, getAllJobApplicationByCompany, getOneJobApplicationByCompany, getAllJobApplicationByCompanyAndStatus, updateOneJobApplication }
+const getAllJobApplicationByJobSeeker = async (jobSeekerId : number) => {
+    try {
+        const jobApplications = await prisma.job_application.findMany({
+            where: { job_seeker_id: jobSeekerId },
+            include: {
+                answers: true,
+                job: {
+                    select: {
+                        title: true,
+                        description: true, 
+                        employment_type: true,
+                        min_salary: true,
+                        gender: true,
+                        max_salary: true,
+                        date_posted: true,
+                        list_ability: {
+                            select: {
+                                ability: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        questions: {
+                            select: {
+                                question_1: true,
+                                question_2: true,
+                                question_3: true
+                            }
+                        },
+                        required_skills: {
+                            select: {
+                                skills: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        company: {
+                            select : {
+                                name: true,
+                                city: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        return jobApplications
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getOneJobApplicationByJobSeeker = async (jobApplicationId: number, jobSeekerId : number) => {
+    try {
+        const jobApplication = await prisma.job_application.findUnique({
+            where: { id: jobApplicationId, job_seeker_id: jobSeekerId },
+            include: {
+                answers: true,
+                job: {
+                    select: {
+                        title: true,
+                        description: true, 
+                        employment_type: true,
+                        min_salary: true,
+                        gender: true,
+                        max_salary: true,
+                        date_posted: true,
+                        list_ability: {
+                            select: {
+                                ability: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        questions: {
+                            select: {
+                                question_1: true,
+                                question_2: true,
+                                question_3: true
+                            }
+                        },
+                        required_skills: {
+                            select: {
+                                skills: {
+                                    select: {
+                                        name: true
+                                    }
+                                }
+                            }
+                        },
+                        company: {
+                            select : {
+                                name: true,
+                                city: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        return jobApplication
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+export { 
+    createJobApplication, 
+    getJobApplicationsByJobId, 
+    getAllJobApplicationByCompany, 
+    getOneJobApplicationByCompany, 
+    getAllJobApplicationByCompanyAndStatus, 
+    updateOneJobApplication, 
+    getAllJobApplicationByJobSeeker, 
+    getOneJobApplicationByJobSeeker 
+}
