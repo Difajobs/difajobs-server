@@ -315,6 +315,58 @@ const getAllJobListing = async (limit: number, offset: number) => {
   }
 };
 
+const getOneJobListing = async (jobId: number) => {
+  try {
+    const jobListing = await prisma.jobs.findUnique({
+      where: {id: jobId},
+      include: {
+        company: {
+          select: {
+            name: true,
+            city: true,
+            logo: true,
+          },
+        },
+        list_ability: {
+          select: {
+            ability: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+        required_skills: {
+          select: {
+            skills: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+        questions: {
+          select: {
+            question_1: true,
+            question_2: true,
+            question_3: true,
+          },
+        },
+      }
+    });
+    return jobListing;
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+};
+
 export {
   getCompanyId,
   postJob,
@@ -322,4 +374,5 @@ export {
   searchJobListingByTitle,
   searchJobListingByLocation,
   getAllJobListing,
+  getOneJobListing
 };
