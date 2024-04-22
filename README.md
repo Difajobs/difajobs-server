@@ -104,14 +104,19 @@ http://localhost:3000/
 | **Add Job Seeker Certificate** | `POST` | [/v1/certificate](https://difajobs-server.vercel.app/v1/certificate) | ✔ | **JOB_SEEKER** |
 | **Update Job Seeker Certificate** | `PATCH` | [/v1/certificate/:certificateId](https://difajobs-server.vercel.app/v1/certificate/1) | ✔ | **JOB_SEEKER** |
 | **Remove Job Seeker Certificate** | `DELETE` | [/v1/certificate/:certificateId](https://difajobs-server.vercel.app/v1/certificate/1) | ✔ | **JOB_SEEKER** |
+| **Create Job Application** | `POST` | [/v1/job-application/:jobId](https://difajobs-server.vercel.app/v1/job-application/1) | ✔ | **JOB_SEEKER** |
+| **Get All Job Applications** | `GET` | [/v1/job-application/by-jobseeker/all](https://difajobs-server.vercel.app/v1/job-application/by-jobseeker/all) | ✔ | **JOB_SEEKER** |
+| **Get One Job Application** | `GET` | [/v1/job-application/by-jobseeker/:jobApplicationId](https://difajobs-server.vercel.app/v1/job-application/by-jobseeker/1) | ✔ | **JOB_SEEKER** |
+| **Get All Job Applications By Status** | `GET` | [/v1/job-application/by-jobseeker/status/:status](https://difajobs-server.vercel.app/v1/job-application/by-jobseeker/status/pending) | ✔ | **JOB_SEEKER** |
 </div>
 
-**DASHBOARD/ JOB SEARCH**
+**DASHBOARD / JOB SEARCH**
 <div align="center">
 
 | Name  | HTTP Method | Endpoint | Authentication | Authorization |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | **Job Search** | `GET` | [/v1/jobs/title=?&location=?](https://difajobs-server.vercel.app/v1/jobs/title=?&location=?) | ✔ | **JOB_SEEKER**, **RECRUITER** |
+| **Get One Job** | `GET` | [/v1/jobs/:jobId](https://difajobs-server.vercel.app/v1/jobs/1) | ✔ | **JOB_SEEKER**, **RECRUITER** |
 
 </div>
 
