@@ -175,7 +175,7 @@ const getOneJobSeeker = async (userId: number) => {
     }
 }
 
-const updateJobSeekerData = async (jobSeekerId: number, data: any) => {
+const updateJobSeekerData = async (jobSeekerId: number, data: JobSeekerDataUpdate) => {
     try {
         const updateJobSeeker = await prisma.job_seeker.update({
             where: {id: jobSeekerId},
