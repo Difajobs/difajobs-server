@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { getAllCompanyService, getCompanyProfileService } from '../services/companyService';
+import { getAllCompanyService, getCompanyProfileService, updateCompanyDataService } from '../services/companyService';
+import { loggedUser } from '../utils/decodedToken';
 
 const getCompanyProfile = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -32,5 +33,22 @@ const getAllCompany = async (req: Request, res: Response, next: NextFunction) =>
     }
 }
 
+const updateCompanyData = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { userId } = loggedUser(req.user!)
+        const updateData: CompanyDataUpdate = req.body;
+        const result = await updateCompanyDataService(userId, updateData);
+        
+        if (result.success) {
+          res.status(200).json({
+            success: true,
+            message: result.message,
+            data: result.data
+          })
+        }
+    } catch (error) {
+        next(error);
+    }
+  }
 
-export { getCompanyProfile, getAllCompany }
+export { getCompanyProfile, getAllCompany, updateCompanyData }
