@@ -70,3 +70,11 @@ interface JobSeekerDataUpdate {
     phone_number: string;
     city: string;
 }
+
+interface CompanyDataUpdate {
+    name: string;
+    city: string;
+    about: string;
+    logo: string;
+    picture: string;
+}
