@@ -119,4 +119,30 @@ const getAllCompany = async () => {
     }
 };
 
-export { getOneCompany, getOneCompanyByUserId, getAllCompany }
+const updateCompanyData = async (companyId: number, data: CompanyDataUpdate) => {
+    try {
+        const updateData = await prisma.company.update({
+            where: { id: companyId },
+            data: { 
+                name: data.name,
+                city: data.city,
+                about: data.about,
+                logo: data.logo,
+                picture: data.picture, 
+            }
+        })
+
+        return updateData
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { getOneCompany, getOneCompanyByUserId, getAllCompany, updateCompanyData }
