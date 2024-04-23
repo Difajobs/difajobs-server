@@ -1,4 +1,4 @@
-import { getAllCompany, getOneCompany } from "../dao/companyDao";
+import { getAllCompany, getOneCompany, getOneCompanyByUserId, updateCompanyData } from "../dao/companyDao";
 import ErrorHandler from "../utils/errorHandler";
 
 const getCompanyProfileService = async (companyId: number) => {
@@ -55,4 +55,34 @@ const getAllCompanyService = async () => {
         })
     }
 }
-export { getCompanyProfileService, getAllCompanyService }
+
+const updateCompanyDataService = async (userId: number, updateData: CompanyDataUpdate) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+
+        const updatedData = await updateCompanyData(company.id, updateData);
+        return {
+            success: true,
+            message: "Successfully Update Company's Information:",
+            data: updatedData
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message
+        })
+    }
+}
+
+export { getCompanyProfileService, getAllCompanyService, updateCompanyDataService }
