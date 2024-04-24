@@ -367,6 +367,32 @@ const getOneJobListing = async (jobId: number) => {
   }
 };
 
+const updateJobListing = async (jobId: number, companyId: number, data: JobCreate) => {
+  try {
+    const updateJob = await prisma.jobs.update({
+      where: {id: jobId, company_id: companyId},
+      data: {
+        title: data.title,
+        description: data.description,
+        employment_type: data.employment_type,
+        gender: data.gender,
+        min_salary: data.min_salary,
+        max_salary: data.max_salary
+      }
+    })
+    return updateJob
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+}
+
 export {
   getCompanyId,
   postJob,
@@ -374,5 +400,6 @@ export {
   searchJobListingByTitle,
   searchJobListingByLocation,
   getAllJobListing,
-  getOneJobListing
+  getOneJobListing,
+  updateJobListing
 };
