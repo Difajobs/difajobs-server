@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { loggedUser } from "../utils/decodedToken";
-import { createListAbilityService, deleteListAbilityService } from "../services/abilityService";
+import { createListAbilityService, deleteListAbilityService } from "../services/listAbilityService";
 
 const createListAbility = async (req: Request, res: Response, next: NextFunction) => {
     try {

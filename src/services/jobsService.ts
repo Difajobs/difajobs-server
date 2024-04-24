@@ -23,18 +23,17 @@ const createJobService = async (userId: number, userData: JobCreate, ability_id:
 
         const createRequiredSkill = async () => {
             const skills: any = [];
-            if (checkSkills.length > 0) {
-                await Promise.all(checkSkills.map(async (skill) => {
-                    const addExistingSkill = await postCreateRequiredSkills(job.id, skill.id);
+            await Promise.all(skillNames.map(async (skillName) => {
+                const existingSkill = checkSkills.find(skill => skill.name === skillName);
+                if (existingSkill) {
+                    const addExistingSkill = await postCreateRequiredSkills(job.id, existingSkill.id);
                     skills.push(addExistingSkill);
-                }));
-            } else {
-                await Promise.all(skillNames.map(async (skill) => {
-                    const newSkill = await createSkills(skill);
+                } else {
+                    const newSkill = await createSkills(skillName);
                     const addNewSkill = await postCreateRequiredSkills(job.id, newSkill.id);
                     skills.push(addNewSkill);
-                }));
-            }
+                }
+            }));
             return skills;
         };
 
