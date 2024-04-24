@@ -9,6 +9,7 @@ import { jobSeekerAuth } from '../../middlewares/authorization';
 import companyRouter from './company';
 import jobApplicationRouter from './jobApplication';
 import abilityRouter from './ability';
+import questionsRouter from './questions';
 
 const v1Router = express.Router()
 
@@ -21,5 +22,6 @@ v1Router.use('/jobs', jobsRouter)
 v1Router.use('/company', companyRouter)
 v1Router.use('/job-application', jobApplicationRouter)
 v1Router.use('/ability', abilityRouter)
+v1Router.use('/questions', questionsRouter)
 
 export default v1Router

@@ -78,3 +78,9 @@ interface CompanyDataUpdate {
     logo: string;
     picture: string;
 }
+
+interface QuestionsUpdate {
+    question_1: string | null;
+    question_2: string | null;
+    question_3: string | null;
+}
