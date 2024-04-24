@@ -4,7 +4,7 @@ import { jobSeekerAuth, recruiterAuth } from '../../../middlewares/authorization
 
 const skillRouter = express.Router()
 
-skillRouter.get('/', getJobSeekerSkillList)
+skillRouter.get('/', jobSeekerAuth, getJobSeekerSkillList)
 skillRouter.get('/all', getAllSkill)
 skillRouter.post('/', jobSeekerAuth, createNewJobSeekerSkill)
 skillRouter.delete('/:jobSeekerSkillId', jobSeekerAuth, deleteJobSeekerSkill)
