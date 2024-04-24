@@ -32,4 +32,41 @@ const postCreateRequiredSkills = async (job_id: number, skill_id: number) => {
     }
 }
 
-export { postCreateRequiredSkills }
+const deleteRequiredSkill = async (requiredSkillId: number) => {
+    try {
+        const requiredSkill = await prisma.required_skills.delete({
+            where: {id: requiredSkillId}
+        });
+        return requiredSkill
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getRequiredSkill = async (requiredSkillId: number) => {
+    try {
+        const requiredSkill = await prisma.required_skills.findUnique({
+            where: {id: requiredSkillId}
+        })
+
+        return requiredSkill
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { postCreateRequiredSkills, deleteRequiredSkill, getRequiredSkill }
