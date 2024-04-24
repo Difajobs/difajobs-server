@@ -1,10 +1,11 @@
 import { getOneCompany, getOneCompanyByUserId } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing, updateJobListing } from '../dao/jobsDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing, updateJobListing, deleteJobListing } from '../dao/jobsDao';
 import { deleteListAbility, postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
 import { deleteRequiredSkill, postCreateRequiredSkills } from '../dao/requiredSkillDao';
 import { postCreateQuestions } from '../dao/questionsDao';
+import { getJobApplicationsByJobId } from '../dao/jobApplicationDao';
 
 // ------ create jobs ------
 const createJobService = async (userId: number, userData: JobCreate, ability_id: number[], skillNames: string[], question_1: string, question_2: string, question_3: string) => {
@@ -304,6 +305,56 @@ const updateJobListingService = async (jobId: number, userId: number, updateData
     }
 }
 
+const deleteJobListingService = async (jobId: number, userId: number) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+
+        const job = await getOneJobListing(jobId)
+    
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Not Found...",
+                status: 404
+            })
+        }
+
+        const checkJobApplications = await getJobApplicationsByJobId(company.id, jobId)
+
+        if (checkJobApplications.some(jobApplication => jobApplication.status !== "reject" && jobApplication.status !== "hired")) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Cannot perform action. There are active job applications for this job....",
+                status: 400
+            })
+        }
+
+        const deleteJob = await deleteJobListing(jobId, company.id)
+
+        return {
+            success: true,
+            message: "Successfully Deleted Job Listing",
+            data: deleteJob
+        }
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
 export { 
     createJobService, 
     getCompanyJobsListService, 
@@ -312,5 +363,6 @@ export {
     searchJobByLocationService, 
     searchJobByTitleAndLocationService, 
     getOneJobListingService,
-    updateJobListingService 
+    updateJobListingService,
+    deleteJobListingService 
 }
