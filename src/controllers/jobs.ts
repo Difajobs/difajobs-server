@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService, getOneJobListingService, updateJobListingService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService, getOneJobListingService, updateJobListingService, deleteJobListingService } from '../services/jobsService';
 import { loggedUser } from '../utils/decodedToken';
 
 // ------ create new job ------
@@ -144,6 +144,23 @@ const editJobListing = async (req: Request, res: Response, next: NextFunction) =
     }
 }
 
+const deleteJobListing = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { userId } = loggedUser(req.user!) 
+        const  jobId = parseInt(req.params.jobId)
+        const result = await deleteJobListingService(jobId, userId)
+        if(result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data,
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
 export { 
     createJob, 
     getCompanyJobList, 
@@ -152,5 +169,6 @@ export {
     getAllJobs, 
     searchJobsByTitleAndLocation, 
     getOneJob,
-    editJobListing 
+    editJobListing,
+    deleteJobListing 
 }
