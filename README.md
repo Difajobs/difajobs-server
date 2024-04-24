@@ -126,13 +126,21 @@ http://localhost:3000/
 | Name  | HTTP Method | Endpoint | Authentication | Authorization |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | **Recruiter Profile** | `GET` | [/v1/company/:companyId](https://difajobs-server.vercel.app/v1/company/1) | ✔ | ❌ |
+| **Update Recruiter Info (In Profile)** | `PATCH` | [/v1/company](https://difajobs-server.vercel.app/v1/company) | ✔ | **RECRUITER** |
 | **Get Recruiter Job Listings** | `GET` | [/v1/company/:companyId/jobs](https://difajobs-server.vercel.app/v1/company/1/jobs) | ✔ | ❌ |
-| **Create Job Listings** | `POST` | [/v1/jobs](https://difajobs-server.vercel.app/v1/jobs) | ✔ | **RECRUITER** |
+| **Create Job Listing** | `POST` | [/v1/jobs](https://difajobs-server.vercel.app/v1/jobs) | ✔ | **RECRUITER** |
+| **Edit Job Listing** | `PATCH` | [/v1/jobs/:jobId](https://difajobs-server.vercel.app/v1/jobs/1) | ✔ | **RECRUITER** |
+| **Delete Job Listing** | `DELETE` | [/v1/jobs/:jobId](https://difajobs-server.vercel.app/v1/jobs/1) | ✔ | **RECRUITER** |
 | **Get All Job Applications by Company** | `GET` | [/v1/job-application/all](https://difajobs-server.vercel.app/v1/job-application/all) | ✔ | **RECRUITER** |
 | **Get All Job Application by Job Id** | `GET` | [/v1/job-application/job/:jobId](https://difajobs-server.vercel.app/v1/job-application/job/1) | ✔ | **RECRUITER** |
 | **Get All Job Applications by Status** | `GET` | [/v1/job-application/status/:status](https://difajobs-server.vercel.app/v1/job-application/status/pending) | ✔ | **RECRUITER** |
 | **Get One Job Applications by Company** | `GET` | [/v1/job-application/application/:jobApplicationId](https://difajobs-server.vercel.app/v1/job-application/application/1) | ✔ | **RECRUITER** |
 | **Update Job Application Status** | `PUT` | [/v1/job-application/application/:jobApplicationId](https://difajobs-server.vercel.app/v1/job-application/application/1) | ✔ | **RECRUITER** |
+| **Add Job Listing Required Skill** | `POST` | [/v1/skill/required-skill/:jobId](https://difajobs-server.vercel.app/v1/skill/required-skill/1) | ✔ | **RECRUITER** |
+| **Delete Job Listing Required Skill** | `DELETE` | [/v1/skill/required-skill/:requiredSkillId](https://difajobs-server.vercel.app/v1/skill/required-skill/1) | ✔ | **RECRUITER** |
+| **Add Job Listing List Ability** | `POST` | [/v1/list-ability/:jobId](https://difajobs-server.vercel.app/v1/list-ability/1) | ✔ | **RECRUITER** |
+| **Delete Job Listing List Ability** | `DELETE` | [/v1/list-ability/:listAbilityId](https://difajobs-server.vercel.app/v1/list-ability/1) | ✔ | **RECRUITER** |
+| **Edit Job Listing Questions** | `PATCH` | [/v1/questions/:jobId](https://difajobs-server.vercel.app/v1/questions/1) | ✔ | **RECRUITER** |
 </div>
 
 ## Contributing
