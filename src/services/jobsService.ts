@@ -1,9 +1,9 @@
-import { getOneCompany } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing } from '../dao/jobsDao';
-import { postCreateListAbility } from '../dao/abilityDao';
+import { getOneCompany, getOneCompanyByUserId } from '../dao/companyDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing, updateJobListing } from '../dao/jobsDao';
+import { deleteListAbility, postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
-import { postCreateRequiredSkills } from '../dao/requiredSkillDao';
+import { deleteRequiredSkill, postCreateRequiredSkills } from '../dao/requiredSkillDao';
 import { postCreateQuestions } from '../dao/questionsDao';
 
 // ------ create jobs ------
@@ -264,4 +264,53 @@ const getOneJobListingService = async (jobId: number) => {
     }
 }
 
-export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService, getOneJobListingService }
+const updateJobListingService = async (jobId: number, userId: number, updateData: JobCreate) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+
+        const job = await getOneJobListing(jobId)
+    
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Not Found...",
+                status: 404
+            })
+        }
+
+        const updateJob = await updateJobListing(jobId, company.id, updateData)
+
+        return {
+            success: true,
+            message: "Successfully Updated Job Listing's Information",
+            data: updateJob
+        }
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { 
+    createJobService, 
+    getCompanyJobsListService, 
+    getAllJobsService, 
+    searchJobByTitleService, 
+    searchJobByLocationService, 
+    searchJobByTitleAndLocationService, 
+    getOneJobListingService,
+    updateJobListingService 
+}
