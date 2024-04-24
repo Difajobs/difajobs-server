@@ -393,6 +393,24 @@ const updateJobListing = async (jobId: number, companyId: number, data: JobCreat
   }
 }
 
+const deleteJobListing = async (jobId: number, companyId: number) => {
+  try {
+    const deleteJob = await prisma.jobs.delete({
+      where: {id: jobId, company_id: companyId}
+    })
+    return deleteJob
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+}
+
 export {
   getCompanyId,
   postJob,
@@ -401,5 +419,6 @@ export {
   searchJobListingByLocation,
   getAllJobListing,
   getOneJobListing,
-  updateJobListing
+  updateJobListing,
+  deleteJobListing
 };
