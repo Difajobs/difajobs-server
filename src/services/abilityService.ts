@@ -106,4 +106,7 @@ const deleteListAbilityService = async (userId: number, listAbilityId: number) =
     }
 }
 
-export { createListAbilityService, deleteListAbilityService }
+export { 
+    createListAbilityService, 
+    deleteListAbilityService 
+}
