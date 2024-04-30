@@ -315,6 +315,102 @@ const getAllJobListing = async (limit: number, offset: number) => {
   }
 };
 
+const getOneJobListing = async (jobId: number) => {
+  try {
+    const jobListing = await prisma.jobs.findUnique({
+      where: {id: jobId},
+      include: {
+        company: {
+          select: {
+            name: true,
+            city: true,
+            logo: true,
+          },
+        },
+        list_ability: {
+          select: {
+            ability: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+        required_skills: {
+          select: {
+            skills: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
+        questions: {
+          select: {
+            question_1: true,
+            question_2: true,
+            question_3: true,
+          },
+        },
+      }
+    });
+    return jobListing;
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+};
+
+const updateJobListing = async (jobId: number, companyId: number, data: JobCreate) => {
+  try {
+    const updateJob = await prisma.jobs.update({
+      where: {id: jobId, company_id: companyId},
+      data: {
+        title: data.title,
+        description: data.description,
+        employment_type: data.employment_type,
+        gender: data.gender,
+        min_salary: data.min_salary,
+        max_salary: data.max_salary
+      }
+    })
+    return updateJob
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+}
+
+const deleteJobListing = async (jobId: number, companyId: number) => {
+  try {
+    const deleteJob = await prisma.jobs.delete({
+      where: {id: jobId, company_id: companyId}
+    })
+    return deleteJob
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+}
+
 export {
   getCompanyId,
   postJob,
@@ -322,4 +418,7 @@ export {
   searchJobListingByTitle,
   searchJobListingByLocation,
   getAllJobListing,
+  getOneJobListing,
+  updateJobListing,
+  deleteJobListing
 };

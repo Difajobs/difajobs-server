@@ -37,4 +37,40 @@ const postCreateListAbility = async (job_id: number, ability_ids: number[]) => {
     }
 }
 
-export { postCreateListAbility };
+const deleteListAbility = async (listAbilityId: number) => {
+    try {
+        const ability = await prisma.list_ability.delete({
+            where: {id: listAbilityId}
+        })
+        return ability
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+const getListAbility = async (listAbilityId: number) => {
+    try {
+        const ability = await prisma.list_ability.findUnique({
+            where: {id: listAbilityId}
+        })
+        return ability
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status || 500,
+            message: error.message || "Internal Server Error",
+        });
+    } finally {
+        await disconnectDB();
+    }
+}
+
+export { postCreateListAbility, deleteListAbility, getListAbility };

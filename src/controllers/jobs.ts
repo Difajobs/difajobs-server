@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService } from '../services/jobsService';
+import { createJobService, getCompanyJobsListService, searchJobByTitleService, searchJobByLocationService, getAllJobsService, searchJobByTitleAndLocationService, getOneJobListingService, updateJobListingService, deleteJobListingService } from '../services/jobsService';
 import { loggedUser } from '../utils/decodedToken';
 
 // ------ create new job ------
@@ -110,4 +110,65 @@ const getAllJobs = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-export { createJob, getCompanyJobList, searchJobsByTitle, searchJobsByLocation, getAllJobs, searchJobsByTitleAndLocation }
+const getOneJob = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const  jobId = parseInt(req.params.jobId)
+        const result = await getOneJobListingService(jobId)
+        if(result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data,
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+const editJobListing = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { userId } = loggedUser(req.user!) 
+        const  jobId = parseInt(req.params.jobId)
+        const updateData: JobCreate = req.body;
+        const result = await updateJobListingService(jobId, userId, updateData)
+        if(result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data,
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+const deleteJobListing = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { userId } = loggedUser(req.user!) 
+        const  jobId = parseInt(req.params.jobId)
+        const result = await deleteJobListingService(jobId, userId)
+        if(result.success) {
+            res.status(200).json({
+                success: true,
+                message: result.message,
+                data: result.data,
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+export { 
+    createJob, 
+    getCompanyJobList, 
+    searchJobsByTitle, 
+    searchJobsByLocation, 
+    getAllJobs, 
+    searchJobsByTitleAndLocation, 
+    getOneJob,
+    editJobListing,
+    deleteJobListing 
+}

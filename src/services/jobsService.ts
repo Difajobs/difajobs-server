@@ -1,10 +1,11 @@
-import { getOneCompany } from '../dao/companyDao';
-import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation } from '../dao/jobsDao';
-import { postCreateListAbility } from '../dao/abilityDao';
+import { getOneCompany, getOneCompanyByUserId } from '../dao/companyDao';
+import { getAllJobListing, getCompanyId, getCompanyJobsList, postJob, searchJobListingByTitle, searchJobListingByLocation, getOneJobListing, updateJobListing, deleteJobListing } from '../dao/jobsDao';
+import { deleteListAbility, postCreateListAbility } from '../dao/abilityDao';
 import ErrorHandler from '../utils/errorHandler';
 import { createSkills, getSkillListByName } from '../dao/skillsDao';
-import { postCreateRequiredSkills } from '../dao/requiredSkillDao';
+import { deleteRequiredSkill, postCreateRequiredSkills } from '../dao/requiredSkillDao';
 import { postCreateQuestions } from '../dao/questionsDao';
+import { getJobApplicationsByJobId } from '../dao/jobApplicationDao';
 
 // ------ create jobs ------
 const createJobService = async (userId: number, userData: JobCreate, ability_id: number[], skillNames: string[], question_1: string, question_2: string, question_3: string) => {
@@ -22,18 +23,17 @@ const createJobService = async (userId: number, userData: JobCreate, ability_id:
 
         const createRequiredSkill = async () => {
             const skills: any = [];
-            if (checkSkills.length > 0) {
-                await Promise.all(checkSkills.map(async (skill) => {
-                    const addExistingSkill = await postCreateRequiredSkills(job.id, skill.id);
+            await Promise.all(skillNames.map(async (skillName) => {
+                const existingSkill = checkSkills.find(skill => skill.name === skillName);
+                if (existingSkill) {
+                    const addExistingSkill = await postCreateRequiredSkills(job.id, existingSkill.id);
                     skills.push(addExistingSkill);
-                }));
-            } else {
-                await Promise.all(skillNames.map(async (skill) => {
-                    const newSkill = await createSkills(skill);
+                } else {
+                    const newSkill = await createSkills(skillName);
                     const addNewSkill = await postCreateRequiredSkills(job.id, newSkill.id);
                     skills.push(addNewSkill);
-                }));
-            }
+                }
+            }));
             return skills;
         };
 
@@ -237,4 +237,131 @@ const searchJobByTitleAndLocationService = async (location: string | undefined, 
     }
 }
 
-export { createJobService, getCompanyJobsListService, getAllJobsService, searchJobByTitleService, searchJobByLocationService, searchJobByTitleAndLocationService }
+const getOneJobListingService = async (jobId: number) => {
+    try {
+        const job = await getOneJobListing(jobId)
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Job Listing Not Found..',
+                status: 404
+            });
+        }
+
+        return {
+            success: true,
+            message: "Successfully Fetch Job Listing",
+            data: job
+        }
+
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const updateJobListingService = async (jobId: number, userId: number, updateData: JobCreate) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+
+        const job = await getOneJobListing(jobId)
+    
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Not Found...",
+                status: 404
+            })
+        }
+
+        const updateJob = await updateJobListing(jobId, company.id, updateData)
+
+        return {
+            success: true,
+            message: "Successfully Updated Job Listing's Information",
+            data: updateJob
+        }
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+const deleteJobListingService = async (jobId: number, userId: number) => {
+    try {
+        const company = await getOneCompanyByUserId(userId)
+    
+        if (!company) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Company Not Found...",
+                status: 404
+            })
+        }
+
+        const job = await getOneJobListing(jobId)
+    
+        if (!job) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Job Not Found...",
+                status: 404
+            })
+        }
+
+        const checkJobApplications = await getJobApplicationsByJobId(company.id, jobId)
+
+        if (checkJobApplications.some(jobApplication => jobApplication.status !== "reject" && jobApplication.status !== "hired")) {
+            throw new ErrorHandler({
+                success: false,
+                message: "Cannot perform action. There are active job applications for this job....",
+                status: 400
+            })
+        }
+
+        const deleteJob = await deleteJobListing(jobId, company.id)
+
+        return {
+            success: true,
+            message: "Successfully Deleted Job Listing",
+            data: deleteJob
+        }
+        
+    } catch (error: any) {
+        console.error(error);
+        throw new ErrorHandler({
+            success: false,
+            status: error.status,
+            message: error.message,
+        });
+    }
+}
+
+export { 
+    createJobService, 
+    getCompanyJobsListService, 
+    getAllJobsService, 
+    searchJobByTitleService, 
+    searchJobByLocationService, 
+    searchJobByTitleAndLocationService, 
+    getOneJobListingService,
+    updateJobListingService,
+    deleteJobListingService 
+}
