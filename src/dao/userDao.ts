@@ -115,6 +115,11 @@ const getOneJobSeeker = async (userId: number) => {
         const jobSeeker = await prisma.job_seeker.findFirst({
             where: {user_id: userId},
             include: {
+                user: {
+                    select: {
+                        email: true
+                    }
+                },
                 job_seeker_skills: {
                     select: {
                         skills: {
