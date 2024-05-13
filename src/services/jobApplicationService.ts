@@ -32,7 +32,7 @@ const createJobApplicationService = async (
         status: 404,
       });
     }
-    if (!jobSeeker.job_seeker_skills || !jobSeeker.disabilities || !jobSeeker.description) {
+    if (!jobSeeker.job_seeker_skills || !jobSeeker.disabilities) {
       throw new ErrorHandler({
         success: false,
         message: "Please Complete Your Profile..!",
