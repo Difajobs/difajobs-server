@@ -99,10 +99,17 @@ const updateOneJobApplicationStatus = async (req: Request, res: Response, next: 
 
 const createJobApplication = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const jobId = parseInt(req.params.jobId);
+    const { jobId } = req.params;
     const token = getToken(req);
     const { cover_letter, answer_1, answer_2, answer_3 } = req.body;
-    const result = await createJobApplicationService(token, jobId, cover_letter, answer_1, answer_2, answer_3);
+    const result = await createJobApplicationService(
+      token,
+      parseInt(jobId),
+      cover_letter,
+      answer_1,
+      answer_2,
+      answer_3
+    );
     if (result.success) {
       res.status(200).json({
         success: true,
