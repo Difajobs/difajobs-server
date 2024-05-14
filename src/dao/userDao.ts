@@ -185,29 +185,8 @@ const getJobSeekerForApply = async (userId: number) => {
     const jobSeeker = await prisma.job_seeker.findFirst({
       where: { user_id: userId },
       include: {
-        job_seeker_skills: {
-          select: {
-            skills: {
-              select: {
-                name: true,
-              },
-            },
-          },
-        },
-        disabilities: {
-          select: {
-            disability: {
-              select: {
-                category: {
-                  select: {
-                    name: true,
-                  },
-                },
-                name: true,
-              },
-            },
-          },
-        },
+        job_seeker_skills: true,
+        disabilities: true,
       },
     });
     return jobSeeker;
