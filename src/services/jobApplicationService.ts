@@ -16,6 +16,7 @@ import { getOneJobListing } from "../dao/jobsDao";
 import { getOneJobSeeker } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
 import { loggedUser } from "../utils/decodedToken";
+import { prisma } from "../config/db/dbConnection";
 
 const createJobApplicationService = async (
   token: JwtPayload | null,
@@ -46,17 +47,37 @@ const createJobApplicationService = async (
       });
     }
 
-    // Perform database operations
-    const jobApplication = await createJobApplication(job.company_id, jobId, jobSeeker.id, coverLetter);
-    const jobApplicationAnswers =
-      answer_1 || answer_2 || answer_3
-        ? await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3)
-        : null;
+    const result = await prisma.$transaction(async prisma => {
+      const jobApplication = await prisma.job_application.create({
+        data: {
+          company_id: job.company_id,
+          job_id: jobId,
+          job_seeker_id: jobSeeker.id,
+          cover_letter: coverLetter,
+          status: "pending",
+        },
+      });
+
+      const jobApplicationAnswers =
+        answer_1 || answer_2 || answer_3
+          ? await prisma.answers.create({
+              data: {
+                job_id: jobId,
+                job_application_id: jobApplication.id,
+                answer_1: answer_1,
+                answer_2: answer_2,
+                answer_3: answer_3,
+              },
+            })
+          : null;
+
+      return { jobApplication, jobApplicationAnswers };
+    });
 
     return {
       success: true,
       message: "Successfully Submitted Job Application!",
-      data: { jobApplication, jobApplicationAnswers },
+      data: result,
     };
   } catch (error: any) {
     console.error(error);
