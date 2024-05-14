@@ -1,5 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
+import timeout from "connect-timeout";
 import { db } from "./config/db/dbConnection";
 import errorCatch from "./middlewares/errorCatch";
 import middleWares from "./middlewares";
@@ -14,6 +15,7 @@ const app = express();
 db();
 // body parser
 app.use(express.json());
+app.use(timeout("30s"));
 // server port
 const server_port = process.env.SERVER_PORT || 3001;
 // API root route

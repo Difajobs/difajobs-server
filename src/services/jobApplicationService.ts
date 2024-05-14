@@ -27,6 +27,7 @@ const createJobApplicationService = async (
 ) => {
   const { userId } = loggedUser(token);
   try {
+    // Perform both lookups concurrently
     const [jobSeeker, job] = await Promise.all([getOneJobSeeker(userId), getOneJobListing(jobId)]);
 
     if (!jobSeeker?.job_seeker_skills || !jobSeeker.disabilities) {
@@ -45,12 +46,12 @@ const createJobApplicationService = async (
       });
     }
 
+    // Perform database operations
     const jobApplication = await createJobApplication(job.company_id, jobId, jobSeeker.id, coverLetter);
-
-    let jobApplicationAnswers;
-    if (answer_1 || answer_2 || answer_3) {
-      jobApplicationAnswers = await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3);
-    }
+    const jobApplicationAnswers =
+      answer_1 || answer_2 || answer_3
+        ? await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3)
+        : null;
 
     return {
       success: true,
