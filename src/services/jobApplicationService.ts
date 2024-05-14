@@ -18,13 +18,18 @@ import ErrorHandler from "../utils/errorHandler";
 const createJobApplicationService = async (
   jobId: number,
   userId: number,
-  coverLetter: string | null,
-  answer_1: string | null,
-  answer_2: string | null,
-  answer_3: string | null
+  coverLetter?: string,
+  answer_1?: string,
+  answer_2?: string,
+  answer_3?: string
 ) => {
   try {
-    const jobSeeker = await getOneJobSeeker(userId);
+    const [jobSeeker, job] = await Promise.all([
+      // CHANGED
+      getOneJobSeeker(userId),
+      getOneJobListing(jobId),
+    ]);
+
     if (!jobSeeker) {
       throw new ErrorHandler({
         success: false,
@@ -32,6 +37,7 @@ const createJobApplicationService = async (
         status: 404,
       });
     }
+
     if (!jobSeeker.job_seeker_skills || !jobSeeker.disabilities) {
       throw new ErrorHandler({
         success: false,
@@ -40,7 +46,6 @@ const createJobApplicationService = async (
       });
     }
 
-    const job = await getOneJobListing(jobId);
     if (!job) {
       throw new ErrorHandler({
         success: false,
@@ -51,26 +56,22 @@ const createJobApplicationService = async (
 
     const jobApplication = await createJobApplication(job.company_id, jobId, jobSeeker.id, coverLetter);
 
+    let jobApplicationAnswers;
     if (answer_1 || answer_2 || answer_3) {
-      const jobApplicationAnswers = await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3);
-      return {
-        success: true,
-        message: "Successfully Submitted Job Application!",
-        data: { jobApplication, jobApplicationAnswers },
-      };
+      jobApplicationAnswers = await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3);
     }
 
     return {
       success: true,
       message: "Successfully Submitted Job Application!",
-      data: { jobApplication },
+      data: { jobApplication, jobApplicationAnswers },
     };
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
       success: false,
-      status: error.status,
-      message: error.message,
+      status: error.status || 500,
+      message: error.message || "Internal Server Error",
     });
   }
 };
