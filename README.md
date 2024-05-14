@@ -143,6 +143,13 @@ http://localhost:3000/
 | **Edit Job Listing Questions** | `PATCH` | [/v1/questions/:jobId](https://difajobs-server.vercel.app/v1/questions/1) | ✔ | **RECRUITER** |
 </div>
 
+## Feedbacks
+Thank you for your keen interest in Difajobs, we recognize the everlasting need to upgrade and transform oneself to always be a better version, therefore we would like to invite you to fill in the feedback form below:
+<br>
+[Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSdWq6YRZES3EbbOEvE5RDtm58Dxmw0qriqLzF1w3YrV2Mex5Q/viewform)
+
+Thank you!
+
 ## Contributing
 Contributions to Difajobs Server (Back End) project are welcome! If you find any bugs, issues, or have feature requests, please open an issue on this repository. Additionally, if you'd like to contribute code, feel free to fork the repository and submit a pull request with your changes. Happy Coding!
 
