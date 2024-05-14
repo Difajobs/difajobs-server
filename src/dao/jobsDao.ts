@@ -20,14 +20,7 @@ const getCompanyId = async (userId: number) => {
 };
 
 const postJob = async (company_id: number, userData: JobCreate) => {
-  const {
-    title,
-    description,
-    gender,
-    employment_type,
-    min_salary,
-    max_salary,
-  } = userData;
+  const { title, description, gender, employment_type, min_salary, max_salary } = userData;
   try {
     const newJob = await prisma.jobs.create({
       data: {
@@ -110,11 +103,7 @@ const getCompanyJobsList = async (companyId: number) => {
   }
 };
 
-const searchJobListingByTitle = async (
-  searchTitle: string | undefined,
-  limit: number,
-  offset: number
-) => {
+const searchJobListingByTitle = async (searchTitle: string | undefined, limit: number, offset: number) => {
   try {
     const getJobListing = await prisma.jobs.findMany({
       where: {
@@ -185,11 +174,7 @@ const searchJobListingByTitle = async (
   }
 };
 
-const searchJobListingByLocation = async (
-  searchLocation: string | undefined,
-  limit: number,
-  offset: number
-) => {
+const searchJobListingByLocation = async (searchLocation: string | undefined, limit: number, offset: number) => {
   try {
     const getJobListing = await prisma.jobs.findMany({
       where: {
@@ -197,9 +182,7 @@ const searchJobListingByLocation = async (
           {
             company: {
               city: {
-                contains: searchLocation
-                  ? searchLocation.toLowerCase()
-                  : undefined,
+                contains: searchLocation ? searchLocation.toLowerCase() : undefined,
               },
             },
           },
@@ -318,7 +301,7 @@ const getAllJobListing = async (limit: number, offset: number) => {
 const getOneJobListing = async (jobId: number) => {
   try {
     const jobListing = await prisma.jobs.findUnique({
-      where: {id: jobId},
+      where: { id: jobId },
       include: {
         company: {
           select: {
@@ -352,7 +335,25 @@ const getOneJobListing = async (jobId: number) => {
             question_3: true,
           },
         },
-      }
+      },
+    });
+    return jobListing;
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+};
+
+const getOneJob = async (jobId: number) => {
+  try {
+    const jobListing = await prisma.jobs.findUnique({
+      where: { id: jobId },
     });
     return jobListing;
   } catch (error: any) {
@@ -370,17 +371,17 @@ const getOneJobListing = async (jobId: number) => {
 const updateJobListing = async (jobId: number, companyId: number, data: JobCreate) => {
   try {
     const updateJob = await prisma.jobs.update({
-      where: {id: jobId, company_id: companyId},
+      where: { id: jobId, company_id: companyId },
       data: {
         title: data.title,
         description: data.description,
         employment_type: data.employment_type,
         gender: data.gender,
         min_salary: data.min_salary,
-        max_salary: data.max_salary
-      }
-    })
-    return updateJob
+        max_salary: data.max_salary,
+      },
+    });
+    return updateJob;
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
@@ -391,14 +392,14 @@ const updateJobListing = async (jobId: number, companyId: number, data: JobCreat
   } finally {
     await disconnectDB();
   }
-}
+};
 
 const deleteJobListing = async (jobId: number, companyId: number) => {
   try {
     const deleteJob = await prisma.jobs.delete({
-      where: {id: jobId, company_id: companyId}
-    })
-    return deleteJob
+      where: { id: jobId, company_id: companyId },
+    });
+    return deleteJob;
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
@@ -409,7 +410,7 @@ const deleteJobListing = async (jobId: number, companyId: number) => {
   } finally {
     await disconnectDB();
   }
-}
+};
 
 export {
   getCompanyId,
@@ -420,5 +421,6 @@ export {
   getAllJobListing,
   getOneJobListing,
   updateJobListing,
-  deleteJobListing
+  deleteJobListing,
+  getOneJob,
 };
