@@ -15,7 +15,7 @@ const app = express();
 db();
 // body parser
 app.use(express.json());
-app.use(timeout("30s"));
+app.use(timeout("20s"));
 // server port
 const server_port = process.env.SERVER_PORT || 3001;
 // API root route
