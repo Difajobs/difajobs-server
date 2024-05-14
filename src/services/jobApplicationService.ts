@@ -1,3 +1,4 @@
+import { JwtPayload } from "jsonwebtoken";
 import { createAnswers } from "../dao/answersDao";
 import { getOneCompanyByUserId } from "../dao/companyDao";
 import {
@@ -14,25 +15,21 @@ import {
 import { getOneJobListing } from "../dao/jobsDao";
 import { getOneJobSeeker } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
+import { loggedUser } from "../utils/decodedToken";
 
 const createJobApplicationService = async (
+  token: JwtPayload | null,
   jobId: number,
-  userId: number,
-  coverLetter: string | null,
-  answer_1: string,
-  answer_2: string,
-  answer_3: string
+  coverLetter?: string,
+  answer_1?: string,
+  answer_2?: string,
+  answer_3?: string
 ) => {
+  const { userId } = loggedUser(token);
   try {
-    const jobSeeker = await getOneJobSeeker(userId);
-    if (!jobSeeker) {
-      throw new ErrorHandler({
-        success: false,
-        message: "Please Log In..",
-        status: 404,
-      });
-    }
-    if (!jobSeeker.job_seeker_skills || !jobSeeker.disabilities) {
+    const [jobSeeker, job] = await Promise.all([getOneJobSeeker(userId), getOneJobListing(jobId)]);
+
+    if (!jobSeeker?.job_seeker_skills || !jobSeeker.disabilities) {
       throw new ErrorHandler({
         success: false,
         message: "Please Complete Your Profile..!",
@@ -40,7 +37,6 @@ const createJobApplicationService = async (
       });
     }
 
-    const job = await getOneJobListing(jobId);
     if (!job) {
       throw new ErrorHandler({
         success: false,
@@ -51,26 +47,22 @@ const createJobApplicationService = async (
 
     const jobApplication = await createJobApplication(job.company_id, jobId, jobSeeker.id, coverLetter);
 
+    let jobApplicationAnswers;
     if (answer_1 || answer_2 || answer_3) {
-      const jobApplicationAnswers = await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3);
-      return {
-        success: true,
-        message: "Successfully Submitted Job Application!",
-        data: { jobApplication, jobApplicationAnswers },
-      };
+      jobApplicationAnswers = await createAnswers(jobId, jobApplication.id, answer_1, answer_2, answer_3);
     }
 
     return {
       success: true,
       message: "Successfully Submitted Job Application!",
-      data: { jobApplication },
+      data: { jobApplication, jobApplicationAnswers },
     };
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
       success: false,
-      status: error.status,
-      message: error.message,
+      status: error.status || 500,
+      message: error.message || "Internal Server Error",
     });
   }
 };

@@ -4,9 +4,9 @@ import ErrorHandler from "../utils/errorHandler";
 const createAnswers = async (
   jobId: number,
   jobApplicationId: number,
-  answer_1: string,
-  answer_2: string,
-  answer_3: string
+  answer_1?: string,
+  answer_2?: string,
+  answer_3?: string
 ) => {
   try {
     const newQuestions = await prisma.answers.create({
