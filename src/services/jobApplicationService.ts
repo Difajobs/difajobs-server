@@ -12,8 +12,8 @@ import {
   getOneJobApplicationByJobSeeker,
   updateOneJobApplication,
 } from "../dao/jobApplicationDao";
-import { getOneJobListing } from "../dao/jobsDao";
-import { getOneJobSeeker } from "../dao/userDao";
+import { getOneJob, getOneJobListing } from "../dao/jobsDao";
+import { getJobSeekerForApply, getOneJobSeeker } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
 import { loggedUser } from "../utils/decodedToken";
 import { prisma } from "../config/db/dbConnection";
@@ -28,8 +28,7 @@ const createJobApplicationService = async (
 ) => {
   const { userId } = loggedUser(token);
   try {
-    // Perform both lookups concurrently
-    const [jobSeeker, job] = await Promise.all([getOneJobSeeker(userId), getOneJobListing(jobId)]);
+    const [jobSeeker, job] = await Promise.all([getJobSeekerForApply(userId), getOneJob(jobId)]);
 
     if (!jobSeeker?.job_seeker_skills || !jobSeeker.disabilities) {
       throw new ErrorHandler({
