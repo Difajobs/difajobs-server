@@ -16,8 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.10.2",
+    "@types/connect-timeout": "^0.0.39",
     "@types/nodemailer": "^6.4.14",
     "bcryptjs": "^2.4.3",
+    "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
     "date-fns": "^3.3.1",
     "dotenv": "^16.4.5",
@@ -30,8 +32,8 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "prisma": "^5.10.2",
-    "uuid": "^9.0.1",
-    "redis": "^4.6.13"
+    "redis": "^4.6.13",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
