@@ -19,9 +19,9 @@ const createJobApplicationService = async (
   jobId: number,
   userId: number,
   coverLetter: string | null,
-  answer_1: string,
-  answer_2: string,
-  answer_3: string
+  answer_1: string | null,
+  answer_2: string | null,
+  answer_3: string | null
 ) => {
   try {
     const jobSeeker = await getOneJobSeeker(userId);
