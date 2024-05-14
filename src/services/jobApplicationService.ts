@@ -1,3 +1,4 @@
+import { JwtPayload } from "jsonwebtoken";
 import { createAnswers } from "../dao/answersDao";
 import { getOneCompanyByUserId } from "../dao/companyDao";
 import {
@@ -14,31 +15,21 @@ import {
 import { getOneJobListing } from "../dao/jobsDao";
 import { getOneJobSeeker } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
+import { loggedUser } from "../utils/decodedToken";
 
 const createJobApplicationService = async (
+  token: JwtPayload | null,
   jobId: number,
-  userId: number,
   coverLetter?: string,
   answer_1?: string,
   answer_2?: string,
   answer_3?: string
 ) => {
+  const { userId } = loggedUser(token);
   try {
-    const [jobSeeker, job] = await Promise.all([
-      // CHANGED
-      getOneJobSeeker(userId),
-      getOneJobListing(jobId),
-    ]);
+    const [jobSeeker, job] = await Promise.all([getOneJobSeeker(userId), getOneJobListing(jobId)]);
 
-    if (!jobSeeker) {
-      throw new ErrorHandler({
-        success: false,
-        message: "Please Log In..",
-        status: 404,
-      });
-    }
-
-    if (!jobSeeker.job_seeker_skills || !jobSeeker.disabilities) {
+    if (!jobSeeker?.job_seeker_skills || !jobSeeker.disabilities) {
       throw new ErrorHandler({
         success: false,
         message: "Please Complete Your Profile..!",
