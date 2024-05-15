@@ -315,9 +315,19 @@ const updateOneJobApplicationService = async (jobApplicationId: number, userId: 
 
 const getAllJobApplicationByJobSeekerService = async (userId: number) => {
   try {
-    const jobApplied = await getJobAppliedByJobSeekerId(userId);
+    const jobSeeker = await getJobAppliedByJobSeekerId(userId);
 
-    if (jobApplied.length === 0) {
+    if (!jobSeeker) {
+      throw new ErrorHandler({
+        success: false,
+        message: "Please Log In...",
+        status: 404,
+      });
+    }
+
+    const jobApplications = await getAllJobApplicationByJobSeeker(jobSeeker.id);
+
+    if (jobApplications.length === 0) {
       throw new ErrorHandler({
         success: false,
         message: "Job Application Not Found...",
@@ -328,7 +338,7 @@ const getAllJobApplicationByJobSeekerService = async (userId: number) => {
     return {
       success: true,
       message: "Successfully Fetch Job Applications",
-      data: jobApplied,
+      data: jobApplications,
     };
   } catch (error: any) {
     console.error(error);

@@ -185,10 +185,7 @@ const getJobAppliedByJobSeekerId = async (userId: number) => {
     const jobSeeker = await prisma.job_seeker.findFirst({
       where: { user_id: userId },
     });
-    const jobApplied = await prisma.job_application.findMany({
-      where: { job_seeker_id: jobSeeker?.id },
-    });
-    return jobApplied;
+    return jobSeeker;
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
