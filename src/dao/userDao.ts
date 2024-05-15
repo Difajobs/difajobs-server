@@ -185,22 +185,7 @@ const getJobAppliedByJobSeekerId = async (userId: number) => {
     const jobSeeker = await prisma.job_seeker.findFirst({
       where: { user_id: userId },
       include: {
-        job_applications: {
-          select: {
-            job: {
-              select: {
-                title: true,
-                description: true,
-                company: {
-                  select: {
-                    name: true,
-                    city: true,
-                  },
-                },
-              },
-            },
-          },
-        },
+        job_applications: true,
       },
     });
     return jobSeeker;
