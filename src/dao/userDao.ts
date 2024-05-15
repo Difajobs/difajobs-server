@@ -180,6 +180,42 @@ const getOneJobSeeker = async (userId: number) => {
   }
 };
 
+const getJobAppliedByJobSeekerId = async (userId: number) => {
+  try {
+    const jobSeeker = await prisma.job_seeker.findFirst({
+      where: { user_id: userId },
+      include: {
+        job_applications: {
+          select: {
+            job: {
+              select: {
+                title: true,
+                description: true,
+                company: {
+                  select: {
+                    name: true,
+                    city: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+    return jobSeeker;
+  } catch (error: any) {
+    console.error(error);
+    throw new ErrorHandler({
+      success: false,
+      status: error.status,
+      message: error.message,
+    });
+  } finally {
+    await disconnectDB();
+  }
+};
+
 const getJobSeekerForApply = async (userId: number) => {
   try {
     const jobSeeker = await prisma.job_seeker.findFirst({
@@ -257,4 +293,5 @@ export {
   updateJobSeekerData,
   postCreateRecruiter,
   getJobSeekerForApply,
+  getJobAppliedByJobSeekerId,
 };

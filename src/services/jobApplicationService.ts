@@ -13,7 +13,7 @@ import {
   updateOneJobApplication,
 } from "../dao/jobApplicationDao";
 import { getOneJob, getOneJobListing } from "../dao/jobsDao";
-import { getJobSeekerForApply, getOneJobSeeker } from "../dao/userDao";
+import { getJobAppliedByJobSeekerId, getJobSeekerForApply, getOneJobSeeker } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
 import { loggedUser } from "../utils/decodedToken";
 import { prisma } from "../config/db/dbConnection";
@@ -315,7 +315,7 @@ const updateOneJobApplicationService = async (jobApplicationId: number, userId: 
 
 const getAllJobApplicationByJobSeekerService = async (userId: number) => {
   try {
-    const jobSeeker = await getOneJobSeeker(userId);
+    const jobSeeker = await getJobAppliedByJobSeekerId(userId);
 
     if (!jobSeeker) {
       throw new ErrorHandler({
