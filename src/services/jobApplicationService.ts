@@ -13,7 +13,7 @@ import {
   updateOneJobApplication,
 } from "../dao/jobApplicationDao";
 import { getOneJob, getOneJobListing } from "../dao/jobsDao";
-import { getJobAppliedByJobSeekerId, getJobSeekerForApply, getOneJobSeeker } from "../dao/userDao";
+import { getJobAppliedByJobSeekerId, getJobSeekerForApply, getJobSeekerId, } from "../dao/userDao";
 import ErrorHandler from "../utils/errorHandler";
 import { loggedUser } from "../utils/decodedToken";
 import { prisma } from "../config/db/dbConnection";
@@ -352,14 +352,14 @@ const getAllJobApplicationByJobSeekerService = async (userId: number) => {
 
 const getOneJobApplicationByJobSeekerService = async (jobApplicationId: number, userId: number) => {
   try {
-    const jobSeeker = await getOneJobSeeker(userId);
+    const jobSeeker = await getJobSeekerId(userId)
 
     if (!jobSeeker) {
-      throw new ErrorHandler({
-        success: false,
-        message: "Please Log In...",
-        status: 404,
-      });
+        throw new ErrorHandler({
+            success: false,
+            message: 'Job Seeker not found',
+            status: 404
+        });
     }
 
     const jobApplication = await getOneJobApplicationByJobSeeker(jobApplicationId, jobSeeker.id);
@@ -388,14 +388,14 @@ const getOneJobApplicationByJobSeekerService = async (jobApplicationId: number, 
 
 const getAllJobApplicationByJobSeekerAndStatusService = async (userId: number, status: string) => {
   try {
-    const jobSeeker = await getOneJobSeeker(userId);
+    const jobSeeker = await getJobSeekerId(userId)
 
     if (!jobSeeker) {
-      throw new ErrorHandler({
-        success: false,
-        message: "Please Log In...",
-        status: 404,
-      });
+        throw new ErrorHandler({
+            success: false,
+            message: 'Job Seeker not found',
+            status: 404
+        });
     }
     const statusEnum = ["pending", "reviewing", "interview", "reject", "hired"];
 
