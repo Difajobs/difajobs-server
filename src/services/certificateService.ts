@@ -1,17 +1,18 @@
 import { createNewCertificate, deleteJobSeekerCertificate, getJobSeekerCertificateList, getOneJobSeekerCertificate, updateJobSeekerCertificate } from '../dao/certificateDao';
-import { getOneJobSeeker } from '../dao/userDao';
+import { getJobSeekerId } from '../dao/userDao';
 import ErrorHandler from '../utils/errorHandler';
 
 const createJobSeekerCertificateService = async (userId: number, userData: Certificate) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId);
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-        } 
+        }
        
         if (!userData) {
             throw new ErrorHandler({
@@ -39,14 +40,15 @@ const createJobSeekerCertificateService = async (userId: number, userData: Certi
 
 const getJobSeekerCertificateListService = async (userId: number) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-        } 
+        }
 
         const certificateList = await getJobSeekerCertificateList(jobSeeker.id)
         return {
@@ -65,15 +67,15 @@ const getJobSeekerCertificateListService = async (userId: number) => {
 }
 const updateJobSeekerCertificateService = async (userId: number, certificateId: number, updateData: any) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId);
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-            
-        } 
+        }
         
         const certificate = await getOneJobSeekerCertificate(certificateId, jobSeeker.id)
         if (!certificate) {
@@ -110,14 +112,14 @@ const updateJobSeekerCertificateService = async (userId: number, certificateId: 
 
 const deleteJobSeekerCertificateService = async (userId: number, certificateId: number) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-            
         } 
 
         const certificate = await getOneJobSeekerCertificate(certificateId, jobSeeker.id)

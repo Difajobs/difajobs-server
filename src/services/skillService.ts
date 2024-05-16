@@ -2,7 +2,7 @@ import { getOneCompanyByUserId } from '../dao/companyDao';
 import { getOneJobListing } from '../dao/jobsDao';
 import { deleteRequiredSkill, getRequiredSkill, postCreateRequiredSkills } from '../dao/requiredSkillDao';
 import { createJobSeekerSkill, createSkills, deleteJobSeekerSkill, getAllSkill, getJobSeekerSkillList, getSkillByName } from '../dao/skillsDao';
-import { getOneJobSeeker } from '../dao/userDao';
+import { getJobSeekerId } from '../dao/userDao';
 import ErrorHandler from '../utils/errorHandler';
 
 const getAllSkillService = async () => {
@@ -26,14 +26,15 @@ const getAllSkillService = async () => {
 
 const getJobSeekerSkillListService = async (userId: number) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-        } 
+        }
 
         const skillList = await getJobSeekerSkillList(jobSeeker.id)
         return {
@@ -53,15 +54,15 @@ const getJobSeekerSkillListService = async (userId: number) => {
 
 const createnewJobSeekerSkillService = async (userId: number, skillName: string) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-            
-        } 
+        }
         const checkSkill = await getSkillByName(skillName)
         if (checkSkill) {
             const addExistingSkill = await createJobSeekerSkill(jobSeeker.id, checkSkill.id)
@@ -91,14 +92,15 @@ const createnewJobSeekerSkillService = async (userId: number, skillName: string)
 
 const deleteJobSeekerSkillService = async (userId: number, JobSeekerSkillId: number) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
-        } 
+        }
         const deleteSkill = await deleteJobSeekerSkill(JobSeekerSkillId, jobSeeker.id)
         return {
             success: true,

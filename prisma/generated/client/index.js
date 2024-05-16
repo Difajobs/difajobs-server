@@ -252,7 +252,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\repository\\RevouNext\\Project2\\difajobs-server\\prisma\\generated\\client",
+      "value": "E:\\projects\\difajobs-server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {

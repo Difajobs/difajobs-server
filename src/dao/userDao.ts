@@ -21,6 +21,27 @@ const getEmail = async (email: string) => {
   }
 };
 
+const getJobSeekerId = async (userId: number) => {
+    try {
+        const jobSeeker = await prisma.job_seeker.findFirst({
+            where: { user_id: userId },
+            select: {
+                id: true
+            }
+      });
+      return jobSeeker;
+    } catch (error: any) {
+      console.error(error);
+      throw new ErrorHandler({
+        success: false,
+        status: error.status,
+        message: error.message,
+      });
+    } finally {
+      await disconnectDB();
+    }
+  };
+
 const postCreateJobSeeker = async (userData: JobSeekerRegistrationData) => {
   try {
     const { email, password, role, fullname, dob, gender, phone_number, city } = userData;
@@ -110,10 +131,10 @@ const getOneUser = async (userId: number) => {
   }
 };
 
-const getOneJobSeeker = async (userId: number) => {
+const getJobSeekerProfile = async (jobSeekerId: number) => {
   try {
     const jobSeeker = await prisma.job_seeker.findFirst({
-      where: { user_id: userId },
+      where: { id: jobSeekerId },
       include: {
         user: {
           select: {
@@ -271,7 +292,8 @@ export {
   getEmail,
   postCreateJobSeeker,
   getOneUser,
-  getOneJobSeeker,
+  getJobSeekerId,
+  getJobSeekerProfile,
   updateJobSeekerData,
   postCreateRecruiter,
   getJobSeekerForApply,

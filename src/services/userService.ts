@@ -1,9 +1,9 @@
 import ErrorHandler from '../utils/errorHandler';
-import { getOneJobSeeker, updateJobSeekerData } from '../dao/userDao';
+import { getJobSeekerId, getJobSeekerProfile, updateJobSeekerData } from '../dao/userDao';
 
 const getJobSeekerProfileService = async (userId: number) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId)
+        const jobSeeker = await getJobSeekerId(userId)
 
         if (!jobSeeker) {
             throw new ErrorHandler({
@@ -12,16 +12,27 @@ const getJobSeekerProfileService = async (userId: number) => {
                 status: 404
             });
         }
+
+        const jobSeekerProfile = await getJobSeekerProfile(jobSeeker.id)
+        
+        if (!jobSeekerProfile) {
+            throw new ErrorHandler({
+                success: false,
+                message: 'Job Seeker Profile not found',
+                status: 404
+            });
+        }
+
         return {
             success: true,
             message: "Successfully fetch Job Seeker Profile.",
             data: {
-                ...jobSeeker,
-                job_seeker_skills: jobSeeker.job_seeker_skills.map(skill => skill.skills.name),
-                disabilities: jobSeeker.disabilities.map(disability => {
+                ...jobSeekerProfile,
+                job_seeker_skills: jobSeekerProfile.job_seeker_skills.map(skill => skill.skills.name),
+                disabilities: jobSeekerProfile.disabilities.map(disability => {
                     return disability.disability.name
                 }),
-                certificates: jobSeeker.certificates.map(certificate => {
+                certificates: jobSeekerProfile.certificates.map(certificate => {
                     return {
                         name: certificate.name,
                         description: certificate.description
@@ -41,11 +52,12 @@ const getJobSeekerProfileService = async (userId: number) => {
 
 const updateJobSeekerDataService = async (userId: number, updateData: JobSeekerDataUpdate) => {
     try {
-        const jobSeeker = await getOneJobSeeker(userId);
+        const jobSeeker = await getJobSeekerId(userId)
+
         if (!jobSeeker) {
             throw new ErrorHandler({
                 success: false,
-                message: 'Job Seeker Not Found.. Please login',
+                message: 'Job Seeker not found',
                 status: 404
             });
         }
