@@ -30,7 +30,7 @@ Hello! We are Team 1 from RevoU NEXT Batch 2 - Bellatrix, a team of Aspiring Sof
 - Back End (Deployed)       : [BackEnd-Deployed](https://difajobs-server.vercel.app)
 - Front End (Repo)          : [FrontEnd-Repo](https://github.com/Difajobs/difajobs-client) 
 - Front End (Deployed)      : [FrontEnd-Deployed](https://difajobs.web.app/)
-- Pitching Deck             : [Deck](https://docs.google.com/presentation/d/1yereBnAs77MJacHM9p1Jok5sD_O6mhUMJuEuH1WHPwE/edit?usp=sharing)
+- Pitching Deck             : [Deck](https://docs.google.com/presentation/d/16S2UEHCrMU2LfIZb0jBEk3p_9tU4k3s-615LYOTMevY/edit?usp=sharing)
 
 ## How to Set Up
 
