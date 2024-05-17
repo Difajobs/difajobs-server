@@ -51,6 +51,14 @@ const getJobSeekerProfileService = async (userId: number) => {
 };
 
 const updateJobSeekerDataService = async (userId: number, updateData: JobSeekerDataUpdate) => {
+    
+    if ("fullname" in updateData || "dob" in updateData || "gender" in updateData) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Forbidden update field.',
+            status: 400
+        });
+    }
     try {
         const jobSeeker = await getJobSeekerId(userId)
 
@@ -59,14 +67,6 @@ const updateJobSeekerDataService = async (userId: number, updateData: JobSeekerD
                 success: false,
                 message: 'Job Seeker not found',
                 status: 404
-            });
-        }
-
-        if ("fullname" in updateData || "dob" in updateData || "gender" in updateData) {
-            throw new ErrorHandler({
-                success: false,
-                message: 'Forbidden update field.',
-                status: 400
             });
         }
 
