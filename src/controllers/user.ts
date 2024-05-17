@@ -27,8 +27,7 @@ const updateJobSeekerData = async (req: Request, res: Response, next: NextFuncti
       if (result.success) {
         res.status(200).json({
           success: true,
-          message: result.message,
-          data: result.data
+          message: result.message
         })
       }
   } catch (error) {

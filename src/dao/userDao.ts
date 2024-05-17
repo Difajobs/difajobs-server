@@ -241,17 +241,31 @@ const getJobSeekerForApply = async (userId: number) => {
   }
 };
 
-const updateJobSeekerData = async (jobSeekerId: number, data: JobSeekerDataUpdate) => {
+const updateJobSeekerData = async (userId: number, data: JobSeekerDataUpdate) => {
   try {
-    const updateJobSeeker = await prisma.job_seeker.update({
-      where: { id: jobSeekerId },
+    const jobSeeker = await prisma.job_seeker.findFirst({
+        where: { user_id: userId },
+        select: {
+            id: true
+        }
+    });
+
+    if (!jobSeeker) {
+        throw new ErrorHandler({
+            success: false,
+            message: 'Job Seeker not found',
+            status: 404
+        });
+    }
+    await prisma.job_seeker.update({
+      where: { id: jobSeeker.id },
       data: {
         description: data.description,
         city: data.city,
         phone_number: data.phone_number,
       },
     });
-    return updateJobSeeker;
+
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
