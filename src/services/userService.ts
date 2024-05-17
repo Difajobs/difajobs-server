@@ -59,11 +59,10 @@ const updateJobSeekerDataService = async (userId: number, updateData: JobSeekerD
         });
     }
     try {
-        const updatedData = await updateJobSeekerData(userId, updateData);
+        await updateJobSeekerData(userId, updateData);
         return {
             success: true,
-            message: "Successfully Update Job Seeker Personal Data:",
-            data: updatedData
+            message: "Successfully Update Job Seeker Personal Data"
         }
     } catch (error: any) {
         console.error(error);

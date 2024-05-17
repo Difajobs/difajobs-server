@@ -249,7 +249,7 @@ const updateJobSeekerData = async (userId: number, data: JobSeekerDataUpdate) =>
             id: true
         }
     });
-    
+
     if (!jobSeeker) {
         throw new ErrorHandler({
             success: false,
@@ -257,7 +257,7 @@ const updateJobSeekerData = async (userId: number, data: JobSeekerDataUpdate) =>
             status: 404
         });
     }
-    const updateJobSeeker = await prisma.job_seeker.update({
+    await prisma.job_seeker.update({
       where: { id: jobSeeker.id },
       data: {
         description: data.description,
@@ -265,7 +265,7 @@ const updateJobSeekerData = async (userId: number, data: JobSeekerDataUpdate) =>
         phone_number: data.phone_number,
       },
     });
-    return updateJobSeeker;
+
   } catch (error: any) {
     console.error(error);
     throw new ErrorHandler({
