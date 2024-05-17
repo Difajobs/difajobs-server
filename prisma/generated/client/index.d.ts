@@ -18650,10 +18650,10 @@ export namespace Prisma {
 
   export type Job_seekerWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    user_id?: number
     AND?: Job_seekerWhereInput | Job_seekerWhereInput[]
     OR?: Job_seekerWhereInput[]
     NOT?: Job_seekerWhereInput | Job_seekerWhereInput[]
-    user_id?: IntFilter<"Job_seeker"> | number
     fullname?: StringFilter<"Job_seeker"> | string
     phone_number?: StringNullableFilter<"Job_seeker"> | string | null
     city?: StringNullableFilter<"Job_seeker"> | string | null
@@ -18665,7 +18665,7 @@ export namespace Prisma {
     job_seeker_skills?: Job_seeker_skillsListRelationFilter
     certificates?: List_certificateListRelationFilter
     disabilities?: List_disabilityListRelationFilter
-  }, "id">
+  }, "id" | "user_id">
 
   export type Job_seekerOrderByWithAggregationInput = {
     id?: SortOrder

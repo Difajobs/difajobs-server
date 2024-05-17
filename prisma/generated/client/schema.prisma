@@ -11,7 +11,7 @@ datasource db {
 
 model User {
   id          Int          @id(map: "user_pkey") @default(autoincrement())
-  email       String       @unique    @db.VarChar(255)
+  email       String       @unique @db.VarChar(255)
   password    String       @db.VarChar(255)
   role        String       @db.VarChar(255)
   is_verified Boolean      @default(false)
@@ -21,7 +21,7 @@ model User {
 
 model Job_seeker {
   id                Int                 @id(map: "job_seeker_pkey") @default(autoincrement())
-  user_id           Int
+  user_id           Int                 @unique
   fullname          String              @db.VarChar(255)
   phone_number      String?             @db.VarChar(255)
   city              String?             @db.VarChar(255)
@@ -67,23 +67,23 @@ model Jobs {
 }
 
 model Questions {
-  id                    Int               @id(map: "questions_pkey") @default(autoincrement())
-  jobs                  Jobs              @relation(fields: [job_id], references: [id])
-  job_id                Int
-  question_1            String?            @db.VarChar(255)
-  question_2            String?            @db.VarChar(255)
-  question_3            String?            @db.VarChar(255)
+  id         Int     @id(map: "questions_pkey") @default(autoincrement())
+  jobs       Jobs    @relation(fields: [job_id], references: [id])
+  job_id     Int
+  question_1 String? @db.VarChar(255)
+  question_2 String? @db.VarChar(255)
+  question_3 String? @db.VarChar(255)
 }
 
 model Answers {
-  id                    Int               @id(map: "answers_pkey") @default(autoincrement())
-  jobs                  Jobs              @relation(fields: [job_id], references: [id])
-  job_id                Int
-  job_application       Job_application   @relation(fields: [job_application_id], references: [id])
-  job_application_id    Int
-  answer_1              String?            @db.VarChar(255)
-  answer_2              String?            @db.VarChar(255)
-  answer_3              String?            @db.VarChar(255)
+  id                 Int             @id(map: "answers_pkey") @default(autoincrement())
+  jobs               Jobs            @relation(fields: [job_id], references: [id])
+  job_id             Int
+  job_application    Job_application @relation(fields: [job_application_id], references: [id])
+  job_application_id Int
+  answer_1           String?         @db.VarChar(255)
+  answer_2           String?         @db.VarChar(255)
+  answer_3           String?         @db.VarChar(255)
 }
 
 model List_certificate {
